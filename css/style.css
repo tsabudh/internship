@@ -1,0 +1,58 @@
+*:link {
+  text-decoration: none;
+}
+
+.title-main {
+  text-align: center;
+}
+.card--assignment {
+  box-sizing: border-box;
+
+  display: block;
+  text-align: center;
+  padding: 5px;
+
+  position: absolute;
+  width: 243px;
+  height: 179px;
+  left: 34px;
+  top: 105px;
+
+  background: #e8fffe;
+  border: 1px solid #9ffffb;
+  border-radius: 10px;
+}
+
+.btn--demo {
+  /* Demo Button */
+
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 100%;
+  height: 35px;
+
+  margin-bottom: 10px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.btn--repo {
+  /* Repo Button */
+
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 100%;
+  height: 35px;
+
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+}
