@@ -1,0 +1,108 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+*:link {
+  text-decoration: none;
+}
+* {
+  font-family: "Open Sans", sans-serif;
+}
+.title-main {
+  text-align: center;
+}
+.card--assignment {
+  box-sizing: border-box;
+
+  display: block;
+  text-align: center;
+  padding: 5px;
+
+  position: absolute;
+  width: 243px;
+  height: 179px;
+  left: 34px;
+  top: 105px;
+
+  background: #e8fffe;
+  border: 1px solid #9ffffb;
+  border-radius: 10px;
+}
+
+.btn--demo {
+  /* Demo Button */
+
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 100%;
+  height: 35px;
+  color: #000000;
+
+  margin-bottom: 10px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.btn--repo {
+  /* Repo Button */
+
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 100%;
+  height: 35px;
+
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+}
+
+.footer {
+  background-color: #f7f7f7;
+  padding: 6rem 4rem 3rem 4rem;
+  font-size: 1.4rem;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-row-gap: 0.75rem;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+}
+
+.footer__logo {
+  grid-row: 1 / 3;
+  -ms-flex-item-align: center;
+  align-self: center;
+}
+
+.footer__logo img {
+  height: 3rem;
+}
+.footer__nav {
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.footer__nav li {
+  margin-left: 1.5rem;
+}
+.footer__nav a {
+  color: #777;
+  text-decoration: none !important;
+  -webkit-transition: all 0.2s;
+  transition: all 0.2s;
+}
+.footer__nav a:hover,
+.footer__nav a:active {
+  color: #55c57a;
+}
+.footer__copyright {
+  justify-self: end;
+  color: #999;
+}
