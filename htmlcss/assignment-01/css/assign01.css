@@ -6,7 +6,7 @@ html {
   line-height: 1.7rem;
 }
 body {
-  padding: 10rem;
+  padding: 2rem;
 }
 del {
   color: red;
@@ -129,4 +129,7 @@ td {
   border: 1 px solid red;
   display: flex;
   flex-direction: row;
+}
+.container--image p {
+  margin: auto auto auto 5px;
 }
