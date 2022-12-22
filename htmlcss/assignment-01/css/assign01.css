@@ -124,3 +124,9 @@ td {
   padding: 3px;
   border-radius: 2px;
 }
+
+.container--image {
+  border: 1 px solid red;
+  display: flex;
+  flex-direction: row;
+}
