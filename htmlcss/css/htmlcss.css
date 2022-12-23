@@ -6,26 +6,63 @@
 * {
   font-family: "Open Sans", sans-serif;
 }
+
+h1 {
+  text-align: center;
+}
 .title-main {
   text-align: center;
 }
+.card--assignment::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -1; */
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
 .card--assignment {
   box-sizing: border-box;
-
   display: block;
   text-align: center;
   padding: 5px;
 
-  position: absolute;
+  position: relative;
   width: 243px;
   height: 179px;
   left: 34px;
   top: 105px;
 
-  background: #e8fffe;
+  /* background: #e8fffe; */
+  /* background: rgba(41, 226, 171, 0); */
+
   border: 1px solid #9ffffb;
   border-radius: 10px;
+
+  transition: opacity 1s ease-in;
 }
+
+
+/* .card--assignment::before:hover {
+  background: rgb(43, 255, 0);
+  transition: background 1s ease-in;
+} */
+
+
+.card--assignment {
+  background: rgb(233, 203, 203);
+  transition: background 1s ease;
+}
+
+.card--assignment:hover {
+  background: rgb(243, 213, 43);
+  /* transition: opacity 1s ease; */
+}
+
 
 .btn--demo {
   /* Demo Button */
@@ -62,47 +99,9 @@
   border-radius: 10px;
 }
 
-.footer {
-  background-color: #f7f7f7;
-  padding: 6rem 4rem 3rem 4rem;
-  font-size: 1.4rem;
-  display: grid;
-  grid-template-columns: auto auto;
-  grid-row-gap: 0.75rem;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-.footer__logo {
-  grid-row: 1 / 3;
-  -ms-flex-item-align: center;
-  align-self: center;
-}
-
-.footer__logo img {
-  height: 3rem;
-}
-.footer__nav {
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
+.section__assignments {
+  position: relative;
   display: flex;
-}
-.footer__nav li {
-  margin-left: 1.5rem;
-}
-.footer__nav a {
-  color: #777;
-  text-decoration: none !important;
-  -webkit-transition: all 0.2s;
-  transition: all 0.2s;
-}
-.footer__nav a:hover,
-.footer__nav a:active {
-  color: #55c57a;
-}
-.footer__copyright {
-  justify-self: end;
-  color: #999;
+  flex-direction: row;
+  column-gap: 1rem;
 }
