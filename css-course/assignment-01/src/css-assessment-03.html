@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment 03</title>
+</head>
+
+<body>
+
+
+    <h4 class="question">
+        Assessment 3:
+        Explore box-sizing property and how it helps to create an alternate box model. Show examples.
+    </h4>
+
+    <p>
+        In the alternative box model, any width is the width of the visible box on the page. The content area width is that width minus the width for the padding and border (see image below). No need to add up the border and padding to get the real size of the box.
+        <br>
+        To turn on the alternative model for an element, set <code class="code-inline"> box-sizing: border-box</code> on it:
+    </p>
+    <pre>
+            <code>
+            .box {
+                    box-sizing: border-box;
+                 }
+            </code>
+        </pre>
+    If we assume the box has the same CSS as above:
+    <br>
+    <pre>
+            <code>
+                .box {
+                    width: 350px;
+                    inline-size: 350px;
+                    height: 150px;
+                    block-size: 150px;
+                    margin: 10px;
+                    padding: 25px;
+                    border: 5px solid black;
+                  }
+            </code>
+        </pre>
+
+    <figure>
+        <figcaption> Now, the actual space taken up by the box will be 350px in the inline direction and 150px in the block direction.</figcaption>
+        <img alt="alternate box model" src="../img/alternate-box-model.png">
+    </figure>
+
+
+</body>
+
+</html>

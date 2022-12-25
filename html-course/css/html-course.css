@@ -38,7 +38,7 @@ h1 {
   top: 105px;
 
   /* background: #e8fffe; */
-  /* background: rgba(41, 226, 171, 0); */
+  background: rgba(41, 226, 171, 0);
 
   border: 1px solid #9ffffb;
   border-radius: 10px;
@@ -46,22 +46,19 @@ h1 {
   transition: opacity 1s ease-in;
 }
 
-
-/* .card--assignment::before:hover {
+.card--assignment:hover::before {
   background: rgb(43, 255, 0);
   transition: background 1s ease-in;
-} */
+}
 
-
-.card--assignment {
-  background: rgb(233, 203, 203);
-  transition: background 1s ease;
+/* .card--assignment {
+  background: linear-gradient(rgb(231, 65, 65), rgb(231, 65, 65));
+  transition: all 1s ease-in;
 }
 
 .card--assignment:hover {
-  background: rgb(243, 213, 43);
+  background: linear-gradient(rgb(253, 65, 175), rgb(231, 65, 65));
   /* transition: opacity 1s ease; */
-}
 
 
 .btn--demo {

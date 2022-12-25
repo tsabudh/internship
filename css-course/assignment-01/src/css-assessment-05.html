@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/assignment-03.css" rel="stylesheet">
+
+    <title>Assessment 05</title>
+</head>
+<body>
+    <details>
+        <summary>
+            <h4 class="question">
+                Assessment 5:
+                How can you remove white spacing between elements with display: inline-block ? Make the layout from below. Research and show various methods.
+            </h4>
+        </summary>
+        <p>
+            The space between inline elements is created because DOM treats them like alphabet words and creates an empty space " " after the inline-block elements.
+            There are two methods to remove the space between inline-block elements.
+
+        </p>
+        <div class="column-maker">
+            <div>
+                <div class="inline-block">inline</div>
+                <div class="inline-block">block</div>
+            </div>
+
+            <pre>
+            <code>
+            &lt;div&gt;
+                &lt;div class="inline-block"&gt;inline&lt;/div&gt;
+                &lt;div class="inline-block"&gt;block&lt;/div&gt;
+            &lt;/div&gt;
+            </code> 
+            </pre>
+
+        </div>
+        <hr>
+        <ol>
+            <li>First Solution: Make the display of the parent element to flex. <br>
+                <div class="column-maker">
+                    <div class="display-flex">
+                        <div class="inline-block">inline</div>
+                        <div class="inline-block">block</div>
+                    </div>
+                    <pre>
+                    <code>
+                    &lt;!-- Make the display of the parent element to flex.  --&gt;
+                    &lt;div style="font-size:0px;"&gt;
+                        &lt;div class="inline-block"&gt;inline&lt;/div&gt;
+                        &lt;div class="inline-block"&gt;block&lt;/div&gt;
+                    &lt;/div&gt;
+                    </code> 
+                    </pre>
+
+
+                </div>
+            </li>
+
+            <hr>
+
+            <li>Second Solution: Assign the <code class="code-inline">font-size</code> of the parent of the inline block element to <b>0px</b> and then assign the proper <code class="code-inline">font-size</code> to
+                the inline block element<br>
+                <div class="column-maker">
+                    <div class="column-maker__div--font-size-zero">
+                        <div class="inline-block">inline</div>
+                        <div class="inline-block">block</div>
+                    </div>
+                    <pre>
+<code>
+<!-- &lt;!-- Make the display of the parent element to flex.  --&gt; -->
+&lt;div style="display:flex;"&gt;
+&lt;div class="inline-block"&gt;inline&lt;/div&gt;
+&lt;div class="inline-block"&gt;block&lt;/div&gt;
+&lt;/div&gt;
+</code> 
+                    </pre>
+                    <pre>
+<code>
+.inline-block {
+    display: inline-block;
+    font-size:1rem;
+    height: 10rem;
+    width: 10rem;
+    }
+</code> 
+                </pre>
+
+                </div>
+            </li>
+        </ol>
+        <p>
+
+        </p>
+    </details>
+</body>
+</html>

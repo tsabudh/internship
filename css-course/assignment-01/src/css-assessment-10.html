@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link href="../css/assignment-03.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assessment 10</title>
+</head>
+
+<body>
+    <h4 class="question">
+        Assessment 10:
+        Research min(), max() and clamp(), and explain in an example how they are different from using media queries.
+
+    </h4>
+    <h1>Clamp()</h1>
+    <p>The clamp() CSS function clamps a middle value within a range of values between a defined minimum bound and a maximum bound.
+        The function takes three parameters: a minimum value, a preferred value, and a maximum allowed value.
+    </p>
+
+    <dl>
+        <dt ><code class="code-inline">min</code></dt>
+        <dd>
+          <p>The minimum value is the smallest (most negative) value. This is the lower bound in the range of allowed values. If the preferred value is less than this value, the minimum value will be used.</p>
+        </dd>
+        <dt ><code class="code-inline">val</code></dt>
+        <dd>
+          <p>The preferred value is the expression whose value will be used as long as the result is between the minimum and maximum values.</p>
+        </dd>
+        <dt ><code class="code-inline">max</code></dt>
+        <dd>
+          <p>The maximum value is the largest (most positive) expression value to which the value of the property will be assigned if the preferred value is greater than this upper bound.</p>
+        </dd>
+      </dl>
+<pre><code class="code-block">/* Static values */
+width: clamp(200px, 40%,  400px);
+width: clamp(20rem, 30vw, 70rem);
+width: clamp(10vw,  20em, 100vw);
+
+/* Calculated values */
+width: clamp(min(10vw, 20rem), 300px, max(90vw, 55rem));
+width: clamp(100px, calc(30% / 2rem + 10px), 900px);
+</code></pre>
+    
+    <h2>Return value </h2>
+    <p> <b>clamp(MIN, VAL, MAX) is resolved as max(MIN, min(VAL, MAX)).</b></p>
+
+    <h3>Difference between clamp() and @media queries</h3>
+    <p>
+        <code class="code-inline"> clamp()</code> can be used in conjunction with relative values to minimize the need of defining multiple <code class="code-inline">@media</code> queries  for specific screen sizes.
+
+    </p>
+
+</body>
+
+</html>

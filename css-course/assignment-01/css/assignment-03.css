@@ -5,24 +5,34 @@ html {
   font-family: "Open Sans";
   line-height: 1.7rem;
 }
+
 body {
   padding: 2rem;
 }
+
 del {
   color: red;
 }
-code.code-inline {
+
+.code-inline {
   background-color: #f2f1f1;
   padding: 2px 2px;
 }
+.code-block {
+  background-color: #f2f1f1;
+  display: block;
+}
+
 pre {
   margin: auto;
   border: 1px solid rgb(91, 45, 102);
 }
+
 article {
   width: fit-content;
   margin: 0 auto;
 }
+
 /* figure{
   border:1px solid red;
 } */
@@ -44,15 +54,19 @@ article {
 .heading-primary {
   font-size: var(--primary);
 }
+
 .heading-secondary {
   font-size: var(--secondary);
 }
+
 .heading-tertiary {
   font-size: var(--tertiary);
 }
+
 .heading-quaternary {
   font-size: var(--quaternary);
 }
+
 .heading-quaternary {
   font-size: var(--quinary);
 }
@@ -65,12 +79,15 @@ article {
   display: flex;
   flex-direction: row;
 }
+
 .column-maker > div.display-flex {
   display: flex;
   flex-direction: row;
 }
+
 .inline-block {
   display: inline-block;
+  font-size: 1rem;
   height: 10rem;
   width: 10rem;
   background-color: #008000;
@@ -84,6 +101,7 @@ article {
   flex-direction: column;
   border: 1px solid black;
 }
+
 .layout-container div.layout-rows {
   width: 100%;
   display: flex;
@@ -91,6 +109,7 @@ article {
   justify-content: space-evenly;
   /* padding: 1rem; */
 }
+
 .layout-container div.layout-rows > div.content {
   display: flex;
   max-width: 30%;
@@ -98,24 +117,74 @@ article {
   justify-content: center;
   margin: 0.1rem 0.1rem;
 }
+
 .layout-container div.layout-rows > figure {
   margin-inline: 0;
 }
+
 .layout-container .wrapper {
   width: 90%;
   margin: 0 auto;
 }
+
 .layout-container div.layout-rows > div.content p {
   margin-block: 0;
   margin-top: 0;
 }
 
+/* GRIDS */
 .grid-container {
+  --grid-row-unit: ;
+}
+
+.grid-container > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* border-radius: 10px; */
+  /* box-shadow: inset 0.1rem 0.1rem 0.4rem rgb(124, 122, 110); */
+}
+
+.grid-container {
+  height: 700px;
+  max-width: 50rem;
   display: grid;
-  grid-template-columns: repeat(16, 1fr);
-  grid-template-rows: repeat(32, 1fr);
+  grid-gap: 10px;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 2fr 50px minmax(70%, auto) 2fr;
+}
+
+/* .header-box {
+  grid: 1;
+} */
+.navigation-box {
+  grid-row: 2/3;
 }
 .header-box {
+  grid-column: auto/span 3;
+}
+
+/* .header-box {
+  grid-column-start: 1;
+  grid-column-end: 4;
+} */
+.sidebar-left-box {
+  grid-row: 2 / span 2;
+  /* grid-column-start: header-start; */
+}
+
+.sidebar-right-box {
+  grid-row: 2 / span 2;
+  grid-column: 3;
+  /* grid-column-start: header-start; */
+}
+
+.footer-box {
+  grid-column: span 3;
+}
+
+/* .header-box {
   grid-column-start: 3;
   grid-column-end: 15;
   grid-row-start: 2;
@@ -125,36 +194,141 @@ article {
   grid-column-start: 3;
   grid-column-end: 6;
   grid-row-start: 4;
-  grid-row-end: 29;
+  grid-row-end: 12;
 }
 .main-box {
   grid-column-start: 6;
   grid-column-end: 12;
-  grid-row-start: 6;
-  grid-row-end: 29;
+  grid-row-start: 5;
+  grid-row-end: 12;
 }
 .navigation-box {
   grid-column-start: 6;
   grid-column-end: 12;
   grid-row-start: 4;
-  grid-row-end: 6;
+  grid-row-end: 5;
 }
 .sidebar-right-box {
   grid-column-start: 12;
   grid-column-end: 15;
   grid-row-start: 4;
-  grid-row-end: 29;
+  grid-row-end: 12;
 }
 .footer-box {
   grid-column-start: 3;
   grid-column-end: 15;
-  grid-row-start: 29;
-  grid-row-end: 32;
-}
+  grid-row-start: 12;
+  grid-row-end: 13.5;
+} */
 .grid-container > div {
-  background-color: rgba(156, 134, 134, 0.8);
+  /* background-color: rgba(156, 134, 134, 0.8); */
   text-align: center;
   padding: 20px 0;
   font-size: 30px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
+}
+
+.sidebar-right-box {
+  background: #755e7b;
+}
+
+.main-box {
+  background: #d9d9d9;
+}
+
+.navigation-box {
+  background: #e5dce9;
+}
+
+.sidebar-left-box {
+  background: #e8e8e8;
+}
+
+.header-box,
+.footer-box {
+  background: #3a3a3a;
+  color: #e8e8e8;
+}
+
+.column-maker__div--font-size-zero {
+  font-size: 0px;
+}
+
+.float-container {
+  border: 1px solid black;
+  overflow: visible;
+}
+.big-circle {
+  height: 20rem;
+  width: 20rem;
+  background: rgb(12, 211, 178);
+  border-radius: 50%;
+}
+.small-circle {
+  height: 10rem;
+  width: 10rem;
+  background: #da1747;
+  border-radius: 50%;
+  float: left;
+}
+.check-marker::marker {
+  content: url("../icons/check-mark.svg");
+  background-size: 15rem;
+  font-size: 1px;
+  position: absolute !important; /* not having any effect. static is overrided */
+  left: -1rem;
+}
+.check-marker {
+  position: relative;
+  list-style-type: none;
+  list-style-position: outside;
+  padding: 0 0 10px 20px;
+}
+.check-marker:hover {
+  text-decoration: underline;
+}
+.scale {
+  transform-origin: top;
+  width: 10rem;
+  height: 10rem;
+  
+  border-radius: 50%;
+  animation: scale-and-translate 2s ease-in-out   forwards  infinite;
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+}
+.rotate { 
+  width: 10rem;
+  height: 10rem;
+transform-origin: center;
+animation: rotate-and-remove-border 2s ease-in-out  forwards  infinite;
+}
+
+@keyframes scale-and-translate {
+ 0%{
+    transform: scale(0.2) translateY(0);
+  }
+ 50% {  
+    transform: scale(1) translateY(1.5rem);;
+  }
+  100%{
+ transform: scale(0.2) translateY(0);;
+  }
+}
+@keyframes rotate-and-remove-border {
+  0%{
+    border-radius: 50%;
+    background-color: rgb(165,228,179);
+    transform: rotate();
+  }
+  50%{
+    border-radius: 0;
+
+    background-color: rgb(255,175,228);
+    transform: rotate(-1turn);
+  }
+  100% {
+    border-radius: 50%;
+    background-color: rgb(165,228,179);
+    transform: rotate(-1turn)
+  }
 }

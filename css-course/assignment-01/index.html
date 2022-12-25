@@ -15,7 +15,7 @@
         <h1>Assements</h1>
 
         <div class="container">
-           <!-- Assessment 01  -->
+            <!-- Assessment 01  -->
             <details>
                 <summary>
                     <h4 class="question">
@@ -211,11 +211,13 @@
                         Identify some block elements and inline-elements. Show your process. (at least 10 elements each)
                     </h4>
                 </summary>
-                
+
                 <dl>
-                    <dt>< hgroup ></dt>  
+                    <dt>
+                        < hgroup>
+                    </dt>
                     <dd> </dd>
-                                 
+
                 </dl>
                 <pre>
                     <code>.element {
@@ -369,12 +371,13 @@
                     </h4>
                 </summary>
                 <div class="grid-container">
-                    <div class="header-box">Header</div>
-                    <div class="navigation-box">Navigation</div>
-                    <div class="sidebar-left-box">Left Sidebar</div>
-                    <div class="main-box">Main</div>
-                    <div class="sidebar-right-box">Right</div>
-                    <div class="footer-box">Footer</div>
+                    <div class="grid-container__items header-box">Header</div>
+                    <div class="grid-container__items sidebar-left-box">Left Sidebar</div>
+                    <div class="grid-container__items navigation-box">Navigation</div>
+                    <div class="grid-container__items sidebar-right-box">Right Sidebar</div>
+                    <div class="grid-container__items main-box">Main</div>
+                    <div class=" grid-container__items footer-box">Footer</div>
+                    <!-- <div class=" grid-container__items footer-box">Footer</div> -->
                 </div>
             </details>
 
@@ -406,11 +409,11 @@
                     <figurecaption>A simple way to fix this issue is to add the overflow property. This causes the parent to contain the children.</figurecaption>
 
                 </figure>
-                
+
                 <p><b>This is necessary when you want an element after a floated element to sit below the float.</b> To clear a float, add the clear property to the element that needs to clear the float. This is usually the element after the floated element.
                     The clear property can take the values of left, right, and both. Usually you'll want to use both.<br>
 
-                    <pre>
+                <pre>
                         <code>
                             footer {
                                 clear: both;
@@ -418,10 +421,10 @@
                         </code> 
                     </pre>
 
-                    This approach won't always work however. A more robust method is to use what's known as the "clearfix". This uses the pseudo-element selectors to cause the parent to contain the float.</p>
-                    <p>
-                        The clearfix is designed to be used as a class. You can also add this declaration in your stylesheet:
-                        <pre>
+                This approach won't always work however. A more robust method is to use what's known as the "clearfix". This uses the pseudo-element selectors to cause the parent to contain the float.</p>
+                <p>
+                    The clearfix is designed to be used as a class. You can also add this declaration in your stylesheet:
+                <pre>
                             <code>
                                 .clearfix:after {
                                     content:"";
@@ -430,7 +433,7 @@
                                    }
                             </code> 
                          </pre>
-                    </p>
+                </p>
             </details>
         </div>
     </section>

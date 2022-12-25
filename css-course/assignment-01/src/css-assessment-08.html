@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/assignment-03.css" rel="stylesheet">
+
+    <title>Assessment 08</title>
+</head>
+
+<body>
+
+    <h4 class="question">
+        Assessment 8:
+        There is a problem with clear. Find out what it is. Present different methods to solve the problem.
+
+    </h4>
+
+    <p>
+        When using floats for layouts, elements are taken out of the document flow. This can cause two primary undesirable behaviors:
+    </p>
+    <ul>
+        <li>
+            Elements after the float sneak up in the document
+
+        </li>
+        <li>
+            Container no longer contains floated elements
+
+        </li>
+
+    </ul>
+
+    <div class="float-container">
+        <div class="small-circle"></div>
+        <div class="big-circle"></div>
+    </div>
+
+
+    <p><b>This is necessary when you want an element after a floated element to sit below the float.</b> To clear a float, add the clear property to the element that needs to clear the float. This is usually the element after the floated element.
+        The clear property can take the values of left, right, and both. Usually you'll want to use both.<br>
+    </p>
+    <pre>
+                <code>
+                    .small-circle {
+                        clear: both;
+                      }
+                </code> 
+            </pre>
+
+    This approach won't always work however. A more robust method is to use what's known as the "clearfix". This uses the pseudo-element selectors to cause the parent to contain the float.
+    <p>
+        The clearfix is designed to be used as a class. You can also add this declaration in your stylesheet:
+    </p>
+    <pre>
+                    <code>
+                        .clearfix:after {
+                            content:"";
+                            display:block;
+                            clear:both;
+                           }
+                    </code> 
+                 </pre>
+
+
+</body>
+
+</html>
