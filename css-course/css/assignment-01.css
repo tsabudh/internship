@@ -1,4 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inder&family=Open+Sans:wght@300;400;600;800&family=Roboto+Slab:wght@200;400;800&display=swap");
+
+ @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Roboto+Slab:wght@200;400;800&display=swap');
 
 html {
   font-family: "Open Sans";
@@ -966,6 +967,7 @@ article {
 }
 
 .assessment--16 {
+  font-family: Inter;
   margin: 8.9rem 16.5rem;
 }
 .assessment--16 header {
@@ -1131,8 +1133,13 @@ article {
   }
 }
 .main-article__description {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
   width: 35rem;
+  height: 100%;
   font-size: 1.5rem;
+  line-height: 2.4rem;
 }
 @media only screen and (max-width: 375px) {
   .main-article__description {
@@ -1149,6 +1156,8 @@ article {
 .section__sidebar {
   /* border: 1px solid rgb(28, 255, 7); */
   background: #00001a;
+  width: 35rem;
+  height: 51.2rem;
 }
 .sidebar__heading {
   color: #e9ab53;
@@ -1254,7 +1263,9 @@ article {
   color: #5e607a;
 }
 .button__retro {
-  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin-left: 0;
   padding: 1rem 2rem;
   /* border: 1px solid gray; */
@@ -1274,4 +1285,7 @@ article {
 }
 .button__retro:hover {
   background: #00001a;
+}
+.utils__margin-bottom-none{
+  margin-bottom: 0;
 }
