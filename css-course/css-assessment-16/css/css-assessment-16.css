@@ -84,6 +84,7 @@
   position: relative;
   /* width:min(100vw, 1440px); */
   margin: 8.9rem 16.5rem;
+  /* margin: 8.9rem 16.5rem; */
 
   /* width: clamp(375px, 100vw, 1440px);
   margin-left: clamp(1.6rem, 11.4vw, 16.5rem);
