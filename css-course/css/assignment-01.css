@@ -765,13 +765,23 @@ article {
   animation: anti-clockwise-1 2s ease-in-out 0s infinite;
 }
 
+.profile-pic-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .user-bio__profile {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  
   width: 28.76rem;
   height: 28.76rem;
 
   /* background: url("../img/layoutimage1.jpg"); */
   /* padding: 3px; */
-  margin: 0 atuo;
+  /* margin: 0 atuo; */
 }
 .user-bio__profile__ring--outside {
   display: flex;
@@ -779,7 +789,8 @@ article {
   align-items: center;
 
   border: 3px solid #8e7e6d;
-  border-color: #8e7e6d #8e7e6d transparent #8e7e6d;
+
+  /* border-color: #8e7e6d #8e7e6d transparent #8e7e6d; */
 
   border-radius: 50%;
 
@@ -800,7 +811,7 @@ article {
 
   border: 3px solid #8e7e6d;
   border-radius: 50%;
-  border-color: transparent #8e7e6d #8e7e6d #8e7e6d;
+  /* border-color: transparent #8e7e6d #8e7e6d #8e7e6d; */
 }
 
 .user-bio__profile-pic {
