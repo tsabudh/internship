@@ -1,0 +1,202 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400;600&family=Roboto+Slab:wght@200;400;800&display=swap");
+
+:root{
+  font-size: 10px;
+}
+.assessment--14 {
+    background: #e9edef;
+  }
+  .assessment--14__main {
+    min-width: 80vw;
+    height: 100vh;
+  }
+  .section__subplan {
+    /* --user-number:0%; */
+    display: grid;
+    /* width: 80vw; */
+    grid-template-rows: minmax(36.3rem, auto) minmax(auto, 30rem);
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-columns: minmax(10rem,1fr) minmax(7.25rem,1fr) minmax(7.25rem,1fr); */
+    /* grid-template-columns: minmax(20px, auto) 1fr 1fr; */
+    /* grid-template-columns:minmax(2.52rem, auto),minmax(2.52rem, auto),minmax(2.52rem, auto); */
+    row-gap: 4rem;
+    column-gap: 3rem;
+  
+    align-items: top;
+    justify-content: center;
+  
+    font-family: "Open Sans";
+  
+    /* border: 1px solid black; */
+  }
+  
+  /* .section__subplan__card:is(:first-child, :last-child) {
+    margin-left: 1rem;
+    margin-right: 1rem;
+  } */
+  
+  .section__subplan__card {
+    grid-row: 1;
+    /* width: 25%; */
+  
+    text-align: center;
+    color: #5f5f5f;
+  
+    border-radius: 0.5rem;
+    /* border: 1px solid red; */
+    box-shadow: 0px 0px 15px 4px rgba(99, 99, 100, 0.2);
+    background: white;
+    transition: transform 0.1s ease-in;
+  }
+  .section__subplan__card--premium-plan {
+    margin-right: 0.8rem;
+  }
+  .section__subplan__card--basic-plan {
+    margin-left: 0.8rem;
+  }
+  .section__subplan__card:hover {
+    cursor: pointer;
+    transform: scale(1.09);
+  }
+  .section__subplan__card:hover
+    :is(
+      .subplan__card__price-details__price,
+      .subplan__card__price-details__per-month
+    ) {
+    color: #28a7d2;
+  }
+  .section__subplan__card:hover .subplan__card__heading {
+    background: #28a7d2;
+  }
+  .subplan__card__heading {
+    display: block;
+    padding: 3rem;
+    height: 4.3rem;
+    background: #7dd0ed;
+  
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: white;
+  }
+  .subplan__card__price-details__price {
+    display: block;
+    /* overflow: hidden; */
+    /* line-height: 10px; */
+    text-align: bottom;
+    min-height: 5rem;
+    font-size: 5rem;
+    font-weight: 800;
+  }
+  .subplan__card__price-details__per-month {
+    display: block;
+    margin-bottom: 3rem;
+  }
+  .subplan__card__plan-benifits {
+    margin-block: 0;
+    margin-inline: 0;
+    padding-inline: 0;
+    font-size: 1.1rem;
+  }
+  .subplan__card__plan-benifits li {
+    list-style-type: none;
+  }
+  .section__subplan__card--basic-plan {
+    --user-number: 0%;
+    grid-column: 1;
+  }
+  .section__subplan__card--basic-plan:hover
+    ~ .section__subplan__details-bar
+    .details-bar__items__bar::after {
+    --user-number: 5%;
+    /* --user-number:calc(var(--user-number)* 1%); */
+    --data-volume: 10%;
+    /* --data-volume:calc(var(--data-volume)* 0.5)'%'; */
+  
+    --project-number: 12%;
+    /* convert data to %============================================= */
+  }
+  .section__subplan__card--pro-plan:hover
+    ~ .section__subplan__details-bar
+    .details-bar__items__bar::after {
+    --user-number: 33%;
+    /* --user-number:calc(var(--user-number)* 1%); */
+    --data-volume: 40%;
+    /* --data-volume:calc(var(--data-volume)* 0.5)'%'; */
+  
+    --project-number: 45%;
+    /* convert data to %============================================= */
+  }
+  .section__subplan__card--premium-plan:hover
+    ~ .section__subplan__details-bar
+    .details-bar__items__bar::after {
+    --user-number: 100%;
+    /* --user-number:calc(var(--user-number)*1px); */
+    --data-volume: 100%;
+    /* --data-volume:calc(var(--data-volume)* 0.5)'%'; */
+  
+    --project-number: 100%;
+    /* convert data to %============================================= */
+  }
+  .section__subplan__card--pro-plan {
+    grid-column: 2;
+  }
+  
+  .section__subplan__card--premium-plan {
+    grid-column: 3;
+    margin-right: 0.8rem;
+  }
+  .section__subplan__details-bar {
+    grid-row: 2;
+    grid-column: span 3;
+    /* border: 1px solid blue; */
+  }
+  .section__subplan__details-bar {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 0.5rem;
+  }
+  /* .section__subplan__details-bar__items--user{
+  --user-number:5%;
+  } */
+  .details-bar__items__label {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+  }
+  .details-bar__items__bar {
+    position: relative;
+    width: 100%;
+    height: 1rem;
+    border-radius: 1.5rem;
+    background-color: #e9edef;
+  }
+  .details-bar__items__bar::after {
+    /* --user-number:0;
+    --volume:0;
+    --user-number:0; */
+    content: "";
+    /* width: 5%; */
+    /* width: var(--user-number); */
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    border-radius: 1.5rem;
+    transition: all 0.5s ease-in-out;
+    background-color: #1886bd;
+  
+    --user-number: 0%;
+    --data-volume: 0%;
+    --project-number: 0%;
+  }
+  .details-bar__items__bar--user::after {
+    width: var(--user-number);
+  }
+  .details-bar__items__bar--volume::after {
+    width: var(--data-volume);
+  }
+  .details-bar__items__bar--project::after {
+    width: var(--project-number);
+  }
+  
