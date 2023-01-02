@@ -5,6 +5,9 @@
 :link {
   text-decoration: none;
 }
+body{
+  margin: 0;
+}
 .assessment-15 {
   font-family: "Open Sans";
   height: 100vh;
