@@ -429,6 +429,8 @@ article {
   margin: 0 auto;
 }
 
+/* ----------------------------------------------13---------------------------- */
+
 .section-services {
   display: grid;
   grid-template-rows: 1fr 2fr;
