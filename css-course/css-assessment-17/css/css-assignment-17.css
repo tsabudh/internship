@@ -1,0 +1,172 @@
+@import url("https://fonts.googleapis.com/css2?family=Inder&family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@200;400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inder&family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@200;400;800&display=swap");
+html {
+  font-family: "Poppins";
+}
+
+html {
+  font-family: "Poppins";
+  font-size: 10px;
+}
+
+a:link, a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card-feature {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  max-width: 25rem;
+  padding: 1rem;
+  box-shadow: 0px 0px 3px gray;
+  font-family: "Poppins";
+}
+.card-feature__icon {
+  font-size: 2rem;
+  margin-block: 0;
+  margin-inline: 0;
+}
+.card-feature__heading {
+  font-size: 1.92rem;
+  font-weight: 700;
+  color: #3d3e48;
+  margin-block: 0;
+  margin-inline: 0;
+}
+.card-feature__description {
+  font-size: 1.6rem;
+  line-height: 2.88rem;
+}
+
+.card-destination {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  max-width: 20rem;
+  background: white;
+  border-radius: 1rem;
+  filter: drop-shadow(0px 0px 3px gray);
+  padding: 1rem;
+  font-family: "Poppins";
+}
+.card-destination__image-container {
+  object-fit: contain;
+  border-radius: 1rem;
+  margin-block: 0;
+  margin-inline: 0;
+}
+.card-destination__image-container__image {
+  width: 100%;
+}
+.card-destination__heading {
+  color: #3d3e48;
+}
+.card-destination__details-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+.card-destination__details-wrapper .price {
+  display: inline;
+  white-space: nowrap;
+  color: #295943;
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 2.9rem;
+}
+.card-destination__trip-days-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.card-destination__trip-days-wrapper .days-for-trip-icon {
+  margin-block: 0;
+  margin-inline: 0;
+}
+.card-destination__trip-days-wrapper .days-for-trip {
+  white-space: nowrap;
+}
+
+.cta-button {
+  display: inline-block;
+  padding: 0.5rem 1.5rem;
+}
+.cta-button--light-green {
+  border-radius: 1.5rem;
+  background: #43B97F;
+  color: white;
+}
+
+.top-destinations {
+  max-width: 70rem;
+  margin: 0 auto;
+  padding-top: 3rem;
+}
+@media (max-width: 23.4em) {
+  .top-destinations {
+    width: 100vw;
+    overflow-x: clip;
+  }
+}
+
+.destinations__heading {
+  text-align: center;
+}
+.destinations__heading span {
+  color: #295943;
+  line-height: 2.88rem;
+  font-weight: 700;
+  font-size: 1.6rem;
+}
+.destinations__heading h1 {
+  font-size: 2.765rem;
+  line-height: 3.318rem;
+  font-weight: 700;
+  color: #3d3e48;
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+.card-destination-container {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: repeat(3, 1fr);
+  padding-top: 2rem;
+}
+@media (max-width: 23.4em) {
+  .card-destination-container {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+  .card-destination-container .card-destination {
+    min-width: 30rem;
+  }
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: max(0.5rem, 1%);
+  margin: 0 auto;
+  max-width: 86rem;
+}
+@media (max-width: 23.4em) {
+  .cards-list {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+}
+
+:root {
+  font-size: 10px;
+}
+
+/*# sourceMappingURL=css-assignment-17.css.map */

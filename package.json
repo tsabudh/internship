@@ -1,0 +1,23 @@
+{
+  "name": "outside-internship",
+  "version": "1.0.0",
+  "description": "Internship tasks at Outside.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "watch:sass": "sass --watch css-course/css-assessment-17/sass/main.scss css-course/css-assessment-17/css/css-assignment-17.css "
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tsabudh/internship.git"
+  },
+  "author": "Sabudh Bahadur Thapa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tsabudh/internship/issues"
+  },
+  "homepage": "https://github.com/tsabudh/internship#readme",
+  "dependencies": {
+    "sass": "^1.57.1"
+  }
+}

@@ -1,0 +1,16 @@
+@import "./abstract/_variables";
+@import "./abstract/_mixins";
+
+@import "./base/typography";
+@import "./base/_base";
+
+@import "./components/_card";
+@import "./components/_buttons";
+
+@import "./layouts/top-destinations";
+@import "./layouts/cards-list.scss";
+
+
+:root{
+    font-size: 10px;
+}
