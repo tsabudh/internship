@@ -1,73 +1,95 @@
-.color {
+.styleguide {
+  max-width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
   display: flex;
-  flex-direction: row;
-  //   border: 1px solid red;
-  gap: 1rem;
   justify-content: space-evenly;
+  gap: 2rem;
+  flex-direction: column;
+  // border: 1px solid red;
+  padding: 1rem;
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
 
-  .color-card {
+
+  .color {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    //   border: 1px solid red;
+    gap: 1rem;
+    justify-content: space-evenly;
 
-    &__sample {
-      width: 15rem;
-      height: 8rem;
-      border-radius: 5rem;
+    .color-card {
+      display: flex;
+      flex-direction: column;
 
-      $color-set: (
-        "white": $color-white,
-        "black": $color-black,
-        "army-green": $color-army-green,
-        "light-green": $color-light-green,
-      );
+      &__sample {
+        width: 15rem;
+        height: 8rem;
+        border-radius: 5rem;
 
-      @each $classname, $color in $color-set {
-        &--#{$classname} {
-          background: $color;
+        $color-set: (
+          "white": $color-white,
+          "black": $color-black,
+          "army-green": $color-army-green,
+          "light-green": $color-light-green,
+        );
+
+        @each $classname, $color in $color-set {
+          &--#{$classname} {
+            background: $color;
+          }
+        }
+
+        &--white {
+          border: 1px solid $color-black;
         }
       }
-
-      &--white {
-        border: 1px solid $color-black;
+      &__name,
+      &__hex {
+        color: $color-black;
+        padding-left: 0.5rem;
+      }
+      &__name {
+        font-size: 2rem;
+      }
+      &__hex {
+        font-size: 1.4rem;
       }
     }
-    &__name,
-    &__hex {
-      color: $color-black;
-      padding-left: 0.5rem;
-    }
-    &__name {
-      font-size: 2rem;
-    }
-    &__hex {
-      font-size: 1.4rem;
-    }
-  }
-}
-
-.typography__row {
-  max-width: 70vw;
-  display: flex;
-  flex-direction: row;
-  margin:0 auto;
-
-  .element {
-    width: 25%;
   }
 
-  $font-property: (
-    "h1" 2.765rem 700 3.318rem,
-    "h2" 1.92rem 700 3.456rem,
-    "body-1" 1.6rem 400 2.88rem,
-    "body-2" 1.4rem 400 2.52rem
-  );
-  // .color-card__sample--white;
+  .typography__row {
+    max-width: 70vw;
+    display: flex;
+    flex-direction: row;
+    margin: 0 auto;
 
-  @each $name, $font-size, $font-weight, $line-height in $font-property {
-    .element-sample--#{$name} {
-      font-size: $font-size;
-      font-weight: $font-weight;
-      line-height: $line-height;
+    .element {
+      width: 25%;
     }
+
+    $font-property: (
+      "h1" 2.765rem 700 3.318rem,
+      "h2" 1.92rem 700 3.456rem,
+      "body-1" 1.6rem 400 2.88rem,
+      "body-2" 1.4rem 400 2.52rem
+    );
+    // .color-card__sample--white;
+
+    @each $name, $font-size, $font-weight, $line-height in $font-property {
+      .element-sample--#{$name} {
+        font-size: $font-size;
+        font-weight: $font-weight;
+        line-height: $line-height;
+      }
+    }
+  }
+
+  .effects{
+    width: 15rem;
+    height: 8rem;
+    border-radius: 5rem;
+    box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
   }
 }

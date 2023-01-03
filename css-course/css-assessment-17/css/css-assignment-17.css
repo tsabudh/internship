@@ -4,6 +4,12 @@ html {
   font-family: "Poppins";
 }
 
+.heading-2 {
+  font-size: 2rem;
+  font-weight: 400;
+  line-height: 2rem;
+}
+
 html {
   font-family: "Poppins";
   font-size: 10px;
@@ -88,6 +94,7 @@ a:link, a:visited {
   display: flex;
   flex-direction: row;
   justify-content: center;
+  align-items: center;
 }
 .card-destination__trip-days-wrapper .days-for-trip-icon {
   margin-block: 0;
@@ -172,75 +179,92 @@ a:link, a:visited {
   }
 }
 
-.color {
+.styleguide {
+  max-width: 70%;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  gap: 2rem;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
+}
+.styleguide .color {
   display: flex;
   flex-direction: row;
   gap: 1rem;
   justify-content: space-evenly;
 }
-.color .color-card {
+.styleguide .color .color-card {
   display: flex;
   flex-direction: column;
 }
-.color .color-card__sample {
+.styleguide .color .color-card__sample {
   width: 15rem;
   height: 8rem;
   border-radius: 5rem;
 }
-.color .color-card__sample--white {
+.styleguide .color .color-card__sample--white {
   background: #FFFFFF;
 }
-.color .color-card__sample--black {
+.styleguide .color .color-card__sample--black {
   background: #3D3E48;
 }
-.color .color-card__sample--army-green {
+.styleguide .color .color-card__sample--army-green {
   background: #295943;
 }
-.color .color-card__sample--light-green {
+.styleguide .color .color-card__sample--light-green {
   background: #43B97F;
 }
-.color .color-card__sample--white {
+.styleguide .color .color-card__sample--white {
   border: 1px solid #3D3E48;
 }
-.color .color-card__name, .color .color-card__hex {
+.styleguide .color .color-card__name, .styleguide .color .color-card__hex {
   color: #3D3E48;
   padding-left: 0.5rem;
 }
-.color .color-card__name {
+.styleguide .color .color-card__name {
   font-size: 2rem;
 }
-.color .color-card__hex {
+.styleguide .color .color-card__hex {
   font-size: 1.4rem;
 }
-
-.typography__row {
+.styleguide .typography__row {
   max-width: 70vw;
   display: flex;
   flex-direction: row;
   margin: 0 auto;
 }
-.typography__row .element {
+.styleguide .typography__row .element {
   width: 25%;
 }
-.typography__row .element-sample--h1 {
+.styleguide .typography__row .element-sample--h1 {
   font-size: 2.765rem;
   font-weight: 700;
   line-height: 3.318rem;
 }
-.typography__row .element-sample--h2 {
+.styleguide .typography__row .element-sample--h2 {
   font-size: 1.92rem;
   font-weight: 700;
   line-height: 3.456rem;
 }
-.typography__row .element-sample--body-1 {
+.styleguide .typography__row .element-sample--body-1 {
   font-size: 1.6rem;
   font-weight: 400;
   line-height: 2.88rem;
 }
-.typography__row .element-sample--body-2 {
+.styleguide .typography__row .element-sample--body-2 {
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 2.52rem;
+}
+.styleguide .effects {
+  width: 15rem;
+  height: 8rem;
+  border-radius: 5rem;
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
 }
 
 :root {
