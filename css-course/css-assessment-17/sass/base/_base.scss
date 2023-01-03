@@ -9,3 +9,10 @@ a:link, a:visited{
   text-decoration: none;
   color: inherit;
 }
+
+body{
+
+  @include respond(phone){
+    margin: 0;
+  }
+}

@@ -14,6 +14,12 @@ a:link, a:visited {
   color: inherit;
 }
 
+@media (max-width: 23.4em) {
+  body {
+    margin: 0;
+  }
+}
+
 .card-feature {
   display: flex;
   flex-direction: column;
@@ -142,6 +148,7 @@ a:link, a:visited {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
+    padding: 1.5rem 0.1rem;
     overflow-x: scroll;
   }
   .card-destination-container .card-destination {
