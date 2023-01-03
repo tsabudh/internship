@@ -37,7 +37,7 @@ a:link, a:visited {
 .card-feature__heading {
   font-size: 1.92rem;
   font-weight: 700;
-  color: #3d3e48;
+  color: #3D3E48;
   margin-block: 0;
   margin-inline: 0;
 }
@@ -54,7 +54,7 @@ a:link, a:visited {
   max-width: 20rem;
   background: white;
   border-radius: 1rem;
-  filter: drop-shadow(0px 0px 3px gray);
+  box-shadow: 1px 2px 12px 1px rgba(0, 0, 0, 0.25);
   padding: 1rem;
   font-family: "Poppins";
 }
@@ -68,7 +68,7 @@ a:link, a:visited {
   width: 100%;
 }
 .card-destination__heading {
-  color: #3d3e48;
+  color: #3D3E48;
 }
 .card-destination__details-wrapper {
   display: flex;
@@ -132,7 +132,7 @@ a:link, a:visited {
   font-size: 2.765rem;
   line-height: 3.318rem;
   font-weight: 700;
-  color: #3d3e48;
+  color: #3D3E48;
   margin-block: 0;
   margin-inline: 0;
 }
@@ -170,6 +170,77 @@ a:link, a:visited {
     align-items: center;
     gap: 1rem;
   }
+}
+
+.color {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  justify-content: space-evenly;
+}
+.color .color-card {
+  display: flex;
+  flex-direction: column;
+}
+.color .color-card__sample {
+  width: 15rem;
+  height: 8rem;
+  border-radius: 5rem;
+}
+.color .color-card__sample--white {
+  background: #FFFFFF;
+}
+.color .color-card__sample--black {
+  background: #3D3E48;
+}
+.color .color-card__sample--army-green {
+  background: #295943;
+}
+.color .color-card__sample--light-green {
+  background: #43B97F;
+}
+.color .color-card__sample--white {
+  border: 1px solid #3D3E48;
+}
+.color .color-card__name, .color .color-card__hex {
+  color: #3D3E48;
+  padding-left: 0.5rem;
+}
+.color .color-card__name {
+  font-size: 2rem;
+}
+.color .color-card__hex {
+  font-size: 1.4rem;
+}
+
+.typography__row {
+  max-width: 70vw;
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+}
+.typography__row .element {
+  width: 25%;
+}
+.typography__row .element-sample--h1 {
+  font-size: 2.765rem;
+  font-weight: 700;
+  line-height: 3.318rem;
+}
+.typography__row .element-sample--h2 {
+  font-size: 1.92rem;
+  font-weight: 700;
+  line-height: 3.456rem;
+}
+.typography__row .element-sample--body-1 {
+  font-size: 1.6rem;
+  font-weight: 400;
+  line-height: 2.88rem;
+}
+.typography__row .element-sample--body-2 {
+  font-size: 1.4rem;
+  font-weight: 400;
+  line-height: 2.52rem;
 }
 
 :root {

@@ -12,7 +12,7 @@
   text-align: center;
 
   & span {
-    color: $color-primary-green;
+    color: $color-army-green;
     line-height: 2.88rem;
     font-weight: 700;
     font-size: 1.6rem;
@@ -21,7 +21,7 @@
     font-size: 2.765rem;
     line-height: 3.318rem;
     font-weight: 700;
-    color: $color-gray-title;
+    color: $color-black;
     @include margin-block-and-inline-zero;
   }
 }
@@ -39,7 +39,7 @@
     padding: 1.5rem 0.1rem;
 
     overflow-x: scroll;
-    
+
     & .card-destination {
       min-width: 30rem;
     }
