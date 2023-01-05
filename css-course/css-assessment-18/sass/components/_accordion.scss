@@ -1,0 +1,19 @@
+.accordion-button {
+  &.collapsed {
+    &::after {
+        background: url("../img/plus.svg");
+        background-size: cover;
+        width: 15px;
+        height: 15px;
+    }
+  }
+  &:not(.collapsed) {
+    &::after {
+        background: url("../img/minus.svg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        width: 15px;
+        height: 15px;
+    }
+  }
+}

@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch:sass": "sass --watch css-course/css-assessment-17/sass/main.scss css-course/css-assessment-17/css/css-assignment-17.css "
+    "watch:sass-17": "sass --watch css-course/css-assessment-17/sass/main.scss css-course/css-assessment-17/css/css-assignment-17.css ",
+    "watch:sass-18": "sass --watch css-course/css-assessment-18/sass/main.scss css-course/css-assessment-18/css/css-assignment-18.css "
   },
   "repository": {
     "type": "git",
@@ -18,6 +19,7 @@
   },
   "homepage": "https://github.com/tsabudh/internship#readme",
   "dependencies": {
+    "bootstrap": "^5.2.3",
     "sass": "^1.57.1"
   }
 }

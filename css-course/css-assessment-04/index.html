@@ -1,28 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="./css/assignment-01.css" rel="stylesheet">
+    <link href="./css/css-assessment-04.css" rel="stylesheet">
+    <!-- <link href="./css/assignment-01.css" rel="stylesheet"> -->
 
     <title>Assessment 04</title>
 </head>
+
 <body>
-   <div class="examples__inline-elements">
-    <q> &lt;q&gt;is also an inline element used to "quote".</q>
-    <abbr title="abbreviation">&lt;abbr&gt;</abbr> is also an inline element.
-    The next one is &lt;output&gt; which gives value corresponding to inputs defined on "oninput" attribute inside &lt;form&gt; tag.
-    &lt;samp&gt; is also another tag which displays contents as <samp>message from a computer.</samp>
-    &lt;cite&gt; tag is used to cite the work like a book like <cite>It Ends With Us</cite> by Colleen Hoover. Painted in 2016.
-    &lt;bdo&gt; tag stands for Bi-Directional Override and <bdo dir="rtl">overrides the directioin of text.</bdo> 
-    Interestingly enough &lt;img&gt; tag is also an inline element <img src="../img/jessica.jpg" height="100px" width="100px">
-    The image leaves a trail whitespace after it.
-    &lt;em&gt; is also an inline tag used to <em>emphasize</em> a text in a document. &lt;button&gt; is also inline element so by default you can't 
-    assign paddings to <button>this button</button>
-   </div>
+    <!-- <form id="myform" action="./element.html"> -->
+    <form id="myform" action="data:text/html;charset=utf-8,%3Chtml%3E%3Cbody%3Efoo%3C/body%3E%3C/html%3E">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+        <button type="submit">clickme</button>
+    </form>
+
+    <h1>The output element</h1>
+
+    <slot name="myslot"><div>dd</div></slot>
+
+    <form oninput="x.value=a.value">
+    <input type="text" id="a" value="50">
+
+    <div slot="myslot"><output name="x" for="a"></output>
+    </div>
+    </form>
+    <div class="examples__inline-elements">
+        <q> &lt;q&gt;is also an inline element used to "quote".</q>
+        <abbr title="abbreviation">&lt;abbr&gt;</abbr> is also an inline element.
+        The next one is &lt;output&gt; which gives value corresponding to inputs defined on "oninput" attribute inside &lt;form&gt; tag.
+        &lt;samp&gt; is also another tag which displays contents as <samp>message from a computer.</samp>
+        &lt;cite&gt; tag is used to cite the work like a book like <cite>It Ends With Us</cite> by Colleen Hoover. Painted in 2016.
+        &lt;bdo&gt; tag stands for Bi-Directional Override and <bdo dir="rtl">overrides the directioin of text.</bdo>
+        Interestingly enough &lt;img&gt; tag is also an inline element <img src="../img/jessica.jpg" height="100px" width="100px">
+        The image leaves a trail whitespace after it.
+        &lt;em&gt; is also an inline tag used to <em>emphasize</em> a text in a document. &lt;button&gt; is also inline element so by default you can't
+        assign paddings to <button>this button</button>
+    </div>
+
+    <!-- <iframe  contenteditable="true" allow>
+    </iframe -->
+<!-- 
+    <div class="editable" contenteditable="true">
+        <div style="height:3rem; width:4rem"></div>
+    </div>
+
+    <iframe>
+<span slot="my-text">Let's have some different text!</span> -->
+        <!-- <body contenteditable="true">dd sadfa dfaf adf adfs <h1>auidshfkajdhfkjadk</h1>d</body> -->
+    <!-- </iframe>
+
+    <slot name="my-slot" contenteditable="true">adfafadfad</slot>
+    <p slot="my-slot" contenteditable="true">edit me dammit!</p>
+
+    <my-paragraph>
+        
+    </my-paragraph>
+    <iframe src="data:text/html;charset=utf-8,%3Chtml%3E%3Cbody%3Efoo%3C/body%3E%3C/html%3E"></iframe>
+
+    <my-paragraph>
+        <iframe slot="my-text">
+
+    </my-paragraph> -->
+
+    <!-- <iframe srcdoc="<html><body>Hello, <b>world</b>.</body></html>"></iframe><br> -->
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="range" id="a" value="50">
+        +<input type="number" id="b" value="25">
+        =<output name="x" for="a b"></output>
+        </form>
+
+    <form id="myform" action="./element.html">
+        <label for="fname">First name:</label>
+        <input type="text" id="fname" name="fname"><br><br>
+    </form>
+
+    <form oninput="x.value=parseInt(a.value)+parseInt(b.value)">
+        <input type="range" id="a" value="50">
+        +<input type="number" id="b" value="25">
+        =<output name="x" for="a b"></output>
+        </form>
 </body>
+
 </html>
-
-
-
