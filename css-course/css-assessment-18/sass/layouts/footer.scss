@@ -1,5 +1,10 @@
 .custom-footer {
   background-color: #393939;
   font-family: "Inter";
+  &-last{
+	font-size: 15px;
+	line-height: 18px;
+	font-weight: 300;
+  }
 
 }

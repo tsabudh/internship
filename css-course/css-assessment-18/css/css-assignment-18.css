@@ -10875,5 +10875,10 @@ body {
   background-color: #393939;
   font-family: "Inter";
 }
+.custom-footer-last {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 300;
+}
 
 /*# sourceMappingURL=css-assignment-18.css.map */
