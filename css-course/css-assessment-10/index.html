@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <link href="../css/assignment-01.css" rel="stylesheet">
+  <link href="./css/css-assessment-10.css" rel="stylesheet">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Assessment 10</title>
 </head>
@@ -34,15 +34,13 @@
       <p>The maximum value is the largest (most positive) expression value to which the value of the property will be assigned if the preferred value is greater than this upper bound.</p>
     </dd>
   </dl>
-  <pre><code class="code-block">/* Static values */
-width: clamp(200px, 40%,  400px);
-width: clamp(20rem, 30vw, 70rem);
-width: clamp(10vw,  20em, 100vw);
+  <div  class="resizable">
+    
+    
+    <span class="clamped-text">Resize browser window to visualize. <br> font-size: clamp(1.5rem, 5vw, 50rem); </span>
 
-/* Calculated values */
-width: clamp(min(10vw, 20rem), 300px, max(90vw, 55rem));
-width: clamp(100px, calc(30% / 2rem + 10px), 900px);
-</code></pre>
+  </div>
+ 
 
   <h2>Return value </h2>
   <p> <b>clamp(MIN, VAL, MAX) is resolved as max(MIN, min(VAL, MAX)).</b></p>

@@ -1,5 +1,10 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Roboto+Slab:wght@200;400;800&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Inder&family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@200;400;800&display=swap");
 
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
 html {
   font-size: 10px;
 }
@@ -18,7 +23,7 @@ main{
   background: #f6f6f6;
 
   display: grid;
-  grid-template-row: 1fr 2fr;
+
 }
 
 .section__row--heading {
@@ -42,14 +47,9 @@ main{
   justify-content: space-around;
 }
 .row__card {
-  /* display: grid;
-  grid-template-columns: clamp(10rem, 20vw, 30rem);
-  grid-template-row: auto 1fr; */
-  /* border: 1px solid red; */
+  
   width: clamp(16rem, 14rem, 22rem);
   height: 100%;
-  /* align-items: center;
-  justify-content: center; */
   padding: 1rem;
   text-align: center;
   display: flex;
@@ -73,8 +73,6 @@ main{
 }.row__card:nth-child(4) 
 .button__card {
   background: #dd6f6f;
-
-
 }
 .section-services-heading {
   text-align: center;
@@ -101,12 +99,7 @@ main{
   background-color: red;
 }
 
-/* --------------------------------------------------section features----------------- */
-
 .section--features {
-  /* display: grid;
-  grid-template-row: 1fr 1fr;
-  gap: 6.1rem; */
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -114,40 +107,32 @@ main{
   margin: 0 auto;
 }
 
-.section__heading--features s {
+.section__heading--features  {
   color: #e70606;
 }
 .section-features__row {
-  /* display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem; */
-  /* justify-content: space-between; */
   align-items: center;
-
   display: flex;
   justify-content: space-between;
 }
-
-/* @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@ */
-.section-features__row:last-child {
+.section-features__row:nth-child(even) {
   flex-direction: row-reverse;
 }
-.section-features__row:last-child .image-cropper {
+.section-features__row:nth-child(even) .image-cropper {
   left: 1.6rem;
 }
 
 .section-features__row__columns {
-  /* width: 45%; */
-  /* width: clamp(20rem, 20vw, 300rem); */
+ 
+ 
 }
 
 .section-features__row__columns--content {
-  /* padding-right: 30rem; */
+ 
   max-width: 30%;
 }
 .section-features__row__columns--image {
-  /* height: 47rem;
-  width: 47rem; */
+ 
 }
 .section-features__image-container {
   position: relative;

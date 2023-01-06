@@ -1,10 +1,21 @@
 .custom-footer {
   background-color: #393939;
   font-family: "Inter";
-  &-last{
-	font-size: 15px;
-	line-height: 18px;
-	font-weight: 300;
+
+  &-last {
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: 300;  
+    margin-top: 120px;
+    filter: brightness(0.5);
+
   }
 
+  .ratio-4x3 {
+    --bs-aspect-ratio: 133%;
+  }
+}
+
+.custom-nav-link {
+  padding-left: 0;
 }

@@ -1,27 +1,44 @@
+.container--carousel{
+height: 997px;
+padding: 0;
+
+.carousel{
+  height: 100%;
+}
+
+}
 .carousel-indicators [data-bs-target] {
   width: 21px;
   height: 21px;
   border-radius: 100%;
 
+
+
   .carousel-item {
+    position: relative;
+
     & img {
+      position: absolute;
+      height: 100%;
       object-fit: cover;
     }
 
     &.active {
       background-color: #dd7777;
       width: 25px;
-      height: 25px;  
+      height: 25px;
     }
   }
 }
-.carousel-inner{
-    min-height: 534px;
- object-fit: cover;
+.carousel-inner {
+  // min-height: 534px;
+  height: 100%;
+  object-fit: cover;
 }
 .carousel-item {
-  min-height: 534px;
- object-fit: cover;
+  // min-height: 534px;
+  height: 100%;
+  object-fit: cover;
   & img {
     filter: brightness(0.5);
   }

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="../css/assignment-01.css" rel="stylesheet">
+    <link href="./css/css-assignment-08.css" rel="stylesheet">
 
     <title>Assessment 08</title>
 </head>
@@ -44,27 +44,65 @@
     </p>
     <pre>
                 <code>
-                    .small-circle {
+                    .big-circle.float-clear {
                         clear: both;
                       }
                 </code> 
             </pre>
+    <div class="float-container">
+        <div class="small-circle "></div>
+        <div class="big-circle float-clear"></div>
+    </div>
+    This approach won't always work however. A more robust method is to use what's known as the "clearfix". This uses the overflow:auto or pseudo-element selectors to cause the parent to contain the float.
+   
+   
 
-    This approach won't always work however. A more robust method is to use what's known as the "clearfix". This uses the pseudo-element selectors to cause the parent to contain the float.
+    <h2>Without "Clearfix" with overflow:auto</h2>
+
+    <p>This image is floated to the right. It is also taller than the element containing it, so it overflows outside of its container:</p>
+
+    <div class="float-container">
+        <img class="img1" src="../img/cat.jfif" alt="Pineapple" width="170" height="170">
+        Look at this handsome cat..
+    </div>
     <p>
         The clearfix is designed to be used as a class. You can also add this declaration in your stylesheet:
     </p>
     <pre>
-                    <code>
-                        .clearfix:after {
-                            content:"";
-                            display:block;
-                            clear:both;
-                           }
-                    </code> 
-                 </pre>
+        <code>
+            .clearfix:: after {
+            overflow:auto
+            }
+            
+        </code> 
+     </pre>
 
+    <h2 style="clear:right">With overflow:auto</h2>
+    <p>We can fix this by adding a <em>clearfix</em> class with <code class="inline">overflow: auto;</code> to the containing element:</p>
+    <div class="float-container clearfix-overflow">
 
+        <img class="img2" src="../img/cat.jfif" alt="Pineapple" width="170" height="170">
+        Why do human beings show such a strong preference for thinking in narratives? From a computational perspective, this method of generating inferences appears to be exorbitantly wasteful. Using students' responses to the fairy tale of Little Red Riding Hood, I argue that narrative comprehension requires the construction of idiosyncratic imagery, but that the cognitive yield is structural and shared. This peculiar method of information processing, I suggest, is the outcome of evolutionary path-dependence. 
+
+    </div>
+    <p>
+        The overflow:auto clearfix works well as long as you are able to keep control of your margins and padding <b>(else you might see scrollbars).</b> The new, modern clearfix hack however, is safer to use, and the following code is used for most webpages:
+    </p>
+    <h2>With Modern Clearfix </h2>
+    <pre>
+        <code>
+            .clearfix:: after {
+            content: "";
+            display: block;
+            clear: both;}
+            
+        </code> 
+     </pre>
+     <div class="float-container clearfix">
+
+        <img class="img2" src="../img/cat.jfif" alt="Pineapple" width="170" height="170">
+       This is random text. The narrative mode of construal is an expert system taking its input from the display of conscious experience, but producing results that are largely unconscious. Drawing on examples from rhesus play, I argue that the core features of narrative thinking have biological roots in strategy formation. Finally, I return to the fairy tale to illustrate the operation of a series of peculiar design features characteristic of human narrative thinking. "Remembering 'Don't put it down, put it away' is the easiest way to keep your home/workspace/room tidy."
+    </div>
 </body>
 
 </html>

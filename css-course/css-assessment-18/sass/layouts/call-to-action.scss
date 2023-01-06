@@ -1,5 +1,13 @@
-.call-to-action{
+.call-to-action {
+  &__inner {
+    padding: 120px 0 40px;
     background-image: url("../img/cta-background.png");
     background-size: cover;
-    min-height: 524px;
+  }
+  .btn.bg-white {
+    margin-top: 106px;
+  }
+  .heading-cta {
+    padding: 0;
+  }
 }

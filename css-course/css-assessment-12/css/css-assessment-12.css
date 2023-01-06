@@ -1,7 +1,7 @@
 .tooltip {
   display: inline-block;
   position: relative;
-  margin: 3rem;
+  /* margin: 3rem; */
 
   cursor: pointer;
 }
@@ -18,7 +18,7 @@
   padding: 0.2rem 0.3rem;
   background-color: rgb(255, 255, 255);
   border-radius: 0.5rem;
-  filter: drop-shadow(0px 0px 2px rgb(32, 18, 230));
+  filter: drop-shadow(0px 0px 2px rgba(22, 12, 12, 0.61));
 
   /* border: 1px solid rgb(235, 240, 172); */
   /* box-shadow: 0px 0px 5px -3px; */
@@ -27,7 +27,7 @@
 .tooltip__text::before {
   content: "";
   position: absolute;
-  top: 99%;
+  top: 95%;
 /* bottom: 0.7rem; */
 
   left: 50%;
@@ -80,9 +80,28 @@
   display: flex;
   border: 1px solid black;
   width: clamp(35%, 39%, 50%);
-  align-items: center;
-  justify-content: center;
+  /* align-items: center; */
+  justify-content: space-around;
   margin: 0 auto;
+  padding: 0.2rem 0.3rem;
+
 }
 
-/* -------------------------------
+/* -------------------------------*/
+.tooltip--2:hover svg{
+  fill: rgb(59, 104, 187);
+  
+}.tooltip--3{
+  height: 19px;
+  width: 19px;
+  background: url("../../img/cow_icon_black.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.tooltip--3:hover {
+  background: url("../../img/cow_icon_red.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
