@@ -1,0 +1,25 @@
+.container {
+  background-color: beige;
+}
+
+.box {
+  /* width: 350px; */
+  inline-size: 350px;
+  height: 150px;
+  block-size: 150px;
+  width: 40%;
+  margin: 10px;
+  padding: 25px;
+  border: 20px solid black;
+  resize: horizontal;
+  overflow: auto;
+  text-align: justify;
+}
+.box--content {
+  display: inline-block;
+  box-sizing: content-box;
+}
+.box--border {
+  display: inline-block;
+  box-sizing: border-box;
+}

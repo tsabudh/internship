@@ -1,0 +1,55 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+* {
+  font-family: Mulish;
+}
+
+q,
+abbr,
+samp,
+cite.inline,
+bdo,
+img,
+em.inline,
+button,
+slot,
+time,
+wbr ,div.inline{
+  border: 1px solid rgba(0, 255, 221, 0.795);
+}
+
+h2,
+h3,
+h4,
+h5,
+h6,
+pre,
+p#block-definition,
+blockquote,
+figure,
+figcaption,
+hgroup,
+div.block {
+  border: 1px solid rgb(215, 60, 247);
+  background-color: rgba(226, 137, 229, 0.479);
+}
+
+p em {
+  border: none;
+}
+.code-inline {
+  display: inline;
+  background-color: #f2f1f1;
+  padding: 2px 2px;
+}
+.resizable {
+  border: 2px solid;
+  padding: 20px;
+  margin: 2rem;
+
+  resize: horizontal;
+  overflow: auto;
+  /* width: clamp(100px, calc(30% / 2rem + 10px), 900px); */
+}
+div.inline{
+  display: inline;  
+}
