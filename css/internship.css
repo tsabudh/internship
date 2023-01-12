@@ -18,7 +18,7 @@ body{
     align-items: center;
 }
 .card{
-    min-width: 15rem;
+    min-width: 21.5rem;
     aspect-ratio: 1;
     border: 1px solid black;
     border-radius: 1rem;
@@ -31,11 +31,19 @@ body{
     text-align: center;
 
 }
+.card:nth-child(n + 17){
+display: none;
+}
 .card a{
+
     display: block;
     padding: 1rem 1.6rem;
     border: 1px solid black;
     border-radius: 1rem;
     margin-top: 0.5rem;
     
+}
+.card__title a{
+padding: 0;
+border: none;
 }
