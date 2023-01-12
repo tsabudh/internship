@@ -1,0 +1,135 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+html {
+  font-size: 16px;
+  font-family: "Open Sans";
+  line-height: 1.7rem;
+}
+body {
+  padding: 2rem;
+}
+del {
+  color: red;
+}
+*:link {
+  text-decoration: none;
+}
+
+/* Typography */
+
+:root {
+  --title: rem;
+  --primary: 3rem;
+  --secondary: 2.3rem;
+  --tertiary: 2rem;
+  --quaternary: 1.5rem;
+  --quinary: 1.2rem;
+}
+
+.heading-primary {
+  font-size: var(--primary);
+}
+.heading-secondary {
+  font-size: var(--secondary);
+}
+.heading-tertiary {
+  font-size: var(--tertiary);
+}
+.heading-quaternary {
+  font-size: var(--quaternary);
+}
+.heading-quaternary {
+  font-size: var(--quinary);
+}
+
+.text-strong {
+  font-weight: bold;
+}
+.quote {
+  font-style: italic;
+}
+
+/* Navigation */
+.header__navigation__ul {
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  /* where do the padding automatically comes from  */
+}
+.header__navigation__ul li {
+  /* float: left; */
+  margin-right: 5px;
+}
+.header__navigation {
+  display: block;
+}
+/* Links */
+.link-inline {
+  display: inline;
+  text-decoration: underline;
+}
+
+/* main  */
+
+/* Section  */
+.section__first ul {
+  list-style-type: disc;
+}
+
+.section__second table {
+  border-collapse: collapse;
+
+  width: 30rem;
+}
+.section__second table,
+th,
+td {
+  border: 1px solid black;
+  text-align: center;
+}
+/* form */
+.form--personal {
+  width: 25em;
+  /* border: 1px solid red; */
+}
+
+.form__group {
+  /* border: 1px solid pink; */
+  display: flex;
+  margin: 0.5rem;
+}
+.form__group--float {
+  float: left;
+}
+.form__group--col {
+  display: flex;
+  flex-direction: column;
+}
+.form__group label {
+  width: 11rem;
+}
+.form__group textarea {
+  resize: none;
+  width: 70%;
+}
+.form__group > input.input__text--personal {
+  width: 11rem;
+}
+.button__link {
+  color: rgb(255, 252, 246);
+  margin-top: 0.5rem;
+  display: inline-block;
+  width: fit-content;
+  background-color: rgb(85, 102, 99);
+  padding: 3px;
+  border-radius: 2px;
+}
+
+.container--image {
+  border: 1 px solid red;
+  display: flex;
+  flex-direction: row;
+}
+.container--image p {
+  margin: auto auto auto 5px;
+}

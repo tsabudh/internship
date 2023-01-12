@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css2?family=Mulish&display=swap");
+* {
+  font-family: Mulish;
+}
+
+.float-container {
+  border: 1px solid black;
+  overflow: visible;
+  margin:1rem 0;
+  font-size: 0.8rem;
+
+}
+.float-container img{
+    float: right;
+}
+.big-circle {
+  height: 20rem;
+  width: 20rem;
+  background: rgb(12, 211, 178);
+  border-radius: 50%;
+}
+.small-circle {
+  height: 10rem;
+  width: 10rem;
+  background: #da1747;
+  border-radius: 50%;
+  float: left;
+}
+.float-clear {
+  clear: both;
+}
+.clearfix::after {
+  content: "";
+  display: block;
+  clear: both;
+}
+.clearfix-overflow {
+    overflow: auto;
+  }
+  
+.code-inline {
+    background-color: #f2f1f1;
+    padding: 2px 2px;
+  }

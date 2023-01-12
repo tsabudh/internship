@@ -1,0 +1,52 @@
+.container--carousel {
+  // height: 997px;
+  padding: 0;
+
+  .carousel {
+    height: 100%;
+  }
+}
+.carousel-indicators [data-bs-target] {
+  width: 21px;
+  height: 21px;
+  border-radius: 100%;
+
+  .carousel-item {
+    position: relative;
+    aspect-ratio: 1440/997;
+    // height: 444px;
+
+    & img {
+      position: absolute;
+      height: 100%;
+      max-height: 99.7rem;
+      object-fit: cover;
+    }
+
+    &.active {
+      background-color: #dd7777;
+      width: 25px;
+      height: 25px;
+    }
+  }
+}
+.carousel-inner {
+  // min-height: 534px;
+  // height: 100%;
+  object-fit: cover;
+}
+.carousel-item {
+  // min-height: 534px;
+  height: 100%;
+  object-fit: cover;
+  & img {
+    filter: brightness(0.5);
+  }
+}
+.carousel-caption {
+  padding: 15px 168px;
+}
+.carousel-caption p {
+  margin-top: 70px;
+  font-size: 32px;
+}

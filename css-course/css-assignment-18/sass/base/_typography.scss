@@ -1,0 +1,64 @@
+//FONTS IMPORTS HERE
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@200;400;800&display=swap");
+
+@font-face {
+  font-family: "GT Super Ds Trial Bd It";
+  src: url("../../fonts/GTSuperDsTrial-BdIt.woff2") format("woff2"),
+    url("../../fonts/GTSuperDsTrial-BdIt.woff") format("woff");
+  font-weight: bold;
+  font-style: italic;
+  font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Ds Trial Lt It";
+  src: url("../../fonts/GTSuperDsTrial-LtIt.woff2") format("woff2"),
+    url("../../fonts/GTSuperDsTrial-LtIt.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  // font-display: swap;
+}
+@font-face {
+  font-family: "GT Super Ds Trial Lt It";
+  src: url("../../fonts/GTSuperDsTrial-LtIt.woff2") format("woff2"),
+    url("../../fonts/GTSuperDsTrial-LtIt.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+  // font-display: swap;
+}
+
+.heading-hero {
+  font-family: Inter;
+  font-size: 51px;
+  font-weight: 700;
+  line-height: 61px;
+  text-align: center;
+}
+
+.heading-section {
+  font-family: "GT Super Ds Trial Bl It";
+  font-weight: bold;
+  font-style: italic;
+  color: black;
+  font-size: 64px;
+}
+.heading-cta {
+  font-family: "GT Super Ds Trial Lt Lt";
+  font-weight: 300;
+  color: black;
+  font-size: 80px;
+  line-height: 76px;
+  font-style: normal;
+
+  padding: 20px 100px;
+}
+
+.font-family-sans {
+  font-family: sans-serif;
+}
+
+.custom-nav-link{
+color:white;
+padding: auto ;
+font-size: 15px;
+
+}

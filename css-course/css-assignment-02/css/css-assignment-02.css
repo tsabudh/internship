@@ -1,0 +1,50 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Roboto+Slab:wght@200;400;800&display=swap");
+
+body {
+  font-family: Inter;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title {
+  text-align: center;
+  font-size: 20px;
+}
+
+.container {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin: 2em;
+}
+
+.box {
+  width: 200px;
+  height: 200px;
+}
+
+.text {
+  border: 3px dashed #ff7a18;
+}
+
+.text1 {
+  writing-mode: horizontal-tb;
+  padding-inline: 40px;
+}
+
+.text2 {
+  writing-mode: vertical-rl;
+  padding-inline: 40px;
+}
+.text3 {
+  padding-block: 20px;
+  writing-mode: vertical-rl;
+}
+.text4 {
+  padding: 10px 40px;
+  writing-mode: vertical-rl;
+}
+

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/css-assignment-03.css" rel="stylesheet">
+    <title>Assessment 03</title>
+</head>
+
+<body>
+
+
+    <h4 class="question">
+        Assessment 3:
+        Explore box-sizing property and how it helps to create an alternate box model. Show examples.
+    </h4>
+
+    <p>
+        In the alternative box model, any width is the width of the visible box on the page. The content area width is that width minus the width for the padding and border.
+        <br>
+        To turn on the alternative model for an element, set <code class="code-inline"> box-sizing: border-box</code> on it:
+    </p>
+    <pre>
+            <code>
+            .box {
+                    box-sizing: border-box;
+                 }
+            </code>
+        </pre>
+
+
+    <div class="container">
+        <div class="box box--border">
+            <h1> This has <em>box-sizing:border-box</em></h1>
+            This is some text within the div. The height of the border-box is 150px which sums as the height of contents with paddings and border thickness.
+            ie: The declared height:150px defines the height <em>including</em>  the border of the element in border-box.
+        </div>
+        <div class="box box--content">
+            <h1> This has <em>box-sizing:content-box</em></h1>
+
+            This is some text within the div. The height of the content-box is also 150px but in content-box, the declared height:150px defines height of the content
+        of the element. It <em>does not</em>  include the border and padding of the element.  </div>
+    </div>
+
+
+
+
+
+</body>
+
+</html>

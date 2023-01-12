@@ -1,0 +1,31 @@
+@mixin margin-block-and-inline-zero {
+  margin-block: 0;
+  margin-inline: 0;
+}
+
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone {
+    @media (max-width: 23.4em) {
+      // 375 px / 16 px = 37.5
+      @content;
+    }
+  }
+  @if $breakpoint == tab-port {
+    //900px
+    @media (max-width: 56.25em) {
+      @content;
+    }
+  }
+  @if $breakpoint == tab-land {
+    //1200px
+    @media (max-width: 75em) {
+      @content;
+    }
+  }
+  @if $breakpoint == big-screen {
+    @media (min-width: 112.5em) {
+      @content;
+    }
+  }
+}

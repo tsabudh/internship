@@ -1,0 +1,31 @@
+.resizable {
+    border: 2px solid;
+    padding: 20px; 
+    font-size: clamp(1.5rem, 5vw, 50rem); 
+/*     
+    resize: horizontal;
+    overflow: auto; */
+    /* width: clamp(100px, calc(30% / 2rem + 10px), 900px); */
+    
+  }
+
+  .question {
+    display: inline;
+  }
+  .code-inline {
+    background-color: #f2f1f1;
+    padding: 2px 2px;
+  }
+  .code-block {
+    background-color: #f2f1f1;
+    display: block;
+  }
+  
+  .clamped-text{
+  }
+  pre {
+    margin: auto;
+    border: 1px solid rgb(91, 45, 102);
+    
+  }
+  

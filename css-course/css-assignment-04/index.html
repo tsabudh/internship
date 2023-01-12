@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="./css/css-assignment-04.css" rel="stylesheet">
+    <!-- <link href="./css/assignment-01.css" rel="stylesheet"> -->
+
+    <title>Assessment 04</title>
+</head>
+
+<body>
+    <!-- <form id="myform" action="./element.html"> -->
+    <section class="section--inlines">
+        <h1>Inline Elements </h1>
+        <div class="examples__inline-elements">
+            <q> <code class="code-inline">&lt;q&gt;</code>is also an inline element used to "quote".</q>
+            <abbr title="abbreviation"><code class="code-inline">&lt;abbr&gt;</code></abbr> is also an inline element.
+
+            <code class="code-inline">&lt;samp&gt;</code> is also another tag which displays contents as <samp>message from a computer.</samp>
+            <code class="code-inline">&lt;cite&gt;</code> tag is used to cite the work like a book like <cite class="inline">It Ends With Us</cite> by Colleen Hoover. Painted in 2016.
+            <code class="code-inline">&lt;bdo&gt;</code> tag stands for Bi-Directional Override and <bdo dir="rtl">overrides the directioin of text.</bdo>
+            Interestingly enough <code class="code-inline">&lt;img&gt;</code> tag is also an inline element <img src="../img/jessica.jpg" height="100" width="100" alt="Image tries to fit within a line.">
+            The image leaves a trail whitespace after it.
+            <code class="code-inline">&lt;em&gt;</code> is also an inline tag used to <em class="inline">emphasize</em> a text in a document. <code class="code-inline">&lt;button&gt;</code> is also inline element so <button>this button only takes width of the text content inside it. </button>
+            <code class="code-inline">&lt;time&gt;</code> is also an inline tag. The concert starts at <time datetime="20:00">20:00</time> represents a specific period in time. <code class="code-inline">&lt;time&gt;</code> may include the <code class="inline">datetime</code> attribute to translate dates into machine-readable format, allowing for better search engine results or custom features such
+            as reminders.<br>
+
+            <div class="resizable">
+                <h2> Resize this container to view the effects of <code class="code-inline">&lt;wbr&gt;</code></h2>
+                If <code class="code-inline">&lt;wbr&gt;</code> is+not+given,+these+large+words+will+overflow+with+a+scrollbar+or+get+hidden+based+on+container's+property.<br><br>
+                The <code class="code-inline">&lt;wbr&gt;</code>+HTML+element+represents+a+word+break+opportunity+<code class="code-inline">&lt;wbr&gt;</code><wbr>+a+position+within+text+where+<code class="code-inline">&lt;wbr&gt;</code><wbr>+the+browser+may+optionally+<code class="code-inline">&lt;wbr&gt;</code><wbr>+break+a+line,+though+its+line-breaking+rules+would+not+otherwise+<code
+                      class="code-inline">&lt;wbr&gt;</code><wbr>create+a+break+at+that+location.
+
+            </div>
+            The <code class="code-inline">&lt;dfn&gt;</code> HTML element is used to indicate the term being defined within the context of a definition phrase or sentence. The ancestor <code class="code-inline">&lt;p&gt;</code> element, the <code class="code-inline">&lt;dt&gt;</code>/<code class="code-inline">&lt;dd&gt;</code> pairing, or the nearest 
+            <code class="code-inline">&lt;section&gt;</code> ancestor of the <code class="code-inline">&lt;dfn&gt;</code> element, is considered to be the definition of the term.
+        </div>
+
+    </section>
+
+    <section class="section--blocks">
+        <h1>Block Elements </h1>
+        <p id="block-definition">Block elements take <em>full width </em> of their containers and are <em>rendered in a new line</em> like this paragraph.</p>
+
+        <pre><code class="code-inline">&lt;pre&gt;</code> is a block element.
+    It preserves the 
+        indentations 
+            and         spaces
+                as we type in 
+                    the html 
+                        markup.</pre>
+
+        <fieldset>
+            <legend>This is <code class="code-inline">&lt;legend&gt;</code> of block element <code class="code-inline">&lt;fieldset&gt;</code> </legend>
+
+            <input type="checkbox" id="point-1" name="monster" value="K">
+            <label for="point-1">The <code class="code-inline">&lt;fieldset&gt;</code> creates such bordered field by default.</label><br>
+
+            <input type="checkbox" id="sasquatch" name="monster" value="S">
+            <label for="sasquatch">It is paired semantically with <code class="code-inline">&lt;legend&gt;</code> tag which behaves as inline heading.</label><br>
+
+            <input type="checkbox" id="mothman" name="monster" value="M" />
+            <label for="mothman">I have not seen <code class="code-inline">&lt;fieldset&gt;</code> used anywhere!</label>
+        </fieldset>
+
+        <figure>
+            This text is inside <code class="code-inline">&lt;figure&gt;</code> element which represents self-contained content,potentially with an optional caption, which is specified using the <code class="code-inline">&lt;figcaption&gt;</code> element. The figure, its caption, and its contents are referenced as a single unit.
+            <blockquote cite="https://www.huxley.net/bnw/four.html">
+               This text is inside block element <code class="code-inline">&lt;blockquote&gt;</code> which is wrapped around a block element <code class="code-inline">&lt;figure&gt;</code>. 
+               <code class="code-inline">&lt;blockquote&gt;</code> is used to include a long quote in a block. Browser give <em>margin-block</em> to <code class="code-inline">&lt;figure&gt;</code> and <code class="code-inline">&lt;blockquote&gt;</code> by default.
+            </blockquote>
+            <figcaption>—Some Guy, <cite>CSS Assignments</cite><code class="code-inline">&lt;figcaption&gt;</code> is also a block element.</figcaption>
+        </figure>
+
+       
+        <h2> All headings are block elements</h2>
+        <h3> All headings are block elements</h3>
+        <h4> All headings are block elements</h4>
+        <h5> All headings are block elements</h5>
+        <h6> All headings are block elements</h6>
+
+        The <code class="code-inline">&lt;hr&gt;</code> is also block level element which renders a horizontal line like below.<hr>
+
+        The <code class="code-inline">&lt;hgroup&gt;</code> HTML element represents a heading and related content. It groups a single <code class="code-inline">&lt;h1&gt - &lt;h6&gt;</code> element with one or more <code class="code-inline">&lt;p&gt;</code>.
+        <hgroup>
+            <h1>Heading of <code class="code-inline">&lt;hgroup&gt;</code></h1>
+            <p>First paragraph of <code class="code-inline">&lt;hgroup&gt;</code>.</p>
+            <p>Second paragraph of <code class="code-inline">&lt;hgroup&gt;</code>.</p>
+        </hgroup>
+        <div class="block">
+            The <code class="code-inline">&lt;div&gt;</code> element is a block level element used to create block and containers in HTML. However you can give <em>display:inline</em> style property to a <div class="inline">However you can give <em>display:inline</em> style property to a <code class="code-inline">&lt;div&gt;</code>. to make it behave as inline.</div>
+            HTML4 classified elements into the "block-level" and "inline" categories.
+
+            However, HTML5 <em>doesn't</em> have that notion. Instead, it was moved to CSS: block-level elements and block boxes and inline-level elements and inline boxes.
+        </div>
+    </section>
+</body>
+
+</html>

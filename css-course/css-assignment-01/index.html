@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="../css/assignment-01.css" rel="stylesheet">
+
+  <title>Assessment 01</title>
+</head>
+
+<body>
+  <h4 class="question">
+    Assessment 1: Explore other selectors - for states of elements, forms,
+    buttons, words, some level 4 selectors.
+  </h4>
+
+  <strong> Namespaces in Elemental Selectors</strong>
+  <p>
+    Type selectors and universal selectors allow an optional namespace
+    component: a namespace prefix that has been previously declared may be
+    prepended to the element name separated by the namespace separator
+    “vertical bar” ie: "|".
+  </p>
+  <dl>
+    <dt>ns|E</dt>
+    <dd>elements with name E in namespace ns</dd>
+
+    <dt>*|E</dt>
+    <dd>
+      elements with name E in any namespace, including those without a
+      namespace
+    </dd>
+
+    <dt>|E</dt>
+    <dd>elements with name E without a namespace</dd>
+
+    <dt>E</dt>
+    <dd>
+      if no default namespace has been declared for selectors, this is
+      equivalent to *|E. Otherwise it is equivalent to ns|E where ns is the
+      default namespace.
+    </dd>
+  </dl>
+
+  <hr>
+
+  <strong>Substring matching attribute selectors</strong>
+  <p>
+    Three additional attribute selectors are provided for matching substrings
+    in the value of an attribute:
+  </p>
+  <dl>
+    <dt>[att^=val]</dt>
+    <dd>
+      Represents an element with the att attribute whose value begins with the
+      prefix "val". If "val" is the empty string then the selector does not
+      represent anything.
+    </dd>
+
+    <dt>[att$=val]</dt>
+    <dd>
+      Represents an element with the att attribute whose value ends with the
+      suffix "val". If "val" is the empty string then the selector does not
+      represent anything.
+    </dd>
+
+    <dt>[att*=val]</dt>
+    <dd>
+      Represents an element with the att attribute whose value contains at
+      least one instance of the substring "val". If "val" is the empty string
+      then the selector does not represent anything.
+    </dd>
+  </dl>
+
+  <hr>
+
+  <strong>Input Control States</strong>
+  <p>
+    Three additional attribute selectors are provided for matching substrings
+    in the value of an attribute:
+  </p>
+  <dl>
+    <dt>The ":enabled" and ":disabled" Pseudo-classes</dt>
+    <dd>
+      The ":enabled" pseudo-class represents user interface elements that are
+      in an enabled state; such elements must have a corresponding disabled
+      state. Conversely, the ":disabled" pseudo-class represents user
+      interface elements that are in a disabled state; such elements must have
+      a corresponding enabled state.
+    </dd>
+
+    <dt>The Default-option Pseudo-class: ":default"</dt>
+    <dd>
+      The ":default" pseudo-class applies to the one or more UI elements that
+      are the default among a set of similar elements. Typically applies to
+      context menu items, buttons and select lists/menus.
+    </dd>
+
+    <dt>The Automatic Input Pseudo-class: ":autofill"</dt>
+    <dd>
+      The ":autofill" pseudo-class represents input elements that have been
+      automatically filled by the user agent, and have not been subsequently
+      altered by the user.
+    </dd>
+  </dl>
+
+  <hr>
+
+  <strong>Selectors Level Four</strong>
+  <p>
+    Selectors Level 4 describes the selectors that already exist in [SELECT],
+    and further introduces new selectors for CSS and other languages that may
+    need them. Selectors Levels 1, 2, and 3 are defined as the subsets of
+    selector functionality defined in the CSS1, CSS2.1, and Selectors Level 3
+    specifications, respectively. The new module defines Selectors Level 4.
+    <br>
+  </p>
+  Some examples:
+
+  <dl>
+    <dt>E[foo="bar" s]</dt>
+    <dd>an E element whose foo attribute value is identical to bar.</dd>
+
+    <dt>E:any-link</dt>
+    <dd>
+      Represents an element with the att attribute whose value ends with the
+      suffix "val". If "val" is the empty string then the selector does not
+      represent anything.an E element being the source anchor of a hyperlink
+    </dd>
+
+    <dt>F || E</dt>
+    <dd>
+      an E element that represents a cell in a grid/table belonging to a
+      column represented by an element F.
+    </dd>
+  </dl>
+</body>
+
+</html>

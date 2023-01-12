@@ -1,0 +1,104 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap");
+
+*:link {
+  text-decoration: none;
+}
+* {
+  font-family: "Open Sans", sans-serif;
+}
+
+h1 {
+  text-align: center;
+}
+.title-main {
+  text-align: center;
+}
+.card--assignment::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  /* z-index: -1; */
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+}
+.card--assignment {
+  box-sizing: border-box;
+  display: block;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 243px;
+  height: 179px;
+  left: 34px;
+  top: 105px;
+
+  /* background: #e8fffe; */
+  background: rgba(41, 226, 171, 0);
+
+  border: 1px solid #9ffffb;
+  border-radius: 10px;
+
+  transition: opacity 1s ease-in;
+}
+
+.card--assignment:hover::before {
+  background: rgb(43, 255, 0);
+  transition: background 1s ease-in;
+}
+
+/* .card--assignment {
+  background: linear-gradient(rgb(231, 65, 65), rgb(231, 65, 65));
+  transition: all 1s ease-in;
+}
+
+.card--assignment:hover {
+  background: linear-gradient(rgb(253, 65, 175), rgb(231, 65, 65));
+  /* transition: opacity 1s ease; */
+
+
+.btn--demo {
+  /* Demo Button */
+
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 100%;
+  height: 35px;
+  color: #000000;
+
+  margin-bottom: 10px;
+  background: #ffffff;
+  border: 1px solid #000000;
+  border-radius: 10px;
+}
+
+.btn--repo {
+  /* Repo Button */
+
+  box-sizing: border-box;
+  text-align: center;
+  padding: 5px;
+
+  position: relative;
+  width: 100%;
+  height: 35px;
+
+  background: #000000;
+  color: #ffffff;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+}
+
+.section__assignments {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  column-gap: 1rem;
+}

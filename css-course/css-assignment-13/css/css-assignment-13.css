@@ -1,0 +1,165 @@
+@import url("https://fonts.googleapis.com/css2?family=Inder&family=Inter:wght@300;400;700;800&family=Open+Sans:wght@300;400&family=Poppins:wght@400;500;700&family=Roboto+Slab:wght@200;400;800&display=swap");
+
+
+a{
+  text-decoration: none;
+  color: inherit;
+}
+html {
+  font-size: 10px;
+}
+body {
+  font-family: "Roboto Slab";
+}
+main{
+  max-width: 90rem;
+  margin: 0 auto;
+}
+.section {
+  margin-top: 4rem;
+  font-size: 1.4rem;
+}
+.section--services {
+  background: #f6f6f6;
+
+  display: grid;
+
+}
+
+.section__row--heading {
+  text-align: center;
+  margin: 2rem auto;
+}
+.section__heading__title {
+  font-size: 2rem;
+  font-weight: 800;
+}
+.section__heading__title--features {
+  color: #e70606;
+}
+.section-services__row {
+  align-items: center;
+  margin: 2rem 0;
+}
+.section-services__row--cards-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.row__card {
+  
+  width: clamp(16rem, 14rem, 22rem);
+  height: 100%;
+  padding: 1rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.row__card:nth-child(1) {
+  background: #ffffff;
+}
+.row__card:nth-child(2) {
+  background: #e4f2ff;
+}.row__card:nth-child(2) 
+.button__card {
+  background: #0047FF;
+
+}
+.row__card:nth-child(3) {
+  background: #d1dfbf;
+}
+.row__card:nth-child(4) {
+  background: #f9dbdb;
+}.row__card:nth-child(4) 
+.button__card {
+  background: #dd6f6f;
+}
+.section-services-heading {
+  text-align: center;
+  font-weight: 800;
+}
+
+.card__heading {
+  text-align: center;
+}
+.card-header-paragraph-wrapper {
+  flex-grow: 1;
+}
+.button-wrapper {
+  text-align: center;
+}
+.button__card {
+  display: inline-block;
+  padding: 0.3rem 0.4rem;
+  color: white;
+  background: #3a3a3a;
+  margin-bottom: 2rem;
+}
+.button__card--red {
+  background-color: red;
+}
+
+.section--features {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 70vw;
+  margin: 0 auto;
+}
+
+.section__heading--features  {
+  color: #e70606;
+}
+.section-features__row {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+}
+.section-features__row:nth-child(even) {
+  flex-direction: row-reverse;
+}
+.section-features__row:nth-child(even) .image-cropper {
+  left: 1.6rem;
+}
+
+.section-features__row__columns {
+ 
+ 
+}
+
+.section-features__row__columns--content {
+ 
+  max-width: 30%;
+}
+.section-features__row__columns--image {
+ 
+}
+.section-features__image-container {
+  position: relative;
+  height: 43rem;
+  width: 43rem;
+  background-color: #f9dbdb;
+  border-radius: 50%;
+}
+.section-features__image {
+  display: inline;
+  margin: 0 auto;
+  height: 100%;
+  width: 100%;
+
+  margin-block: 0;
+  margin-inline: 0;
+}
+.image-cropper {
+  width: 40rem;
+  height: 40rem;
+  overflow: hidden;
+  border-radius: 50%;
+
+  position: absolute;
+  left: 1rem;
+  top: 1rem;
+
+  margin-block: 0;
+  margin-inline: 0;
+}
