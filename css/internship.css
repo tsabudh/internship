@@ -1,0 +1,41 @@
+html{
+    font-size: 10px;
+}
+body{
+    font-size: 1.6rem;
+}
+:link,:visited{
+    text-decoration: none;
+    color: inherit;
+}
+
+.section__assignments{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap:1rem;
+    align-items: center;
+}
+.card{
+    min-width: 15rem;
+    aspect-ratio: 1;
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 1rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    text-align: center;
+
+}
+.card a{
+    display: block;
+    padding: 1rem 1.6rem;
+    border: 1px solid black;
+    border-radius: 1rem;
+    margin-top: 0.5rem;
+    
+}
