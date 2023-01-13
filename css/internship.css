@@ -1,49 +1,51 @@
-html{
-    font-size: 10px;
+html {
+  font-size: 10px;
 }
-body{
-    font-size: 1.6rem;
+body {
+  font-size: 1.6rem;
 }
-:link,:visited{
-    text-decoration: none;
-    color: inherit;
+:link,
+:visited {
+  text-decoration: none;
+  color: inherit;
 }
 
-.section__assignments{
-    display: flex;
-    flex-direction: row;
-    justify-content: flex-start;
-    flex-wrap: wrap;
-    gap:1rem;
-    align-items: center;
+.section__assignments {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: center;
 }
-.card{
-    min-width: 21.5rem;
-    aspect-ratio: 1;
-    border: 1px solid black;
-    border-radius: 1rem;
-    padding: 1rem;
+.card {
+  min-width: 21.5rem;
+  aspect-ratio: 1;
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem;
 
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
 
-    text-align: center;
-
+  text-align: center;
 }
-.card:nth-child(n + 17){
-display: none;
+.card:nth-child(n + 17) {
+  display: none;
 }
-.card a{
-
-    display: block;
-    padding: 1rem 1.6rem;
-    border: 1px solid black;
-    border-radius: 1rem;
-    margin-top: 0.5rem;
-    
+.card a {
+  display: block;
+  padding: 1rem 1.6rem;
+  border: 1px solid black;
+  border-radius: 1rem;
+  margin-top: 0.5rem;
 }
-.card__title a{
-padding: 0;
-border: none;
+.card a:hover {
+  background: black;
+  color: #fff;
+}
+.card__title a {
+  padding: 0;
+  border: none;
 }
