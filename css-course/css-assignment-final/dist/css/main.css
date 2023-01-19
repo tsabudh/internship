@@ -20705,8 +20705,8 @@ footer .copyright {
 }
 @font-face {
   font-family: "icon";
-  src: url("./fonts/icon.eot?t7iau8");
-  src: url("./fonts/icon.eot?t7iau8#iefix") format("embedded-opentype"), url("./fonts/icon.ttf?t7iau8") format("truetype"), url("./fonts/icon.woff?t7iau8") format("woff"), url("./fonts/icon.svg?t7iau8#icon") format("svg");
+  src: url("./../fonts/icon.eot?t7iau8");
+  src: url("./../fonts/icon.eot?t7iau8#iefix") format("embedded-opentype"), url("./../fonts/icon.ttf?t7iau8") format("truetype"), url("./../fonts/icon.woff?t7iau8") format("woff"), url("./../fonts/icon.svg?t7iau8#icon") format("svg");
   font-weight: normal;
   font-style: normal;
   font-display: block;
