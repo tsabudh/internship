@@ -31,7 +31,7 @@ body {
 
   text-align: center;
 }
-.card:nth-child(n + 18) {
+.card:nth-child(n + 19) {
   display: none;
 }
 .card a {
