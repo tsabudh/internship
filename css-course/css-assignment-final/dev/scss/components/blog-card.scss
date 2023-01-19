@@ -1,0 +1,41 @@
+.card-blog {
+  & .frame {
+    aspect-ratio: 1;
+    max-width: 32.7rem;
+    @include media-breakpoint-up(md) {
+      max-width: 37rem;
+    }
+    @include media-breakpoint-up(xl) {
+      max-width: 40rem;
+      aspect-ratio: 4/3;
+    }
+  }
+  & .wrapper {
+    padding: 4rem 0;
+
+   
+
+    @include media-breakpoint-up(md) {
+       padding: 11.1rem 0;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: 2.4rem 0 2.7rem;
+     
+    }
+
+    & h5 {
+      margin-bottom: 2.4rem;
+    }
+    & p {
+      margin-bottom: 0;
+    }
+  }
+
+  &:not(:last-child) .border-maker{
+    margin-bottom: 4rem;
+    border-bottom: 1px solid red;
+    @include media-breakpoint-up(xl){
+        border: none;
+    }
+  }
+}

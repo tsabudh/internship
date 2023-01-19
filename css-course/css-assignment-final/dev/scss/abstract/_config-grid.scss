@@ -1,0 +1,28 @@
+.container {
+  padding: 0 2.4rem;
+  @include media-breakpoint-up(md) {
+    padding: 0 4rem;
+  }
+  @include media-breakpoint-up(xl) {
+    padding: 0 8rem;
+  }
+  @include media-breakpoint-up(xxl) {
+    padding: 0 12rem;
+  }
+
+  .row {
+    margin: 0 -2rem;
+
+      @include media-breakpoint-up(xxl) {
+        margin: 0 -4rem;
+      }
+    [class*="col-"],
+    .col {
+      padding: 0 2rem;
+
+      @include media-breakpoint-up(xxl) {
+      padding: 0 4rem;
+      }
+    }
+  }
+}

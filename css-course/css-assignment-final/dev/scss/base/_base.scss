@@ -1,0 +1,25 @@
+body {
+  color: red($color: #e23fac);
+  // overflow: hidden;
+}
+img {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+:link,
+:visited,
+:link:hover,
+a,
+a:hover {
+  color: inherit;
+  text-decoration: none;
+}
+
+figure {
+  margin-bottom: 0;
+}
+li {
+  list-style-type: none;
+}

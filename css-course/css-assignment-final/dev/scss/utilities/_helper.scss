@@ -1,0 +1,17 @@
+// Transitions
+.transition {
+  &-slow {
+    @include transition(all 0.5s ease !important);
+  }
+
+  &-fast {
+    @include transition(all 0.3s ease !important);
+  }
+}
+
+.down-arrow-expanded {
+  margin-left: 0.5em;
+  display: inline-block;
+  transform: scaleX(1.5);
+  font-stretch: expanded;
+}

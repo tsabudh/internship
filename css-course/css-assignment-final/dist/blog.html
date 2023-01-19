@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Blog Listing</title>
+</head>
+
+<body >
+
+  <!--* Header  -->
+  <header class="header">
+
+
+  <nav class="nav-bar" id="nav-bar">
+
+    <div class="wrapper">
+      <div class="nav-toggle-icon  d-xl-none" onclick="toggleNav()">
+        <i class="icon-hamburger"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-black.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+
+    <ul class="sidenav d-none d-xl-flex">
+
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+    <div class="join-us-now position-xl-absolute">
+      <a href="#" class="d-none button d-md-block d-xl-none">Join us now</a>
+    </div>
+
+  </nav>
+
+</header>
+
+<!-- * side off canvas  -->
+<header id="off-canvas" class="header header--side d-xl-none ">
+
+
+  <nav class="nav-bar d-flex flex-column text-center" id="nav-bar">
+    <div class="wrapper">
+      <div class="nav-toggle-icon d-xl-none" onclick="toggleNav()">
+        <i class="icon-close"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-white.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+    <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+</header>
+<script>
+  function toggleNav() {
+    document.getElementById("off-canvas").classList.toggle("offcanvas-visible");
+    // document.getElementById("nav-bar").classList.toggle("flex-column");
+  }
+</script>
+  
+    <!--* blog hero section-->
+    <div class="container">
+    <div class="blog-hero">
+        <div class="row">
+            <div class="image__frame col-8">
+                <img src="./images/blog-1-a.jfif" alt="">
+            </div>
+        </div>
+        <div class="row justify-content-end">
+
+            <div class="image__caption col-12 col-md-8">
+                <div class=" wrapper">
+                    <div class="info-block info-block--blog">
+    <div class="info-block__content">
+        <h1 class="h1 info-block__content__heading info-block__content__heading--lead">Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum.</h1>
+        <p class="body-xl">Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis.</p>
+
+    </div>
+</div>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+    <!--* blog content section-->
+    <section class="container py-10 py-md-20 ">
+    <div class="row  justify-content-center ">
+        <div class="col-12 col-xl-8 ">
+            <div class="div blog-content">
+                <p class="body-l">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut blandit gravida eleifend. Mauris fringilla urna at lectus dapibus laoreet. Proin id sem consequat arcu ultrices porta ac a leo. Quisque quis blandit magna, ut bibendum nibh. Donec pulvinar risus nulla, vel fermentum quam tempus ac. Vivamus nunc massa, egestas at auctor nec, vehicula sed ipsum.
+                    Pellentesque
+                    habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
+
+                <p>Aenean placerat pulvinar quam, et convallis arcu feugiat et. Duis aliquet iaculis dapibus. Aenean blandit massa vel lacus luctus cursus. Sed aliquam ipsum non nibh commodo, non efficitur magna tempus. Curabitur eget mi magna. Maecenas mollis lectus nulla, nec laoreet justo efficitur et. Maecenas ac justo eget sapien hendrerit sollicitudin in et ipsum.</p>
+
+                <ul>
+                    <li>Aenean placerat pulvinar quam, et convallis arcu feugiat et. </li>
+                    <li>Duis aliquet iaculis dapibus.</li>
+                    <li>Aenean blandit massa vel lacus luctus cursus. </li>
+                    <li>Sed aliquam ipsum non nibh commodo, non efficitur magna tempus. </li>
+                    <li>Curabitur eget mi magna. Maecenas mollis lectus nulla, nec laoreet justo efficitur et. Maecenas ac justo eget sapien hendrerit sollicitudin in et ipsum.</li>
+                </ul>
+                <figure>
+                    <img src="../../images/blog-1-g.jfif" alt="">
+                </figure>
+
+                <p class="caption">Vestibulum ornare dapibus elit vitae commodo. Donec nec tellus velit. Duis sem leo, tempus quis arcu ac, suscipit consectetur odio. Maecenas mattis lacinia arcu, sed tempor ligula blandit a.</p>
+
+                <p class="h4">Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit</p>
+
+                <p>Aenean placerat pulvinar quam, et convallis arcu feugiat et. Duis aliquet iaculis dapibus. Aenean blandit massa vel lacus luctus cursus. Sed aliquam ipsum non nibh commodo, non efficitur magna tempus. Curabitur eget mi magna. Maecenas mollis lectus nulla, nec laoreet justo efficitur et. Maecenas ac justo eget sapien hendrerit sollicitudin in et ipsum.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    
+    <!--* blog related section-->
+    <section class="blog-related">
+    <div class="container">  
+        <h6>related blogs</h6>
+        
+        <div class="row">
+
+          
+
+
+            <!-- * first card   -->
+            <!--* card must be inserted within a row  -->
+<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100 shadow-midnight bg-white">
+        <a href="#" class="blog-card pink-shadow d-block h-100">
+            <figure class="blog-card__image">
+                <img src="./images/blog-1-a.jfif" alt="">
+            </figure>
+            <div class="p-6 pb-md-8 px-xl-10 py-xl-6">
+                <span class="date d-block eyebrow mb-4">June 11, 2021</span>
+                <h5 class="h5 fw-normal ls-0 mb-0">Interesting Facts I Bet You Never Knew About BLOGS</h5>
+            </div>
+        </a>
+    </article>
+</div>
+
+            <!--* card must be inserted within a row  -->
+<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100 shadow-midnight bg-white">
+        <a href="#" class="blog-card pink-shadow d-block h-100">
+            <figure class="blog-card__image">
+                <img src="./images/blog-1-b.jfif" alt="">
+            </figure>
+            <div class="p-6 pb-md-8 px-xl-10 py-xl-6">
+                <span class="date d-block eyebrow mb-4">June 11, 2021</span>
+                <h5 class="h5 fw-normal ls-0 mb-0">Everything You Wanted to Know About BLOGS and Were Too Embarrassed to Ask</h5>
+            </div>
+        </a>
+    </article>
+</div>
+
+            <!--* card must be inserted within a row  -->
+<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100 shadow-midnight bg-white">
+        <a href="#" class="blog-card pink-shadow d-block h-100">
+            <figure class="blog-card__image">
+                <img src="./images/blog-1-c.jfif" alt="">
+            </figure>
+            <div class="p-6 pb-md-8 px-xl-10 py-xl-6">
+                <span class="date d-block eyebrow mb-4">June 11, 2021</span>
+                <h5 class="h5 fw-normal ls-0 mb-0">What Can You Do To Save Your BLOGS From Destruction By Social Media?</h5>
+            </div>
+        </a>
+    </article>
+</div>
+
+
+
+
+
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+</body>
+
+</html>

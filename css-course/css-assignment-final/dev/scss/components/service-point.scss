@@ -1,0 +1,47 @@
+.service-point {
+  // padding-top :8rem;
+  // padding-bottom: 8rem;
+  & .border-maker {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+    border-top: 1px solid red;
+  }
+  // border-top: 1px solid $color-pink-faded;
+
+  & .huge-arrow {
+    display: flex;
+    align-items: center;
+    //  height: 100%;
+    aspect-ratio: 1;
+    max-width: 16rem;
+    // width: 16rem;
+    padding: 3rem;
+  }
+  & .image {
+    position: relative;
+    &__caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+
+      & .wrapper {
+        background: $color-off-white;
+        padding: 2.4rem 4rem 2rem;
+      }
+    }
+  }
+}
+
+.service-point {
+  &--two {
+    & .huge-arrow {
+      background-color: $color-pink-rose;
+    }
+  }
+
+  &--one {
+    & .huge-arrow {
+      background-color: $color-blue-off;
+    }
+  }
+}

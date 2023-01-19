@@ -1,0 +1,45 @@
+$type-scale: (
+  "h1" "Arial" "Arial" 3.5rem 5.5rem 4.025rem 6.324rem 400,
+  "h2" "Arial" "Arial" 2.8rem 4.4rem 3.22rem 5.06rem 400,
+  "h3" "Arial" "Arial" 2.4rem 3.5rem 2.76rem 4.025rem 400 0.02rem,
+  "h4" "Arial" "Arial" 2rem 2.8rem 2.3rem 3.22rem 400,
+  "h5" "Inter" "Arial" 1.8rem 2.3rem 2rem 2.8rem 400,
+  "h6" "Inter" "Inter" 1.6rem 1.8rem 1.936rem 2.178rem 600 0.01rem uppercase,
+  "body-xl" "Inter" "Inter" 2.3rem 2.8rem 3.22rem 3.92rem 400,
+  "body-l" "Inter" "Inter" 2rem 2.3rem 3rem 3.45rem 400,
+  "body" "Inter" "Inter" 1.6rem 1.8rem 2.4rem 2.7rem 400,
+  "caption" "Inter" "Inter" 1.4rem 1.4rem 2.1rem 2.1rem 500,
+  "cta__button" "Inter" "Inter" 1.8rem 1.8rem 1.8rem 1.8rem 600
+);
+
+@each $class-name, $font-family, $font-family-md, $font-size, $font-size-md,
+  $line-height, $line-height-md, $font-weight, $letter-spacing,
+  $text-transform in $type-scale
+{
+  .#{$class-name},
+  #{$class-name} {
+    @include font-properties(
+      $font-family,
+      $font-size,
+      $font-weight,
+      $letter-spacing
+    );
+    // text-transform: $text-transform;
+    @include text-properties("", "", "", "", $text-transform);
+
+    // @include interpolate(font-size, 37.5rem, 120rem, $font-size, $font-size-md);
+    @include interpolate(font-size, 37.5rem, 120rem, $font-size, $font-size-md);
+    @include interpolate(
+      line-height,
+      37.5rem,
+      120rem,
+      $line-height,
+      $line-height-md
+    );
+    @include media-breakpoint-up(xl) {
+      font-family: $font-family-md;
+      font-size: $font-size-md;
+      line-height: $line-height-md;
+    }
+  }
+}

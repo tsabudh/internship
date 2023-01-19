@@ -1,0 +1,16 @@
+.blog-hero {
+  position: relative;
+
+  & .image {
+    &__caption {
+      // margin-top: -19.6rem;
+    }
+    &__frame {
+      & img {
+        aspect-ratio: 840/473;
+        @include media-breakpoint-up(md) {
+        }
+      }
+    }
+  }
+}

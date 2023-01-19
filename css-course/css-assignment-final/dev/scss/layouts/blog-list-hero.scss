@@ -1,0 +1,20 @@
+.blog-list-hero {
+
+  position: relative;
+
+  & image {
+    &__caption {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+    }
+    &__frame {
+      & img {
+        aspect-ratio: 840/473;
+        @include media-breakpoint-up(md){
+            
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,19 @@
+.bg-off-white {
+  background: #f4fef3;
+}
+
+$bg-colors: (
+  "dark" $color-dark,
+  "blue-off" $color-blue-off,
+  "blue-shade-green" $color-blue-shade-green,
+  "chalk" $color-chalk,
+  "off-white" $color-off-white,
+  "pink-faded" $color-pink-faded,
+  "pink-rose" $color-pink-rose,
+);
+
+@each $class-name, $color in $bg-colors{
+  .bg-#{$class-name}{
+    background: $color;
+  }
+}

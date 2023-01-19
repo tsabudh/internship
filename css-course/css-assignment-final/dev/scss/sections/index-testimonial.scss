@@ -1,0 +1,41 @@
+.index-testimonial {
+  & h2 {
+    margin-bottom: 2.3rem;
+  }
+  & p {
+    margin-bottom: 5.6rem;
+  }
+  & .client {
+    // position: relative;
+    &__name {
+      color: $color-blue-off;
+    }
+    &__socials {
+      color: $color-blue-off;
+    }
+    &__profile {
+      position: relative;
+      margin-bottom: 4.8rem;
+      max-height: 23.6rem;
+      aspect-ratio: 1;
+
+      //   overflow: hidden;
+      text-align: center;
+      img {
+        border-radius: 50%;
+        position: relative;
+      }
+      &::before {
+        content: "";
+        position: absolute;
+        left: -3.4rem;
+        top: -1.2rem;
+        height: 26rem;
+        border-radius: 50%;
+        aspect-ratio: 1;
+        background: $color-blue-shade-green;
+        // z-index: -1;
+      }
+    }
+  }
+}

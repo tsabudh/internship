@@ -1,0 +1,64 @@
+<header class="header">
+
+
+  <nav class="nav-bar" id="nav-bar">
+
+    <div class="wrapper">
+      <div class="nav-toggle-icon  d-xl-none" onclick="toggleNav()">
+        <i class="icon-hamburger"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-black.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+
+    <ul class="sidenav d-none d-xl-flex">
+
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+    <div class="join-us-now position-xl-absolute">
+      <a href="#" class="d-none button d-md-block d-xl-none">Join us now</a>
+    </div>
+
+  </nav>
+
+</header>
+
+<!-- * side off canvas  -->
+<header id="off-canvas" class="header header--side d-xl-none ">
+
+
+  <nav class="nav-bar d-flex flex-column text-center" id="nav-bar">
+    <div class="wrapper">
+      <div class="nav-toggle-icon d-xl-none" onclick="toggleNav()">
+        <i class="icon-close"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-white.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+    <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+</header>
+<script>
+  function toggleNav() {
+    document.getElementById("off-canvas").classList.toggle("offcanvas-visible");
+    // document.getElementById("nav-bar").classList.toggle("flex-column");
+  }
+</script>

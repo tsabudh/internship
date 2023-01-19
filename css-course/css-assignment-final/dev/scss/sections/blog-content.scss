@@ -1,0 +1,15 @@
+// * contain this section within a row
+.blog-content {
+  display: flex;
+  flex-direction: column;
+  // gap: 4rem;
+  @include media-breakpoint-up(xl) {
+    padding-bottom: 10.3rem;
+  }
+  & li{
+    list-style-type: disc;
+  }
+}
+.blog-content > * {
+  margin-bottom: 4rem;
+}

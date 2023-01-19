@@ -1,0 +1,9 @@
+.section{
+    margin: 0 auto;
+    &__container {
+        max-width: 128rem;}
+
+        &-d{
+            background: $color-chalk;
+        }
+}

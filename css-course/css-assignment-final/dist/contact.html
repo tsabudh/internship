@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Contact</title>
+</head>
+
+<body>
+    <!--* Header  -->
+    <header class="header">
+
+
+  <nav class="nav-bar" id="nav-bar">
+
+    <div class="wrapper">
+      <div class="nav-toggle-icon  d-xl-none" onclick="toggleNav()">
+        <i class="icon-hamburger"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-black.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+
+    <ul class="sidenav d-none d-xl-flex">
+
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+    <div class="join-us-now position-xl-absolute">
+      <a href="#" class="d-none button d-md-block d-xl-none">Join us now</a>
+    </div>
+
+  </nav>
+
+</header>
+
+<!-- * side off canvas  -->
+<header id="off-canvas" class="header header--side d-xl-none ">
+
+
+  <nav class="nav-bar d-flex flex-column text-center" id="nav-bar">
+    <div class="wrapper">
+      <div class="nav-toggle-icon d-xl-none" onclick="toggleNav()">
+        <i class="icon-close"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-white.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+    <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+</header>
+<script>
+  function toggleNav() {
+    document.getElementById("off-canvas").classList.toggle("offcanvas-visible");
+    // document.getElementById("nav-bar").classList.toggle("flex-column");
+  }
+</script>
+
+    <div class="page-container page-container--contact ">
+        <!--* contact hero section-->
+        <section class="contact-hero">
+    <div class="container">
+
+
+        <div class="row justify-content-start">
+            <div class="image__frame col-12 col-md-8 offset-md-4 offset-xl-3">
+                <img src="./images/contact-hero-1.jfif" alt="">
+            </div>
+        </div>
+
+        <div class="row justify-content-start">
+            <div class="image__caption col-12 col-md-8 offset-xl-1">
+                <div class=" wrapper">
+                    <div class="info-block info-block--contact">
+    <div class="info-block__content">
+        <h1 class="h1 info-block__content__heading info-block__content__heading--lead">Contact Us</h1>
+        <p class="body-xl">Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis.</p>
+
+    </div>
+</div>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    </div>
+</section>
+
+        <!--* contact form section-->
+        <section class="contact-form ">
+    <div class="container">
+        <form action="" class="form shadow-midnight ">
+
+  <label for="project-inquiries" class="h5 mb-2 ">
+    Let's talk about
+  </label>
+  <div class="wrapper">
+    <div type="select" placeholder="Project Inquiries" class="custom-select">Project Inquiries</div>
+  </div>
+
+
+
+
+  <div class="form__contents">
+    <div class="group-wrapper">
+      <div class="form__group form__group--name">
+        <label for="firstname">First Name</label>
+        <input type="text" placeholder="Jane" name="firstname">
+      </div>
+      <div class="form__group form__group--name"> <label for="lastname">Last Name</label>
+        <input type="text" placeholder="Doe" name="lastname">
+      </div>
+
+    </div>
+
+
+
+    <div class="form__group"> <label for="email">Email address</label>
+      <input type="email" placeholder="jane@domain.com" name="email">
+    </div>
+
+
+    <div class="form__group d-none"> <label for="subject">Subject</label>
+      <input type="textarea" placeholder="What do you want to talk about?">
+    </div>
+
+    <div class="form__group"> <label for="message">Message</label>
+      <input type="textarea" name="message" placeholder="How can we help?">
+    </div>
+
+
+
+    <p class="caption">This site is protected by reCAPTCHA and the Google <a href="" class="inline-link">Privacy Policy</a> and <a href="" class="inline-link">Terms of Service</a> apply. </p>
+
+    <a href="" type="submit" class="button">Submit <i class="icon-arrow-b-e"></i></a>
+  </div>
+
+</form>
+    </div>
+</section>
+
+
+
+        <!--* modal-->
+        
+
+    </div>
+
+
+
+
+
+    <footer class=" text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="logo">
+                    <img src="./images/logo-white.svg" alt="" width="400" height="200">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="about us">
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Lorem ipsum dolor </li>
+                    <li>Lorem ipsum dolor </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="our team">
+                    <li>Lorem ipsum dolor </li>
+                    <li>Lorem ipsum dolor </li>
+                    <li>Lorem ipsum dolor </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="who we are">
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="resources">
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-3 col-xl-3">
+                <ul aria-label="contact">
+                    <li>Contact Form</li>
+                    <li>allowed@test.com </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-12 col-xl-6 mt-7">
+                <form class="form form--newsletter" action="post" id="newsLetterForm">
+                    <label class=" body mb-6" for="newsLetterEmail">Sign up for our newsletter: </label>
+                    <div class="wrapper d-flex flex-column flex-md-row">
+                        <input type="email" id="newsLetterEmail" placeholder="Email address ">
+                        <button class="button button--newsletter" type="submit">Submit <i class="icon-arrow-e"></i></button>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="copyright mt-10 mt-xl-20">
+                <p class="body">
+                    Site content copyright © 2021 Allowded Text Terms & Privacy
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>

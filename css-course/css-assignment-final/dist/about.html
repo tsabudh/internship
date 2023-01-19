@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/main.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <!--* Header  -->
+    <header class="header">
+
+
+  <nav class="nav-bar" id="nav-bar">
+
+    <div class="wrapper">
+      <div class="nav-toggle-icon  d-xl-none" onclick="toggleNav()">
+        <i class="icon-hamburger"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-black.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+
+    <ul class="sidenav d-none d-xl-flex">
+
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+
+    </ul>
+    <div class="join-us-now position-xl-absolute">
+      <a href="#" class="d-none button d-md-block d-xl-none">Join us now</a>
+    </div>
+
+  </nav>
+
+</header>
+
+<!-- * side off canvas  -->
+<header id="off-canvas" class="header header--side d-xl-none ">
+
+
+  <nav class="nav-bar d-flex flex-column text-center" id="nav-bar">
+    <div class="wrapper">
+      <div class="nav-toggle-icon d-xl-none" onclick="toggleNav()">
+        <i class="icon-close"></i>
+      </div>
+
+      <div class="logo">
+        <img src="./images/logo-white.svg" alt="" width="400" height="200">
+      </div>
+    </div>
+
+    <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
+      <li> <a href="about.html">About</a></li>
+      <li> <a href="blog-listing.html">Blog</a></li>
+      <li><a href="#">Team</a></li>
+      <li> <a href="#">Career</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+</header>
+<script>
+  function toggleNav() {
+    document.getElementById("off-canvas").classList.toggle("offcanvas-visible");
+    // document.getElementById("nav-bar").classList.toggle("flex-column");
+  }
+</script>
+
+
+    <!--* about page lead section-->
+    <div class="section container hero">
+
+    <div class="row mb-10 hero__images">
+
+        <div class="col-12 col-md-7">
+            <div class=" hero__images__frame hero__images__frame--1 ">
+                <img src="images/about-hero-1.jfif">
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <div class="  d-none d-md-block hero__images__frame hero__images__frame--2 ">
+                <img src="images/about-hero-2.jfif">
+            </div>
+        </div>
+
+    </div>
+
+    <div class="row article article--hero">
+    <div class="col-4 article__image d-none d-xl-block ">
+
+        <div class="d-none d-xl-block article__image__frame article__image__frame--1 ">
+            <img src="images/about-hero-vector.svg">
+        </div>
+        <div class=" article__image__frame article__image__frame--2 ">
+            <img src="images/about-hero-article-1.jfif">
+        </div>
+
+
+    </div>
+
+    <div class="col-12 col-xl-8">
+        <div class="wrapper article__content p-6 p-md-10 p-xl-20">
+            <h2 class="article__content__heading mb-4">Integer at neque ac metus fringilla dapibus et eu eros.</h2>
+            <p class="article__content__paragraph mb-10 body-xl">Aliquam egestas sapien turpis, eu iaculis velit pulvinar vel. Cras at diam quis turpis tincidunt condimentum eget nec quam.</p>
+            <a href="#" class="d-none d-md-inline-block article__cta button button--transparent-white ">Contact Us</a>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+</div>
+
+    <!-- * text block -->
+    
+
+
+    <!-- * service module -->
+    <section class="about-service">
+    <div class="container about-service__title">
+        <h6>about our service</h6>
+        <h2>Aliquam egestas sapien turpis, eu iaculis velit pulvinar vel. Cras at diam quis turpis.</h2>
+    </div>
+
+
+    <div class="container service-point service-point--one ">
+    <div class="border-maker d-flex flex-column">
+        <div class="row mb-10">
+            <div class="col-12 col-md-5 col-xl-4">
+                <h2>Service Point One</h2>
+            </div>
+            <div class="col-12 col-md-7 col-xl-8">
+                <p>Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis. Sed tempor vehicula ipsum, non pharetra velit dapibus id. Suspendisse sit amet commodo lectus, in sodales mi. Nunc blandit molestie metus, et finibus augue cursus at. Curabitur fringilla ullamcorper sem nec dictum. Maecenas urna
+                    risus,
+                    cursus vel tincidunt ac, egestas vitae ante.</p>
+            </div>
+        </div>
+
+        <div class=" row image">
+            <div class="col">
+                <div class="image__frame image__frame--1">
+                    <div class=""> <img src="./images/about-service-point-1.jfif"></div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-xl-6 d-flex image__caption image__caption--1 ">
+
+                <div class="wrapper">
+                    <h6>case study</h6>
+                    <h5>Integer at neque ac metus fringilla dapibus et eu eros.</h5>
+                </div>
+
+                <div class="huge-arrow">
+                    <figure>
+                        <img src="../../images/arrow-e.svg" height="100" width="100" alt="">
+                    </figure>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+    <div class="container service-point service-point--two ">
+    <div class="border-maker d-flex flex-column">
+        <div class="row mb-10">
+            <div class="col-12 col-md-5 col-xl-4">
+                <h2>Service Point One</h2>
+            </div>
+            <div class="col-12 col-md-7 col-xl-8">
+                <p>Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis. Sed tempor vehicula ipsum, non pharetra velit dapibus id. Suspendisse sit amet commodo lectus, in sodales mi. Nunc blandit molestie metus, et finibus augue cursus at. Curabitur fringilla ullamcorper sem nec dictum. Maecenas urna
+                    risus,
+                    cursus vel tincidunt ac, egestas vitae ante.</p>
+            </div>
+        </div>
+
+        <div class=" row image">
+            <div class="col">
+                <div class="image__frame image__frame--1">
+                    <div class=""> <img src="./images/about-service-point-1.jfif"></div>
+
+                </div>
+            </div>
+
+            <div class="col-12 col-md-8 col-xl-6 d-flex image__caption image__caption--1 ">
+
+                <div class="wrapper">
+                    <h6>case study</h6>
+                    <h5>Integer at neque ac metus fringilla dapibus et eu eros.</h5>
+                </div>
+
+                <div class="huge-arrow">
+                    <figure>
+                        <img src="../../images/arrow-e.svg" height="100" width="100" alt="">
+                    </figure>
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+</section>
+
+
+    <!-- * service module -->
+    
+
+
+    <!-- * service module -->
+    
+
+    <footer class=" text-white">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="logo">
+                    <img src="./images/logo-white.svg" alt="" width="400" height="200">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="about us">
+                    <li>Lorem ipsum dolor sit amet</li>
+                    <li>Lorem ipsum dolor </li>
+                    <li>Lorem ipsum dolor </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="our team">
+                    <li>Lorem ipsum dolor </li>
+                    <li>Lorem ipsum dolor </li>
+                    <li>Lorem ipsum dolor </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="who we are">
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-6 col-xl-3">
+                <ul aria-label="resources">
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                    <li>Lorem ipsum </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-3 col-xl-3">
+                <ul aria-label="contact">
+                    <li>Contact Form</li>
+                    <li>allowed@test.com </li>
+                </ul>
+            </div>
+            <div class="col-12 col-md-12 col-xl-6 mt-7">
+                <form class="form form--newsletter" action="post" id="newsLetterForm">
+                    <label class=" body mb-6" for="newsLetterEmail">Sign up for our newsletter: </label>
+                    <div class="wrapper d-flex flex-column flex-md-row">
+                        <input type="email" id="newsLetterEmail" placeholder="Email address ">
+                        <button class="button button--newsletter" type="submit">Submit <i class="icon-arrow-e"></i></button>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="copyright mt-10 mt-xl-20">
+                <p class="body">
+                    Site content copyright © 2021 Allowded Text Terms & Privacy
+                </p>
+            </div>
+        </div>
+    </div>
+
+</footer>
+
+</body>
+
+</html>

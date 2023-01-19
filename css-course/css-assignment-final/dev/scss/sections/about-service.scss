@@ -1,0 +1,12 @@
+.about-service {
+  padding-bottom: 4rem;
+  &__title {
+    margin-bottom: 8rem;
+    & h6 {
+      margin-bottom: 4rem;
+    }
+    & h2 {
+      margin-bottom: 0;
+    }
+  }
+}

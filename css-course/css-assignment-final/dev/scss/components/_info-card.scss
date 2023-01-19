@@ -1,0 +1,21 @@
+.info-card {
+  & h3 {
+    margin-bottom: 0.8rem;
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 1.6rem;
+    }
+  }
+  & p {
+    margin-bottom: 2.4rem;
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 4re;
+    }
+  }
+
+  &--faded {
+    background-color: $color-pink-faded;
+  }
+  &--chalk {
+    background-color: $color-chalk;
+  }
+}

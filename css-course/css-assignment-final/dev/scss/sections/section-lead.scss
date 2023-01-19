@@ -1,0 +1,42 @@
+.section--lead {
+  padding-top: 3.4rem;
+  padding-bottom: 3.4rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  @include media-breakpoint-up(md) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  background: $color-pink-faded;
+  &__container {
+    .image-container {
+      &__image {
+        max-height: 32.7rem;
+
+        @include media-breakpoint-up(md) {
+          & {
+            max-height: 39.7rem;
+          }
+          & img {
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+          }
+
+          &--1 {
+            & img {
+              aspect-ratio: 486/397;
+            }
+          }
+          &--2 {
+            & img {
+              aspect-ratio: 754/397;
+            }
+          }
+        }
+      }
+    }
+  }
+}

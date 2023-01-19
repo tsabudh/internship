@@ -1,0 +1,129 @@
+@import "./icon-variables.scss";
+
+@font-face {
+  font-family: "#{$icomoon-font-family}";
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?t7iau8");
+  src: url("#{$icomoon-font-path}/#{$icomoon-font-family}.eot?t7iau8#iefix")
+      format("embedded-opentype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?t7iau8")
+      format("truetype"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.woff?t7iau8")
+      format("woff"),
+    url("#{$icomoon-font-path}/#{$icomoon-font-family}.svg?t7iau8##{$icomoon-font-family}")
+      format("svg");
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: "#{$icomoon-font-family}" !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-search {
+  &:before {
+    content: $icon-search; 
+  }
+}
+.icon-arrow-b-e {
+  &:before {
+    content: $icon-arrow-b-e; 
+  }
+}
+.icon-linkedin {
+  &:before {
+    content: $icon-linkedin; 
+  }
+}
+.icon-down {
+  &:before {
+    content: $icon-down; 
+  }
+}
+.icon-up {
+  &:before {
+    content: $icon-up; 
+  }
+}
+.icon-right {
+  &:before {
+    content: $icon-right; 
+  }
+}
+.icon-arrow-w {
+  &:before {
+    content: $icon-arrow-w; 
+  }
+}
+.icon-arrow-ne {
+  &:before {
+    content: $icon-arrow-ne; 
+  }
+}
+.icon-arrow-e {
+  &:before {
+    content: $icon-arrow-e; 
+  }
+}
+.icon-check {
+  &:before {
+    content: $icon-check; 
+  }
+}
+.icon-close {
+  &:before {
+    content: $icon-close; 
+  }
+}
+.icon-facebook {
+  &:before {
+    content: $icon-facebook; 
+  }
+}
+.icon-github {
+  &:before {
+    content: $icon-github; 
+  }
+}
+.icon-hamburger {
+  &:before {
+    content: $icon-hamburger; 
+  }
+}
+.icon-location-marker {
+  &:before {
+    content: $icon-location-marker; 
+  }
+}
+.icon-reload {
+  &:before {
+    content: $icon-reload; 
+  }
+}
+.icon-twitter {
+  &:before {
+    content: $icon-twitter; 
+  }
+}
+.icon-arrow-s {
+  &:before {
+    content: $icon-arrow-s; 
+  }
+}
+.icon-arrow-n {
+  &:before {
+    content: $icon-arrow-n; 
+  }
+}
+

@@ -1,0 +1,29 @@
+@mixin font-properties(
+  $font-family: initial,
+  $font-size: initial,
+  $font-weight: initial,
+  $line-height: initial,
+  $letter-spacing: initial,
+  $font-style: initial
+) {
+  font-family: $font-family;
+  font-size: #{$font-size};
+  font-weight: #{$font-weight};
+  line-height: #{$line-height};
+  letter-spacing: #{$letter-spacing};
+  font-style: #{$font-style};
+}
+
+@mixin text-properties(
+  $text-color:initial,
+  $text-align:initial,
+  $text-decoration:initial,
+  $text-overflow:initial,
+  $text-transform:initial
+) {
+  color: #{$text-color};
+  text-align: #{$text-align};
+  text-decoration: #{$text-decoration};
+  text-overflow: #{$text-overflow};
+  text-transform: #{$text-transform};
+}

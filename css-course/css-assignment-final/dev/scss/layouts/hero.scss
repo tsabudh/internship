@@ -1,0 +1,47 @@
+.hero {
+  & p {
+    @include reset-agent-spacing;
+  }
+  &img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+  }
+
+  &__images {
+    &__frame {
+      &--1 {
+        & img {
+          aspect-ratio: 327/248.3;
+          // max-width: 32.7rem;
+
+          @include media-breakpoint-up(md) {
+            aspect-ratio: 550/266;
+            // max-height: 26.6rem;
+            max-width: 55rem;
+          }
+
+          @include media-breakpoint-up(xl) {
+            aspect-ratio: 706/397;
+            // max-height: 39.7rem;
+            max-width: 70.6rem;
+          }
+        }
+      }
+      &--2 {
+        // width: calc(100% - var(--first-column));
+        img {
+          aspect-ratio: 355/266;
+          // max-width: 35.5rem;
+          // max-height: 26.6rem;
+
+          @include media-breakpoint-up(xl) {
+            // max-width: 53.325rem;
+            // max-height: 39.7rem;
+            aspect-ratio: 533.25/397;
+          }
+        }
+      }
+    }
+  }
+}

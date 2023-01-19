@@ -1,0 +1,58 @@
+footer {
+  background: $color-blue-shade-green;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+
+  & .logo {
+    aspect-ratio: 2.19;
+    // margin-left: 3.6rem;
+    max-width: 27.162rem;
+    min-width: 15.33rem;
+    margin-bottom: 4rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 8rem;
+    }
+  }
+  & ul {
+    padding: 0;
+    margin-bottom: 4rem;
+    &::before {
+      @extend .h6;
+      display: inline-block;
+      content: attr(aria-label);
+
+      margin-bottom: 0;
+
+      @include media-breakpoint-up(xl) {
+        margin-bottom: 2.3rem;
+      }
+    }
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 8rem;
+    }
+    & li {
+      @extend .body;
+
+      display: none;
+      margin-bottom: 1.6rem;
+      &:last-child {
+        margin-bottom: 0;
+      }
+
+      list-style-type: none;
+      text-decoration: underline;
+      text-underline-position: under;
+
+      @include media-breakpoint-up(lg) {
+        display: block;
+      }
+    }
+  }
+  & .copyright {
+    color: $color-chalk;
+  }
+}

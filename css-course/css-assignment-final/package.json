@@ -1,0 +1,22 @@
+{
+  "name": "css-starter-kit",
+  "version": "1.0.0",
+  "description": "First try to make a starter kit.",
+  "main": "index.js",
+  "scripts": {
+    "start": "gulp watch"
+  },
+  "author": "Sabudh Bahadur Thapa",
+  "license": "ISC",
+  "devDependencies": {
+    "browser-sync": "^2.27.11",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0",
+    "gulp-plumber": "^1.2.1",
+    "gulp-sass": "^5.1.0",
+    "sass": "^1.57.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.2.3"
+  }
+}

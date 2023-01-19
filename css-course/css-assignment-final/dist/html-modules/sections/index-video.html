@@ -1,0 +1,54 @@
+<section class="container">
+
+    <div class="row article article--video">
+
+
+        <div class="col-12 col-md-6 col-xl-7">
+            <div class="wrapper article__content ">
+                <h6>about us</h6>
+                <h3>Integer at neque ac metus fringilla dapibus et eu eros. Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum, quis condimentum turpis consequat.</h3>
+                <a href="#" class=" d-inline-block button button--blue-white ">Learn more <i class="icon-arrow-e"></i></a>
+            </div>
+        </div>
+
+        <div class=" col-12 col-md-6 col-xl-5 ">
+            <div class="article__image">
+                <h6>how about us</h6>
+                <div class="wrapper">
+                    <div class=" article__image__frame article__image__frame--1 ">
+                        <div class="overlay h-100 w-100 position-absolute" onclick="pauseVid()"></div>
+                        <!-- <img src="images/home-image-6.jfif" alt=""> -->
+                        <video poster="images/home-image-6.jfif" class="ratio " id="home-video" onclick="pauseVid()">
+                            <source src="images/home-video.mp4" type="video/mp4">
+                        </video>
+                    </div>
+                    <div class=" article__image__frame article__image__frame--2 " id="home-video-playbutton" onclick="playVid();hideButton()">
+                        <img src="images/playbutton.svg" alt="">
+
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+    <script>
+        var vid = document.getElementById("home-video");
+        var playbutton = document.getElementById("home-video-playbutton");
+
+        function hideButton() {
+            playbutton.classList.add("d-none"); 
+        }
+        function playVid() {
+            vid.play();
+        }
+
+        function pauseVid() {
+            vid.pause();
+           playbutton.classList.replace(" d-none", " ");
+        }
+    </script>
+
+</section>

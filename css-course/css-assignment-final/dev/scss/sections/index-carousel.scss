@@ -1,0 +1,52 @@
+.index-carousel {
+  padding-top: 19rem;
+  padding-bottom: 20rem;
+  &-border-maker {
+    border-top: 8px solid $color-blue-off;
+  }
+  & .image__frame {
+    max-width: 56.4rem;
+    aspect-ratio: 564/496;
+  }
+  & .carousel-content {
+    padding-top: 9.5rem;
+    padding-bottom: 9.5rem;
+    padding-right: 4rem;
+    width: calc(100% - 56.4rem);
+  }
+}
+.carousel {
+  &__slider {
+    margin-top: 2.4rem;
+    @include media-breakpoint-up(md) {
+      margin-top: 4rem;
+    }
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    &__arrow {
+      width: 4rem;
+      height: 4rem;
+      border-radius: 50%;
+      background-color: $white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+  &__indicators {
+    display: flex;
+    &__indicator {
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      border: 1px solid $color-blue-off;
+      margin-left: 0.8rem;
+      margin-right: 0.8rem;
+      background: $color-pink-faded;
+      &:first-child {
+        background: $color-blue-off;
+      }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+.contact-hero {
+  & img {
+    aspect-ratio: 327/245;
+
+    @include media-breakpoint-up(md) {
+      aspect-ratio: 840/472;
+    }
+  }
+}

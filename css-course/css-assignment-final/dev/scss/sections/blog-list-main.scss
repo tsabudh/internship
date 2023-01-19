@@ -1,0 +1,142 @@
+.blog-list {
+  padding-top: 4rem;
+  padding-bottom: 2rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 8rem;
+    padding-bottom: 9rem;
+  }
+  @include media-breakpoint-up(md) {
+    padding-top: 12rem;
+    padding-bottom: 13rem;
+  }
+  & .heading-wrapper {
+    margin-bottom: 4rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 8rem;
+    }
+  }
+}
+
+.blog-list-tab {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  margin-bottom: 4rem;
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+  }
+  &-content {
+    display: none;
+    padding: 6px 12px;
+    &.active {
+      display: flex;
+    }
+  }
+  &__item {
+    display: inline-block;
+    cursor: pointer;
+    @include media-breakpoint-up(md) {
+      padding-left: 1em;
+    }
+  }
+  & p {
+    @extend .body;
+  }
+  & ul {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    padding-left: 0;
+
+    & a {
+      margin: 0;
+    }
+  }
+}
+
+.blog-list-search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-bottom: 4rem;
+  @include media-breakpoint-up(md) {
+    flex-direction: row;
+    margin-bottom: 8rem;
+  }
+
+  & .blog-search-form {
+    max-width: 60%;
+  }
+}
+
+.blog-list-dropdown {
+  position: relative;
+  display: inline-block;
+  text-align: right;
+  border-top: 1px solid white;
+  margin-top: 4rem;
+  cursor: pointer;
+
+  @include media-breakpoint-up(md) {
+    border: none;
+    margin-top: auto;
+  }
+  &:hover &__content {
+    display: block;
+  }
+  &__content {
+    display: none;
+    position: absolute;
+    right: -0.5rem;
+    background-color: $color-chalk;
+    min-width: 160px;
+    white-space: nowrap;
+    border: 1px solid $color-pink-rose;
+    z-index: 1;
+    padding: 0 1.6rem;
+
+    & a {
+      color: black;
+      margin-bottom: 0;
+      text-decoration: none;
+      display: block;
+      border-bottom: 1px solid black;
+      padding: 1.1rem 0.4rem;
+      &:last-child {
+        border-bottom: none;
+      }
+      &:hover {
+        background-color: #f1f1f1;
+      }
+    }
+  }
+}
+
+.blog-list-search-form {
+  & .search-group {
+    width: fit-content;
+    position: relative;
+
+    & .search-icon {
+      display: inline-block;
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      width: 2.4rem;
+      height: 2.4rem;
+      margin-left: -20px;
+    }
+  }
+
+  & input {
+    border: 2px solid $color-blue-off;
+    border-radius: 3rem;
+    max-width: 50rem;
+    outline: none;
+    padding: 1rem;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

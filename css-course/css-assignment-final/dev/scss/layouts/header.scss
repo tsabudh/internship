@@ -1,0 +1,74 @@
+.header {
+  padding: 2.4rem;
+
+  .nav-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .wrapper {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .logo {
+    aspect-ratio: 2.19;
+    margin-left: 3.6rem;
+    max-width: 27.162rem;
+    min-width: 15.33rem;
+  }
+  .sidenav {
+    display: flex;
+    align-items: center;
+    & li {
+      padding: 2rem;
+      font-weight: 600;
+      @include media-breakpoint-up(xl) {
+        &:last-child {
+          padding-right: 0;
+        }
+      }
+    }
+  }
+  .nav-toggle-icon {
+    display: inline-block;
+  }
+  .join-us-now {
+    @include media-breakpoint-up(xl) {
+      position: absolute;
+    }
+  }
+}
+
+.header--side {
+  background: $color-blue-shade-green;
+  z-index: 10;
+  color: white;
+  position: fixed;
+  left: -100%;
+  top: 0;
+  bottom: 0;
+  height: 100vh;
+  transition: left 0.75s ease;
+ 
+
+  & .nav-bar {
+    height: 100vh;
+    justify-content: flex-start;
+    overflow-y: hidden
+  }  
+  & .sidenav {
+    padding-top: 16rem;
+    padding-bottom: 16rem;
+    // overflow-y: scroll;
+  }
+  & .wrapper {
+    align-self: flex-start;
+  }
+
+  &.offcanvas-visible {
+    height: fit-content;
+    width: 100%;
+    left: 0;
+  }
+
+}

@@ -1,0 +1,55 @@
+//* info-block modifiers
+.info-block {
+  &--hero {
+    position: relative;
+    color: white;
+    background-color: $color-blue-off;
+    padding: 2.4rem;
+    border-top: 8px solid $color-dark;
+    @include media-breakpoint-up(md) {
+      margin-top: -4.5rem;
+      padding: 4rem;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: 8rem;
+      margin-top: -11.7rem;
+    }
+  }
+
+  // blog single
+  &--blog {
+    position: relative;
+    color: white;
+    background-color: $color-blue-off;
+    padding: 2.4rem;
+    border-top: 8px solid $color-dark;
+    @include media-breakpoint-up(md) {
+      // margin-top: -4.5rem;
+      margin-top: -10.7rem;
+      padding: 4rem;
+    }
+    @include media-breakpoint-up(xl) {
+      padding: 8rem;
+      // margin-top: -11.7rem;
+      margin-top: -19.6rem;
+    }
+  }
+
+  // contact page
+  &--contact {
+    position: relative;
+    color: white;
+    background-color: $color-blue-off;
+    padding: 2.4rem;
+    border-top: 8px solid $color-dark;
+    @include media-breakpoint-up(md) {
+      // margin-top: -4.5rem;
+      margin-top: -4rem;
+      padding: 4rem;
+    }
+    @include media-breakpoint-up(xl) {
+ 
+      // margin-top: -11.7rem;
+    }
+  }
+}

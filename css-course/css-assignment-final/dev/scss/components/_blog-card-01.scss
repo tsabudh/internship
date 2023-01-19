@@ -1,0 +1,9 @@
+.card-01 {
+  & .blog-card__image {
+    aspect-ratio: 327/245;
+  }
+  & article:hover{
+    @extend .shadow-rose
+
+  }
+}
