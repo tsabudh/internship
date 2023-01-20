@@ -19921,7 +19921,7 @@ a.inline-link {
 .service-point .border-maker {
   padding-top: 8rem;
   padding-bottom: 8rem;
-  border-top: 1px solid red;
+  border-top: 1px solid #F4EEE8;
 }
 .service-point .huge-arrow {
   display: flex;
