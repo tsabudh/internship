@@ -1,3 +1,7 @@
+const cssAssignmentNumber = 17 ;
+const htmlAssignmentNumber = 1 ;
+const jsAssignmentNumber = 1 ;
+
 const mainContainer = document.getElementsByClassName("main-container")[0];
 
 //* PROFILE
@@ -31,7 +35,7 @@ const mainContainer = document.getElementsByClassName("main-container")[0];
   const profileFrame = document.getElementsByClassName("profile_frame")[0];
   createChildOf(profileFrame, {
     tagName: "img",
-    src: "images/profile",
+    src: "/portfolio-image.JPG",
     alt: "Sabudh Bahadur Thapa",
   });
   createChildOf(profile, {
@@ -119,14 +123,15 @@ for (let i = 0; i < courseItems.length; i++) {
       tagName: "a",
       classes: "assignment-item_demo",
       text: "Demo",
-      href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-0${j}/`,
+      href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j)}/`,
+      // href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-0${j}/`,
       target: "_blank",
     });
     createChildOf(assignmentItem, {
       tagName: "a",
       classes: "assignment-item_repo",
       text: "Repo",
-      href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-0${j}`,
+      href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j)}`,
       target: "_blank",
     });
   }
@@ -276,4 +281,8 @@ function openAssignmentDetails(assignmentDetailsId) {
 function toggleProfile() {
   const profile = document.getElementsByClassName("profile")[0];
   profile.classList.toggle("active-flex");
+}
+
+function makeIndexOf(number){
+  return (parseInt(number, 10) + 101).toString().substr(1)
 }
