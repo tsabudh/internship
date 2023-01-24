@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/index.css">
+    <title>JS Assignment 02</title>
+</head>
+
+<body>
+    <div class="box">
+        <h2>Random Password Generater</h2>
+        <div class="options">
+            <div class="option">
+                <label for="type-1">Type 1</label>
+                <input type="checkbox" name="option" id="type-1">
+            </div>
+            <div class="option">
+                <label for="type-1">Type 1</label>
+                <input type="checkbox" name="option" id="type-2">
+            </div>
+            <div class="option">
+                <label for="type-1">Type 1</label>
+                <input type="checkbox" name="option" id="type-3">
+            </div>
+            <div class="option">
+                <label for="type-1">Length</label>
+                <input type="text" name="option" id="type-3">
+            </div>
+        </div>
+
+
+
+        <input type="text" name="" placeholder="Create password" id="password" readonly>
+
+        <table>
+            <th>
+                <div id="button" class="btn1" onclick="genPassword()">Generate</div>
+            </th>
+            <th><a id="button" class="btn2" onclick="copyPassword()">Copy</a></th>
+        </table>
+
+
+    </div>
+</body>
+<script src="./scripts/index.js"></script>
+
+</html>
