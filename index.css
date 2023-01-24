@@ -42,7 +42,7 @@ img {
   justify-content: center;
   align-items: center;
   gap: 2rem;
-  background-color: rgba(241, 24, 169, 0.795);
+  background-color: #86C8BC;
 }
 
 .course-item {
@@ -51,15 +51,19 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #aacb73;
-  transition: height 0.2s ease, width 0.2s ease-in;
+  background-color: #CEEDC7;
+  transition: height 0.2s ease, width 0.2s ease;
   vertical-align: middle;
   text-align: center;
   cursor: pointer;
+  box-shadow: 0 0 10px 4px rgba(165, 139, 139, 0.637);
 }
 .course-item-text {
   display: inline;
   text-transform: uppercase;
+  font-weight: 600;
+  font-size: 2rem;
+  color: whitesmoke;
 }
 .course-item:hover {
   height: 200px;
@@ -68,11 +72,24 @@ img {
 
 .assignment-tab {
   /* overflow-y: hidden; */
+  background:#FFF6BD;
 }
 .assignment-tab-content {
   height: 100%;
   overflow-y: scroll;
   display: none;
+  scrollbar-width: thin;
+  -webkit-scrollbar-width:thin;
+}
+.assignment-tab-content::-webkit-scrollbar{
+  width: 0.3rem;
+  height: 1px;
+}
+.assignment-tab-content::-webkit-scrollbar-thumb{
+  background: #86C8BC;
+}
+.assignment-tab-content::-webkit-scrollbar-track { 
+  background: #FFD4B2;
 }
 .assignment-tab-content--css{
   /* background-color: rgb(145, 255, 0); */
@@ -86,7 +103,7 @@ img {
 .assignment-item {
   width: 200px;
   /* height: 200px; */
-  background-color: #cde990;
+  background-color: #FFD4B2;
   /* background-color: #ffdb89; */
   margin: 2rem;
   text-align: center;
@@ -100,10 +117,12 @@ img {
   display: inline-block;
   /* height: 2rem;
   width: 2rem; */
-  border-radius: 50%;
-  border: 9px solid white;
-  background-color: white;
+font-size: 2rem;
+font-weight: 600;
+color: white;
+filter: drop-shadow(0 0 20px #FFFFE8);
 }
+
 
 .assignment-item_demo,
 .assignment-item_repo,
@@ -113,7 +132,17 @@ img {
   min-width: 10rem;
   cursor: pointer;
   font-weight: 600;
-  color: #ff0032;
+  color: #D3756B;
+  background: rgb(214,232,26);
+
+  background: rgb(246,228,250);
+  background: linear-gradient(59deg, rgba(246,228,250,1) 10%, rgba(242,222,203,1) 10%, rgba(245,245,203,1) 93%, rgba(242,224,216,0.8) 93%);
+/* background-position: 50% 50%; */
+background-repeat: no-repeat;
+transition: background-position 0.5s ease;
+}
+.assignment-item_demo:hover{
+  background-position: 5% 50%;
 }
 .details-tab {
   background-color: #f56eb3;
