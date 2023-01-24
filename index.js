@@ -1,4 +1,6 @@
-const cssAssignmentNumber = 17 ;
+
+//* CHANGE ASSIGNMENT NUMBERS FOR EACH NEW ASSIGNMENTS
+const cssAssignmentNumber = 18 ;
 const htmlAssignmentNumber = 1 ;
 const jsAssignmentNumber = 1 ;
 
@@ -102,7 +104,12 @@ for (let i = 0; i < courseItems.length; i++) {
   )[i];
 
   //* creating assignment-item inside each assignment-tab-content
-  for (let j = 1; j < 5; j++) {
+  let numberOfAssignmentItems; 
+  if(courseItems[i] == 'html') numberOfAssignmentItems = htmlAssignmentNumber;
+  else if(courseItems[i] == 'css') numberOfAssignmentItems = cssAssignmentNumber;
+  else if(courseItems[i] == 'js') numberOfAssignmentItems = jsAssignmentNumber;
+
+  for (let j = 1; j <= numberOfAssignmentItems; j++) {
     createChildOf(assignmentTabContent, {
       tagName: "div",
       classes: `assignment-item assignment-item--${courseItems[i]}`,
@@ -123,15 +130,14 @@ for (let i = 0; i < courseItems.length; i++) {
       tagName: "a",
       classes: "assignment-item_demo",
       text: "Demo",
-      href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j)}/`,
-      // href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-0${j}/`,
+      href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j-1)}/`,
       target: "_blank",
     });
     createChildOf(assignmentItem, {
       tagName: "a",
       classes: "assignment-item_repo",
       text: "Repo",
-      href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j)}`,
+      href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j-1)}`,
       target: "_blank",
     });
   }
@@ -139,25 +145,8 @@ for (let i = 0; i < courseItems.length; i++) {
 
 //* CREATING TABS FOR DIFFERENT ASSIGNMENTS
 
-// creating assignment tab content
-// createChildOf(assignmentTab, {
-//   tagName:"div",
-//   classes:"assignment-tab-content",
-//   id:"html"
-// })
-
-// const assignmentTabContent = document.getElementsByClassName(
-//   "assignment-tab-content"
-// )[0];
 
 //* LOOP FOR CREATING ASSIGNMENT CARDS FOR CSS
-// for(let i=1;i< 5;i++){
-//   createChildOf(assignmentTabContent, {
-//     tagName : "div",
-//     classes:"assignment-item",
-//     onclick: `openAssignmentDetails('css${i}')`
-//   })
-// }
 
 //* CREATING ASSIGNMENT CARDS FOR EACH TAB
 // createChildOf(assignmentTabContent, {
