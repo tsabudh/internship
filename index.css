@@ -160,9 +160,12 @@ div.active-flex {
   text-transform: capitalize;
 }
 .toggle-profile {
-  height: 2rem;
-  width: 2rem;
-  background-color: #ff0032;
+  height: 4rem;
+  width: 4rem;
+  background:url("./images/icon-profile-cycle.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
   position: absolute;
   top: 1rem;
   left: 1rem;
