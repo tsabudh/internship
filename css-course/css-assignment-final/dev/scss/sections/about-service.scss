@@ -1,7 +1,19 @@
 .about-service {
+  padding-top: 4rem;
   padding-bottom: 4rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  @include media-breakpoint-up(xl) {
+    padding-top: 12rem;
+    padding-bottom: 12rem;
+  }
   &__title {
-    margin-bottom: 8rem;
+    margin-bottom: 4rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 8rem;
+    }
     & h6 {
       margin-bottom: 4rem;
     }

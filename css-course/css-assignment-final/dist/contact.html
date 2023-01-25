@@ -5,8 +5,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Contact</title>
+    <title>Contact Us</title>
 </head>
 
 <body>
@@ -22,18 +23,20 @@
       </div>
 
       <div class="logo">
-        <img src="./images/logo-black.svg" alt="" width="400" height="200">
+        <a href="./index.html">
+          <img src="./images/logo-black.svg" alt="" width="400" height="200">
+        </a>
       </div>
     </div>
 
 
     <ul class="sidenav d-none d-xl-flex">
 
-      <li> <a href="about.html">About</a></li>
-      <li> <a href="blog-listing.html">Blog</a></li>
+      <li> <a href="./about.html">About</a></li>
+      <li> <a href="./blog-listing.html">Blog</a></li>
       <li><a href="#">Team</a></li>
       <li> <a href="#">Career</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
 
     </ul>
     <div class="join-us-now position-xl-absolute">
@@ -60,11 +63,11 @@
     </div>
 
     <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
-      <li> <a href="about.html">About</a></li>
-      <li> <a href="blog-listing.html">Blog</a></li>
+      <li> <a href="./about.html">About</a></li>
+      <li> <a href="./blog-listing.html">Blog</a></li>
       <li><a href="#">Team</a></li>
       <li> <a href="#">Career</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
   </nav>
 
@@ -93,9 +96,8 @@
                 <div class=" wrapper">
                     <div class="info-block info-block--contact">
     <div class="info-block__content">
-        <h1 class="h1 info-block__content__heading info-block__content__heading--lead">Contact Us</h1>
-        <p class="body-xl">Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis.</p>
-
+        <h2 class="h2 info-block__content__heading info-block__content__heading--lead">Contact Us</h2>
+        <p class="body-l">Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis.</p>
     </div>
 </div>
                 </div>
@@ -128,10 +130,10 @@
     <div class="group-wrapper">
       <div class="form__group form__group--name">
         <label for="firstname">First Name</label>
-        <input type="text" placeholder="Jane" name="firstname">
+        <input type="text" placeholder="Jane" name="firstname" required pattern="[^\s]">
       </div>
-      <div class="form__group form__group--name"> <label for="lastname">Last Name</label>
-        <input type="text" placeholder="Doe" name="lastname">
+      <div class="form__group form__group--name"> <label for="lastname" >Last Name</label>
+        <input type="text"  name="lastname" placeholder="Doe" required  value="">
       </div>
 
     </div>
@@ -139,7 +141,7 @@
 
 
     <div class="form__group"> <label for="email">Email address</label>
-      <input type="email" placeholder="jane@domain.com" name="email">
+      <input type="email" placeholder="jane@domain.com" name="email" required value="">
     </div>
 
 
@@ -178,7 +180,7 @@
         <div class="row">
             <div class="col">
                 <div class="logo">
-                    <img src="./images/logo-white.svg" alt="" width="400" height="200">
+                    <a href="./index.html"><img src="./images/logo-white.svg" alt="" width="400" height="200"></a>
                 </div>
             </div>
 

@@ -1,6 +1,15 @@
 .index-carousel {
-  padding-top: 19rem;
-  padding-bottom: 20rem;
+  padding-top: 2.4rem;
+  padding-bottom: 2.4rem;
+  @include media-breakpoint-up(md) {
+    padding-top: 8rem;
+    padding-bottom: 8rem;
+  }
+  @include media-breakpoint-up(xl) {
+    padding-top: 19rem;
+    padding-bottom: 20rem;
+  }
+
   &-border-maker {
     border-top: 8px solid $color-blue-off;
   }
@@ -12,7 +21,9 @@
     padding-top: 9.5rem;
     padding-bottom: 9.5rem;
     padding-right: 4rem;
-    width: calc(100% - 56.4rem);
+    @include media-breakpoint-up(md) {
+      width: calc(100% - 56.4rem);
+    }
   }
 }
 .carousel {

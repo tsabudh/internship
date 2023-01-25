@@ -34,7 +34,7 @@ exports.fonts = function fonts() {
 //Create a function for gulp file includes
 function includeHTML() {
   return gulp
-    .src("./dev/**/*.html")
+    .src("./dev/*.html")
     .pipe(plumber())
     .pipe(
       fileinclude({
@@ -63,7 +63,7 @@ function style() {
 }
 
 //create funtion to transfer images from dev to dist
-function images() {
+exports.images = function images() {
   return gulp.src(paths.images.src).pipe(gulp.dest(paths.images.dest));
 }
 
