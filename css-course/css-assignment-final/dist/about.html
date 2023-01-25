@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Document</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <title>About Us</title>
 </head>
 
 <body>
@@ -22,18 +23,20 @@
       </div>
 
       <div class="logo">
-        <a href="index.html" ><img src="./images/logo-black.svg" alt="logo" width="400" height="200"></a>
+        <a href="./index.html">
+          <img src="./images/logo-black.svg" alt="" width="400" height="200">
+        </a>
       </div>
     </div>
 
 
     <ul class="sidenav d-none d-xl-flex">
 
-      <li> <a href="about.html">About</a></li>
-      <li> <a href="blog-listing.html">Blog</a></li>
+      <li> <a href="./about.html">About</a></li>
+      <li> <a href="./blog-listing.html">Blog</a></li>
       <li><a href="#">Team</a></li>
       <li> <a href="#">Career</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
 
     </ul>
     <div class="join-us-now position-xl-absolute">
@@ -55,16 +58,16 @@
       </div>
 
       <div class="logo">
-        <img src="./images/logo-white.svg" alt="logo" width="400" height="200">
+        <img src="./images/logo-white.svg" alt="" width="400" height="200">
       </div>
     </div>
 
     <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
-      <li> <a href="about.html">About</a></li>
-      <li> <a href="blog-listing.html">Blog</a></li>
+      <li> <a href="./about.html">About</a></li>
+      <li> <a href="./blog-listing.html">Blog</a></li>
       <li><a href="#">Team</a></li>
       <li> <a href="#">Career</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
   </nav>
 
@@ -78,32 +81,34 @@
 
 
     <!--* about page lead section-->
-    <div class="section container hero">
+    <section class="section section--about-hero  about-hero">
+    <div class="container">
+        <div class="hero">
+            <div class=" hero__images">
 
-    <div class="row mb-10 hero__images">
 
-        <div class="col-12 col-md-7">
-            <div class=" hero__images__frame hero__images__frame--1 ">
-                <img src="images/about-hero-1.jfif">
+                <div class=" hero__images__frame hero__images__frame--1 ">
+                  
+                    <img src="./images/about-hero-1.jfif">
+                </div>
+
+
+                <div class="hero__images__frame hero__images__frame--2 ">
+                 
+                    <img src="./images/about-hero-2.jfif">
+                </div>
+
+
             </div>
-        </div>
 
-        <div class="col-md-5">
-            <div class="  d-none d-md-block hero__images__frame hero__images__frame--2 ">
-                <img src="images/about-hero-2.jfif">
-            </div>
-        </div>
-
-    </div>
-
-    <div class="row article article--hero">
+            <div class="row article article--hero">
     <div class="col-4 article__image d-none d-xl-block ">
 
         <div class="d-none d-xl-block article__image__frame article__image__frame--1 ">
-            <img src="images/about-hero-vector.svg">
+            <img src="./images/about-hero-vector.svg">
         </div>
         <div class=" article__image__frame article__image__frame--2 ">
-            <img src="images/about-hero-article-1.jfif">
+            <img src="./images/about-hero-article-1.jfif">
         </div>
 
 
@@ -113,19 +118,21 @@
         <div class="wrapper article__content p-6 p-md-10 p-xl-20">
             <h2 class="article__content__heading mb-4">Integer at neque ac metus fringilla dapibus et eu eros.</h2>
             <p class="article__content__paragraph mb-10 body-xl">Aliquam egestas sapien turpis, eu iaculis velit pulvinar vel. Cras at diam quis turpis tincidunt condimentum eget nec quam.</p>
-            <a href="#" class="d-none d-md-inline-block article__cta button button--transparent-white ">Contact Us</a>
+            <a href="#" class="d-none d-md-inline-block article__cta button button--transparent-white ">Contact Us <i class="icon-arrow-e"></i></a>
         </div>
     </div>
 </div>
+        </div>
 
 
 
+    </div>
 
 
-</div>
 
-    <!-- * text block -->
-    
+</section>
+
+
 
 
     <!-- * service module -->
@@ -138,100 +145,100 @@
 
     <div class="container service-point service-point--one ">
     <div class="border-maker d-flex flex-column">
-        <div class="row mb-10">
+        <div class="row">
             <div class="col-12 col-md-5 col-xl-4">
                 <h2>Service Point One</h2>
             </div>
-            <div class="col-12 col-md-7 col-xl-8">
+
+            <div class="col-12 col-md-7 col-xl-8 service-point__paragraph">
                 <p>Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis. Sed tempor vehicula ipsum, non pharetra velit dapibus id. Suspendisse sit amet commodo lectus, in sodales mi. Nunc blandit molestie metus, et finibus augue cursus at. Curabitur fringilla ullamcorper sem nec dictum. Maecenas urna
                     risus,
-                    cursus vel tincidunt ac, egestas vitae ante.</p>
-            </div>
-        </div>
-
-        <div class=" row image">
-            <div class="col">
-                <div class="image__frame image__frame--1">
-                    <div class=""> <img src="./images/about-service-point-1.jfif"></div>
-
-                </div>
+                    cursus vel tincidunt ac, egestas vitae ante.
+                </p>
             </div>
 
-            <div class="col-12 col-md-8 col-xl-6 d-flex image__caption image__caption--1 ">
+            <div class="col-12  image">
+                <div class="row">
+                    <div class="col">
+                        <div class="image__frame image__frame--1">
+                            <img src="./images/about-service-point-1.jfif">
 
-                <div class="wrapper">
-                    <h6>case study</h6>
-                    <h5>Integer at neque ac metus fringilla dapibus et eu eros.</h5>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-8 col-xl-6 d-flex image__caption image__caption--1 ">
+                        <div class="wrapper">
+                            <h6>case study</h6>
+                            <h5>Integer at neque ac metus fringilla dapibus et eu eros.</h5>
+                        </div>
+
+                        <div class="huge-arrow">
+                            <figure>
+                                <img src="./images/arrow-e.svg" height="100" width="100" alt="">
+                            </figure>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="huge-arrow">
-                    <figure>
-                        <img src="./images/arrow-e.svg" height="100" width="100" alt="case study">
-                    </figure>
-
-
-
-                </div>
-
-
             </div>
         </div>
     </div>
-
-
 </div>
+
+
+
     <div class="container service-point service-point--two ">
     <div class="border-maker d-flex flex-column">
-        <div class="row mb-10">
+        <div class="row">
             <div class="col-12 col-md-5 col-xl-4">
-                <h2>Service Point One</h2>
+                <h2>Service Point Two</h2>
             </div>
-            <div class="col-12 col-md-7 col-xl-8">
+
+            <div class="col-12 col-md-7 col-xl-8 service-point__paragraph">
                 <p>Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis. Sed tempor vehicula ipsum, non pharetra velit dapibus id. Suspendisse sit amet commodo lectus, in sodales mi. Nunc blandit molestie metus, et finibus augue cursus at. Curabitur fringilla ullamcorper sem nec dictum. Maecenas urna
                     risus,
-                    cursus vel tincidunt ac, egestas vitae ante.</p>
-            </div>
-        </div>
-
-        <div class=" row image">
-            <div class="col">
-                <div class="image__frame image__frame--1">
-                    <div class=""> <img src="./images/about-service-point-2.jfif"></div>
-
-                </div>
+                    cursus vel tincidunt ac, egestas vitae ante.
+                </p>
             </div>
 
-            <div class="col-12 col-md-8 col-xl-6 d-flex image__caption image__caption--1 ">
+            <div class="col-12  image">
+                <div class="row">
+                    <div class="col">
+                        <div class="image__frame image__frame--1">
+                            <img src="./images/about-service-point-2.jfif">
 
-                <div class="wrapper">
-                    <h6>case study</h6>
-                    <h5>Integer at neque ac metus fringilla dapibus et eu eros.</h5>
+                        </div>
+                    </div>
+
+
+                    <div class="col-12 col-md-8 col-xl-6 d-flex image__caption image__caption--1 ">
+                        <div class="wrapper">
+                            <h6>case study</h6>
+                            <h5>Integer at neque ac metus fringilla dapibus et eu eros.</h5>
+                        </div>
+
+                        <div class="huge-arrow">
+                            <figure>
+                                <img src="./images/arrow-e.svg" height="100" width="100" alt="">
+                            </figure>
+                        </div>
+                    </div>
                 </div>
-
-                <div class="huge-arrow">
-                    <figure>
-                        <img src="./images/arrow-e.svg" height="100" width="100" alt="case study">
-                    </figure>
-
-
-
-                </div>
-
-
             </div>
         </div>
     </div>
-
-
 </div>
+
+
+
 </section>
 
 
-    <!-- * service module -->
+    <!-- * about WP only design module -->
     
 
 
-    <!-- * service module -->
+    <!-- * about WP only design module -->
     
 
     <footer class=" text-white">
@@ -239,7 +246,7 @@
         <div class="row">
             <div class="col">
                 <div class="logo">
-                    <a href="index.html" ><img src="./images/logo-black.svg" alt="logo" width="400" height="200"></a>
+                    <a href="./index.html"><img src="./images/logo-white.svg" alt="" width="400" height="200"></a>
                 </div>
             </div>
 

@@ -4,6 +4,8 @@ const pauseTimerButton = document.getElementById("pauseTimer");
 const resetTimerButton = document.getElementById("resetTimer");
 
 function showTime() {
+
+
   startTimerButton.removeEventListener("click", funcStartTimer);
   pauseTimerButton.removeEventListener("click", funcPauseTimer);
   resetTimerButton.removeEventListener("click", funcResetTimer);
@@ -35,14 +37,19 @@ function showTime() {
   document.getElementById("clockDisplay").innerText = time;
   document.getElementById("clockDisplay").textContent = time;
 
+ 
   x = setTimeout(showTime, 1000);
 }
 
 showTime();
 
 function myFunc() {
-  clearTimeout(x);
+  
   time = "00:00:00";
+  clearTimeout(x);
+  // while(x--){
+  //   clearTimeout(x);
+  // }
   document.getElementById("clockDisplay").textContent = time;
   startTimerButton.addEventListener("click", funcStartTimer);
   pauseTimerButton.addEventListener("click", funcPauseTimer);
@@ -50,6 +57,7 @@ function myFunc() {
   startTimerButton.classList.remove("disabled");
   pauseTimerButton.classList.remove("disabled");
   resetTimerButton.classList.remove("disabled");
+
 }
 
 //* STOPWATCH
@@ -61,6 +69,7 @@ let [milliseconds, seconds, minutes, hours] = [0, 0, 0, 0];
 
 let int = null;
 function funcStartTimer() {
+
   if (int !== null) {
     clearInterval(int);
   }

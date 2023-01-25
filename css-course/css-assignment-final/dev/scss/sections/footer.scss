@@ -1,5 +1,5 @@
 footer {
-  background: $color-blue-shade-green;
+  background: $color-blue-off;
   padding-top: 4rem;
   padding-bottom: 4rem;
   @include media-breakpoint-up(md) {
@@ -47,7 +47,7 @@ footer {
       text-decoration: underline;
       text-underline-position: under;
 
-      @include media-breakpoint-up(lg) {
+      @include media-breakpoint-up(md) {
         display: block;
       }
     }

@@ -89,7 +89,7 @@
 @import "./components/offcanvas";
 @import "./components/leaflet";
 
-@import "./layouts/hero";
+@import "./layouts/about-hero";
 @import "./layouts/header";
 @import "./layouts/blog-list-hero";
 @import "./layouts/blog-hero";
@@ -97,20 +97,21 @@
 
 @import "./sections/section";
 @import "./sections/section-lead";
-@import "./sections/footer";
-@import "./sections/blog-content";
 @import "./sections/about-service";
+@import "./sections/blog-content";
 @import "./sections/blog-list-main";
+@import "./sections/blog-related";
 @import "./sections/index-carousel";
 @import "./sections/index-testimonial";
 @import "./sections/index-blogs";
+@import "./sections/footer";
 
 @import "./pages/contact";
 
 @import "./vendor/icon-style";
 @import "./vendor/icon-variables";
 
-// @import "../../img/outside-logo.svg";
+// @import "./img/outside-logo.svg";
 
 // Grid configuration
 

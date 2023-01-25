@@ -1,0 +1,21 @@
+.blog-related {
+  & h6 {
+    margin-bottom: 2.4rem;
+    @include media-breakpoint-up(md) {
+      margin-bottom: 4rem;
+    }
+    @include media-breakpoint-up(xl) {
+      margin-bottom: 8rem;
+    }
+  }
+  @include media-breakpoint-up(md){
+    & .row > div.card-01:nth-child(n+3){
+      display: none;
+    }
+  }
+  @include media-breakpoint-up(xl){
+    & .row > div.card-01:nth-child(n+1){
+      display: block;
+    }
+  }
+}

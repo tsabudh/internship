@@ -6,10 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./css/main.css">
-    <title>Blog Listing</title>
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+    <title>Blogs</title>
 </head>
 
-<body class="body-xl">
+<body>
 
     <!--* Header  -->
     <header class="header">
@@ -23,18 +24,20 @@
       </div>
 
       <div class="logo">
-        <img src="./images/logo-black.svg" alt="logo" width="400" height="200">
+        <a href="./index.html">
+          <img src="./images/logo-black.svg" alt="" width="400" height="200">
+        </a>
       </div>
     </div>
 
 
     <ul class="sidenav d-none d-xl-flex">
 
-      <li> <a href="about.html">About</a></li>
-      <li> <a href="blog-listing.html">Blog</a></li>
+      <li> <a href="./about.html">About</a></li>
+      <li> <a href="./blog-listing.html">Blog</a></li>
       <li><a href="#">Team</a></li>
       <li> <a href="#">Career</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
 
     </ul>
     <div class="join-us-now position-xl-absolute">
@@ -61,11 +64,11 @@
     </div>
 
     <ul id="mySidenav" class="sidenav d-flex d-xl-none flex-column">
-      <li> <a href="about.html">About</a></li>
-      <li> <a href="blog-listing.html">Blog</a></li>
+      <li> <a href="./about.html">About</a></li>
+      <li> <a href="./blog-listing.html">Blog</a></li>
       <li><a href="#">Team</a></li>
       <li> <a href="#">Career</a></li>
-      <li><a href="contact.html">Contact</a></li>
+      <li><a href="./contact.html">Contact</a></li>
     </ul>
   </nav>
 
@@ -78,28 +81,27 @@
 </script>
 
     <!--* Section lead-->
-    <div class="container  bg-off-white">
-
-        <div class="row blog-list-hero">
-            <div class="image__frame col-8">
-                <img src="./images/blog-list-kingfisher.jfif" alt="">
+    <section class="blog-list-hero bg-off-white">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 col-md-9 col-xl-8">
+                <figure class="image__frame">
+                    <img src="./images/blog-list-kingfisher.jfif" alt="">
+                </figure>
             </div>
         </div>
-        <div class="row justify-content-end">
 
-            <div class="image__caption col-12 col-md-8">
-                <div class="row wrapper">
+        <div class="row justify-content-end">
+            <div class="col-12 col-md-8">
+                <div class="image__caption">
                     <div class="info-block info-block--hero">
     <div class="info-block__content">
-        <h1 class="h1 info-block__content__heading info-block__content__heading--lead">Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum.</h1>
-        <p class="body-xl">Ut posuere ullamcorper euismod. Donec a justo pulvinar diam dictum lobortis vulputate non nisi. Vestibulum pellentesque eget lorem ultrices lobortis.</p>
-
+        <h2 class="h2 info-block__content__heading info-block__content__heading--lead">Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum.</h2>
+        <p class="body-l"></p>
     </div>
 </div>
                 </div>
-
             </div>
-
         </div>
 
         <!-- *  info card  -->
@@ -110,22 +112,16 @@
                     <div class="mb-6">
                         <p class="body">Morbi pellentesque justo non magna iaculis efficitur in quis magna. Vivamus consectetur placerat iaculis. Aenean in orci et libero auctor elementum non in diam. Suspendisse vel urna luctus, tristique purus a, commodo metus. Nam commodo turpis eget magna placerat, quis molestie mauris volutpat</p>
                     </div>
-                    <a href="#" class="button ">Read more</a>
+                    <a href="#" class="button ">Read more <i class="icon-arrow-e"></i> </a>
                 </div>
             </div>
         </div>
+    </div>
+</section>
 
-
-
-
-
-</div>
-
-
+    <!-- * blog-list-main container for cards  -->
     <section class="blog-list">
     <div class="container">
-
-
         <div class="heading-wrapper">
             <h6>more blog notes</h6>
         </div>
@@ -134,19 +130,19 @@
             <p>Category:</p>
             <ul>
                 <li>
-                    <div onclick="openCity(event, 'news')" class="h6 blog-list-tab__item">news </a>
+                    <div onclick="openCity(event, 'news')" class="h6 blog-list-tab__item">news </div>
                 </li>
                 <li>
-                    <div onclick="openCity(event, 'travel')" class="h6 blog-list-tab__item">travel </a>
+                    <div onclick="openCity(event, 'travel')" class="h6 blog-list-tab__item">travel </div>
                 </li>
                 <li>
-                    <div onclick="openCity(event, 'blog')" class="h6 blog-list-tab__item">blogs </a>
+                    <div onclick="openCity(event, 'blog')" class="h6 blog-list-tab__item">blogs </div>
                 </li>
                 <li>
-                    <div onclick="openCity(event, 'facts')" class="h6 blog-list-tab__item">facts </a>
+                    <div onclick="openCity(event, 'facts')" class="h6 blog-list-tab__item">facts </div>
                 </li>
                 <li>
-                    <div onclick="openCity(event, 'global')" class="h6 blog-list-tab__item">global </a>
+                    <div onclick="openCity(event, 'global')" class="h6 blog-list-tab__item">global </div>
                 </li>
 
             </ul>
@@ -156,11 +152,11 @@
         <div class="blog-list-search">
 
             <form action="#" class="blog-list-search-form">
-                <div class="search-group">
+                <div class="search-group" onclick="">
                     <input type="search" id="blog-search" name="blog-search">
-                    <div class="search-icon">
+                    <button class="search-icon">
                         <img src="./images/search.svg" alt="" width="24" height="24">
-                    </div>
+                    </button>
 
                 </div>
 
@@ -188,10 +184,10 @@
 
             <!-- * fifth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-b.jfif" alt="">
             </figure>
@@ -204,10 +200,10 @@
 </div>
             <!-- * sixth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-f.jfif" alt="">
             </figure>
@@ -220,10 +216,10 @@
 </div>
             <!-- * fourth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-e.jfif" alt="">
             </figure>
@@ -237,10 +233,10 @@
 
             <!-- * third card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-c.jfif" alt="">
             </figure>
@@ -254,10 +250,10 @@
 
             <!-- * second card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-d.jfif" alt="">
             </figure>
@@ -271,10 +267,10 @@
 
             <!-- * first card   -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-a.jfif" alt="">
             </figure>
@@ -294,10 +290,10 @@
 
             <!-- * sixth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-f.jfif" alt="">
             </figure>
@@ -311,10 +307,10 @@
 
             <!-- * fifth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-b.jfif" alt="">
             </figure>
@@ -328,10 +324,10 @@
 
             <!-- * fourth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-e.jfif" alt="">
             </figure>
@@ -345,10 +341,10 @@
 
             <!-- * third card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-c.jfif" alt="">
             </figure>
@@ -362,10 +358,10 @@
 
             <!-- * second card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-d.jfif" alt="">
             </figure>
@@ -379,10 +375,10 @@
 
             <!-- * first card   -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-a.jfif" alt="">
             </figure>
@@ -400,10 +396,10 @@
 
             <!-- * fifth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-b.jfif" alt="">
             </figure>
@@ -416,10 +412,10 @@
 </div>
             <!-- * sixth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-f.jfif" alt="">
             </figure>
@@ -434,10 +430,10 @@
 
             <!-- * third card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-c.jfif" alt="">
             </figure>
@@ -451,10 +447,10 @@
 
             <!-- * fourth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-e.jfif" alt="">
             </figure>
@@ -468,10 +464,10 @@
 
             <!-- * first card   -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-a.jfif" alt="">
             </figure>
@@ -485,10 +481,10 @@
 
             <!-- * second card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-d.jfif" alt="">
             </figure>
@@ -506,10 +502,10 @@
         <div class="row blog-list-tab-content" id="facts">
             <!-- * sixth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-f.jfif" alt="">
             </figure>
@@ -523,10 +519,10 @@
 
             <!-- * fourth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-e.jfif" alt="">
             </figure>
@@ -539,10 +535,10 @@
 </div>
             <!-- * fifth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-b.jfif" alt="">
             </figure>
@@ -555,10 +551,10 @@
 </div>
             <!-- * third card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-c.jfif" alt="">
             </figure>
@@ -571,10 +567,10 @@
 </div>
             <!-- * first card   -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-a.jfif" alt="">
             </figure>
@@ -587,10 +583,10 @@
 </div>
             <!-- * second card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-d.jfif" alt="">
             </figure>
@@ -609,10 +605,10 @@
         <div class="row blog-list-tab-content active" id="global">
             <!-- * first card   -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-a.jfif" alt="">
             </figure>
@@ -626,10 +622,10 @@
 
             <!-- * sixth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-f.jfif" alt="">
             </figure>
@@ -643,10 +639,10 @@
 
             <!-- * fifth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-b.jfif" alt="">
             </figure>
@@ -660,10 +656,10 @@
 
             <!-- * fourth card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-e.jfif" alt="">
             </figure>
@@ -677,10 +673,10 @@
 
             <!-- * third card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-c.jfif" alt="">
             </figure>
@@ -694,10 +690,10 @@
 
             <!-- * second card  -->
             <!--* card must be inserted within a row  -->
-<div class="card-01  col-md-6 col-xl-4 mb-10 mb-md-20">
-    <article class="h-100 shadow-midnight bg-white">
-        <a href="./blog.html" class="blog-card pink-shadow d-block h-100">
-        <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
+<div class="card-01 col-md-6 col-xl-4 mb-10 mb-md-20">
+    <article class="h-100  bg-white shadow-moon">
+        <a href="./blog.html" class="blog-card d-block h-100">
+            <!-- <a href="#" class="blog-card pink-shadow d-block h-100"> -->
             <figure class="blog-card__image">
                 <img src="./images/blog-1-d.jfif" alt="">
             </figure>
@@ -766,13 +762,23 @@
     }
 </script>
 
-    <!--* include info-card within a container  -->
+    <!-- * blog-list-info-card section  -->
+    <section class="blog-list-info-card">
+    <div class="container">
+         <!--* include info-card within a container  -->
 
 <div class="info-card info-card--chalk  py-10 py-md-20">
     <h3>Proin pretium risus suscipit viverra mattis. Aliquam non nunc ligula.</h3>
     <p>Integer at neque ac metus fringilla dapibus et eu eros.</p>
     <a href="#" class=" article__cta button button--blue-white ">Go To Page <i class="icon-arrow-e"></i></a>
 </div>
+    </div>
+   
+</section>
+
+
+
+
 
 
 
@@ -782,7 +788,7 @@
         <div class="row">
             <div class="col">
                 <div class="logo">
-                    <img src="./images/logo-white.svg" alt="" width="400" height="200">
+                    <a href="./index.html"><img src="./images/logo-white.svg" alt="" width="400" height="200"></a>
                 </div>
             </div>
 

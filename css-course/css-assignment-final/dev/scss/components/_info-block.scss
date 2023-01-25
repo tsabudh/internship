@@ -7,12 +7,13 @@
     padding: 2.4rem;
     border-top: 8px solid $color-dark;
     @include media-breakpoint-up(md) {
-      margin-top: -4.5rem;
+      // margin-top: -4.5rem;
       padding: 4rem;
     }
     @include media-breakpoint-up(xl) {
       padding: 8rem;
-      margin-top: -11.7rem;
+      // margin-top: -20.4rem;
+      // margin-top: -11.7rem;
     }
   }
 

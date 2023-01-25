@@ -1,22 +1,23 @@
-<div class="container  bg-off-white">
-
-        <div class="row blog-list-hero">
-            <div class="image__frame col-8">
-                <img src="./images/blog-list-kingfisher.jfif" alt="">
+<section class="blog-list-hero bg-off-white">
+    <div class="container">
+        <div class="row ">
+            <div class="col-12 col-md-9 col-xl-8">
+                <figure class="image__frame">
+                    <img src="@@webRoot/images/blog-list-kingfisher.jfif" alt="">
+                </figure>
             </div>
         </div>
-        <div class="row justify-content-end">
 
-            <div class="image__caption col-12 col-md-8">
-                <div class="row wrapper">
+        <div class="row justify-content-end">
+            <div class="col-12 col-md-8">
+                <div class="image__caption">
                     @@include('./../components/hero-block.html',{
                     "modifier":"hero",
                     "heading":"Vivamus vitae finibus dolor. Suspendisse finibus ante in sapien fermentum.",
+                    "paragraph":""
                     })
                 </div>
-
             </div>
-
         </div>
 
         <!-- *  info card  -->
@@ -27,13 +28,9 @@
                     <div class="mb-6">
                         <p class="body">Morbi pellentesque justo non magna iaculis efficitur in quis magna. Vivamus consectetur placerat iaculis. Aenean in orci et libero auctor elementum non in diam. Suspendisse vel urna luctus, tristique purus a, commodo metus. Nam commodo turpis eget magna placerat, quis molestie mauris volutpat</p>
                     </div>
-                    <a href="#" class="button ">Read more</a>
+                    <a href="#" class="button ">Read more <i class="icon-arrow-e"></i> </a>
                 </div>
             </div>
         </div>
-
-
-
-
-
-</div>
+    </div>
+</section>
