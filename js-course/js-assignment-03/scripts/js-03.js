@@ -54,14 +54,33 @@ let currentImage = imageArray[Math.abs(currentImageIndex)];
 let indicatorCollection = document.getElementsByClassName("indicator");
 let indicatorArray = Array.from(indicatorCollection);
 
+highlightCurrentIndicator();
+
+// function for translating image wrapper
+function translateImageWrapper() {
+  imageWrapper.style.transform =
+    "translateX(-" +
+    calcWidthOf(currentImage) * Math.abs(currentImageIndex) +
+    "px)";
+}
+
+// function to add 'active-indicator' class to CURRENTIMAGEINDEX/ current indicator
+function highlightCurrentIndicator() {
+  indicatorArray.forEach((indicator) =>
+    indicator.classList.remove("active-indicator")
+  );
+  indicatorArray[currentImageIndex].classList.add("active-indicator");
+}
+
+// adding translations on indicator click
 for (let i = 0; i < indicatorArray.length; i++) {
   indicatorArray[i].addEventListener("click", () => {
     currentImageIndex = i;
 
-    imageWrapper.style.transform =
-      "translateX(-" +
-      calcWidthOf(currentImage) * Math.abs(currentImageIndex) +
-      "px)";
+    highlightCurrentIndicator();
+
+    // translating imagewrapper
+    translateImageWrapper();
   });
 }
 
@@ -76,14 +95,12 @@ nextButton.addEventListener("click", () => {
   if (currentImageIndex >= numberOfImages)
     currentImageIndex = currentImageIndex % numberOfImages;
 
+  highlightCurrentIndicator();
+
   // offset X coordinate with respect to currentImageIndex
-  console.log("translate next");
-  imageWrapper.style.transform =
-    "translateX(-" +
-    calcWidthOf(currentImage) * Math.abs(currentImageIndex) +
-    "px)";
+  translateImageWrapper();
 });
-console.log(currentImageIndex);
+
 //* PREV BUTTON EVENT
 prevButton.addEventListener("click", () => {
   // first change the currentImageIndex to previous index
@@ -91,6 +108,8 @@ prevButton.addEventListener("click", () => {
 
   // if decreased currentImageIndex becomes negative change currentImageIndex to last possible index
   if (currentImageIndex < 0) currentImageIndex = numberOfImages - 1;
+
+  highlightCurrentIndicator();
 
   // offset X coordinate with respect to currentImageIndex
   imageWrapper.style.transform =

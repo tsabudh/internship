@@ -47,7 +47,9 @@ img {
     bottom: 0;
     filter: drop-shadow(0 0 0.75rem crimson);
 }
-
+.active-indicator{
+  color:orangered;
+}
 .nav-button{
     padding: 2rem;
     background-color: brown;
