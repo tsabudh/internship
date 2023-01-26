@@ -91,15 +91,7 @@ img {
 .assignment-tab-content::-webkit-scrollbar-track { 
   background: #FFD4B2;
 }
-.assignment-tab-content--css{
-  /* background-color: rgb(145, 255, 0); */
-}
-.assignment-tab-content--html .assignment-item:nth-child(n+2){
- display: none;
-}
-.assignment-tab-content--js .assignment-item:nth-child(n+2){
-  display: none;
- }
+
 .assignment-item {
   width: 200px;
   /* height: 200px; */

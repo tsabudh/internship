@@ -1,8 +1,9 @@
-
+'use strict';
 //* CHANGE ASSIGNMENT NUMBERS FOR EACH NEW ASSIGNMENTS
-const cssAssignmentNumber = 18 ;
-const htmlAssignmentNumber = 1 ;
-const jsAssignmentNumber = 1 ;
+const cssAssignmentNumber = 18;
+const htmlAssignmentNumber = 1;
+const jsAssignmentNumber = 3;
+let courseItems = ["html", "css", "js"];
 
 const mainContainer = document.getElementsByClassName("main-container")[0];
 
@@ -71,7 +72,6 @@ createSiblingAfter(courseTab, {
 
 const assignmentTab = document.getElementsByClassName("assignment-tab")[0];
 
-let courseItems = ["html", "css", "js"];
 
 //* CREATING COURSE-ITEMS INSIDE COURSE-TAB
 for (let i = 0; i < courseItems.length; i++) {
@@ -105,15 +105,16 @@ for (let i = 0; i < courseItems.length; i++) {
 
   //* creating assignment-item inside each assignment-tab-content
   let numberOfAssignmentItems; 
-  if(courseItems[i] == 'html') numberOfAssignmentItems = htmlAssignmentNumber;
-  else if(courseItems[i] == 'css') numberOfAssignmentItems = cssAssignmentNumber;
-  else if(courseItems[i] == 'js') numberOfAssignmentItems = jsAssignmentNumber;
+  if (courseItems[i] == "html") numberOfAssignmentItems = htmlAssignmentNumber;
+  else if (courseItems[i] == "css")
+    numberOfAssignmentItems = cssAssignmentNumber;
+  else if (courseItems[i] == "js") numberOfAssignmentItems = jsAssignmentNumber;
 
   for (let j = 1; j <= numberOfAssignmentItems; j++) {
     createChildOf(assignmentTabContent, {
       tagName: "div",
       classes: `assignment-item assignment-item--${courseItems[i]}`,
-      onclick: `openAssignmentDetails('${courseItems[i]}${j}')`,
+      // onclick: `openAssignmentDetails('${courseItems[i]}${j}')`,
     });
 
     let assignmentItem = document.getElementsByClassName(
@@ -130,7 +131,9 @@ for (let i = 0; i < courseItems.length; i++) {
       tagName: "a",
       classes: "assignment-item_demo",
       text: "Demo",
-      href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j-1)}/`,
+      href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${
+        courseItems[i]
+      }-assignment-${makeIndexOf(j - 1)}/`,
       target: "_blank",
     });
     createChildOf(assignmentItem, {
@@ -138,49 +141,29 @@ for (let i = 0; i < courseItems.length; i++) {
       classes: "assignment-item_repo",
       text: "Repo",
       href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j-1)}`,
+      // href: repoRoute(courseItems[i], j - 1),
       target: "_blank",
     });
   }
 }
 
-//* CREATING TABS FOR DIFFERENT ASSIGNMENTS
+function repoRoute(courseName, assignmentNumber) {
+  console.log(
+    "coursename",
+    courseName,
+    "\n",
+    "assignmentnumber",
+    assignmentNumber
+  );
+  if (courseName == "js" && assignmentNumber == 1) {
+    return `https://github.com/tsabudh/internship`;
+  } else {
+    return `https://github.com/tsabudh/internship/tree/master/${courseName}-course/${courseName}-assignment-${makeIndexOf(
+      assignmentNumber
+    )}`;
+  }
+}
 
-
-//* LOOP FOR CREATING ASSIGNMENT CARDS FOR CSS
-
-//* CREATING ASSIGNMENT CARDS FOR EACH TAB
-// createChildOf(assignmentTabContent, {
-//   tagName: "div",
-//   classes: "assignment-item",
-//   onclick: "openAssignmentDetails('html1')",
-// });
-
-// const assignmentItem = document.getElementsByClassName("assignment-item")[0];
-
-// createChildOf(assignmentItem, {
-//   tagName: "div",
-//   classes: "assignment-item_number",
-//   text: "01",
-// });
-// createChildOf(assignmentItem, {
-//   tagName: "a",
-//   classes: "assignment-item_demo",
-//   text: "Demo",
-//   href: "https://tsabudh.github.io/internship/html-course/html-assignment-01/",
-//   target: "_blank",
-// });
-// createChildOf(assignmentItem, {
-//   tagName: "a",
-//   classes: "assignment-item_repo",
-//   text: "Demo",
-//   href: "https://github.com/tsabudh/internship/tree/master/html-course/html-assignment-01",
-//   target: "_blank",
-// });
-// createChildOf(assignmentItem, {
-//   tagName: "div",
-//   classes: "assignment-item_opendetails",
-//   text: "Details",
-// });
 
 //* CREATING DETAILS TAB
 createSiblingAfter(assignmentTab, {
@@ -258,6 +241,8 @@ function openAssignment(assignmentId) {
 
 function openAssignmentDetails(assignmentDetailsId) {
   let i, tabcontent, tablinks, neededContent;
+  debugger;
+
   tabcontent = document.getElementsByClassName("assignment-item-details");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].className = tabcontent[i].className.replace(" active", "");
@@ -272,6 +257,6 @@ function toggleProfile() {
   profile.classList.toggle("active-flex");
 }
 
-function makeIndexOf(number){
-  return (parseInt(number, 10) + 101).toString().substr(1)
+function makeIndexOf(number) {
+  return (parseInt(number, 10) + 101).toString().substr(1);
 }
