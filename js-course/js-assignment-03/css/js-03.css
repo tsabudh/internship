@@ -1,0 +1,56 @@
+html{
+  font-size: 10px;
+}
+body{
+  font-size: 1.6rem;
+}
+
+.carousel-container {
+  width: 80vw;
+  height: 30rem;
+  width: fit-content;
+  border:9px solid brown;
+  margin: 0 auto;
+  position: relative;
+overflow: hidden;
+}
+
+.carousel-image-wrapper {
+  width:400px;
+  height: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  /* white-space: nowrap; */
+
+transition: all 0.5s ease;
+
+}
+
+img {
+    flex-shrink: 0;
+  width:400px;
+  /* width: 100%; */
+  /* height: 100%; */
+  object-fit: cover;
+}
+
+.indicators{
+  width: 100%;
+    display: flex;
+    justify-content: center;
+    gap:3rem;
+    font-size: 80px;
+    font-weight: 800;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    filter: drop-shadow(0 0 0.75rem crimson);
+}
+
+.nav-button{
+    padding: 2rem;
+    background-color: brown;
+    max-width: 37.5rem;
+    margin: 0 auto;
+    text-align: center;
+}
