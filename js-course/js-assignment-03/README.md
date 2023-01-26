@@ -1,3 +1,3 @@
-Ctrl Click to open in new tab
+Link to demo 
 
 https://tsabudh.github.io/internship/js-course/js-assignment-03/
