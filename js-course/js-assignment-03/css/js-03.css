@@ -53,4 +53,5 @@ img {
     max-width: 37.5rem;
     margin: 0 auto;
     text-align: center;
+    cursor: pointer;
 }
