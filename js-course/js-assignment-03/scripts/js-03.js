@@ -8,13 +8,12 @@ const imageWrapper = document.getElementsByClassName(
 
 let imageCollection = imageWrapper.getElementsByTagName("img");
 let numberOfImages = imageCollection.length;
-console.log("num of images", numberOfImages);
-// console.log(imageCollection);
 let imageArray = Array.from(imageCollection);
+
 imageArray.map((item) => {
   let cssStyleObj = window.getComputedStyle(item);
   let imgWidth = cssStyleObj.getPropertyValue("width");
-  // console.log(imgWidth);
+
 });
 
 //* FUNCTION TO GET COMPUTED WIDTH OF AN ELEMENT
