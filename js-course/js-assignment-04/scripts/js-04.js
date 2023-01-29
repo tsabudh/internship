@@ -1,28 +1,39 @@
-"use strict";
+//* CURRENTLY WORKS ON MAXIMUM TWO BOXES
+//! CHECK LOOP CONDITIONS i<boxOrderX.length
+//* RECHECK SPEED CHANGE CONDITIONS
+//* CHECK ISSUE ON CALCULATION ON BASIS OF BOXORDERX OR BOXORDERY
 //* El is shorthand for ELEMENT
 
 // GLOBAL CONSTANTS
 const CONTAINER_HEIGHT = 500;
 const CONTAINER_WIDTH = 500;
 const NUMBER_OF_BOXES = 2;
-const BOX = { HEIGHT: 150, WIDTH: 150 };
+const BOX = { HEIGHT: 100, WIDTH: 100 };
+const SPEED = 1;
+const MAX_SPEED = 5;
+const SIGN = [-1, +1];
 
 // GLOBAL VARIABLES
 let containerEl;
-let boxCoordinates = {};
+let boxCoordinates = {}; // object to contain {box0:{xOffset, yOffset, width, height}, }
+let boxElementsArray = []; // array collection of box Element
+let boxOrderAtX = [];
+let boxOrderAtY = [];
+let xDifference = {};
+let yDifference = {};
 
-/**
- *
- * @param {*} boxEl is an HTML element
- * @param {x:Number, y:Number} boxCoordinates is  position and dimension of box
- */
-function spawnBoxes(boxEl, boxCoordinates) {
-  boxEl.textContent = "BOX ";
-  boxEl.style.marginLeft = Math.floor(Math.random() * ROOM_WIDTH) + "px";
-  boxCoordinates.x = boxEl.style.marginLeft.split("px")[0];
-  boxEl.style.marginTop = Math.floor(Math.random() * ROOM_HEIGHT) + "px";
-  boxCoordinates.y = boxEl.style.marginTop.split("px")[0];
-}
+/*
+boxCoordinates:{
+  box0:{
+  "xOffset": 202,
+  "yOffset": 79,
+  "width": 50,
+  "height": 50,
+  "directionX": -1,
+  "directionY": 1
+}}
+
+*/
 
 function initializeContainer() {
   containerEl = document.createElement("div");
@@ -31,47 +42,307 @@ function initializeContainer() {
   containerEl.style.height = CONTAINER_HEIGHT + "px";
   document.body.appendChild(containerEl);
 }
-function initializeBoxes() {
-  let direction = [1, -1];
 
-  for (let i = 0; i < NUMBER_OF_BOXES; i++) {
+function initializeBoxes() {
+  let directionX = 1;
+  let directionY = 1;
+  console.log("initializing boxes");
+  startIteration: for (let i = 0, j = 0; i < NUMBER_OF_BOXES; j++) {
+    let xOffset, yOffset, width, height, speedX, speedY;
+
+    //* Giving random speed to each boxes
+    speedX = Math.ceil(Math.random() * MAX_SPEED);
+    speedY = Math.ceil(Math.random() * MAX_SPEED);
+
+    //* Giving random xOffset and yOffset to box within the container boundaries
+    xOffset = Math.max(
+      Math.floor(Math.random() * CONTAINER_WIDTH - BOX.WIDTH),
+      0
+    );
+    yOffset = Math.max(
+      Math.floor(Math.random() * CONTAINER_HEIGHT - BOX.HEIGHT),
+      0
+    );
+    width = BOX.WIDTH;
+    height = BOX.HEIGHT;
+
+    console.log(`\nIn loop ${i}`); // loop number
+    xDifference[`box${i}`] = {}; //!important to initialize object
+    yDifference[`box${i}`] = {}; //!important to initialize object
+
+    //* START OF CHECK NEW BOX'S POSITION AGAINST EXISTING BOXES'
+    startDifferenceLoop: for (let d = 0; d < i; d++) {
+      let currentXDifference, currentYDifference;
+      let callDifferenceFunctionCount = 0;
+
+      function calcDifference(i, d) {
+        callDifferenceFunctionCount++;
+        currentXDifference = Math.abs(
+          //*     IDEA make current Difference at least box width
+          xOffset - boxCoordinates[`box${d}`].xOffset
+        );
+        currentYDifference = Math.abs(
+          //*     IDEA make current Difference at least box width
+          yOffset - boxCoordinates[`box${d}`].yOffset
+        );
+
+        if (
+          currentXDifference <= BOX.WIDTH &&
+          currentYDifference <= BOX.HEIGHT
+        ) {
+          xOffset = Math.max(
+            Math.floor(Math.random() * CONTAINER_WIDTH - BOX.WIDTH),
+            0
+          );
+          yOffset = Math.max(
+            Math.floor(Math.random() * CONTAINER_HEIGHT - BOX.HEIGHT),
+            0
+          );
+          d = 0;
+          return calcDifference(i, d); //! UNDERSTAND THE DIFFERENCES IN FUNCTION STACK WHEN RETURNING OR NOT
+        } else if (
+          currentXDifference > BOX.WIDTH ||
+          currentYDifference > boxCoordinates.WIDTH
+        ) {
+            return;
+        } else {
+          console.log("LOGIC ERROR: ELSE IF CONDITION ESCAPED");
+        }
+      }
+      calcDifference(i, d);
+      xDifference[`box${i}`][`differenceWithBox${d}`] = currentXDifference;
+      yDifference[`box${i}`][`differenceWithBox${d}`] = currentYDifference;
+    }
+
+    boxCoordinates[`box${i}`] = {
+      xOffset,
+      yOffset,
+      width,
+      height,
+      directionX,
+      directionY,
+      speedX,
+      speedY,
+    };
+
     let boxEl = document.createElement("div");
     boxEl.setAttribute("class", `box box-${i}`);
     containerEl.appendChild(boxEl);
     boxEl.textContent = `BOX-${i}`;
     setBoxStyles(boxEl);
 
-    let x, y, width, height;
-    x = Math.max(Math.floor(Math.random() * CONTAINER_WIDTH - BOX.WIDTH),0);
-    y = Math.max(Math.floor(Math.random() * CONTAINER_HEIGHT - BOX.HEIGHT),0);
-    width = BOX.WIDTH;
-    height = BOX.HEIGHT;
-    boxEl.style.marginLeft = x + 'px';
-    boxEl.style.marginTop = y + 'px';
-    boxEl.style.width = width + 'px';
-    boxEl.style.height = height+ 'px';
-    boxCoordinates[`box${i}`] = [x, y, width, height];
-
+    boxEl.style.marginLeft = xOffset + "px";
+    boxEl.style.marginTop = yOffset + "px";
+    boxEl.style.width = width + "px";
+    boxEl.style.height = height + "px";
+    i++;
   }
-  console.log();
-}
-
-function translateX(boxEl) {
-  if (boxEl.style.marginLeft.split("px")[0] >= CONTAINER_WIDTH - BOX.WIDTH) {
-    directionX = -1;
-  } else if (boxEl.style.marginLeft.split("px")[0] <= 0) {
-    directionX = 1;
-  }
-
-  //  boxObj.marginLeftOfBox = box.style.marginLeft.split("px")[0];
-  boxObj.marginLeftOfBox = boxObj.marginLeftOfBox + incrementX * directionX;
-  box.style.marginLeft = boxObj.marginLeftOfBox + "px";
 }
 
 function setBoxStyles(boxEl) {
-  boxEl.style.width = BOX.width + "px";
-  boxEl.style.height = BOX.height + "px";
+  boxEl.style.width = BOX.WIDTH + "px";
+  boxEl.style.height = BOX.HEIGHT + "px";
+}
+
+function calcBoxOrderAtX() {
+  // console.log(boxCoordinates, "box coordinates");
+  boxOrderAtX = Object.getOwnPropertyNames(boxCoordinates);
+
+  for (let i = 0; i < boxOrderAtX.length; i++) {
+    // console.log(`box${i} x offset`, boxCoordinates[`box${i}`].xOffset);
+  }
+  boxOrderAtX.sort(() => {
+    for (let i = 0; i < boxOrderAtX.length - 1; i++) {
+      if (
+        boxCoordinates[`box${i}`].xOffset >
+        boxCoordinates[`box${i + 1}`].xOffset
+      ) {
+        return -1;
+      }
+    }
+  });
+  // console.log("box order at X", boxOrderAtX);
+}
+
+function calcBoxOrderAtY() {
+  boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
+
+  boxOrderAtY.sort(() => {
+    for (let i = 0; i < boxOrderAtY.length - 1; i++) {
+      if (
+        boxCoordinates[`box${i}`].yOffset >
+        boxCoordinates[`box${i + 1}`].yOffset
+      ) {
+        return -1;
+      }
+    }
+  });
+  // console.log("box order at Y", boxOrderAtY);
+}
+
+function translateX() {
+  let i = 0;
+  for (let box in boxCoordinates) {
+    boxCoordinates[box].xOffset =
+      boxCoordinates[box].xOffset +
+      boxCoordinates[box].speedX * boxCoordinates[box].directionX;
+    if (
+      boxCoordinates[box].xOffset + BOX.WIDTH >= CONTAINER_WIDTH ||
+      boxCoordinates[box].xOffset <= 0
+    ) {
+      // boxCoordinates[box].directionX = -1;
+      boxCoordinates[box].directionX = boxCoordinates[box].directionX * -1;
+    }
+    document.getElementsByClassName("box")[i].style.marginLeft =
+      boxCoordinates[box].xOffset + "px";
+    i++;
+  }
+}
+function translateY() {
+  let i = 0;
+  for (let box in boxCoordinates) {
+    boxCoordinates[box].yOffset =
+      boxCoordinates[box].yOffset +
+      boxCoordinates[box].speedY * boxCoordinates[box].directionY;
+    if (
+      boxCoordinates[box].yOffset + BOX.HEIGHT >= CONTAINER_HEIGHT ||
+      boxCoordinates[box].yOffset <= 0
+    ) {
+      // boxCoordinates[box].directionX = -1;
+      boxCoordinates[box].directionY = boxCoordinates[box].directionY * -1;
+    }
+    document.getElementsByClassName("box")[i].style.marginTop =
+      boxCoordinates[box].yOffset + "px";
+    i++;
+  }
+}
+
+let checkedOnce = false;
+let changedDir = false;
+let checkedOverlapOnX = false;
+let checkedOverlapOnY = false;
+let checkedCollision = false;
+let boxCollidedAt = "";
+function collideBoxes() {
+  //* depends on value from calcBoxOrderX, calcBoxOrderY
+  for (let i = 0; i < boxOrderAtX.length - 1; i++) {
+    //*take length from boxOrderAtX or boxOrderAtY
+    // console.log(boxCoordinates[`${boxOrderAtX[i]}`].xOffset);
+    let boxSeparatedAfterTouching;
+    console.log("THE LOOP FOR EACH BOX", i);
+
+    let boxOverlappedOnX =
+      Math.abs(
+        boxCoordinates[`${boxOrderAtX[i + 1]}`].xOffset -
+          boxCoordinates[`${boxOrderAtX[i]}`].xOffset
+      ) < boxCoordinates[`${boxOrderAtX[i]}`].width;
+
+    let boxOverlappedOnY =
+      Math.abs(
+        boxCoordinates[`${boxOrderAtY[i + 1]}`].yOffset -
+          boxCoordinates[`${boxOrderAtY[i]}`].yOffset
+      ) < boxCoordinates[`${boxOrderAtY[i]}`].height;
+
+    let areBoxOverlapped = boxOverlappedOnX && boxOverlappedOnY;
+    // console.log(areBoxOverlapped);
+    let boxDirectionXSame =
+      boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX ==
+      boxCoordinates[`${boxOrderAtX[i]}`].directionX
+        ? true
+        : false;
+
+    let boxDirectionYSame =
+      boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY ==
+      boxCoordinates[`${boxOrderAtY[i]}`].directionY
+        ? true
+        : false;
+
+    if (checkedCollision == false) {
+      if (boxOverlappedOnX == true && boxOverlappedOnY == false) {
+        boxCollidedAt = "Y";
+        // console.log("POSSIBILITY OF COLLIDING ON Y");
+        console.log(boxCollidedAt);
+      } else if (boxOverlappedOnY == true && boxOverlappedOnX == false) {
+        boxCollidedAt = "X";
+        console.log(boxCollidedAt);
+
+        // console.log("POSSIBILITY OF COLLIDING ON X");
+      }
+    }
+    if (areBoxOverlapped == true && changedDir == false) {
+      checkedCollision == true;
+      //  LOGIC TO DECIDE COLLISION DIRECTION
+      //*BOX COLLISION ON X
+      if (boxCollidedAt == "X" && !boxDirectionXSame) {
+        // change direction
+        boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX *= -1;
+        boxCoordinates[`${boxOrderAtX[i]}`].directionX *= -1;
+
+        //change speed
+        let tempSpeed = boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX;
+        boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX =
+          boxCoordinates[`${boxOrderAtX[i]}`].speedX;
+        boxCoordinates[`${boxOrderAtX[i]}`].speedX = tempSpeed;
+      } else if (boxCollidedAt == "X" && boxDirectionXSame) {
+        // change speedX only
+        let tempSpeed = boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX;
+        boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX =
+          boxCoordinates[`${boxOrderAtX[i]}`].speedX;
+        boxCoordinates[`${boxOrderAtX[i]}`].speedX = tempSpeed;
+      } else if (boxCollidedAt == "X" && !boxDirectionYSame) {
+        //change directionX
+        boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX *= -1;
+        boxCoordinates[`${boxOrderAtX[i]}`].directionX *= -1;
+      } else if (boxCollidedAt == "X" && boxDirectionYSame) {
+        //change directionX
+        boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX *= -1;
+        boxCoordinates[`${boxOrderAtX[i]}`].directionX *= -1;
+      }
+
+      //* BOX COLLISION ON Y
+      if (boxCollidedAt == "Y" && !boxDirectionYSame) {
+        // change directionY
+        boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
+        boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
+
+        //change speedY
+        let tempSpeed = boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY;
+        boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY =
+          boxCoordinates[`${boxOrderAtY[i]}`].speedY;
+        boxCoordinates[`${boxOrderAtY[i]}`].speedY = tempSpeed;
+      } else if (boxCollidedAt == "Y" && boxDirectionYSame) {
+        // change speedY only
+        let tempSpeed = boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY;
+        boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY =
+          boxCoordinates[`${boxOrderAtY[i]}`].speedY;
+        boxCoordinates[`${boxOrderAtY[i]}`].speedY = tempSpeed;
+      } else if (boxCollidedAt == "Y" && boxDirectionXSame) {
+        // change directionY
+        boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
+        boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
+      } else if (boxCollidedAt == "Y" && !boxDirectionXSame) {
+        // change directionY
+        boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
+        boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
+      }
+
+      changedDir = true;
+    }
+    if (areBoxOverlapped == false) changedDir = false;
+    // console.log("changed direction?", changedDir);
+    checkedCollision = false;
+
+  }
 }
 
 initializeContainer();
 initializeBoxes();
+
+//! IMPORTANT The order should be calculated first and at lowest interval
+setInterval(calcBoxOrderAtX, 10);
+setInterval(calcBoxOrderAtY, 10);
+
+setInterval(translateX, 20);
+setInterval(translateY, 20);
+
+setInterval(collideBoxes, 10);

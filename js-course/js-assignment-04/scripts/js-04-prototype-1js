@@ -126,6 +126,7 @@ function findTopMostBox(box1, box2) {
   }
 })();
 
+
 function translateBoxInXAxis(box, boxObj) {
   if (box.style.marginLeft.split("px")[0] >= ROOM_WIDTH - BOX.width) {
     directionX = -1;
@@ -141,7 +142,7 @@ function translateBoxInXAxis(box, boxObj) {
 function translateBoxInYAxis(box, boxObj) {
   // console.log(box.style.marginTop, 'vertical');
   if (box.style.marginTop.split("px")[0] >= ROOM_WIDTH - BOX.width) {
-    //marginTop comapre till 500
+    //marginTop compare till 500
     directionY = -1;
   } else if (box.style.marginTop.split("px")[0] <= 0) {
     directionY = 1;
