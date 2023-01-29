@@ -2,7 +2,7 @@
 //* CHANGE ASSIGNMENT NUMBERS FOR EACH NEW ASSIGNMENTS
 const cssAssignmentNumber = 18;
 const htmlAssignmentNumber = 1;
-const jsAssignmentNumber = 3;
+const jsAssignmentNumber = 4;
 let courseItems = ["html", "css", "js"];
 
 const mainContainer = document.getElementsByClassName("main-container")[0];
