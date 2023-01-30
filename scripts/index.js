@@ -1,6 +1,6 @@
-'use strict';
+"use strict";
 //* CHANGE ASSIGNMENT NUMBERS FOR EACH NEW ASSIGNMENTS
-const cssAssignmentNumber = 18;
+const cssAssignmentNumber = 19;
 const htmlAssignmentNumber = 1;
 const jsAssignmentNumber = 4;
 let courseItems = ["html", "css", "js"];
@@ -72,7 +72,6 @@ createSiblingAfter(courseTab, {
 
 const assignmentTab = document.getElementsByClassName("assignment-tab")[0];
 
-
 //* CREATING COURSE-ITEMS INSIDE COURSE-TAB
 for (let i = 0; i < courseItems.length; i++) {
   //i for course tab
@@ -91,7 +90,7 @@ for (let i = 0; i < courseItems.length; i++) {
     text: `${courseItems[i]}`,
   });
 
-  //* creating assignmen-tab-content for each courseItems
+  //* creating assignment-tab-content for each courseItems
   createChildOf(assignmentTab, {
     tagName: "div",
     classes: `assignment-tab-content assignment-tab-content--${courseItems[i]}`,
@@ -104,7 +103,7 @@ for (let i = 0; i < courseItems.length; i++) {
   )[i];
 
   //* creating assignment-item inside each assignment-tab-content
-  let numberOfAssignmentItems; 
+  let numberOfAssignmentItems;
   if (courseItems[i] == "html") numberOfAssignmentItems = htmlAssignmentNumber;
   else if (courseItems[i] == "css")
     numberOfAssignmentItems = cssAssignmentNumber;
@@ -140,8 +139,8 @@ for (let i = 0; i < courseItems.length; i++) {
       tagName: "a",
       classes: "assignment-item_repo",
       text: "Repo",
-      href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j-1)}`,
-      // href: repoRoute(courseItems[i], j - 1),
+      // href: `https://github.com/tsabudh/internship/tree/master/${courseItems[i]}-course/${courseItems[i]}-assignment-${makeIndexOf(j-1)}`,
+      href: repoRoute(courseItems[i], j - 1),
       target: "_blank",
     });
   }
@@ -155,7 +154,8 @@ function repoRoute(courseName, assignmentNumber) {
     "assignmentnumber",
     assignmentNumber
   );
-  if (courseName == "js" && assignmentNumber == 1) {
+  if (courseName == "js" && assignmentNumber == "0") {
+    console.log("gotcha");
     return `https://github.com/tsabudh/internship`;
   } else {
     return `https://github.com/tsabudh/internship/tree/master/${courseName}-course/${courseName}-assignment-${makeIndexOf(
@@ -163,7 +163,6 @@ function repoRoute(courseName, assignmentNumber) {
     )}`;
   }
 }
-
 
 //* CREATING DETAILS TAB
 createSiblingAfter(assignmentTab, {
