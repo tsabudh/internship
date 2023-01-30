@@ -9,7 +9,7 @@ body {
   width: 50rem;
   border: 2px solid black;
   position: relative;
-  /* margin: 0 auto; */
+  margin: 0 auto;
   margin-top: 10vh;
 }
 
@@ -17,7 +17,7 @@ body {
   box-sizing: border-box;
   display: inline-block;
   position: absolute;
-  border: 2px solid red;
+  /* border: 2px solid red; */
 }
 .box-0 {
   background-color: rgba(211, 12, 12, 0.562);
@@ -26,4 +26,11 @@ body {
 .box-1 {
   background-color: rgba(226, 19, 181, 0.699);
   
+}
+.box-2{
+  background-color: rgb(145, 224, 224);
+}
+.box-3{
+  background-color: rgb(145, 224, 145);
+
 }

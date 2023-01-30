@@ -99,7 +99,7 @@ function initializeBoxes() {
             0
           );
           d = 0;
-          return calcDifference(i, d); //! UNDERSTAND THE DIFFERENCES IN FUNCTION STACK WHEN RETURNING OR NOT
+          return calcDifference(i, d); 
         } else if (
           currentXDifference > BOX.WIDTH ||
           currentYDifference > boxCoordinates.WIDTH
@@ -128,7 +128,7 @@ function initializeBoxes() {
     let boxEl = document.createElement("div");
     boxEl.setAttribute("class", `box box-${i}`);
     containerEl.appendChild(boxEl);
-    boxEl.textContent = `BOX-${i}`;
+    // boxEl.textContent = `BOX-${i}`; //commented out text for good visuals
     setBoxStyles(boxEl);
 
     boxEl.style.marginLeft = xOffset + "px";
@@ -148,9 +148,7 @@ function calcBoxOrderAtX() {
   // console.log(boxCoordinates, "box coordinates");
   boxOrderAtX = Object.getOwnPropertyNames(boxCoordinates);
 
-  for (let i = 0; i < boxOrderAtX.length; i++) {
-    // console.log(`box${i} x offset`, boxCoordinates[`box${i}`].xOffset);
-  }
+
   boxOrderAtX.sort(() => {
     for (let i = 0; i < boxOrderAtX.length - 1; i++) {
       if (
@@ -161,7 +159,7 @@ function calcBoxOrderAtX() {
       }
     }
   });
-  // console.log("box order at X", boxOrderAtX);
+
 }
 
 function calcBoxOrderAtY() {
@@ -177,7 +175,7 @@ function calcBoxOrderAtY() {
       }
     }
   });
-  // console.log("box order at Y", boxOrderAtY);
+ 
 }
 
 function translateX() {
@@ -190,7 +188,7 @@ function translateX() {
       boxCoordinates[box].xOffset + BOX.WIDTH >= CONTAINER_WIDTH ||
       boxCoordinates[box].xOffset <= 0
     ) {
-      // boxCoordinates[box].directionX = -1;
+    
       boxCoordinates[box].directionX = boxCoordinates[box].directionX * -1;
     }
     document.getElementsByClassName("box")[i].style.marginLeft =
@@ -208,7 +206,7 @@ function translateY() {
       boxCoordinates[box].yOffset + BOX.HEIGHT >= CONTAINER_HEIGHT ||
       boxCoordinates[box].yOffset <= 0
     ) {
-      // boxCoordinates[box].directionX = -1;
+     
       boxCoordinates[box].directionY = boxCoordinates[box].directionY * -1;
     }
     document.getElementsByClassName("box")[i].style.marginTop =
@@ -226,11 +224,6 @@ let boxCollidedAt = "";
 function collideBoxes() {
   //* depends on value from calcBoxOrderX, calcBoxOrderY
   for (let i = 0; i < boxOrderAtX.length - 1; i++) {
-    //*take length from boxOrderAtX or boxOrderAtY
-    // console.log(boxCoordinates[`${boxOrderAtX[i]}`].xOffset);
-    let boxSeparatedAfterTouching;
-    console.log("THE LOOP FOR EACH BOX", i);
-
     let boxOverlappedOnX =
       Math.abs(
         boxCoordinates[`${boxOrderAtX[i + 1]}`].xOffset -
@@ -260,13 +253,8 @@ function collideBoxes() {
     if (checkedCollision == false) {
       if (boxOverlappedOnX == true && boxOverlappedOnY == false) {
         boxCollidedAt = "Y";
-        // console.log("POSSIBILITY OF COLLIDING ON Y");
-        console.log(boxCollidedAt);
       } else if (boxOverlappedOnY == true && boxOverlappedOnX == false) {
-        boxCollidedAt = "X";
-        console.log(boxCollidedAt);
-
-        // console.log("POSSIBILITY OF COLLIDING ON X");
+        boxCollidedAt = "X";      
       }
     }
     if (areBoxOverlapped == true && changedDir == false) {
@@ -325,11 +313,9 @@ function collideBoxes() {
         boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
         boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
       }
-
       changedDir = true;
     }
     if (areBoxOverlapped == false) changedDir = false;
-    // console.log("changed direction?", changedDir);
     checkedCollision = false;
 
   }
@@ -338,11 +324,11 @@ function collideBoxes() {
 initializeContainer();
 initializeBoxes();
 
-//! IMPORTANT The order should be calculated first and at lowest interval
+//! IMPORTANT The function calcBoxOrderAtX, calcBoxOrderAtY should be calculated before other and at lowest intervals.
 setInterval(calcBoxOrderAtX, 10);
 setInterval(calcBoxOrderAtY, 10);
 
 setInterval(translateX, 20);
 setInterval(translateY, 20);
 
-setInterval(collideBoxes, 10);
+setInterval(collideBoxes, 30);
