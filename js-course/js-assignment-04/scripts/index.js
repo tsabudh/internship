@@ -99,12 +99,12 @@ function initializeBoxes() {
             0
           );
           d = 0;
-          return calcDifference(i, d); 
+          return calcDifference(i, d);
         } else if (
           currentXDifference > BOX.WIDTH ||
           currentYDifference > boxCoordinates.WIDTH
         ) {
-            return;
+          return;
         } else {
           console.log("LOGIC ERROR: ELSE IF CONDITION ESCAPED");
         }
@@ -128,16 +128,19 @@ function initializeBoxes() {
     let boxEl = document.createElement("div");
     boxEl.setAttribute("class", `box box-${i}`);
     containerEl.appendChild(boxEl);
-    // boxEl.textContent = `BOX-${i}`; //commented out text for good visuals
+    boxEl.textContent = `BOX-${i}`; //commented out text for good visuals
     setBoxStyles(boxEl);
 
     boxEl.style.marginLeft = xOffset + "px";
     boxEl.style.marginTop = yOffset + "px";
     boxEl.style.width = width + "px";
     boxEl.style.height = height + "px";
+
     i++;
   }
+  boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
 }
+boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
 
 function setBoxStyles(boxEl) {
   boxEl.style.width = BOX.WIDTH + "px";
@@ -145,37 +148,15 @@ function setBoxStyles(boxEl) {
 }
 
 function calcBoxOrderAtX() {
-  // console.log(boxCoordinates, "box coordinates");
-  boxOrderAtX = Object.getOwnPropertyNames(boxCoordinates);
-
-
-  boxOrderAtX.sort(() => {
-    for (let i = 0; i < boxOrderAtX.length - 1; i++) {
-      if (
-        boxCoordinates[`box${i}`].xOffset >
-        boxCoordinates[`box${i + 1}`].xOffset
-      ) {
-        return -1;
-      }
-    }
+  boxOrderAtX.sort((a, b) => {
+    return boxCoordinates[`${a}`].xOffset - boxCoordinates[`${b}`].xOffset;
   });
-
 }
 
 function calcBoxOrderAtY() {
-  boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
-
-  boxOrderAtY.sort(() => {
-    for (let i = 0; i < boxOrderAtY.length - 1; i++) {
-      if (
-        boxCoordinates[`box${i}`].yOffset >
-        boxCoordinates[`box${i + 1}`].yOffset
-      ) {
-        return -1;
-      }
-    }
+  boxOrderAtY.sort((a, b) => {
+    return boxCoordinates[`${a}`].yOffset - boxCoordinates[`${b}`].yOffset;
   });
- 
 }
 
 function translateX() {
@@ -188,7 +169,6 @@ function translateX() {
       boxCoordinates[box].xOffset + BOX.WIDTH >= CONTAINER_WIDTH ||
       boxCoordinates[box].xOffset <= 0
     ) {
-    
       boxCoordinates[box].directionX = boxCoordinates[box].directionX * -1;
     }
     document.getElementsByClassName("box")[i].style.marginLeft =
@@ -206,7 +186,6 @@ function translateY() {
       boxCoordinates[box].yOffset + BOX.HEIGHT >= CONTAINER_HEIGHT ||
       boxCoordinates[box].yOffset <= 0
     ) {
-     
       boxCoordinates[box].directionY = boxCoordinates[box].directionY * -1;
     }
     document.getElementsByClassName("box")[i].style.marginTop =
@@ -215,14 +194,20 @@ function translateY() {
   }
 }
 
+// variables for collideBoxes
 let checkedOnce = false;
 let changedDir = false;
 let checkedOverlapOnX = false;
 let checkedOverlapOnY = false;
 let checkedCollision = false;
 let boxCollidedAt = "";
+//!-----------------------------------------------------------------------------------------------------------------------
 function collideBoxes() {
+  debugger;
+
   //* depends on value from calcBoxOrderX, calcBoxOrderY
+
+
   for (let i = 0; i < boxOrderAtX.length - 1; i++) {
     let boxOverlappedOnX =
       Math.abs(
@@ -254,12 +239,12 @@ function collideBoxes() {
       if (boxOverlappedOnX == true && boxOverlappedOnY == false) {
         boxCollidedAt = "Y";
       } else if (boxOverlappedOnY == true && boxOverlappedOnX == false) {
-        boxCollidedAt = "X";      
+        boxCollidedAt = "X";
       }
     }
     if (areBoxOverlapped == true && changedDir == false) {
       checkedCollision == true;
-      //  LOGIC TO DECIDE COLLISION DIRECTION
+
       //*BOX COLLISION ON X
       if (boxCollidedAt == "X" && !boxDirectionXSame) {
         // change direction
@@ -317,18 +302,23 @@ function collideBoxes() {
     }
     if (areBoxOverlapped == false) changedDir = false;
     checkedCollision = false;
-
   }
-}
 
+}
 initializeContainer();
 initializeBoxes();
 
 //! IMPORTANT The function calcBoxOrderAtX, calcBoxOrderAtY should be calculated before other and at lowest intervals.
-setInterval(calcBoxOrderAtX, 10);
-setInterval(calcBoxOrderAtY, 10);
+// setInterval(calcBoxOrderAtX, 10);
+// setInterval(calcBoxOrderAtY, 10);
 
-setInterval(translateX, 20);
-setInterval(translateY, 20);
+// setInterval(translateX, 20);
+// setInterval(translateY, 20);
 
-setInterval(collideBoxes, 30);
+setInterval(() => {
+  calcBoxOrderAtY();
+  calcBoxOrderAtX();
+  translateX();
+  translateY();
+  collideBoxes();
+}, 50);
