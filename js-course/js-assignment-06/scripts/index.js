@@ -13,6 +13,13 @@ const GAME_LEVEL = 1;
 let obstacles = [];
 let gameStatus = "PLAYING";
 // let gameStatus = "NOT_STARTED";
+let carImage = new Image();
+carImage.src ="./assets/mycar1.png";
+// const canvas = document.getElementById('canvas'); 
+// const context = canvas.getContext('2d'); 
+// const img = new Image();
+// img.src = './cat.jpg'; 
+// img.onload = () => {context.drawImage(img, 0, 0);};
 
 // function to create elements
 function createElement(tagName, className, parentQuery) {
@@ -104,10 +111,11 @@ function main() {
     width: 200,
     height: 100,
   };
-
+  
   let canvas = document.getElementsByClassName("canvas")[0];
   let ctx = canvas.getContext("2d");
-
+  
+  // carImage.onload = () => {ctx.drawImage(carImage, 0, 0);};
   // gameStatus = "GAME_OVER";
   setInterval(() => {
     if (gameStatus == "GAME_NOT_STARTED") {
@@ -165,6 +173,7 @@ function main() {
       ctx.rect(LANE_SIZE * myCar.lane, myCar.distanceFromTop, LANE_SIZE, 100);
       // ctx.rect(CANVAS_WIDTH - LANE_SIZE, CANVAS_HEIGHT - CAR_LENGTH , LANE_SIZE, CAR_LENGTH);
       ctx.stroke();
+      ctx.drawImage(carImage,LANE_SIZE * myCar.lane, myCar.distanceFromTop,);
 
       // check for collision
       obstacles.forEach((obstacle) => {
