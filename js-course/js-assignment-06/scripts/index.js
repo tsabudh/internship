@@ -8,13 +8,14 @@ const LANE_SIZE = 100;
 const CAR_LENGTH = 140;
 const OBSTACLE_SPEED = 10;
 const GAME_LEVEL = 1;
+const FONT_SIZE = 30;
 
 // global variables
 let obstacles = [];
 let gameStatus = "PLAYING";
 // let gameStatus = "NOT_STARTED";
 let carImage = new Image();
-carImage.src ="./assets/mycar1.png";
+carImage.src = "./assets/mycar1.png";
 
 let obstacle1Image = new Image();
 obstacle1Image.src = "./assets/obstacle1.png";
@@ -31,10 +32,10 @@ obstacle4Image.src = "./assets/obstacle4.png";
 let obstacle5Image = new Image();
 obstacle5Image.src = "./assets/obstacle5.png";
 
-// const canvas = document.getElementById('canvas'); 
-// const context = canvas.getContext('2d'); 
+// const canvas = document.getElementById('canvas');
+// const context = canvas.getContext('2d');
 // const img = new Image();
-// img.src = './cat.jpg'; 
+// img.src = './cat.jpg';
 // img.onload = () => {context.drawImage(img, 0, 0);};
 
 // function to create elements
@@ -127,10 +128,10 @@ function main() {
     width: 200,
     height: 100,
   };
-  
+
   let canvas = document.getElementsByClassName("canvas")[0];
   let ctx = canvas.getContext("2d");
-  
+
   // carImage.onload = () => {ctx.drawImage(carImage, 0, 0);};
   // gameStatus = "GAME_OVER";
   setInterval(() => {
@@ -187,8 +188,14 @@ function main() {
       ctx.lineWidth = "6";
       ctx.strokeStyle = "red";
       ctx.rect(LANE_SIZE * myCar.lane, myCar.distanceFromTop, LANE_SIZE, 100);
-      
-      ctx.drawImage(carImage,LANE_SIZE * myCar.lane, myCar.distanceFromTop,LANE_SIZE,CAR_LENGTH);
+
+      ctx.drawImage(
+        carImage,
+        LANE_SIZE * myCar.lane,
+        myCar.distanceFromTop,
+        LANE_SIZE,
+        CAR_LENGTH
+      );
 
       // check for collision
       obstacles.forEach((obstacle) => {
@@ -207,40 +214,71 @@ function main() {
       ctx.lineWidth = "6";
       ctx.strokeStyle = "black";
 
-      ctx.drawImage(obstacle1Image,LANE_SIZE * obstacle1.lane, obstacle1.distanceFromTop,LANE_SIZE,obstacle1.length);
-
+      ctx.drawImage(
+        obstacle1Image,
+        LANE_SIZE * obstacle1.lane,
+        obstacle1.distanceFromTop,
+        LANE_SIZE,
+        obstacle1.length
+      );
 
       //* obstacle 2
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "green";
 
-      ctx.drawImage(obstacle2Image,LANE_SIZE * obstacle2.lane, obstacle2.distanceFromTop,LANE_SIZE,obstacle2.length);
-
+      ctx.drawImage(
+        obstacle2Image,
+        LANE_SIZE * obstacle2.lane,
+        obstacle2.distanceFromTop,
+        LANE_SIZE,
+        obstacle2.length
+      );
 
       //* obstacle 3
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "orangered";
- 
-      ctx.drawImage(obstacle3Image,LANE_SIZE * obstacle3.lane, obstacle3.distanceFromTop,LANE_SIZE,obstacle3.length);
 
+      ctx.drawImage(
+        obstacle3Image,
+        LANE_SIZE * obstacle3.lane,
+        obstacle3.distanceFromTop,
+        LANE_SIZE,
+        obstacle3.length
+      );
 
       //* obstacle 4
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "blue";
- 
-      ctx.drawImage(obstacle4Image,LANE_SIZE * obstacle4.lane, obstacle4.distanceFromTop,LANE_SIZE,obstacle4.length);
 
+      ctx.drawImage(
+        obstacle4Image,
+        LANE_SIZE * obstacle4.lane,
+        obstacle4.distanceFromTop,
+        LANE_SIZE,
+        obstacle4.length
+      );
 
       //* obstacle 5
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "cyan";
-  
-      ctx.drawImage(obstacle5Image,LANE_SIZE * obstacle5.lane, obstacle5.distanceFromTop,LANE_SIZE,obstacle5.length);
 
+      ctx.drawImage(
+        obstacle5Image,
+        LANE_SIZE * obstacle5.lane,
+        obstacle5.distanceFromTop,
+        LANE_SIZE,
+        obstacle5.length
+      );
+
+      //* display score live
+      ctx.beginPath;
+      ctx.moveTo(CANVAS_WIDTH / 2, 0);
+      ctx.textAlign = "center";
+      ctx.fillText(Math.floor(myScore), CANVAS_WIDTH / 2, FONT_SIZE);
     }
     if (gameStatus == "GAME_OVER") {
       myScore = Math.floor(myScore);
@@ -251,7 +289,7 @@ function main() {
       ctx.beginPath;
       ctx.moveTo(CANVAS_WIDTH / 2, 0);
       ctx.lineTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-      ctx.font = "30px Arial";
+      ctx.font = `${FONT_SIZE}px Arial`;
       ctx.textAlign = "center";
       ctx.fillText("GAME OVER", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
       ctx.beginPath();
