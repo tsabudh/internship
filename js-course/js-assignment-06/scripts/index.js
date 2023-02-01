@@ -13,6 +13,7 @@ const FONT_SIZE = 30;
 // global variables
 let obstacles = [];
 let gameStatus = "PLAYING";
+let HIGH_SCORE = 0;
 // let gameStatus = "NOT_STARTED";
 let carImage = new Image();
 carImage.src = "./assets/mycar1.png";
@@ -274,14 +275,24 @@ function main() {
         obstacle5.length
       );
 
+      //* display high score
+      ctx.beginPath;
+      ctx.moveTo(0, 0);
+      ctx.font = `${Math.min(FONT_SIZE, 10)}px Arial`;
+      ctx.textAlign = "left";
+      ctx.fillText(`High Score:${Math.floor(HIGH_SCORE)}`, 0, FONT_SIZE);
+
       //* display score live
       ctx.beginPath;
       ctx.moveTo(CANVAS_WIDTH / 2, 0);
+      ctx.font = `${FONT_SIZE}px Arial`;
+
       ctx.textAlign = "center";
       ctx.fillText(Math.floor(myScore), CANVAS_WIDTH / 2, FONT_SIZE);
     }
     if (gameStatus == "GAME_OVER") {
       myScore = Math.floor(myScore);
+      if (myScore > HIGH_SCORE) HIGH_SCORE = myScore;
       //clear canvas
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
