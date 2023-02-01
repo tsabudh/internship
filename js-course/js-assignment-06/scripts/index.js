@@ -15,6 +15,22 @@ let gameStatus = "PLAYING";
 // let gameStatus = "NOT_STARTED";
 let carImage = new Image();
 carImage.src ="./assets/mycar1.png";
+
+let obstacle1Image = new Image();
+obstacle1Image.src = "./assets/obstacle1.png";
+
+let obstacle2Image = new Image();
+obstacle2Image.src = "./assets/obstacle2.png";
+
+let obstacle3Image = new Image();
+obstacle3Image.src = "./assets/obstacle3.png";
+
+let obstacle4Image = new Image();
+obstacle4Image.src = "./assets/obstacle4.png";
+
+let obstacle5Image = new Image();
+obstacle5Image.src = "./assets/obstacle5.png";
+
 // const canvas = document.getElementById('canvas'); 
 // const context = canvas.getContext('2d'); 
 // const img = new Image();
@@ -166,14 +182,13 @@ function main() {
       obstacle5.update();
       // obstacle4.update();
 
-      // rendering car
+      //* mycar rendering car
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "red";
       ctx.rect(LANE_SIZE * myCar.lane, myCar.distanceFromTop, LANE_SIZE, 100);
-      // ctx.rect(CANVAS_WIDTH - LANE_SIZE, CANVAS_HEIGHT - CAR_LENGTH , LANE_SIZE, CAR_LENGTH);
-      ctx.stroke();
-      ctx.drawImage(carImage,LANE_SIZE * myCar.lane, myCar.distanceFromTop,);
+      
+      ctx.drawImage(carImage,LANE_SIZE * myCar.lane, myCar.distanceFromTop,LANE_SIZE,CAR_LENGTH);
 
       // check for collision
       obstacles.forEach((obstacle) => {
@@ -191,61 +206,41 @@ function main() {
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "black";
-      ctx.rect(
-        LANE_SIZE * obstacle1.lane,
-        obstacle1.distanceFromTop,
-        LANE_SIZE,
-        obstacle1.length
-      );
-      ctx.stroke();
+
+      ctx.drawImage(obstacle1Image,LANE_SIZE * obstacle1.lane, obstacle1.distanceFromTop,LANE_SIZE,obstacle1.length);
+
 
       //* obstacle 2
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "green";
-      ctx.rect(
-        LANE_SIZE * obstacle2.lane,
-        obstacle2.distanceFromTop,
-        LANE_SIZE,
-        obstacle2.length
-      );
-      ctx.stroke();
+
+      ctx.drawImage(obstacle2Image,LANE_SIZE * obstacle2.lane, obstacle2.distanceFromTop,LANE_SIZE,obstacle2.length);
+
 
       //* obstacle 3
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "orangered";
-      ctx.rect(
-        LANE_SIZE * obstacle3.lane,
-        obstacle3.distanceFromTop,
-        LANE_SIZE,
-        obstacle3.length
-      );
-      ctx.stroke();
+ 
+      ctx.drawImage(obstacle3Image,LANE_SIZE * obstacle3.lane, obstacle3.distanceFromTop,LANE_SIZE,obstacle3.length);
+
 
       //* obstacle 4
       ctx.beginPath();
       ctx.lineWidth = "6";
-      ctx.strokeStyle = "orangered";
-      ctx.rect(
-        LANE_SIZE * obstacle4.lane,
-        obstacle4.distanceFromTop,
-        LANE_SIZE,
-        obstacle4.length
-      );
-      ctx.stroke();
+      ctx.strokeStyle = "blue";
+ 
+      ctx.drawImage(obstacle4Image,LANE_SIZE * obstacle4.lane, obstacle4.distanceFromTop,LANE_SIZE,obstacle4.length);
+
 
       //* obstacle 5
       ctx.beginPath();
       ctx.lineWidth = "6";
-      ctx.strokeStyle = "orangered";
-      ctx.rect(
-        LANE_SIZE * obstacle5.lane,
-        obstacle5.distanceFromTop,
-        LANE_SIZE,
-        obstacle5.length
-      );
-      ctx.stroke();
+      ctx.strokeStyle = "cyan";
+  
+      ctx.drawImage(obstacle5Image,LANE_SIZE * obstacle5.lane, obstacle5.distanceFromTop,LANE_SIZE,obstacle5.length);
+
     }
     if (gameStatus == "GAME_OVER") {
       myScore = Math.floor(myScore);
@@ -261,15 +256,16 @@ function main() {
       ctx.fillText("GAME OVER", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
       ctx.beginPath();
       ctx.lineWidth = "6";
-      ctx.strokeStyle = "red";
+      ctx.strokeStyle = "transparent";
       ctx.rect(
         CANVAS_WIDTH / 2 - playButton.width / 2,
         CANVAS_HEIGHT / 1.3 - playButton.height / 2,
         200,
         100
       );
-      // ctx.rect(CANVAS_WIDTH - LANE_SIZE, CANVAS_HEIGHT - CAR_LENGTH , LANE_SIZE, CAR_LENGTH);
+
       ctx.stroke();
+
       ctx.strokeStyle = "pink";
       ctx.rect(
         playButton.left,
