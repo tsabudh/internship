@@ -7,13 +7,13 @@ const NUMBER_OF_LANE = 5;
 const LANE_SIZE = 100;
 const CAR_LENGTH = 140;
 const OBSTACLE_SPEED = 10;
-const GAME_LEVEL = 1;
 const FONT_SIZE = 30;
 
 // global variables
 let obstacles = [];
 let gameStatus = "PLAYING";
-let HIGH_SCORE = 0;
+let highScore = 0;
+let gameLevel = 1;
 // let gameStatus = "NOT_STARTED";
 let carImage = new Image();
 carImage.src = "./assets/mycar1.png";
@@ -78,7 +78,7 @@ class Obstacle {
 
     this.update = function () {
       if (this.distanceFromTop <= CANVAS_HEIGHT) {
-        this.distanceFromTop += GAME_LEVEL * this.speed;
+        this.distanceFromTop += gameLevel * this.speed;
       } else {
         this.distanceFromTop = -this.length * Math.random() * 4.5;
       }
@@ -118,7 +118,7 @@ class Obstacle {
 
 function main() {
   initiateCanvas("body");
-  let obstacle1, obstacle2, obstacle3, obstacle4, obstacle5;
+  let obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, difficultyPassed;
 
   gameStatus = "GAME_NOT_STARTED";
   let myCar = new Car();
@@ -167,12 +167,15 @@ function main() {
       obstacle4 = new Obstacle();
       obstacle5 = new Obstacle();
 
+      gameLevel = 1; //this determines difficulty increases by .1 on each 50plus score
       gameStatus = "PLAYING";
       myScore = 0;
     }
 
     if (gameStatus == "PLAYING") {
       myScore = myScore + 0.1;
+      console.log(myScore / 50);
+      gameLevel = (myScore / 50) / 10 + 1;
 
       //clear canvas
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
@@ -281,7 +284,7 @@ function main() {
       ctx.moveTo(0, 0);
       ctx.font = `${Math.min(FONT_SIZE, 10)}px Arial`;
       ctx.textAlign = "left";
-      ctx.fillText(`High Score:${Math.floor(HIGH_SCORE)}`, 0, FONT_SIZE);
+      ctx.fillText(`High Score:${Math.floor(highScore)}`, 0, FONT_SIZE);
 
       //* display score live
       ctx.beginPath;
@@ -293,7 +296,7 @@ function main() {
     }
     if (gameStatus == "GAME_OVER") {
       myScore = Math.floor(myScore);
-      if (myScore > HIGH_SCORE) HIGH_SCORE = myScore;
+      if (myScore > highScore) highScore = myScore;
       //clear canvas
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
