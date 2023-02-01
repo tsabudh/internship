@@ -1,6 +1,6 @@
 // global constants
 const CANVAS_WIDTH = 500;
-const CANVAS_HEIGHT = 1000;
+const CANVAS_HEIGHT = 600;
 const WIDTH = 80;
 const HEIGHT = 80;
 const NUMBER_OF_LANE = 5;
@@ -95,14 +95,14 @@ function main() {
   initiateCanvas("body");
   let obstacle1, obstacle2, obstacle3, obstacle4, obstacle5;
 
-  gameStatus = "GAME_START";
+  gameStatus = "GAME_NOT_STARTED";
   let myCar = new Car();
   let myScore = 0;
   let playButton = {
-    top: 700,
-    left: 150,
-    height: 100,
+    top: CANVAS_HEIGHT / 1.3 - 100 / 2, //100 is playButton's height
+    left: CANVAS_WIDTH / 2 - 200 / 2, //200 is playButton's width
     width: 200,
+    height: 100,
   };
 
   let canvas = document.getElementsByClassName("canvas")[0];
@@ -110,21 +110,43 @@ function main() {
 
   // gameStatus = "GAME_OVER";
   setInterval(() => {
+    if (gameStatus == "GAME_NOT_STARTED") {
+      // rendering game menu
+      ctx.beginPath;
+      ctx.moveTo(CANVAS_WIDTH / 2, 0);
+      ctx.lineTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+      ctx.font = "30px Arial";
+      ctx.textAlign = "center";
+      ctx.fillText("CAR LANE GAME", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
+      ctx.beginPath();
+      ctx.lineWidth = "6";
+      ctx.strokeStyle = "red";
+      ctx.rect(
+        CANVAS_WIDTH / 2 - playButton.width / 2,
+        CANVAS_HEIGHT / 1.3 - playButton.height / 2,
+        200,
+        100
+      );
+      // ctx.rect(CANVAS_WIDTH - LANE_SIZE, CANVAS_HEIGHT - CAR_LENGTH , LANE_SIZE, CAR_LENGTH);
+      ctx.stroke();
+      ctx.fillText(`START GAME`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 1.3);
+    }
+
     if (gameStatus == "GAME_START") {
-      console.log("GAME STARTED INSIDE SETINVETVAL");
-      debugger;
+      //* clear obstacles global collection
+      obstacles = [];
       obstacle1 = new Obstacle();
       obstacle2 = new Obstacle();
       obstacle3 = new Obstacle();
       obstacle4 = new Obstacle();
       obstacle5 = new Obstacle();
+
       gameStatus = "PLAYING";
     }
-    console.log("kdkdkdkd", gameStatus);
+
     if (gameStatus == "PLAYING") {
-      console.log("PLAYING");
       myScore = myScore + 0.1;
-      console.log(myScore);
+
       //clear canvas
       ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
@@ -231,10 +253,22 @@ function main() {
       ctx.beginPath();
       ctx.lineWidth = "6";
       ctx.strokeStyle = "red";
-      ctx.rect(150, 700, 200, 100);
+      ctx.rect(
+        CANVAS_WIDTH / 2 - playButton.width / 2,
+        CANVAS_HEIGHT / 1.3 - playButton.height / 2,
+        200,
+        100
+      );
       // ctx.rect(CANVAS_WIDTH - LANE_SIZE, CANVAS_HEIGHT - CAR_LENGTH , LANE_SIZE, CAR_LENGTH);
       ctx.stroke();
-
+      ctx.strokeStyle = "pink";
+      ctx.rect(
+        playButton.left,
+        playButton.top,
+        playButton.width,
+        playButton.height
+      );
+      ctx.stroke();
       // ctx.moveTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 1.5);
       ctx.fillText(
         `Your Score is ${myScore}`,
@@ -247,30 +281,25 @@ function main() {
   }, 100);
   //
 
-  console.log(myCar.lane);
-
   window.addEventListener("click", (event) => {
     let x = event.pageX;
     let y = event.pageY;
-
+  
     if (
-      (gameStatus == "GAME_OVER" || gameStatus == "NOT_STARTED") &&
+      (gameStatus == "GAME_OVER" || gameStatus == "GAME_NOT_STARTED") &&
       y > playButton.top &&
       y < playButton.top + playButton.height &&
       x > playButton.left &&
       x < playButton.left + playButton.width
     ) {
-      console.log("clicked");
       gameStatus = "GAME_START";
     }
   });
   window.addEventListener("keydown", (e) => {
     if (e.code == "ArrowLeft" && myCar.lane >= 1) {
-      console.log(myCar.lane);
       myCar.lane = myCar.lane - 1;
     }
     if (e.code == "ArrowRight" && myCar.lane < NUMBER_OF_LANE - 1) {
-      console.log(myCar.lane);
       myCar.lane = myCar.lane + 1;
     }
   });
