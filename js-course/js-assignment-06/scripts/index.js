@@ -168,6 +168,7 @@ function main() {
       obstacle5 = new Obstacle();
 
       gameStatus = "PLAYING";
+      myScore = 0;
     }
 
     if (gameStatus == "PLAYING") {
@@ -357,10 +358,21 @@ function main() {
     }
   });
   window.addEventListener("keydown", (e) => {
-    if (e.code == "ArrowLeft" && myCar.lane >= 1) {
+    if (e.code == "Escape" && gameStatus == "PLAYING") {
+      gameStatus = "PAUSED";
+      console.log("escape pressed");
+    } else if (e.code == "Escape" && gameStatus == "PAUSED") {
+      gameStatus = "PLAYING";
+      console.log("escape pressed");
+    }
+    if (e.code == "ArrowLeft" && myCar.lane >= 1 && gameStatus == "PLAYING") {
       myCar.lane = myCar.lane - 1;
     }
-    if (e.code == "ArrowRight" && myCar.lane < NUMBER_OF_LANE - 1) {
+    if (
+      e.code == "ArrowRight" &&
+      myCar.lane < NUMBER_OF_LANE - 1 &&
+      gameStatus == "PLAYING"
+    ) {
       myCar.lane = myCar.lane + 1;
     }
   });
