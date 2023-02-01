@@ -282,9 +282,16 @@ function main() {
   //
 
   window.addEventListener("click", (event) => {
-    let x = event.pageX;
-    let y = event.pageY;
-  
+    let canvasMarginLeft = window
+      .getComputedStyle(canvas)
+      .getPropertyValue("margin-left");
+    let canvasMarginTop = window
+      .getComputedStyle(canvas)
+      .getPropertyValue("margin-top");
+    let x = event.pageX - parseInt(canvasMarginLeft);
+    let y = event.pageY - parseInt(canvasMarginTop);
+    console.log(x, y, canvasMarginLeft, canvasMarginTop);
+
     if (
       (gameStatus == "GAME_OVER" || gameStatus == "GAME_NOT_STARTED") &&
       y > playButton.top &&
