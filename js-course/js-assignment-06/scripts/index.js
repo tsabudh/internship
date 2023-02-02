@@ -1,383 +1,243 @@
-// global constants
-const CANVAS_WIDTH = 500;
-const CANVAS_HEIGHT = 600;
+//global variable
+const CANVAS_WIDTH = 400;
+const CANVAS_HEIGHT = 500;
 const WIDTH = 80;
 const HEIGHT = 80;
 const NUMBER_OF_LANE = 5;
-const LANE_SIZE = 100;
+const PILLAR_SIZE = 100;
 const CAR_LENGTH = 140;
 const OBSTACLE_SPEED = 10;
 const FONT_SIZE = 30;
 
-// global variables
-let obstacles = [];
-let gameStatus = "PLAYING";
-let highScore = 0;
-let gameLevel = 1;
-// let gameStatus = "NOT_STARTED";
-let carImage = new Image();
-carImage.src = "./assets/mycar1.png";
+let birdImage = new Image();
+birdImage.src = "./assets/bird.png";
 
-let obstacle1Image = new Image();
-obstacle1Image.src = "./assets/obstacle1.png";
+let birdUpImage = new Image();
+birdUpImage.src = "./assets/birdup.png";
 
-let obstacle2Image = new Image();
-obstacle2Image.src = "./assets/obstacle2.png";
+let pillarImage = new Image();
+pillarImage.src = "./assets/pillar.png";
 
-let obstacle3Image = new Image();
-obstacle3Image.src = "./assets/obstacle3.png";
+// ctx = canvas.getContext("2d");
+// ctx.drawImage(
+//   carImage,
+//   LANE_SIZE * myCar.lane,
+//   myCar.distanceFromTop,
+//   LANE_SIZE,
+//   CAR_LENGTH
+// );
 
-let obstacle4Image = new Image();
-obstacle4Image.src = "./assets/obstacle4.png";
+class Canvas {
+  constructor(id, container, width, height, numberOfPillar = 4) {
+    let canvas = document.createElement("canvas");
+    canvas.setAttribute("id", id);
+    canvas.setAttribute("width", width + "px");
+    canvas.setAttribute("height", height + "px");
 
-let obstacle5Image = new Image();
-obstacle5Image.src = "./assets/obstacle5.png";
+    this.width = width;
+    this.height = height;
+    this.parentId = container;
+    this.id = id;
+    this.pillarSpacing = 300;
+    this.pillars = [];
+    this.numberOfPillar = numberOfPillar;
+    this.gameStatus = "NOT_STARTED";
+    this.g = 10;
+    this.t = 0.1; //*value of t multiplied by setInterval value argument ie:100
+    this.score = 0;
+    this.scoreAdded = false;
 
-// const canvas = document.getElementById('canvas');
-// const context = canvas.getContext('2d');
-// const img = new Image();
-// img.src = './cat.jpg';
-// img.onload = () => {context.drawImage(img, 0, 0);};
+    this.flappy = new Flappy(this);
+    this.drawFlappy = this.drawFlappy(canvas);
+    this.createPillars(numberOfPillar);
+    document.getElementById(container).appendChild(canvas);
+  }
 
-// function to create elements
-function createElement(tagName, className, parentQuery) {
-  let newElement = document.createElement(tagName);
-  newElement.className = className;
-  //   console.log(typeof document.querySelector(parentQuery));
-  document.querySelector(parentQuery).appendChild(newElement);
-  return newElement;
-}
+  createPillars(numberOfPillar) {
+    this.pillars = []; //* clear the existing pillars array
+    for (let i = 0; i <= numberOfPillar; i++) {
+      this[`pillar${i}`] = new Pillar(this);
+    }
+  }
+  updateScore() {
+    this.pillars.forEach((pillar) => {
+      if (
+        this.flappy.xOffset + this.flappy.width > pillar.xOffset &&
+        this.flappy.xOffset < pillar.xOffset + pillar.width &&
+        (this.flappy.yOffset < pillar.gapStart ||
+          this.flappy.yOffset + this.flappy.height >
+            pillar.gapStart + pillar.gapWidth)
+      ) {
+        this.flappy.alive = false;
+        this.gameStatus = "GAME_OVER";
+      }
+      if (
+        this.flappy.xOffset > pillar.xOffset + pillar.width &&
+        pillar.passedByFlappy == false
+      ) {
+        pillar.passedByFlappy = true;
+        this.score += 1;
+        console.log(this.score);
+        this.scoreAdded = true;
+      }
+    });
+  }
 
-function initiateCanvas(parentQuery) {
-  let canvasEl = createElement("canvas", "canvas", parentQuery);
-  canvasEl.setAttribute("height", CANVAS_HEIGHT + "px");
-  canvasEl.setAttribute("width", CANVAS_WIDTH + "px");
-}
-
-class GameContext {
-  constructor(parentQuery) {}
-}
-
-class Car {
-  constructor() {
-    this.lane = Math.ceil(Math.random() * (NUMBER_OF_LANE - 1));
-    this.distanceFromTop = CANVAS_HEIGHT - CAR_LENGTH;
-    console.log("car is in", this.lane);
+  drawFlappy(canvas) {
+    let ctx = canvas.getContext("2d");
+    console.log("from drawpillar within canvas class");
+    ctx.drawImage(
+      this.flappy.image,
+      this.flappy.xOffset,
+      this.flappy.yOffset,
+      this.flappy.width,
+      this.flappy.height
+    );
   }
 }
 
-class Obstacle {
-  constructor() {
-    this.lane = makeObstacleLane();
-    this.length = makeObstacleLength();
-    this.distanceFromTop = makeDistanceFromTop();
-    this.speed = Math.random() * 5 + 9;
-
-    //update global obstacle collection
-    obstacles.push(this);
+class Pillar {
+  constructor(canvas) {
+    this.xOffset = this.getPillarXOffset(canvas); //canvas.width;
+    this.gapStart = 100; // make it random
+    this.gapWidth = 200;
+    this.width = 80;
+    this.image = pillarImage;
+    this.passedByFlappy = false;
+    canvas.pillars.push(this);
 
     this.update = function () {
-      if (this.distanceFromTop <= CANVAS_HEIGHT) {
-        this.distanceFromTop += gameLevel * this.speed;
-      } else {
-        this.distanceFromTop = -this.length * Math.random() * 4.5;
+      if (this.xOffset < -this.width) {
+        this.passedByFlappy = false;
+        this.xOffset =
+          canvas.pillarSpacing * (canvas.numberOfPillar - 2) - this.width; //* ????????
       }
+      this.xOffset -= 10; //!change this magic number
     };
 
-    function makeObstacleLane() {
-      let newLane = Math.floor(Math.random() * NUMBER_OF_LANE);
-      // if new obstacle's lane == any of existing obstacle's lane: render again
-      for (let i = 0; i < obstacles.length; i++) {
-        if (newLane == obstacles[i].lane) {
-          newLane = Math.floor(Math.random() * NUMBER_OF_LANE);
-          i = -1;
-        }
-      }
-      return newLane;
-    }
-    function makeObstacleLength() {
-      return Math.floor((Math.random() * CAR_LENGTH) / 2 + CAR_LENGTH);
-    }
-    function makeDistanceFromTop() {
-      let newDistance = -Math.random() * 3 * CAR_LENGTH * 3;
-
-      if (
-        obstacles.length != 0 &&
-        Math.abs(newDistance) -
-          Math.abs(obstacles[obstacles.length - 1].distanceFromTop) <
-          CAR_LENGTH
-      ) {
-        newDistance = Math.floor(Math.random() * NUMBER_OF_LANE);
-      }
-
-      return newDistance;
-    }
-    // return this;
+    this.getPillarXOffset(canvas);
   }
+  getPillarXOffset(canvas) {
+    if (canvas.pillars.length == 0) return canvas.pillarSpacing * 2;
+    else {
+      return (
+        canvas.pillars[canvas.pillars.length - 1].xOffset + canvas.pillarSpacing
+      );
+    }
+  }
+}
+class Flappy {
+  constructor(canvas) {
+    this.yOffset = canvas.height / 2;
+    this.xOffset = 0.1 * canvas.width;
+    this.height = 40;
+    this.width = 40;
+    this.alive = true;
+    this.image = birdImage;
+    this.flight = 80;
+    this.u = 0;
+    this.v = this.u - canvas.g * canvas.t;
+    this.s = this.yOffset;
+    this.fallSpeed = 0;
+    this.passedPillars = 0;
+
+    this.fall = function () {
+      this.v = this.u - canvas.g * canvas.t;
+      this.yOffset -= this.v;
+    this.s = this.u * canvas.t - 0.5 * canvas.g * canvas.t * canvas.t;
+
+      // this.fallSpeed += canvas.t * canvas.g;
+      // this.yOffset += this.fallSpeed;
+    };
+  }
+}
+
+function gameLoop(canvasEl, canvas) {
+  canvas.t += 0.5;
+  let ctx = canvasEl.getContext("2d");
+  let flappy = canvas.flappy;
+  // let pillar0 = canvas.pillar0;
+  let { pillar0, pillar1, pillar2, pillar3 } = { ...canvas };
+  // console.log(canvas.t, canvas.g, flappy.fallSpeed);
+
+  pillar0.update();
+  pillar1.update();
+  pillar2.update();
+  flappy.fall();
+  // console.log(flappy);
+  // console.log(canvas, flappy);
+
+  //* clear canvas
+  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+  ctx.drawImage(
+    flappy.image,
+    flappy.xOffset,
+    flappy.yOffset,
+    flappy.width,
+    flappy.height
+  );
+
+  // ctx.rect(pillar.xOffset, 0, pillar.width, pillar.gapStart);
+  ctx.lineWidth = "6";
+
+  //*pillar  0
+  ctx.beginPath();
+  ctx.rect(pillar0.xOffset, 0, pillar0.width, pillar0.gapStart);
+  ctx.rect(
+    pillar0.xOffset,
+    pillar0.gapStart + pillar0.gapWidth,
+    pillar0.width,
+    canvas.height
+  );
+  ctx.strokeStyle = "violet";
+  ctx.stroke();
+  //*pillar  1
+  ctx.beginPath();
+  ctx.rect(pillar1.xOffset, 0, pillar1.width, pillar1.gapStart);
+  ctx.rect(
+    pillar1.xOffset,
+    pillar1.gapStart + pillar1.gapWidth,
+    pillar1.width,
+    canvas.height
+  );
+  ctx.strokeStyle = "indigo";
+  ctx.stroke();
+
+  //*pillar  2
+  ctx.beginPath();
+  ctx.rect(pillar2.xOffset, 0, pillar2.width, pillar2.gapStart);
+  ctx.rect(
+    pillar2.xOffset,
+    pillar2.gapStart + pillar2.gapWidth,
+    pillar2.width,
+    canvas.height
+  );
+  ctx.strokeStyle = "blue";
+  ctx.stroke();
+  canvas.updateScore();
+  console.log(flappy.s);
 }
 
 function main() {
-  initiateCanvas("body");
-  let obstacle1, obstacle2, obstacle3, obstacle4, obstacle5, difficultyPassed;
+  let canvas0 = new Canvas("canvas-0", "body", CANVAS_WIDTH, CANVAS_HEIGHT, 5);
+  let canvas1 = new Canvas("canvas-1", "body", CANVAS_WIDTH, CANVAS_HEIGHT);
+  let canvas0El = document.getElementsByTagName("canvas")[0];
+  let canvas1El = document.getElementsByTagName("canvas")[1];
 
-  gameStatus = "GAME_NOT_STARTED";
-  let myCar = new Car();
-  let myScore = 0;
-  let playButton = {
-    top: CANVAS_HEIGHT / 1.3 - 100 / 2, //100 is playButton's height
-    left: CANVAS_WIDTH / 2 - 200 / 2, //200 is playButton's width
-    width: 200,
-    height: 100,
-  };
+  console.log(canvas0);
 
-  let canvas = document.getElementsByClassName("canvas")[0];
-  let ctx = canvas.getContext("2d");
+  // let pillar0 = new Pillar(canvas0);
 
-  // carImage.onload = () => {ctx.drawImage(carImage, 0, 0);};
-  // gameStatus = "GAME_OVER";
   setInterval(() => {
-    if (gameStatus == "GAME_NOT_STARTED") {
-      // rendering game menu
-      ctx.beginPath;
-      ctx.moveTo(CANVAS_WIDTH / 2, 0);
-      ctx.lineTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-      ctx.font = "30px Arial";
-      ctx.textAlign = "center";
-      ctx.fillText("CAR LANE GAME", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "red";
-      ctx.rect(
-        CANVAS_WIDTH / 2 - playButton.width / 2,
-        CANVAS_HEIGHT / 1.3 - playButton.height / 2,
-        200,
-        100
-      );
-      // ctx.rect(CANVAS_WIDTH - LANE_SIZE, CANVAS_HEIGHT - CAR_LENGTH , LANE_SIZE, CAR_LENGTH);
-      ctx.stroke();
-      ctx.fillText(`START GAME`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 1.3);
-    }
-
-    if (gameStatus == "GAME_START") {
-      //* clear obstacles global collection
-      obstacles = [];
-      obstacle1 = new Obstacle();
-      obstacle2 = new Obstacle();
-      obstacle3 = new Obstacle();
-      obstacle4 = new Obstacle();
-      obstacle5 = new Obstacle();
-
-      gameLevel = 1; //this determines difficulty increases by .1 on each 50plus score
-      gameStatus = "PLAYING";
-      myScore = 0;
-    }
-
-    if (gameStatus == "PLAYING") {
-      myScore = myScore + 0.1;
-      console.log(myScore / 50);
-      gameLevel = (myScore / 50) / 10 + 1;
-
-      //clear canvas
-      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-      //*updating obstacle data
-      obstacle1.update();
-      obstacle2.update();
-      obstacle3.update();
-      obstacle4.update();
-      obstacle5.update();
-      // obstacle4.update();
-
-      //* mycar rendering car
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "red";
-      ctx.rect(LANE_SIZE * myCar.lane, myCar.distanceFromTop, LANE_SIZE, 100);
-
-      ctx.drawImage(
-        carImage,
-        LANE_SIZE * myCar.lane,
-        myCar.distanceFromTop,
-        LANE_SIZE,
-        CAR_LENGTH
-      );
-
-      // check for collision
-      obstacles.forEach((obstacle) => {
-        if (
-          myCar.distanceFromTop - obstacle.distanceFromTop < obstacle.length &&
-          myCar.lane == obstacle.lane
-        ) {
-          console.log("game over!!");
-          gameStatus = "GAME_OVER";
-        }
-      });
-
-      //*new path for obstacle
-      //*obstacle 1
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "black";
-
-      ctx.drawImage(
-        obstacle1Image,
-        LANE_SIZE * obstacle1.lane,
-        obstacle1.distanceFromTop,
-        LANE_SIZE,
-        obstacle1.length
-      );
-
-      //* obstacle 2
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "green";
-
-      ctx.drawImage(
-        obstacle2Image,
-        LANE_SIZE * obstacle2.lane,
-        obstacle2.distanceFromTop,
-        LANE_SIZE,
-        obstacle2.length
-      );
-
-      //* obstacle 3
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "orangered";
-
-      ctx.drawImage(
-        obstacle3Image,
-        LANE_SIZE * obstacle3.lane,
-        obstacle3.distanceFromTop,
-        LANE_SIZE,
-        obstacle3.length
-      );
-
-      //* obstacle 4
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "blue";
-
-      ctx.drawImage(
-        obstacle4Image,
-        LANE_SIZE * obstacle4.lane,
-        obstacle4.distanceFromTop,
-        LANE_SIZE,
-        obstacle4.length
-      );
-
-      //* obstacle 5
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "cyan";
-
-      ctx.drawImage(
-        obstacle5Image,
-        LANE_SIZE * obstacle5.lane,
-        obstacle5.distanceFromTop,
-        LANE_SIZE,
-        obstacle5.length
-      );
-
-      //* display high score
-      ctx.beginPath;
-      ctx.moveTo(0, 0);
-      ctx.font = `${Math.min(FONT_SIZE, 10)}px Arial`;
-      ctx.textAlign = "left";
-      ctx.fillText(`High Score:${Math.floor(highScore)}`, 0, FONT_SIZE);
-
-      //* display score live
-      ctx.beginPath;
-      ctx.moveTo(CANVAS_WIDTH / 2, 0);
-      ctx.font = `${FONT_SIZE}px Arial`;
-
-      ctx.textAlign = "center";
-      ctx.fillText(Math.floor(myScore), CANVAS_WIDTH / 2, FONT_SIZE);
-    }
-    if (gameStatus == "GAME_OVER") {
-      myScore = Math.floor(myScore);
-      if (myScore > highScore) highScore = myScore;
-      //clear canvas
-      ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
-
-      // rendering game over
-      ctx.beginPath;
-      ctx.moveTo(CANVAS_WIDTH / 2, 0);
-      ctx.lineTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-      ctx.font = `${FONT_SIZE}px Arial`;
-      ctx.textAlign = "center";
-      ctx.fillText("GAME OVER", CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2);
-      ctx.beginPath();
-      ctx.lineWidth = "6";
-      ctx.strokeStyle = "transparent";
-      ctx.rect(
-        CANVAS_WIDTH / 2 - playButton.width / 2,
-        CANVAS_HEIGHT / 1.3 - playButton.height / 2,
-        200,
-        100
-      );
-
-      ctx.stroke();
-
-      ctx.strokeStyle = "pink";
-      ctx.rect(
-        playButton.left,
-        playButton.top,
-        playButton.width,
-        playButton.height
-      );
-      ctx.stroke();
-      // ctx.moveTo(CANVAS_WIDTH / 2, CANVAS_HEIGHT / 1.5);
-      ctx.fillText(
-        `Your Score is ${myScore}`,
-        CANVAS_WIDTH / 2,
-        CANVAS_HEIGHT / 1.5
-      );
-      // ctx.moveTo(CANVAS_WIDTH/2, CANVAS_HEIGHT/1.7);
-      ctx.fillText(`Play Again`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 1.3);
-    }
+    gameLoop(canvas0El, canvas0);
   }, 100);
-  //
 
   window.addEventListener("click", (event) => {
-    let canvasMarginLeft = window
-      .getComputedStyle(canvas)
-      .getPropertyValue("margin-left");
-    let canvasMarginTop = window
-      .getComputedStyle(canvas)
-      .getPropertyValue("margin-top");
-    let x = event.pageX - parseInt(canvasMarginLeft);
-    let y = event.pageY - parseInt(canvasMarginTop);
-    console.log(x, y, canvasMarginLeft, canvasMarginTop);
-
-    if (
-      (gameStatus == "GAME_OVER" || gameStatus == "GAME_NOT_STARTED") &&
-      y > playButton.top &&
-      y < playButton.top + playButton.height &&
-      x > playButton.left &&
-      x < playButton.left + playButton.width
-    ) {
-      gameStatus = "GAME_START";
-    }
-  });
-  window.addEventListener("keydown", (e) => {
-    if (e.code == "Escape" && gameStatus == "PLAYING") {
-      gameStatus = "PAUSED";
-      console.log("escape pressed");
-    } else if (e.code == "Escape" && gameStatus == "PAUSED") {
-      gameStatus = "PLAYING";
-      console.log("escape pressed");
-    }
-    if (e.code == "ArrowLeft" && myCar.lane >= 1 && gameStatus == "PLAYING") {
-      myCar.lane = myCar.lane - 1;
-    }
-    if (
-      e.code == "ArrowRight" &&
-      myCar.lane < NUMBER_OF_LANE - 1 &&
-      gameStatus == "PLAYING"
-    ) {
-      myCar.lane = myCar.lane + 1;
-    }
+    // canvas0.flappy.fallSpeed = 0;
+    canvas0.t = 0;
+    canvas0.flappy.u = 25;
+    // canvas0.flappy.yOffset = canvas0.flappy.yOffset - canvas0.flappy.flight;
   });
 }
 main();
