@@ -69,7 +69,7 @@ function gameLoop(canvasEl, canvas) {
   let flappy = canvas.flappy;
   let { pillar0, pillar1, pillar2 } = { ...canvas };
 
-  if (canvas.gameStatus == "NOT_STARTED") {
+  if (canvas.gameStatus == "GAME_NOT_STARTED") {
     ctx.drawImage(
       assets,
       226,
@@ -98,11 +98,11 @@ function gameLoop(canvasEl, canvas) {
   }
   // console.log(canvas.gameStatus);
   if (canvas.gameStatus == "GAME_START") {
-    canvas.flappy.yOffset=canvas.height/2;
+    canvas.flappy.yOffset = canvas.height / 2;
     // canvas.pillars=[];
     canvas.createPillars();
-    canvas.t=0;
-    canvas.score=0;
+    canvas.t = 0;
+    canvas.score = 0;
     canvas.gameStatus = "PLAYING";
   }
   if (canvas.gameStatus == "PLAYING") {
@@ -310,7 +310,7 @@ function startGame(canvasEl, canvas) {
     ) {
       canvas.gameStatus = "GAME_START";
     }
-    if (canvas.gameStatus == "NOT_STARTED") {
+    if (canvas.gameStatus == "GAME_NOT_STARTED") {
       console.log("clicked while game not started");
       console.log("changing gamestatus to start");
       canvas.gameStatus = "GAME_START";
@@ -322,13 +322,23 @@ function startGame(canvasEl, canvas) {
       //   );
     }
   });
+  window.addEventListener("keydown", (event) => {
+    if (canvas.gameStatus == "PLAYING") {
+     
+      canvas.gameStatus = "GAME_PAUSED";
+    }
+    if (canvas.gameStatus == "GAME_PAUSED") {
+   
+      canvas.gameStatus = "PLAYING";
+    }
+  });
 }
 function main() {
   let canvas0 = new Canvas("canvas-0", "body", CANVAS_WIDTH, CANVAS_HEIGHT, 5);
   let canvas1 = new Canvas("canvas-1", "body", CANVAS_WIDTH, CANVAS_HEIGHT);
   let canvas0El = document.getElementsByTagName("canvas")[0];
   let canvas1El = document.getElementsByTagName("canvas")[1];
-  assets.onload = () => (canvas0.gameStatus = "NOT_STARTED");
+  assets.onload = () => (canvas0.gameStatus = "GAME_NOT_STARTED");
 
   console.log(canvas0.gameStatus);
 
