@@ -1,7 +1,4 @@
-//* CURRENTLY WORKS ON MAXIMUM TWO BOXES
-//! CHECK LOOP CONDITIONS i<boxOrderX.length
-//* RECHECK SPEED CHANGE CONDITIONS
-//* CHECK ISSUE ON CALCULATION ON BASIS OF BOXORDERX OR BOXORDERY
+//**THIS IS WORKING */
 //* El is shorthand for ELEMENT
 
 // GLOBAL CONSTANTS
@@ -22,19 +19,7 @@ let boxOrderAtY = [];
 let xDifference = {};
 let yDifference = {};
 
-/*
-boxCoordinates:{
-  box0:{
-  "xOffset": 202,
-  "yOffset": 79,
-  "width": 50,
-  "height": 50,
-  "directionX": -1,
-  "directionY": 1
-}}
-
-*/
-
+// create a container for colliding boxes
 function initializeContainer() {
   containerEl = document.createElement("div");
   containerEl.setAttribute("class", "container");
@@ -43,10 +28,11 @@ function initializeContainer() {
   document.body.appendChild(containerEl);
 }
 
+// create boxes
 function initializeBoxes() {
   let directionX = 1;
   let directionY = 1;
-  console.log("initializing boxes");
+
   startIteration: for (let i = 0, j = 0; i < NUMBER_OF_BOXES; j++) {
     let xOffset, yOffset, width, height, speedX, speedY;
 
@@ -66,11 +52,11 @@ function initializeBoxes() {
     width = BOX.WIDTH;
     height = BOX.HEIGHT;
 
-    console.log(`\nIn loop ${i}`); // loop number
-    xDifference[`box${i}`] = {}; //!important to initialize object
-    yDifference[`box${i}`] = {}; //!important to initialize object
+    //initialize objects for calculation of difference in X and Y axes
+    xDifference[`box${i}`] = {}; 
+    yDifference[`box${i}`] = {}; 
 
-    //* START OF CHECK NEW BOX'S POSITION AGAINST EXISTING BOXES'
+    //* CHECK NEW BOX'S POSITION AGAINST EXISTING BOXES'
     startDifferenceLoop: for (let d = 0; d < i; d++) {
       let currentXDifference, currentYDifference;
       let callDifferenceFunctionCount = 0;
@@ -78,11 +64,9 @@ function initializeBoxes() {
       function calcDifference(i, d) {
         callDifferenceFunctionCount++;
         currentXDifference = Math.abs(
-          //*     IDEA make current Difference at least box width
           xOffset - boxCoordinates[`box${d}`].xOffset
         );
         currentYDifference = Math.abs(
-          //*     IDEA make current Difference at least box width
           yOffset - boxCoordinates[`box${d}`].yOffset
         );
 
@@ -99,14 +83,12 @@ function initializeBoxes() {
             0
           );
           d = 0;
-          return calcDifference(i, d);
+          return calcDifference(i, d); 
         } else if (
           currentXDifference > BOX.WIDTH ||
           currentYDifference > boxCoordinates.WIDTH
         ) {
           return;
-        } else {
-          console.log("LOGIC ERROR: ELSE IF CONDITION ESCAPED");
         }
       }
       calcDifference(i, d);
@@ -125,37 +107,54 @@ function initializeBoxes() {
       speedY,
     };
 
+    //append created element to DOM
     let boxEl = document.createElement("div");
     boxEl.setAttribute("class", `box box-${i}`);
     containerEl.appendChild(boxEl);
-    boxEl.textContent = `BOX-${i}`; //commented out text for good visuals
     setBoxStyles(boxEl);
 
     boxEl.style.marginLeft = xOffset + "px";
     boxEl.style.marginTop = yOffset + "px";
-    boxEl.style.width = width + "px";
-    boxEl.style.height = height + "px";
-
     i++;
   }
-  boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
 }
-boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
 
+//rendering height and width of boxes 
 function setBoxStyles(boxEl) {
   boxEl.style.width = BOX.WIDTH + "px";
   boxEl.style.height = BOX.HEIGHT + "px";
 }
 
+// calculate order of boxes by position at X axis at any moment
 function calcBoxOrderAtX() {
-  boxOrderAtX.sort((a, b) => {
-    return boxCoordinates[`${a}`].xOffset - boxCoordinates[`${b}`].xOffset;
+  boxOrderAtX = Object.getOwnPropertyNames(boxCoordinates);
+
+  for (let i = 0; i < boxOrderAtX.length; i++) {}
+  boxOrderAtX.sort(() => {
+    for (let i = 0; i < boxOrderAtX.length - 1; i++) {
+      if (
+        boxCoordinates[`box${i}`].xOffset >
+        boxCoordinates[`box${i + 1}`].xOffset
+      ) {
+        return -1;
+      }
+    }
   });
 }
 
+// calculate order of boxes by position at Y axis at any moment
 function calcBoxOrderAtY() {
-  boxOrderAtY.sort((a, b) => {
-    return boxCoordinates[`${a}`].yOffset - boxCoordinates[`${b}`].yOffset;
+  boxOrderAtY = Object.getOwnPropertyNames(boxCoordinates);
+
+  boxOrderAtY.sort(() => {
+    for (let i = 0; i < boxOrderAtY.length - 1; i++) {
+      if (
+        boxCoordinates[`box${i}`].yOffset >
+        boxCoordinates[`box${i + 1}`].yOffset
+      ) {
+        return -1;
+      }
+    }
   });
 }
 
@@ -194,21 +193,19 @@ function translateY() {
   }
 }
 
-// variables for collideBoxes
 let checkedOnce = false;
 let changedDir = false;
 let checkedOverlapOnX = false;
 let checkedOverlapOnY = false;
 let checkedCollision = false;
 let boxCollidedAt = "";
-//!-----------------------------------------------------------------------------------------------------------------------
 function collideBoxes() {
-  debugger;
-
   //* depends on value from calcBoxOrderX, calcBoxOrderY
-
-
   for (let i = 0; i < boxOrderAtX.length - 1; i++) {
+    //*take length from boxOrderAtX or boxOrderAtY
+
+    let boxSeparatedAfterTouching;
+
     let boxOverlappedOnX =
       Math.abs(
         boxCoordinates[`${boxOrderAtX[i + 1]}`].xOffset -
@@ -222,7 +219,7 @@ function collideBoxes() {
       ) < boxCoordinates[`${boxOrderAtY[i]}`].height;
 
     let areBoxOverlapped = boxOverlappedOnX && boxOverlappedOnY;
-    // console.log(areBoxOverlapped);
+
     let boxDirectionXSame =
       boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX ==
       boxCoordinates[`${boxOrderAtX[i]}`].directionX
@@ -238,87 +235,76 @@ function collideBoxes() {
     if (checkedCollision == false) {
       if (boxOverlappedOnX == true && boxOverlappedOnY == false) {
         boxCollidedAt = "Y";
+
+        console.log(boxCollidedAt);
       } else if (boxOverlappedOnY == true && boxOverlappedOnX == false) {
         boxCollidedAt = "X";
+        console.log(boxCollidedAt);
       }
     }
     if (areBoxOverlapped == true && changedDir == false) {
       checkedCollision == true;
-
       //*BOX COLLISION ON X
       if (boxCollidedAt == "X" && !boxDirectionXSame) {
-        // change direction
+        // change directionX of each box
         boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX *= -1;
         boxCoordinates[`${boxOrderAtX[i]}`].directionX *= -1;
 
-        //change speed
+        // exchange speed of boxes
         let tempSpeed = boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX;
         boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX =
           boxCoordinates[`${boxOrderAtX[i]}`].speedX;
         boxCoordinates[`${boxOrderAtX[i]}`].speedX = tempSpeed;
       } else if (boxCollidedAt == "X" && boxDirectionXSame) {
-        // change speedX only
+        // change speedX only of each box
         let tempSpeed = boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX;
         boxCoordinates[`${boxOrderAtX[i + 1]}`].speedX =
           boxCoordinates[`${boxOrderAtX[i]}`].speedX;
         boxCoordinates[`${boxOrderAtX[i]}`].speedX = tempSpeed;
       } else if (boxCollidedAt == "X" && !boxDirectionYSame) {
-        //change directionX
+        //change directionX of each box
         boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX *= -1;
         boxCoordinates[`${boxOrderAtX[i]}`].directionX *= -1;
       } else if (boxCollidedAt == "X" && boxDirectionYSame) {
-        //change directionX
+        //change directionX of each box
         boxCoordinates[`${boxOrderAtX[i + 1]}`].directionX *= -1;
         boxCoordinates[`${boxOrderAtX[i]}`].directionX *= -1;
       }
 
       //* BOX COLLISION ON Y
       if (boxCollidedAt == "Y" && !boxDirectionYSame) {
-        // change directionY
         boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
         boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
-
-        //change speedY
-        let tempSpeed = boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY;
-        boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY =
-          boxCoordinates[`${boxOrderAtY[i]}`].speedY;
-        boxCoordinates[`${boxOrderAtY[i]}`].speedY = tempSpeed;
       } else if (boxCollidedAt == "Y" && boxDirectionYSame) {
-        // change speedY only
+        // change speedY only of each box
         let tempSpeed = boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY;
         boxCoordinates[`${boxOrderAtY[i + 1]}`].speedY =
           boxCoordinates[`${boxOrderAtY[i]}`].speedY;
         boxCoordinates[`${boxOrderAtY[i]}`].speedY = tempSpeed;
       } else if (boxCollidedAt == "Y" && boxDirectionXSame) {
-        // change directionY
+        // change directionY of each box
         boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
         boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
       } else if (boxCollidedAt == "Y" && !boxDirectionXSame) {
-        // change directionY
+        // change directionY of each box
         boxCoordinates[`${boxOrderAtY[i + 1]}`].directionY *= -1;
         boxCoordinates[`${boxOrderAtY[i]}`].directionY *= -1;
       }
+
       changedDir = true;
     }
     if (areBoxOverlapped == false) changedDir = false;
+
     checkedCollision = false;
   }
-
 }
+
 initializeContainer();
 initializeBoxes();
 
-//! IMPORTANT The function calcBoxOrderAtX, calcBoxOrderAtY should be calculated before other and at lowest intervals.
-// setInterval(calcBoxOrderAtX, 10);
-// setInterval(calcBoxOrderAtY, 10);
-
-// setInterval(translateX, 20);
-// setInterval(translateY, 20);
-
-setInterval(() => {
-  calcBoxOrderAtY();
-  calcBoxOrderAtX();
-  translateX();
-  translateY();
-  collideBoxes();
-}, 50);
+//! IMPORTANT The order should be calculated first and at lowest interval
+setInterval(calcBoxOrderAtX, 5);
+setInterval(calcBoxOrderAtY, 5);
+setInterval(translateX, 20);
+setInterval(translateY, 20);
+setInterval(collideBoxes, 10);

@@ -1,21 +1,52 @@
+// import Canvas from "./canvas.js";
+
 //global variable
 const CANVAS_WIDTH = 400;
 const CANVAS_HEIGHT = 500;
-const WIDTH = 80;
-const HEIGHT = 80;
-const NUMBER_OF_LANE = 5;
 const PILLAR_SIZE = 100;
-const CAR_LENGTH = 140;
 const OBSTACLE_SPEED = 10;
 const FONT_SIZE = 30;
 
-let birdImage = new Image();
+let assets = new Image();
+assets.src = "./assets/assets.png";
+
+const glidingBird = {
+  sx: 4,
+  sy: 762,
+  width: 27,
+  height: 27,
+};
+const groundImage = {
+  sx: 456,
+  sy: 0,
+  width: 256,
+  height: 88,
+};
+const pillarTop = {
+  sx: 86,
+  sy: 502,
+  width: 44,
+  height: 255,
+};
+const pillarBottom = {
+  sx: 86,
+  sy: 502,
+  width: 44,
+  height: 255,
+};
+const flyingBird = {
+  sx: 48,
+  sy: 762,
+  width: 27,
+  height: 27,
+};
+const birdImage = new Image();
 birdImage.src = "./assets/bird.png";
 
-let birdUpImage = new Image();
+const birdUpImage = new Image();
 birdUpImage.src = "./assets/birdup.png";
 
-let pillarImage = new Image();
+const pillarImage = new Image();
 pillarImage.src = "./assets/pillar.png";
 
 // ctx = canvas.getContext("2d");
@@ -27,196 +58,184 @@ pillarImage.src = "./assets/pillar.png";
 //   CAR_LENGTH
 // );
 
-class Canvas {
-  constructor(id, container, width, height, numberOfPillar = 4) {
-    let canvas = document.createElement("canvas");
-    canvas.setAttribute("id", id);
-    canvas.setAttribute("width", width + "px");
-    canvas.setAttribute("height", height + "px");
+import Canvas from "./canvas";
+import Ground from "./ground";
+import Pillar from "./pillar";
+import Flappy from "./flappy";
 
-    this.width = width;
-    this.height = height;
-    this.parentId = container;
-    this.id = id;
-    this.pillarSpacing = 300;
-    this.pillars = [];
-    this.numberOfPillar = numberOfPillar;
-    this.gameStatus = "NOT_STARTED";
-    this.g = 10;
-    this.t = 0.1; //*value of t multiplied by setInterval value argument ie:100
-    this.score = 0;
-    this.scoreAdded = false;
-
-    this.flappy = new Flappy(this);
-    this.drawFlappy = this.drawFlappy(canvas);
-    this.createPillars(numberOfPillar);
-    document.getElementById(container).appendChild(canvas);
-  }
-
-  createPillars(numberOfPillar) {
-    this.pillars = []; //* clear the existing pillars array
-    for (let i = 0; i <= numberOfPillar; i++) {
-      this[`pillar${i}`] = new Pillar(this);
-    }
-  }
-  updateScore() {
-    this.pillars.forEach((pillar) => {
-      if (
-        this.flappy.xOffset + this.flappy.width > pillar.xOffset &&
-        this.flappy.xOffset < pillar.xOffset + pillar.width &&
-        (this.flappy.yOffset < pillar.gapStart ||
-          this.flappy.yOffset + this.flappy.height >
-            pillar.gapStart + pillar.gapWidth)
-      ) {
-        this.flappy.alive = false;
-        this.gameStatus = "GAME_OVER";
-      }
-      if (
-        this.flappy.xOffset > pillar.xOffset + pillar.width &&
-        pillar.passedByFlappy == false
-      ) {
-        pillar.passedByFlappy = true;
-        this.score += 1;
-        console.log(this.score);
-        this.scoreAdded = true;
-      }
-    });
-  }
-
-  drawFlappy(canvas) {
-    let ctx = canvas.getContext("2d");
-    console.log("from drawpillar within canvas class");
-    ctx.drawImage(
-      this.flappy.image,
-      this.flappy.xOffset,
-      this.flappy.yOffset,
-      this.flappy.width,
-      this.flappy.height
-    );
-  }
-}
-
-class Pillar {
-  constructor(canvas) {
-    this.xOffset = this.getPillarXOffset(canvas); //canvas.width;
-    this.gapStart = 100; // make it random
-    this.gapWidth = 200;
-    this.width = 80;
-    this.image = pillarImage;
-    this.passedByFlappy = false;
-    canvas.pillars.push(this);
-
-    this.update = function () {
-      if (this.xOffset < -this.width) {
-        this.passedByFlappy = false;
-        this.xOffset =
-          canvas.pillarSpacing * (canvas.numberOfPillar - 2) - this.width; //* ????????
-      }
-      this.xOffset -= 10; //!change this magic number
-    };
-
-    this.getPillarXOffset(canvas);
-  }
-  getPillarXOffset(canvas) {
-    if (canvas.pillars.length == 0) return canvas.pillarSpacing * 2;
-    else {
-      return (
-        canvas.pillars[canvas.pillars.length - 1].xOffset + canvas.pillarSpacing
-      );
-    }
-  }
-}
-class Flappy {
-  constructor(canvas) {
-    this.yOffset = canvas.height / 2;
-    this.xOffset = 0.1 * canvas.width;
-    this.height = 40;
-    this.width = 40;
-    this.alive = true;
-    this.image = birdImage;
-    this.flight = 80;
-    this.u = 0;
-    this.v = this.u - canvas.g * canvas.t;
-    this.s = this.yOffset;
-    this.fallSpeed = 0;
-    this.passedPillars = 0;
-
-    this.fall = function () {
-      this.v = this.u - canvas.g * canvas.t;
-      this.yOffset -= this.v;
-    this.s = this.u * canvas.t - 0.5 * canvas.g * canvas.t * canvas.t;
-
-      // this.fallSpeed += canvas.t * canvas.g;
-      // this.yOffset += this.fallSpeed;
-    };
-  }
-}
 
 function gameLoop(canvasEl, canvas) {
-  canvas.t += 0.5;
+  console.log(".");
   let ctx = canvasEl.getContext("2d");
   let flappy = canvas.flappy;
-  // let pillar0 = canvas.pillar0;
-  let { pillar0, pillar1, pillar2, pillar3 } = { ...canvas };
-  // console.log(canvas.t, canvas.g, flappy.fallSpeed);
+  let { pillar0, pillar1, pillar2 } = { ...canvas };
+  if (canvas.gameStatus == "PLAYING") {
+    canvas.t += 0.005;
+    flappy.fall();
 
-  pillar0.update();
-  pillar1.update();
-  pillar2.update();
-  flappy.fall();
-  // console.log(flappy);
-  // console.log(canvas, flappy);
+    //check if flappy is flying up or down
+    if (flappy.v > 0) {
+      flappy.flyingUp = true;
+    } else {
+      flappy.flyingUp = false;
+    }
+    //* clear canvas
+    ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
-  //* clear canvas
-  ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+    //* draw background
+    ctx.drawImage(
+      assets,
+      226,
+      0,
+      227,
+      403,
+      -10,
+      -10,
+      canvas.width + 40,
+      canvas.height + 20
+    );
 
-  ctx.drawImage(
-    flappy.image,
-    flappy.xOffset,
-    flappy.yOffset,
-    flappy.width,
-    flappy.height
-  );
+    //* draw bird
+    ctx.beginPath();
+    ctx.rect(
+      //  birdImage
+      flappy.xOffset,
+      flappy.yOffset,
+      flappy.width,
+      flappy.height
+    );
+    // ctx.drawImage(
+    //   assets,
+    //   flappy.selectImage.sx,
+    //   flappy.selectImage.sy,
+    //   flappy.selectImage.width,
+    //   flappy.selectImage.height,
+    //   flappy.xOffset,
+    //   flappy.yOffset,
+    //   flappy.width,
+    //   flappy.height
+    // );
+    //*----------
+    canvas.drawFlappy();
 
-  // ctx.rect(pillar.xOffset, 0, pillar.width, pillar.gapStart);
-  ctx.lineWidth = "6";
+    if (flappy.flyingUp == true) {
+      flappy.color = "red";
+      flappy.selectImage = flyingBird;
+    } else {
+      flappy.color = "blue";
+      flappy.selectImage = glidingBird;
+    }
+    ctx.strokeStyle = flappy.color;
+    ctx.stroke();
 
-  //*pillar  0
-  ctx.beginPath();
-  ctx.rect(pillar0.xOffset, 0, pillar0.width, pillar0.gapStart);
-  ctx.rect(
-    pillar0.xOffset,
-    pillar0.gapStart + pillar0.gapWidth,
-    pillar0.width,
-    canvas.height
-  );
-  ctx.strokeStyle = "violet";
-  ctx.stroke();
-  //*pillar  1
-  ctx.beginPath();
-  ctx.rect(pillar1.xOffset, 0, pillar1.width, pillar1.gapStart);
-  ctx.rect(
-    pillar1.xOffset,
-    pillar1.gapStart + pillar1.gapWidth,
-    pillar1.width,
-    canvas.height
-  );
-  ctx.strokeStyle = "indigo";
-  ctx.stroke();
+    // ctx.rect(pillar.xOffset, 0, pillar.width, pillar.gapStart);
+    ctx.lineWidth = "6";
 
-  //*pillar  2
-  ctx.beginPath();
-  ctx.rect(pillar2.xOffset, 0, pillar2.width, pillar2.gapStart);
-  ctx.rect(
-    pillar2.xOffset,
-    pillar2.gapStart + pillar2.gapWidth,
-    pillar2.width,
-    canvas.height
-  );
-  ctx.strokeStyle = "blue";
-  ctx.stroke();
-  canvas.updateScore();
-  console.log(flappy.s);
+    //*pillar  0
+    ctx.beginPath();
+    ctx.rect(pillar0.xOffset, 0, pillar0.width, pillar0.gapStart);
+
+    canvas.drawImage(pillarTop, pillar0);
+    //GAP
+
+    ctx.rect(
+      pillar0.xOffset,
+      pillar0.gapStart + pillar0.gapWidth,
+      pillar0.width,
+      canvas.height
+    );
+
+    canvas.drawImage(pillarBottom, pillar0);
+    ctx.stroke();
+    ctx.strokeStyle = "violet";
+
+    //*pillar  1
+    ctx.beginPath();
+    ctx.rect(pillar1.xOffset, 0, pillar1.width, pillar1.gapStart);
+    canvas.drawImage(pillarTop, pillar1);
+    ctx.rect(
+      pillar1.xOffset,
+      pillar1.gapStart + pillar1.gapWidth,
+      pillar1.width,
+      canvas.height
+    );
+    canvas.drawImage(pillarBottom, pillar1);
+    ctx.strokeStyle = "indigo";
+    ctx.stroke();
+
+    //*pillar  2
+    ctx.beginPath();
+    ctx.rect(pillar2.xOffset, 0, pillar2.width, pillar2.gapStart);
+    canvas.drawImage(pillarTop, pillar2);
+    ctx.stroke();
+
+    ctx.rect(
+      pillar2.xOffset,
+      pillar2.gapStart + pillar2.gapWidth,
+      pillar2.width,
+      canvas.height
+    );
+    canvas.drawImage(pillarBottom, pillar2);
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+
+    //* draw ground
+
+    console.log(canvas.ground);
+    // ctx.rect(canvas.ground.xOffset, canvas.height - 85, canvas.width, 88);
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+
+    ctx.drawImage(
+      assets,
+      canvas.ground.sprite.sx,
+      canvas.ground.sprite.sy,
+      canvas.ground.sprite.width,
+      canvas.ground.sprite.height,
+      canvas.ground.xOffset,
+      canvas.ground.yOffset,
+      canvas.width + 4,
+      88
+    );
+    // ctx.rect(canvas.ground.xOffset, canvas.height - 85, canvas.width * 2, 88);
+    ctx.strokeStyle = "blue";
+    ctx.stroke();
+    ctx.drawImage(
+      assets,
+      canvas.ground.sprite.sx,
+      canvas.ground.sprite.sy,
+      canvas.ground.sprite.width,
+      canvas.ground.sprite.height,
+      canvas.ground.xOffset + canvas.width + 1,
+      canvas.ground.yOffset,
+      canvas.width + 4,
+      88
+    );
+
+    canvas.ground.update();
+    pillar0.update();
+    pillar1.update();
+    pillar2.update();
+    canvas.updateScore();
+  }
+
+  if (canvas.gameStatus == "GAME_OVER") {
+    //check if achieved high score
+    canvas.highScore =
+      canvas.score > canvas.highScore ? canvas.score : canvas.highScore;
+
+    // draw dead bird
+    ctx.beginPath();
+    ctx.rect(
+      //  birdImage
+      flappy.xOffset,
+      flappy.yOffset,
+      flappy.width,
+      flappy.height
+    );
+    ctx.strokeStyle = "red";
+    ctx.stroke();
+  }
 }
 
 function main() {
@@ -224,20 +243,17 @@ function main() {
   let canvas1 = new Canvas("canvas-1", "body", CANVAS_WIDTH, CANVAS_HEIGHT);
   let canvas0El = document.getElementsByTagName("canvas")[0];
   let canvas1El = document.getElementsByTagName("canvas")[1];
+  assets.onload = () => (canvas0.gameStatus = "PLAYING");
 
   console.log(canvas0);
-
-  // let pillar0 = new Pillar(canvas0);
-
+  console.log(canvas0.context);
   setInterval(() => {
     gameLoop(canvas0El, canvas0);
-  }, 100);
+  }, 10);
 
   window.addEventListener("click", (event) => {
-    // canvas0.flappy.fallSpeed = 0;
     canvas0.t = 0;
-    canvas0.flappy.u = 25;
-    // canvas0.flappy.yOffset = canvas0.flappy.yOffset - canvas0.flappy.flight;
+    canvas0.flappy.u = 2.5;
   });
 }
 main();
