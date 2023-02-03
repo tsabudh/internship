@@ -5,7 +5,7 @@
       this.height = 40;
       this.width = 40;
       this.alive = true;
-      this.image = birdImage;
+      // this.image = birdImage;
       this.flyingUp = false;
       this.u = 0;
       this.v = this.u - canvas.g * canvas.t;
@@ -13,7 +13,7 @@
       this.fallSpeed = 0;
       this.passedPillars = 0;
       this.color = "red";
-      this.selectImage = glidingBird;
+      this.selectImage = canvas.sprites.glidingBird;
   
       this.fall = function () {
         this.v = this.u - canvas.g * canvas.t;

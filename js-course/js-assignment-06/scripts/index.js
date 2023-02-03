@@ -58,17 +58,53 @@ pillarImage.src = "./assets/pillar.png";
 //   CAR_LENGTH
 // );
 
-import Canvas from "./canvas";
-import Ground from "./ground";
-import Pillar from "./pillar";
-import Flappy from "./flappy";
-
+import { Canvas } from "./canvas.js";
+// import Ground from "./ground";
+// import Pillar from "./pillar";
+// import Flappy from "./flappy";
 
 function gameLoop(canvasEl, canvas) {
-  console.log(".");
+  // console.log(canvas.gameStatus);
   let ctx = canvasEl.getContext("2d");
   let flappy = canvas.flappy;
   let { pillar0, pillar1, pillar2 } = { ...canvas };
+
+  if (canvas.gameStatus == "NOT_STARTED") {
+    ctx.drawImage(
+      assets,
+      226,
+      0,
+      227,
+      403,
+      -10,
+      -10,
+      canvas.width + 40,
+      canvas.height + 20
+    );
+    canvas.drawImage(
+      canvas.sprites.gameTitle,
+      canvas.width / 2 - canvas.sprites.gameTitle.width / 2,
+      canvas.height / 10
+    );
+    canvas.drawImage(
+      canvas.sprites.tapToPlay,
+      canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
+      canvas.height / 2 + canvas.flappy.height
+    );
+    canvas.drawFlappy();
+    canvas.drawGround();
+    canvas.ground.update();
+    // canvas.gameStatus = "STARTED";
+  }
+  // console.log(canvas.gameStatus);
+  if (canvas.gameStatus == "GAME_START") {
+    canvas.flappy.yOffset=canvas.height/2;
+    // canvas.pillars=[];
+    canvas.createPillars();
+    canvas.t=0;
+    canvas.score=0;
+    canvas.gameStatus = "PLAYING";
+  }
   if (canvas.gameStatus == "PLAYING") {
     canvas.t += 0.005;
     flappy.fall();
@@ -135,7 +171,7 @@ function gameLoop(canvasEl, canvas) {
     ctx.beginPath();
     ctx.rect(pillar0.xOffset, 0, pillar0.width, pillar0.gapStart);
 
-    canvas.drawImage(pillarTop, pillar0);
+    canvas.drawPillar(canvas.sprites.pillarTop, pillar0);
     //GAP
 
     ctx.rect(
@@ -145,28 +181,28 @@ function gameLoop(canvasEl, canvas) {
       canvas.height
     );
 
-    canvas.drawImage(pillarBottom, pillar0);
+    canvas.drawPillar(canvas.sprites.pillarBottom, pillar0);
     ctx.stroke();
     ctx.strokeStyle = "violet";
 
     //*pillar  1
     ctx.beginPath();
     ctx.rect(pillar1.xOffset, 0, pillar1.width, pillar1.gapStart);
-    canvas.drawImage(pillarTop, pillar1);
+    canvas.drawPillar(canvas.sprites.pillarTop, pillar1);
     ctx.rect(
       pillar1.xOffset,
       pillar1.gapStart + pillar1.gapWidth,
       pillar1.width,
       canvas.height
     );
-    canvas.drawImage(pillarBottom, pillar1);
+    canvas.drawPillar(canvas.sprites.pillarBottom, pillar1);
     ctx.strokeStyle = "indigo";
     ctx.stroke();
 
     //*pillar  2
     ctx.beginPath();
     ctx.rect(pillar2.xOffset, 0, pillar2.width, pillar2.gapStart);
-    canvas.drawImage(pillarTop, pillar2);
+    canvas.drawPillar(canvas.sprites.pillarTop, pillar2);
     ctx.stroke();
 
     ctx.rect(
@@ -175,43 +211,21 @@ function gameLoop(canvasEl, canvas) {
       pillar2.width,
       canvas.height
     );
-    canvas.drawImage(pillarBottom, pillar2);
+    canvas.drawPillar(canvas.sprites.pillarBottom, pillar2);
     ctx.strokeStyle = "blue";
     ctx.stroke();
 
     //* draw ground
 
-    console.log(canvas.ground);
-    // ctx.rect(canvas.ground.xOffset, canvas.height - 85, canvas.width, 88);
+    // console.log(canvas.ground);
+    ctx.rect(canvas.ground.xOffset, canvas.height - 85, canvas.width, 88);
     ctx.strokeStyle = "red";
     ctx.stroke();
 
-    ctx.drawImage(
-      assets,
-      canvas.ground.sprite.sx,
-      canvas.ground.sprite.sy,
-      canvas.ground.sprite.width,
-      canvas.ground.sprite.height,
-      canvas.ground.xOffset,
-      canvas.ground.yOffset,
-      canvas.width + 4,
-      88
-    );
-    // ctx.rect(canvas.ground.xOffset, canvas.height - 85, canvas.width * 2, 88);
+    canvas.drawGround();
+    ctx.rect(canvas.ground.xOffset, canvas.height - 85, canvas.width * 2, 88);
     ctx.strokeStyle = "blue";
     ctx.stroke();
-    ctx.drawImage(
-      assets,
-      canvas.ground.sprite.sx,
-      canvas.ground.sprite.sy,
-      canvas.ground.sprite.width,
-      canvas.ground.sprite.height,
-      canvas.ground.xOffset + canvas.width + 1,
-      canvas.ground.yOffset,
-      canvas.width + 4,
-      88
-    );
-
     canvas.ground.update();
     pillar0.update();
     pillar1.update();
@@ -224,36 +238,109 @@ function gameLoop(canvasEl, canvas) {
     canvas.highScore =
       canvas.score > canvas.highScore ? canvas.score : canvas.highScore;
 
-    // draw dead bird
-    ctx.beginPath();
+    // draw scoreboard
     ctx.rect(
-      //  birdImage
-      flappy.xOffset,
-      flappy.yOffset,
-      flappy.width,
-      flappy.height
+      canvas.width / 2 - canvas.sprites.scoreBoard.width / 2,
+      canvas.height / 2.5 - canvas.sprites.scoreBoard.height / 2,
+      canvas.sprites.scoreBoard.width,
+      canvas.sprites.scoreBoard.height
     );
     ctx.strokeStyle = "red";
     ctx.stroke();
+    canvas.drawScoreBoard();
+    canvas.drawImage(
+      canvas.sprites.gameOver,
+      canvas.width / 2 - canvas.sprites.gameOver.width / 2,
+      canvas.height / 6
+    );
+    canvas.drawImage(
+      canvas.sprites.playButton,
+      canvas.width / 2 - canvas.sprites.playButton.width / 2,
+      canvas.height / 1.8
+    ); // same value to  be used in click event listener
+    canvas.context.rect(
+      canvas.width / 2 - canvas.sprites.playButton.width / 2,
+      canvas.height / 1.8,
+      canvas.sprites.playButton.width,
+      canvas.sprites.playButton.height
+    );
   }
 }
 
+function startGame(canvasEl, canvas) {
+  setInterval(() => {
+    gameLoop(canvasEl, canvas);
+  }, 10);
+
+  canvasEl.addEventListener("click", (event) => {
+    let canvasMarginLeft = window
+      .getComputedStyle(canvasEl)
+      .getPropertyValue("margin-left");
+    let canvasMarginTop = window
+      .getComputedStyle(canvasEl)
+      .getPropertyValue("margin-top");
+    let x = event.pageX - parseInt(canvasMarginLeft);
+    let y = event.pageY - parseInt(canvasMarginTop);
+    console.log(x, y);
+    // if clicked during gameplay
+    if (canvas.gameStatus == "PLAYING") {
+      console.log("Clicked during gameplay");
+      canvas.t = 0;
+      canvas.flappy.u = 2.5;
+    }
+
+    //if clicked during menu
+    if (
+      canvas.gameStatus == "GAME_OVER" ||
+      canvas.gameStatus == "GAME_NOT_STARTED"
+    ) {
+      console.log("clicked during menu gameover or gamenotstarted");
+    }
+    let playButton = {
+      left: canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
+      top: canvas.height / 2 + canvas.flappy.height,
+    };
+    if (
+      (canvas.gameStatus == "GAME_OVER" ||
+        canvas.gameStatus == "GAME_NOT_STARTED") &&
+      y > playButton.top &&
+      y < playButton.top + canvas.sprites.tapToPlay.height &&
+      x > playButton.left &&
+      x < playButton.left + canvas.sprites.tapToPlay.width
+    ) {
+      canvas.gameStatus = "GAME_START";
+    }
+    if (canvas.gameStatus == "NOT_STARTED") {
+      console.log("clicked while game not started");
+      console.log("changing gamestatus to start");
+      canvas.gameStatus = "GAME_START";
+      console.log("game status is", canvas.gameStatus);
+      //   canvas.drawImage(
+      //     canvas.sprites.tapToPlay,
+      //     canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
+      //     canvas.height / 2 + canvas.flappy.height
+      //   );
+    }
+  });
+}
 function main() {
   let canvas0 = new Canvas("canvas-0", "body", CANVAS_WIDTH, CANVAS_HEIGHT, 5);
   let canvas1 = new Canvas("canvas-1", "body", CANVAS_WIDTH, CANVAS_HEIGHT);
   let canvas0El = document.getElementsByTagName("canvas")[0];
   let canvas1El = document.getElementsByTagName("canvas")[1];
-  assets.onload = () => (canvas0.gameStatus = "PLAYING");
+  assets.onload = () => (canvas0.gameStatus = "NOT_STARTED");
 
-  console.log(canvas0);
-  console.log(canvas0.context);
-  setInterval(() => {
-    gameLoop(canvas0El, canvas0);
-  }, 10);
+  console.log(canvas0.gameStatus);
 
-  window.addEventListener("click", (event) => {
-    canvas0.t = 0;
-    canvas0.flappy.u = 2.5;
-  });
+  // setInterval(() => {
+  //   gameLoop(canvas0El, canvas0);
+  // }, 10);
+
+  // window.addEventListener("click", (event) => {
+  //   canvas0.gameStatus="PLAYING"
+  //   canvas0.t = 0;
+  //   canvas0.flappy.u = 2.5;
+  // });
+  startGame(canvas0El, canvas0);
 }
 main();
