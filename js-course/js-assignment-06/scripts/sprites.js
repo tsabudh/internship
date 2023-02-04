@@ -1,4 +1,3 @@
-
 let spriteImage = new Image();
 spriteImage.src = "./assets/assets.png";
 export class Sprites {
@@ -69,6 +68,12 @@ export class Sprites {
       sy: 166,
       width: 84,
       height: 52,
+    };
+    this.clickToPlay = {
+      sx: 278,
+      sy: 557,
+      width: 142,
+      height: 40,
     };
     this.background = {
       sx: 226,

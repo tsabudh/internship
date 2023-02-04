@@ -6,16 +6,16 @@ function gameLoop(canvasEl, canvas) {
     //* draw background
     canvas.drawBackground();
 
-    // draw game title
+    // draw game title text
     canvas.drawImage(
       canvas.sprites.gameTitle,
       canvas.width / 2 - canvas.sprites.gameTitle.width / 2,
       canvas.height / 10
     );
-    // draw tap to play
+    // draw click to play instruction text
     canvas.drawImage(
-      canvas.sprites.tapToPlay,
-      canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
+      canvas.sprites.clickToPlay,
+      canvas.width / 2 - canvas.sprites.clickToPlay.width / 2,
       canvas.height / 2 + canvas.flappy.height
     );
     canvas.drawFlappy();
@@ -123,7 +123,7 @@ export function startGame(canvasEl, canvas) {
 
     // if clicked during gameplay
     if (canvas.gameStatus == "PLAYING") {
-        canvas.t = 0;
+      canvas.t = 0;
       canvas.flappy.u = 2.5;
     }
 
@@ -159,4 +159,3 @@ export function startGame(canvasEl, canvas) {
     }
   });
 }
-
