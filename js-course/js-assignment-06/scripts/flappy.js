@@ -13,15 +13,11 @@
       this.fallSpeed = 0;
       this.passedPillars = 0;
       this.color = "red";
-      this.selectImage = canvas.sprites.glidingBird;
+      // this.selectedBird = canvas.sprites.glidingBird;
   
       this.fall = function () {
         this.v = this.u - canvas.g * canvas.t;
         this.yOffset -= this.v;
-        //* this.s = this.u * canvas.t - 0.5 * canvas.g * canvas.t * canvas.t;
-  
-        // this.fallSpeed += canvas.t * canvas.g;
-        // this.yOffset += this.fallSpeed;
       };
     }
   }

@@ -80,17 +80,21 @@ export class Canvas {
     );
   }
   drawFlappy() {
+    let drawBird;
+    if(this.flappy.flyingUp==true) drawBird = this.sprites.flyingBird;
+    else drawBird = this.sprites.glidingBird;
     this.context.drawImage(
       this.sprites.spriteImage,
-      this.sprites.flyingBird.sx,
-      this.sprites.flyingBird.sy,
-      this.sprites.flyingBird.width,
-      this.sprites.flyingBird.height,
+      drawBird.sx,
+      drawBird.sy,
+      drawBird.width,
+      drawBird.height,
       this.flappy.xOffset,
       this.flappy.yOffset,
       this.flappy.width,
       this.flappy.height
     );
+  
   }
   drawPillar(pillarPart, pillar) {
     if (pillarPart == this.sprites.pillarTop) {

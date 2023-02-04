@@ -53,7 +53,7 @@ export class Sprites {
     };
     this.pillarTop = {
       sx: 86,
-      sy: 502,
+      sy: 503,
       width: 44,
       height: 255,
     };
@@ -70,36 +70,41 @@ export class Sprites {
       height: 95,
     };
     this.gameOver = {
-      sx:631,
-      sy:98,
-      width:115,
-      height:27
+      sx: 631,
+      sy: 98,
+      width: 115,
+      height: 27,
+    };
+    this.gamePaused = {
+      sx: 280,
+      sy: 521,
+      width: 137,
+      height: 27,
     };
     this.playButton = {
-      sx:557,
-      sy:187,
-      width:72,
-      height:39
+      sx: 557,
+      sy: 187,
+      width: 72,
+      height: 39,
     };
     this.tapToPlay = {
-      sx:459,
-      sy:166,
-      width:84,
-      height:52
+      sx: 459,
+      sy: 166,
+      width: 84,
+      height: 52,
     };
     this.background = {
-      sx:226,
-      sy:0,
-      width:227,
-      height:403
+      sx: 226,
+      sy: 0,
+      width: 227,
+      height: 403,
     };
-    this.gameTitle={
-      sx:548,
-      sy:148,
-      width:137,
-      height:22
-    }
-
+    this.gameTitle = {
+      sx: 548,
+      sy: 148,
+      width: 137,
+      height: 22,
+    };
 
     canvas.sprites = this;
   }
