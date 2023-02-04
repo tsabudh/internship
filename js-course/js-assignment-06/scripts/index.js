@@ -1,3 +1,4 @@
+import { Canvas } from "./canvas.js";
 // import Canvas from "./canvas.js";
 
 //global variable
@@ -7,85 +8,22 @@ const PILLAR_SIZE = 100;
 const OBSTACLE_SPEED = 10;
 const FONT_SIZE = 30;
 
-let assets = new Image();
-assets.src = "./assets/assets.png";
-
-const glidingBird = {
-  sx: 4,
-  sy: 762,
-  width: 27,
-  height: 27,
-};
-const groundImage = {
-  sx: 456,
-  sy: 0,
-  width: 256,
-  height: 88,
-};
-const pillarTop = {
-  sx: 86,
-  sy: 502,
-  width: 44,
-  height: 255,
-};
-const pillarBottom = {
-  sx: 86,
-  sy: 502,
-  width: 44,
-  height: 255,
-};
-const flyingBird = {
-  sx: 48,
-  sy: 762,
-  width: 27,
-  height: 27,
-};
-const birdImage = new Image();
-birdImage.src = "./assets/bird.png";
-
-const birdUpImage = new Image();
-birdUpImage.src = "./assets/birdup.png";
-
-const pillarImage = new Image();
-pillarImage.src = "./assets/pillar.png";
-
-// ctx = canvas.getContext("2d");
-// ctx.drawImage(
-//   carImage,
-//   LANE_SIZE * myCar.lane,
-//   myCar.distanceFromTop,
-//   LANE_SIZE,
-//   CAR_LENGTH
-// );
-
-import { Canvas } from "./canvas.js";
-// import Ground from "./ground";
-// import Pillar from "./pillar";
-// import Flappy from "./flappy";
-
 function gameLoop(canvasEl, canvas) {
-  // console.log(canvas.gameStatus);
   let ctx = canvasEl.getContext("2d");
   let flappy = canvas.flappy;
   let { pillar0, pillar1, pillar2 } = { ...canvas };
 
   if (canvas.gameStatus == "GAME_NOT_STARTED") {
-    ctx.drawImage(
-      assets,
-      226,
-      0,
-      227,
-      403,
-      -10,
-      -10,
-      canvas.width + 40,
-      canvas.height + 20
-    );
+    //* draw background
+    canvas.drawBackground();
+    
+    // draw game title
     canvas.drawImage(
       canvas.sprites.gameTitle,
       canvas.width / 2 - canvas.sprites.gameTitle.width / 2,
       canvas.height / 10
     );
+    // draw tap to play
     canvas.drawImage(
       canvas.sprites.tapToPlay,
       canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
@@ -94,15 +32,14 @@ function gameLoop(canvasEl, canvas) {
     canvas.drawFlappy();
     canvas.drawGround();
     canvas.ground.update();
-    // canvas.gameStatus = "STARTED";
   }
-  // console.log(canvas.gameStatus);
+
   if (canvas.gameStatus == "GAME_START") {
     canvas.flappy.yOffset = canvas.height / 2;
-    // canvas.pillars=[];
     canvas.createPillars();
     canvas.t = 0;
     canvas.score = 0;
+    flappy.alive = true;
     canvas.gameStatus = "PLAYING";
   }
   if (canvas.gameStatus == "PLAYING") {
@@ -115,84 +52,32 @@ function gameLoop(canvasEl, canvas) {
     } else {
       flappy.flyingUp = false;
     }
+
     //* clear canvas
     ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
     //* draw background
-    ctx.drawImage(
-      assets,
-      226,
-      0,
-      227,
-      403,
-      -10,
-      -10,
-      canvas.width + 40,
-      canvas.height + 20
-    );
+    canvas.drawBackground();
 
     //* draw bird
-    ctx.beginPath();
-    ctx.rect(
-      //  birdImage
-      flappy.xOffset,
-      flappy.yOffset,
-      flappy.width,
-      flappy.height
-    );
-
     canvas.drawFlappy();
 
-    if (flappy.flyingUp == true) {
-      flappy.color = "red";
-      flappy.selectImage = flyingBird;
-    } else {
-      flappy.color = "blue";
-      flappy.selectImage = glidingBird;
-    }
-    ctx.strokeStyle = flappy.color;
-    ctx.stroke();
-
-       ctx.lineWidth = "6";
-
-    //*pillar  0
-    ctx.beginPath();
-   
+    //* draw pillar  0
     canvas.drawPillar(canvas.sprites.pillarTop, pillar0);
-    //GAP
-
-   
-
     canvas.drawPillar(canvas.sprites.pillarBottom, pillar0);
-    ctx.stroke();
-    ctx.strokeStyle = "violet";
 
-    //*pillar  1
-    ctx.beginPath();
-      canvas.drawPillar(canvas.sprites.pillarTop, pillar1);
-   
+    //* draw pillar  1
+    canvas.drawPillar(canvas.sprites.pillarTop, pillar1);
     canvas.drawPillar(canvas.sprites.pillarBottom, pillar1);
-    ctx.strokeStyle = "indigo";
-    ctx.stroke();
 
-    //*pillar  2
-    ctx.beginPath();
-      canvas.drawPillar(canvas.sprites.pillarTop, pillar2);
-    ctx.stroke();
-
-        canvas.drawPillar(canvas.sprites.pillarBottom, pillar2);
-    ctx.strokeStyle = "blue";
-    ctx.stroke();
+    //* draw pillar  2
+    canvas.drawPillar(canvas.sprites.pillarTop, pillar2);
+    canvas.drawPillar(canvas.sprites.pillarBottom, pillar2);
 
     //* draw ground
-
-    // console.log(canvas.ground);
-      ctx.strokeStyle = "red";
-    ctx.stroke();
-
     canvas.drawGround();
-       ctx.strokeStyle = "blue";
-    ctx.stroke();
+
+    //* update ground, pillars, score,
     canvas.ground.update();
     pillar0.update();
     pillar1.update();
@@ -200,15 +85,12 @@ function gameLoop(canvasEl, canvas) {
     canvas.updateScore();
   }
 
+  //check if achieved high score
   if (canvas.gameStatus == "GAME_OVER" || canvas.gameStatus == "GAME_PAUSED") {
-    //check if achieved high score
     canvas.highScore =
       canvas.score > canvas.highScore ? canvas.score : canvas.highScore;
 
     // draw scoreboard
-
-
-
     canvas.drawScoreBoard();
     if (canvas.gameStatus == "GAME_OVER") {
       canvas.drawImage(
@@ -216,7 +98,8 @@ function gameLoop(canvasEl, canvas) {
         canvas.width / 2 - canvas.sprites.gameOver.width / 2,
         canvas.height / 6
       );
-    }else if(canvas.gameStatus == "GAME_PAUSED"){
+    } else if (canvas.gameStatus == "GAME_PAUSED") {
+      //if game is paused show "game paused"
       canvas.drawImage(
         canvas.sprites.gamePaused,
         canvas.width / 2 - canvas.sprites.gameOver.width / 2,
@@ -224,11 +107,12 @@ function gameLoop(canvasEl, canvas) {
       );
     }
 
+    // show playbutton
     canvas.drawImage(
       canvas.sprites.playButton,
       canvas.width / 2 - canvas.sprites.playButton.width / 2,
       canvas.height / 1.8
-    ); // same value to  be used in click event listener
+    ); // SAME VALUE to  be used in click event listener
   }
 }
 
@@ -259,6 +143,7 @@ function startGame(canvasEl, canvas) {
       left: canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
       top: canvas.height / 1.8,
     };
+    // boolean for if cursor is within button during clicks
     let buttonHit =
       y > playButton.top &&
       y < playButton.top + canvas.sprites.tapToPlay.height &&

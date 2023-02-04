@@ -1,9 +1,8 @@
 export  class Pillar {
     constructor(canvas) {
       this.index = canvas.pillars.length;
-      this.gapWidth = 150;
+      this.gapWidth = 110;
       this.width = 80;
-      // this.image = pillarImage;
       this.passedByFlappy = false;
       this.xOffset = this.getPillarXOffset(canvas); //canvas.width;
       this.gapStart = this.getGapStart(canvas); // make it random

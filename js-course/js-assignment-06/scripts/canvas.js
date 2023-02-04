@@ -35,7 +35,7 @@ export class Canvas {
       .getContext("2d");
   }
 
-  createPillars(numberOfPillar=4) {
+  createPillars(numberOfPillar = 4) {
     this.pillars = []; //* clear the existing pillars array
     for (let i = 0; i <= numberOfPillar; i++) {
       this[`pillar${i}`] = new Pillar(this);
@@ -53,7 +53,6 @@ export class Canvas {
       ) {
         this.flappy.alive = false;
         this.gameStatus = "GAME_OVER";
-        // console.log("game over", this.gameStatus);
       }
       if (
         this.flappy.xOffset > pillar.xOffset + pillar.width &&
@@ -66,6 +65,20 @@ export class Canvas {
       }
     });
   }
+  drawBackground(){
+    this.context.drawImage(
+      this.sprites.spriteImage,
+      226,
+      0,
+      227,
+      403,
+      -10,
+      -10,
+      this.width + 40,
+      this.height + 20
+    );
+  }
+
   drawImage(sprite, dx, dy) {
     this.context.drawImage(
       this.sprites.spriteImage,
@@ -81,8 +94,9 @@ export class Canvas {
   }
   drawFlappy() {
     let drawBird;
-    if(this.flappy.flyingUp==true) drawBird = this.sprites.flyingBird;
-    else drawBird = this.sprites.glidingBird;
+    if (this.flappy.flyingUp == true) drawBird = this.sprites.flyingBird;
+    else if (this.flappy.alive) drawBird = this.sprites.glidingBird;
+    else if (this.flappy.alive == false) drawBird = this.sprites.deadBird;
     this.context.drawImage(
       this.sprites.spriteImage,
       drawBird.sx,
@@ -94,7 +108,6 @@ export class Canvas {
       this.flappy.width,
       this.flappy.height
     );
-  
   }
   drawPillar(pillarPart, pillar) {
     if (pillarPart == this.sprites.pillarTop) {
@@ -105,9 +118,9 @@ export class Canvas {
         this.sprites.pillarTop.width,
         this.sprites.pillarTop.height,
         pillar.xOffset,
-        0,
+      -this.sprites.pillarTop.height+pillar.gapStart,
         pillar.width,
-        pillar.gapStart
+        this.sprites.pillarTop.height
       );
     }
     if (pillarPart == this.sprites.pillarBottom) {
@@ -120,7 +133,7 @@ export class Canvas {
         pillar.xOffset,
         pillar.gapStart + pillar.gapWidth,
         pillar.width,
-        this.height
+        this.sprites.pillarBottom.height
       );
     }
   }
@@ -150,7 +163,7 @@ export class Canvas {
   }
 
   drawScoreBoard() {
-    let heightFactor=2.5;
+    let heightFactor = 2.5;
     this.context.drawImage(
       this.sprites.spriteImage,
       this.sprites.scoreBoard.sx,
@@ -158,7 +171,7 @@ export class Canvas {
       this.sprites.scoreBoard.width,
       this.sprites.scoreBoard.height,
       this.width / 2 - this.sprites.scoreBoard.width / 2,
-      this.height/heightFactor - this.sprites.scoreBoard.height / 2,
+      this.height / heightFactor - this.sprites.scoreBoard.height / 2,
       this.sprites.scoreBoard.width,
       this.sprites.scoreBoard.height
     );
@@ -170,6 +183,7 @@ export class Canvas {
       this.width / 2 - this.sprites.scoreBoard.width / 2 + 45,
       this.height / heightFactor - this.sprites.scoreBoard.height / 2 + 50
     );
+    this.context.font = "20px Georgia";
     this.context.fillText(
       this.highScore,
       this.width / 2 - this.sprites.scoreBoard.width / 2 + 125,
@@ -177,9 +191,9 @@ export class Canvas {
     );
   }
 
-  listenForEvents(){
+  listenForEvents() {
     window.addEventListener("click", (event) => {
-      this.gameStatus="PLAYING"
+      this.gameStatus = "PLAYING";
       this.t = 0;
       this.flappy.u = 2.5;
     });

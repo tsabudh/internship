@@ -2,8 +2,8 @@
     constructor(canvas) {
       this.yOffset = canvas.height / 2;
       this.xOffset = 0.4 * canvas.width;
-      this.height = 40;
-      this.width = 40;
+      this.height = 22;
+      this.width = 27;
       this.alive = true;
       // this.image = birdImage;
       this.flyingUp = false;

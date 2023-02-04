@@ -35,15 +35,21 @@ export class Sprites {
     (this.spriteImage = spriteImage),
       (this.glidingBird = {
         sx: 4,
-        sy: 762,
+        sy: 765,
         width: 27,
-        height: 27,
+        height: 20,
       });
+    this.deadBird = {
+      sx: 487,
+      sy: 143,
+      width: 27,
+      height: 20,
+    };
     this.flyingBird = {
       sx: 48,
-      sy: 762,
+      sy: 765,
       width: 27,
-      height: 27,
+      height: 20,
     };
     this.groundImage = {
       sx: 456,
