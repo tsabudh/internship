@@ -28,15 +28,15 @@ export class Sprites {
       height: 88,
     };
     this.pillarTop = {
-      sx: 86,
+      sx: 90,
       sy: 503,
-      width: 44,
+      width: 35,
       height: 255,
     };
     this.pillarBottom = {
-      sx: 130,
+      sx: 134,
       sy: 503,
-      width: 44,
+      width: 35,
       height: 255,
     };
     this.scoreBoard = {
