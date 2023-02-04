@@ -5,19 +5,17 @@
       this.height = 22;
       this.width = 27;
       this.alive = true;
-      // this.image = birdImage;
       this.flyingUp = false;
       this.u = 0;
       this.v = this.u - canvas.g * canvas.t;
-      // this.s = this.yOffset;
       this.fallSpeed = 0;
       this.passedPillars = 0;
-      this.color = "red";
-      // this.selectedBird = canvas.sprites.glidingBird;
-  
-      this.fall = function () {
-        this.v = this.u - canvas.g * canvas.t;
+      this.canvas = canvas;
+
+      
+    }
+    fall() {
+        this.v = this.u - this.canvas.g * this.canvas.t;
         this.yOffset -= this.v;
       };
-    }
   }

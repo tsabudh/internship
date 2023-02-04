@@ -20,7 +20,6 @@ export class Canvas {
     this.numberOfPillar = numberOfPillar;
     this.gameStatus = "NOT_STARTED";
     this.speed = 1;
-    // this.gameStatus = "NOT_STARTED";
     this.g = 12;
     this.t = 0.01; //*value of t multiplied by setInterval value argument ie:100
     this.score = 0;
@@ -60,8 +59,7 @@ export class Canvas {
       ) {
         pillar.passedByFlappy = true;
         this.score += 1;
-        console.log(this.score);
-        this.scoreAdded = true;
+             this.scoreAdded = true;
       }
     });
   }

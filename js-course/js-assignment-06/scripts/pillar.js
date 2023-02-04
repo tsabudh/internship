@@ -34,8 +34,6 @@ export  class Pillar {
     }
   
     getGapStart(canvas) {
-      // debugger;
-  
       //*giving random gap when outside screen
       let min = 70;
       let max = canvas.height / 2.5;

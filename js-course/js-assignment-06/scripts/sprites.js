@@ -1,33 +1,4 @@
-// const glidingBird = {
-//   sx: 4,
-//   sy: 762,
-//   width: 27,
-//   height: 27,
-// };
-// const groundImage = {
-//   sx: 456,
-//   sy: 0,
-//   width: 256,
-//   height: 88,
-// };
-// const pillarTop = {
-//   sx: 86,
-//   sy: 502,
-//   width: 44,
-//   height: 255,
-// };
-// const pillarBottom = {
-//   sx: 86,
-//   sy: 502,
-//   width: 44,
-//   height: 255,
-// };
-// const flyingBird = {
-//   sx: 48,
-//   sy: 762,
-//   width: 27,
-//   height: 27,
-// };
+
 let spriteImage = new Image();
 spriteImage.src = "./assets/assets.png";
 export class Sprites {

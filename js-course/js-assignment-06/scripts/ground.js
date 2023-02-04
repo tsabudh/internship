@@ -2,7 +2,6 @@ import * as sprites from "./globals.js";
 
 export class Ground {
   constructor(canvas) {
-    console.log(canvas.sprites);
     this.sprite = canvas.sprites.groundImage;
     this.xOffset = 0;
     this.canvas = canvas;
