@@ -249,11 +249,14 @@ function gameLoop(canvasEl, canvas) {
     ctx.strokeStyle = "red";
     ctx.stroke();
     canvas.drawScoreBoard();
-    canvas.drawImage(
-      canvas.sprites.gameOver,
-      canvas.width / 2 - canvas.sprites.gameOver.width / 2,
-      canvas.height / 6
-    );
+    if (canvas.gameStatus == "GAME_OVER") {
+      canvas.drawImage(
+        canvas.sprites.gameOver,
+        canvas.width / 2 - canvas.sprites.gameOver.width / 2,
+        canvas.height / 6
+      );
+    }
+
     canvas.drawImage(
       canvas.sprites.playButton,
       canvas.width / 2 - canvas.sprites.playButton.width / 2,
@@ -307,17 +310,14 @@ function startGame(canvasEl, canvas) {
       x > playButton.left &&
       x < playButton.left + canvas.sprites.tapToPlay.width;
 
-    if (
-      (canvas.gameStatus == "GAME_OVER" ||
-        canvas.gameStatus == "GAME_NOT_STARTED") &&
-      buttonHit
-    ) {
+    if (canvas.gameStatus == "GAME_OVER" && buttonHit) {
       canvas.gameStatus = "GAME_START";
     }
     if (canvas.gameStatus == "GAME_NOT_STARTED") {
-  
       canvas.gameStatus = "GAME_START";
-
+    }
+    if (canvas.gameStatus == "GAME_PAUSED" && buttonHit) {
+      canvas.gameStatus = "PLAYING";
     }
   });
   window.addEventListener("keydown", (event) => {
