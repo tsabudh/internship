@@ -233,7 +233,7 @@ function gameLoop(canvasEl, canvas) {
     canvas.updateScore();
   }
 
-  if (canvas.gameStatus == "GAME_OVER") {
+  if (canvas.gameStatus == "GAME_OVER" || canvas.gameStatus == "GAME_PAUSED") {
     //check if achieved high score
     canvas.highScore =
       canvas.score > canvas.highScore ? canvas.score : canvas.highScore;
@@ -245,6 +245,7 @@ function gameLoop(canvasEl, canvas) {
       canvas.sprites.scoreBoard.width,
       canvas.sprites.scoreBoard.height
     );
+
     ctx.strokeStyle = "red";
     ctx.stroke();
     canvas.drawScoreBoard();
@@ -298,38 +299,38 @@ function startGame(canvasEl, canvas) {
     }
     let playButton = {
       left: canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
-      top: canvas.height / 2 + canvas.flappy.height,
+      top: canvas.height / 1.8,
     };
-    if (
-      (canvas.gameStatus == "GAME_OVER" ||
-        canvas.gameStatus == "GAME_NOT_STARTED") &&
+    let buttonHit =
       y > playButton.top &&
       y < playButton.top + canvas.sprites.tapToPlay.height &&
       x > playButton.left &&
-      x < playButton.left + canvas.sprites.tapToPlay.width
+      x < playButton.left + canvas.sprites.tapToPlay.width;
+
+    if (
+      (canvas.gameStatus == "GAME_OVER" ||
+        canvas.gameStatus == "GAME_NOT_STARTED") &&
+      buttonHit
     ) {
       canvas.gameStatus = "GAME_START";
     }
     if (canvas.gameStatus == "GAME_NOT_STARTED") {
-      console.log("clicked while game not started");
-      console.log("changing gamestatus to start");
+  
       canvas.gameStatus = "GAME_START";
-      console.log("game status is", canvas.gameStatus);
-      //   canvas.drawImage(
-      //     canvas.sprites.tapToPlay,
-      //     canvas.width / 2 - canvas.sprites.tapToPlay.width / 2,
-      //     canvas.height / 2 + canvas.flappy.height
-      //   );
+
     }
   });
   window.addEventListener("keydown", (event) => {
     if (canvas.gameStatus == "PLAYING") {
-     
+      console.log("pressed during play");
+
       canvas.gameStatus = "GAME_PAUSED";
-    }
-    if (canvas.gameStatus == "GAME_PAUSED") {
-   
+      console.log(canvas.gameStatus);
+    } else if (canvas.gameStatus == "GAME_PAUSED") {
+      console.log("pressed during PUASE");
+
       canvas.gameStatus = "PLAYING";
+      console.log(canvas.gameStatus);
     }
   });
 }
