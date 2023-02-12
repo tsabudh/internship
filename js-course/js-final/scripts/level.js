@@ -70,7 +70,7 @@ export let mountain1 = [
       { x: 3100, y: 160 },
       { x: 3150, y: 350 },
       { x: 3400, y: 250 },
-      { x: 3600, y: 150 },
+      { x: 3600, y: 160 },
     ],
   },
   {
@@ -80,6 +80,19 @@ export let mountain1 = [
       { x: 3900, y: 250 },
       { x: 4000, y: 280 },
     ],
+  },
+];
+
+export let enemy1 = [
+  {
+    weapon: "cannon",
+    range:200,
+    location: { x: 700, y: 350 },
+  },
+  {
+    weapon: "rocket",
+    range:250,
+    location: { x: 1400, y: 360 },
   },
 ];
 

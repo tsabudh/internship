@@ -61,15 +61,18 @@ export class Collision {
 
           // console.log(point, distanceFromJoint)
           if (
-            distanceFromJoint < 5 &&
+            distanceFromJoint < 2 &&
             line.start.x < point.x &&
             line.end.x > point.x
           ) {
             console.log("collided");
+            
             this.canvas.gameStatus = "GAME_OVER";
           }
         });
       });
     }
   }
+
+ 
 }

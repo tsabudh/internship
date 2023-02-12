@@ -10,6 +10,20 @@ export class Camera {
   }
 
   update() {
+    // console.log(this.canvas.hero.hasLanded, this.canvas.hero.platformBelow);
+    if(this.canvas.hero.hasLanded){
+      // console.log("hero has landed");
+      if(this.canvas.hero.location.x > this.location.x){
+        // console.log("camera behind hero")
+        this.location.x;
+      }
+    }
+    if (
+      this.canvas.hero.hasLanded &&
+      this.canvas.hero.platformBelow.x > this.canvas.hero.x
+    ) {
+      console.log("change camera offset");
+    }
     let boundRightOfHero = this.canvas.hero.boundXRight;
     let boundLeftOfHero = this.canvas.hero.boundXLeft;
     let velocityXOfHero = this.canvas.hero.velocity.x;

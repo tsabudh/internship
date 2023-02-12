@@ -9,7 +9,12 @@ export class Vector {
     // use pythagoras theorem to work out the magnitude of the vector
     return Math.sqrt(this.x ** 2 + this.y ** 2);
   }
-
+  getUnitVector() {
+    return new Vector(
+      this.x / this.getMagnitude(),
+      this.y / this.getMagnitude()
+    );
+  }
   add(addendVector) {
     // add vector components
     return new Vector(this.x + addendVector.x, this.y + addendVector.y);
@@ -25,13 +30,13 @@ export class Vector {
     if (vector1.x > 0) {
       newX = vector1.x < vector2.x ? vector1.x : vector2.x;
     } else if (vector1.x < 0) {
-      newX = vector1.x < -vector2.x? -vector2.x : vector1.x;
+      newX = vector1.x < -vector2.x ? -vector2.x : vector1.x;
     }
     if (vector1.y > 0) {
       // newY = vector1.y < vector2.y ? vector1.y : vector2.y;
       //* keep velocity as it is during fall
       newY = vector1.y;
-    } else if(vector1.y<0){
+    } else if (vector1.y < 0) {
       newY = vector1.y < -vector2.y ? -vector2.y : vector1.y;
     }
 

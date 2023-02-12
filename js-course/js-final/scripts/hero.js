@@ -8,7 +8,8 @@ export class Hero {
     this.hasLanded = false;
     this.crashLanded = false;
 
-    this.fuel = 500;
+    this.fuelMax = 500;
+    this.fuel = this.fuelMax;
 
     this.jointsCollection = [];
     this.numberOfJointsPerSide = 8;
@@ -28,7 +29,7 @@ export class Hero {
     this.thrusterRightOn = false;
 
     this.boundHeight = 150;
-    this.boundWidth = 300;
+    this.boundWidth = 500;
     this.boundXLeft =
       this.location.x - this.boundWidth * 0.5 - this.width * 0.5;
     this.boundXRight = this.location.x + this.boundWidth * 0.5;
@@ -39,7 +40,6 @@ export class Hero {
     if (this.thrusterUpOn || this.thrusterLeftOn || this.thrusterRightOn) {
       this.fuel--;
     }
-    console.log(this.fuel);
 
     //* motion
     this.velocity = this.velocity.add(this.canvas.gravity);
@@ -54,7 +54,30 @@ export class Hero {
     if (this.location.y > this.canvas.groundLevel - this.height)
       this.location.y = this.canvas.groundLevel - this.height;
     // this.canvas.context.translate(-this.hero.location.x, this.hero.location.y);
-
+    // console.log(
+    //   this.canvas.platforms[this.canvas.platforms.length - 1].x +
+    //     this.canvas.platforms[this.canvas.platforms.length - 1].width
+    // );
+    // console.log(
+    //   this.location.x >
+    //     this.canvas.platforms[this.canvas.platforms.length - 1].x +
+    //       this.canvas.platforms[this.canvas.platforms.length - 1].width
+    // );
+    //* bound hero inside playing area between first and last platform
+    if (this.location.x < this.canvas.platforms[0].x) {
+      this.location.x = this.canvas.platforms[0].x;
+      this.velocity.x = 0;
+    } else if (
+      this.location.x + this.width >
+      this.canvas.platforms[this.canvas.platforms.length - 1].x +
+        this.canvas.platforms[this.canvas.platforms.length - 1].width
+    ) {
+      this.location.x =
+        this.canvas.platforms[this.canvas.platforms.length - 1].x +
+        this.canvas.platforms[this.canvas.platforms.length - 1].width -
+        this.width;
+      this.velocity.x = 0;
+    }
     //* bounding box update
     this.boundXLeft =
       this.location.x - this.boundWidth * 0.5 + this.width * 0.5;
@@ -65,6 +88,7 @@ export class Hero {
       left: [],
       right: [],
       bottom: [],
+      top: [],
     };
 
     for (let i = 0; i <= this.numberOfJointsPerSide; i++) {
@@ -80,8 +104,12 @@ export class Hero {
         x: this.location.x + (this.width / this.numberOfJointsPerSide) * i,
         y: this.location.y + this.height,
       };
+      joints.top[i] = {
+        x: this.location.x + (this.width / this.numberOfJointsPerSide) * i,
+        y: this.location.y,
+      };
     }
-    this.jointsCollection = [...joints.left, ...joints.right, ...joints.bottom];
+    this.jointsCollection = [...joints.left, ...joints.right, ...joints.bottom, ...joints.top];
   }
 
   checkForLanding() {
@@ -94,8 +122,9 @@ export class Hero {
         if (this.location.y + this.height >= this.platformBelow.y) {
           this.location.y = this.platformBelow.y - this.height;
           this.hasLanded = true;
+          this.velocity.x=0;
           this.velocity.y = 0;
-          this.fuel = 500;
+          this.fuel = this.fuelMax;
           if (this.velocity.y >= 10) {
             console.log("speedlanded");
             this.velocity.y = 0;
@@ -188,7 +217,13 @@ export class Hero {
     ctx.rect(this.location.x, this.location.y, this.width, this.height);
     ctx.stroke();
     //draw hero Image
-    ctx.drawImage(heroImage, this.location.x, this.location.y,this.width,this.height);
+    ctx.drawImage(
+      heroImage,
+      this.location.x,
+      this.location.y,
+      this.width,
+      this.height
+    );
 
     // bounding box
     ctx.beginPath();
@@ -201,7 +236,31 @@ export class Hero {
 
     ctx.stroke();
   }
-  onGround() {
-    return this.location == this.canvas.groundLevel - this.height;
+
+  showFuelIndicator() {
+    let ctx = this.canvas.context;
+    let fuelIndicator = {
+      x: this.canvas.camera.location.x,
+      y: this.canvas.camera.location.y,
+      width: 100,
+      height: 10,
+    };
+    ctx.rect(
+      fuelIndicator.x,
+      fuelIndicator.y,
+      fuelIndicator.width,
+      fuelIndicator.height
+    );
+    ctx.stroke();
+    let fuelRatio = (this.fuel / 500) * fuelIndicator.width;
+    ctx.fillRect(
+      fuelIndicator.x,
+      fuelIndicator.y,
+      fuelRatio,
+      fuelIndicator.height
+    );
   }
+  // onGround() {
+  //   return this.location == this.canvas.groundLevel - this.height;
+  // }
 }

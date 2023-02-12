@@ -38,12 +38,17 @@ function gameLoop(canvas) {
 
       canvas.mountains.forEach((mountain) => {
         mountain.draw();
-        // canvas.context.clip();
-        // canvas.context.drawImage(background1, 0, 0);
       });
       //draw platforms
       canvas.platforms.forEach((platform) => {
         platform.draw();
+      });
+
+      // draw enemies
+      canvas.enemies.forEach((enemy) => {
+        enemy.draw();
+        enemy.fireCanons();
+        enemy.checkWeaponHit();
       });
 
       //draw hero
@@ -52,6 +57,7 @@ function gameLoop(canvas) {
       canvas.hero.update();
       canvas.hero.checkForLanding();
       canvas.hero.draw();
+      canvas.hero.showFuelIndicator();
 
       //camera
       canvas.camera.update();

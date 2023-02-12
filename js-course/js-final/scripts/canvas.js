@@ -1,8 +1,9 @@
 import { Hero } from "./hero.js";
+import {Enemy} from "./enemy.js";
 import { InputHandler } from "./inputhandler.js";
 import { Vector } from "./vector.js";
 import { Camera } from "./camera.js";
-import { platform1, mountain1, background1 } from "./level.js";
+import { platform1, mountain1, background1, enemy1 } from "./level.js";
 
 import { Platform } from "./platform.js";
 import { Mountain } from "./mountain.js";
@@ -39,11 +40,14 @@ export class Canvas {
 
     this.context = canvasEl.getContext("2d");
     this.hero = new Hero(this);
+    
     this.inputHandler = new InputHandler(this);
     this.camera = new Camera(this);
     this.collision = new Collision(this);
+
     this.platforms = [];
     this.mountains = [];
+    this.enemies = [];
   }
 
   initializeLevel() {
@@ -56,6 +60,11 @@ export class Canvas {
       let mountain = {};
       mountain[`${index}`] = new Mountain(this, mountainDetails);
     });
+
+    enemy1.forEach((enemyDetails,index)=>{
+      let enemy = {};
+      enemy[`${index}`] = new Enemy(this, enemyDetails);
+    })
   }
 
   update() {
