@@ -1,3 +1,4 @@
+import { heroImage } from "./level.js";
 import { Vector } from "./vector.js";
 export class Hero {
   constructor(canvas) {
@@ -108,42 +109,72 @@ export class Hero {
   }
 
   checkInputs() {
-    //up thrusters
+    //* up thrusters
+    //if hero has fuel and thrusterUp is not on
     if (
-      
+      this.fuel > 0 &&
       this.canvas.keyDown.w == true &&
       this.thrusterUpOn == false
     ) {
       this.acceleration = this.acceleration.add(this.thrusterUp);
-     this.thrusterUpOn = true;
+      this.thrusterUpOn = true;
 
-      //if thrusters are already on
+      //if hero does not have fuel but thrusterUp is still on
     } else if (
-      
-      this.canvas.keyDown.w == false &&
-   this.thrusterUpOn == true
+      this.fuel < 0 &&
+      this.canvas.keyDown.w == true &&
+      this.thrusterUpOn == true
     ) {
-      // this.acceleration = new Vector(0, 0);
-
       this.acceleration = this.acceleration.sub(this.thrusterUp);
-     this.thrusterUpOn = false;
+      this.thrusterUpOn = false;
+
+      // if fuel is not empty and user stops thrusters
+    } else if (this.canvas.keyDown.w == false && this.thrusterUpOn == true) {
+      this.acceleration = this.acceleration.sub(this.thrusterUp);
+      this.thrusterUpOn = false;
     }
 
     //left thrusters
-    if (this.canvas.keyDown.a == true && this.thrusterLeftOn == false) {
+    if (
+      this.fuel > 0 &&
+      this.canvas.keyDown.a == true &&
+      this.thrusterLeftOn == false
+    ) {
       this.acceleration = this.acceleration.add(this.thrusterLeft);
       this.thrusterLeftOn = true;
-      //if thrusters are already on
+      //if hero does not have fuel but thrusterUp is still on
+    } else if (
+      this.fuel < 0 &&
+      this.canvas.keyDown.w == true &&
+      this.thrusterUpOn == true
+    ) {
+      this.acceleration = this.acceleration.sub(this.thrusterUp);
+      this.thrusterUpOn = false;
+
+      // if fuel is not empty and user stops thrusters
     } else if (this.canvas.keyDown.a == false && this.thrusterLeftOn == true) {
       this.acceleration = this.acceleration.sub(this.thrusterLeft);
       this.thrusterLeftOn = false;
     }
 
     // right thrusters
-    if (this.canvas.keyDown.d == true && this.thrusterRightOn == false) {
+    if (
+      this.fuel > 0 &&
+      this.canvas.keyDown.d == true &&
+      this.thrusterRightOn == false
+    ) {
       this.acceleration = this.acceleration.add(this.thrusterRight);
       this.thrusterRightOn = true;
-      //if thrusters are already on
+      //if hero does not have fuel but thrusterUp is still on
+    } else if (
+      this.fuel < 0 &&
+      this.canvas.keyDown.w == true &&
+      this.thrusterUpOn == true
+    ) {
+      this.acceleration = this.acceleration.sub(this.thrusterUp);
+      this.thrusterUpOn = false;
+
+      // if fuel is not empty and user stops thrusters
     } else if (this.canvas.keyDown.d == false && this.thrusterRightOn == true) {
       this.acceleration = this.acceleration.sub(this.thrusterRight);
       this.thrusterRightOn = false;
@@ -151,26 +182,24 @@ export class Hero {
   }
 
   draw() {
+    let ctx = this.canvas.context;
     //hero
-    this.canvas.context.beginPath();
-    this.canvas.context.rect(
-      this.location.x,
-      this.location.y,
-      this.width,
-      this.height
-    );
-    this.canvas.context.stroke();
+    ctx.beginPath();
+    ctx.rect(this.location.x, this.location.y, this.width, this.height);
+    ctx.stroke();
+    //draw hero Image
+    ctx.drawImage(heroImage, this.location.x, this.location.y,this.width,this.height);
 
     // bounding box
-    this.canvas.context.beginPath();
-    this.canvas.context.rect(
+    ctx.beginPath();
+    ctx.rect(
       this.boundXLeft,
       this.location.y - this.height,
       this.boundWidth,
       this.boundHeight
     );
 
-    this.canvas.context.stroke();
+    ctx.stroke();
   }
   onGround() {
     return this.location == this.canvas.groundLevel - this.height;

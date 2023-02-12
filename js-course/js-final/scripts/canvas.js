@@ -2,7 +2,7 @@ import { Hero } from "./hero.js";
 import { InputHandler } from "./inputhandler.js";
 import { Vector } from "./vector.js";
 import { Camera } from "./camera.js";
-import { platform1, mountain1 } from "./level.js";
+import { platform1, mountain1, background1 } from "./level.js";
 
 import { Platform } from "./platform.js";
 import { Mountain } from "./mountain.js";
@@ -17,11 +17,14 @@ export class Canvas {
     document.querySelector(container).appendChild(canvasEl);
 
     this.location = new Vector(0, 0);
+    this.gravity = new Vector(0, 0.1);
+
     this.width = width;
     this.height = height;
     this.groundLevel = 480;
 
-    this.gravity = new Vector(0, 0.1);
+    this.gameStatus = "NOT_STARTED";
+    this.checkpoint = 0;
 
     this.g = 10;
     this.animationCounter = 0;
@@ -94,5 +97,11 @@ export class Canvas {
 
     ctx.clearRect(this.camera.location.x, 0, this.width, this.height);
     // ctx.clearRect(this.camera.location.x, 0, this.width, this.height);
+  }
+
+  drawMenu() {}
+
+  drawBackground() {
+    this.context.drawImage(background1, 0, 0);
   }
 }

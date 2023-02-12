@@ -2,7 +2,7 @@ export class Platform {
   constructor(canvas,location) {
     this.canvas = canvas;
     this.height = 20;
-    this.width = 200;
+    this.width = 150;
     this.x = location.x;
     this.y = location.y;
 

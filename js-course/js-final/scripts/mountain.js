@@ -1,5 +1,4 @@
-import { mountain1, lineSegmentCollection } from "./level.js";
-
+import { mountain1, lineSegmentCollection, mountainImage } from "./level.js";
 
 export class Mountain {
   constructor(canvas, mountainDetails) {
@@ -9,9 +8,9 @@ export class Mountain {
     canvas.mountains.push(this);
   }
 
-  
   draw() {
     let ctx = this.canvas.context;
+    ctx.save();
     ctx.beginPath();
     ctx.moveTo(this.path[0].x, 1000);
     this.path.forEach((coordinates) => {
@@ -19,7 +18,11 @@ export class Mountain {
     });
     ctx.lineTo(this.path[this.path.length - 1].x, 1000);
     ctx.closePath();
-    ctx.fillStyle = `rgba(89,24,21,0.5)`;
     ctx.stroke();
+    ctx.clip();
+    ctx.drawImage(mountainImage, this.path[0].x, 0);
+    // ctx.drawImage(mountainImage,0,0);
+    ctx.fillStyle = `rgba(114,51,36,0.5)`;
+    ctx.restore();
   }
 }

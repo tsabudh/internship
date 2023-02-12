@@ -3,43 +3,64 @@ import { Canvas } from "./canvas.js";
 import { Platform } from "./platform.js";
 // import { InputHandler } from "./inputhandler.js";
 import { Camera } from "./camera.js";
-import { platform1 } from "./level.js";
+import { platform1, background1 } from "./level.js";
 import { Mountain } from "./mountain.js";
 // import { checkForCrashLand } from "./collision.js";
 
 function gameLoop(canvas) {
   function animate() {
-    // console.log(canvas.mountains);
-    //clear canvas
-    canvas.clear();
+    if (canvas.gameStatus == "NOT_STARTED") {
+      console.log("gameStatus:", canvas.gameStatus);
+      canvas.drawMenu();
 
-    //update environment
-    canvas.update();
+      // canvas.gameStatus = "PLAYING";
+    }
 
-    // draw environment
-    canvas.drawGround();
+    if (canvas.gameStatus == "GAME_OVER") {
+      console.log("game over. Show game over sign and menu for restart");
+    }
 
-    //draw hero
-    // canvas.hero.checkForFuel();
-    canvas.hero.checkInputs();
-    canvas.hero.update();
-    canvas.hero.checkForLanding();
-    canvas.hero.draw();
+    if (canvas.gameStatus == "PAUSED") {
+      console.log("gameStatus:", canvas.gameStatus);
+    }
+    if (canvas.gameStatus == "PLAYING") {
+      console.log("gameStatus:", canvas.gameStatus);
+      // console.log(canvas.mountains);
+      //clear canvas
+      canvas.clear();
 
-    //camera
-    canvas.camera.update();
+      //update environment
+      canvas.update();
 
-    //mountains collision
-    canvas.collision.checkCollision();
+      // draw environment
+      // canvas.drawBackground();
+      canvas.drawGround();
 
-    // checkForCrashLand(canvas);
-    canvas.mountains.forEach((mountain) => {
-      mountain.draw();
-    });
-    //draw platforms
-    canvas.platforms.forEach((platform) => {
-      platform.draw();
-    });
+      canvas.mountains.forEach((mountain) => {
+        mountain.draw();
+        // canvas.context.clip();
+        // canvas.context.drawImage(background1, 0, 0);
+      });
+      //draw platforms
+      canvas.platforms.forEach((platform) => {
+        platform.draw();
+      });
+
+      //draw hero
+      // canvas.hero.checkForFuel();
+      canvas.hero.checkInputs();
+      canvas.hero.update();
+      canvas.hero.checkForLanding();
+      canvas.hero.draw();
+
+      //camera
+      canvas.camera.update();
+
+      //mountains collision
+      canvas.collision.checkCollision();
+
+      // checkForCrashLand(canvas);
+    }
 
     // recall animate
     window.requestAnimationFrame(animate);

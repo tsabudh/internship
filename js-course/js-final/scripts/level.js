@@ -1,5 +1,14 @@
 import { Canvas } from "./canvas.js";
 
+export let background1 = new Image();
+background1.src = "./assets/background1.jpg";
+
+export let heroImage = new Image();
+heroImage.src = "./assets/hero.png";
+
+export let mountainImage = new Image();
+mountainImage.src = "./assets/mountain1.jpg";
+
 export let platform1 = [
   {
     location: { x: 250, y: 250 },
@@ -8,7 +17,7 @@ export let platform1 = [
     location: { x: 1000, y: 350 },
   },
   {
-    location: { x: 1800, y: 450 },
+    location: { x: 1800, y: 430 },
   },
   {
     location: { x: 2500, y: 250 },
@@ -66,7 +75,8 @@ export let mountain1 = [
   },
   {
     path: [
-      { x: 3800, y: 150 },
+      { x: 3600, y: 190 },
+      { x: 3800, y: 190 },
       { x: 3900, y: 250 },
       { x: 4000, y: 280 },
     ],

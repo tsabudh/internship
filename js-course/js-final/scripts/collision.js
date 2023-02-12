@@ -8,15 +8,8 @@ export class Collision {
 
   checkCollision() {
 
-    // let lineCollection = [...mountain1];
-    // console.log(lineCollection);
-
     let lines = [...lineSegmentCollection];
-
-    // let lines = mountain1;
-
     let lineBelow = [];
-
 
     if (lineBelow) {
       lines.forEach((lineSegment) => {
@@ -73,6 +66,7 @@ export class Collision {
             line.end.x > point.x
           ) {
             console.log("collided");
+            this.canvas.gameStatus = "GAME_OVER";
           }
         });
       });
