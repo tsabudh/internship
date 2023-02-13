@@ -9,32 +9,43 @@ import { Mountain } from "./mountain.js";
 
 function gameLoop(canvas) {
   function animate() {
-    if (canvas.gameStatus == "NOT_STARTED") {
-      console.log("gameStatus:", canvas.gameStatus);
-      canvas.drawMenu();
+    console.log("gameStatus:", canvas.gameStatus);
+    console.log(
+      "canvas location is:",
+      canvas.location,
+      "this camera location is:",
+      canvas.camera.location,
+      "hero location is:"
+    );
 
-      // canvas.gameStatus = "PLAYING";
+    if (canvas.gameStatus == "NOT_STARTED") {
+      canvas.clear();
+
+      canvas.drawMainMenu();
+    }
+    if (canvas.gameStatus == "GAME_START") {
+      canvas.startGame();
+      canvas.gameStatus = "PLAYING";
     }
 
     if (canvas.gameStatus == "GAME_OVER") {
       console.log("game over. Show game over sign and menu for restart");
+      canvas.drawRestartMenu();
     }
 
     if (canvas.gameStatus == "PAUSED") {
-      console.log("gameStatus:", canvas.gameStatus);
+      canvas.drawPausedMenu();
     }
     if (canvas.gameStatus == "PLAYING") {
-      console.log("gameStatus:", canvas.gameStatus);
       // console.log(canvas.mountains);
       //clear canvas
       canvas.clear();
 
       //update environment
-      canvas.update();
+      // canvas.update();
 
       // draw environment
       // canvas.drawBackground();
-      canvas.drawGround();
 
       canvas.mountains.forEach((mountain) => {
         mountain.draw();

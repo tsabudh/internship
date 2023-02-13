@@ -81,6 +81,10 @@ export class Enemy {
     ctx.fill();
   }
 
+  reset() {
+    this.cannonball.location = new Vector(this.x, this.y);
+  }
+
   checkWeaponHit() {
     let hero = this.canvas.hero;
 
@@ -91,7 +95,7 @@ export class Enemy {
           (joint.x - this.cannonball.location.x) ** 2 +
             (joint.y - this.cannonball.location.y) ** 2
         );
-        console.log(distance);
+
         if (distance < this.cannonball.dimensions.width * 0.5) {
           console.log("collidded with cannon");
           this.canvas.gameStatus = "GAME_OVER";

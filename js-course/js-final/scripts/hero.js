@@ -53,16 +53,7 @@ export class Hero {
 
     if (this.location.y > this.canvas.groundLevel - this.height)
       this.location.y = this.canvas.groundLevel - this.height;
-    // this.canvas.context.translate(-this.hero.location.x, this.hero.location.y);
-    // console.log(
-    //   this.canvas.platforms[this.canvas.platforms.length - 1].x +
-    //     this.canvas.platforms[this.canvas.platforms.length - 1].width
-    // );
-    // console.log(
-    //   this.location.x >
-    //     this.canvas.platforms[this.canvas.platforms.length - 1].x +
-    //       this.canvas.platforms[this.canvas.platforms.length - 1].width
-    // );
+  
     //* bound hero inside playing area between first and last platform
     if (this.location.x < this.canvas.platforms[0].x) {
       this.location.x = this.canvas.platforms[0].x;

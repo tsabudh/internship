@@ -6,15 +6,11 @@ export class Camera {
     this.location = new Vector(0, 0);
     this.width = canvas.width;
     this.height = canvas.height;
-    this.offsetX = 0;
   }
 
   update() {
-    // console.log(this.canvas.hero.hasLanded, this.canvas.hero.platformBelow);
-    if(this.canvas.hero.hasLanded){
-      // console.log("hero has landed");
-      if(this.canvas.hero.location.x > this.location.x){
-        // console.log("camera behind hero")
+    if (this.canvas.hero.hasLanded) {
+      if (this.canvas.hero.location.x > this.location.x) {
         this.location.x;
       }
     }

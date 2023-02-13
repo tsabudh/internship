@@ -1,5 +1,8 @@
 import { Canvas } from "./canvas.js";
 
+export let mars1 = new Image();
+mars1.src = "./assets/mars1.webp";
+
 export let background1 = new Image();
 background1.src = "./assets/background1.jpg";
 
