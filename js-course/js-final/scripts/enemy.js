@@ -61,12 +61,24 @@ export class Enemy {
     }
     // console.log(this.cannonball);
 
-    ctx.fillRect(
+    // ctx.fillRect(
+    //   this.cannonball.location.x,
+    //   this.cannonball.location.y,
+    //   this.cannonball.dimensions.width,
+    //   this.cannonball.dimensions.height
+    // );
+
+    ctx.beginPath();
+    ctx.arc(
       this.cannonball.location.x,
       this.cannonball.location.y,
-      this.cannonball.dimensions.width,
-      this.cannonball.dimensions.height
+      this.cannonball.dimensions.width * 0.5,
+      0,
+      2 * Math.PI
     );
+
+    ctx.stroke();
+    ctx.fill();
   }
 
   checkWeaponHit() {
@@ -76,17 +88,11 @@ export class Enemy {
       // console.log("closer");
       hero.jointsCollection.forEach((joint) => {
         let distance = Math.sqrt(
-          (joint.x -
-            (this.cannonball.location.x +
-              this.cannonball.dimensions.width * 0.5)) **
-            2 +
-            (joint.y -
-              (this.cannonball.location.y +
-                this.cannonball.dimensions.height * 0.5)) **
-              2
+          (joint.x - this.cannonball.location.x) ** 2 +
+            (joint.y - this.cannonball.location.y) ** 2
         );
         console.log(distance);
-        if (distance < 10) {
+        if (distance < this.cannonball.dimensions.width * 0.5) {
           console.log("collidded with cannon");
           this.canvas.gameStatus = "GAME_OVER";
         }

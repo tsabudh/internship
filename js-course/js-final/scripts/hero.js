@@ -109,7 +109,12 @@ export class Hero {
         y: this.location.y,
       };
     }
-    this.jointsCollection = [...joints.left, ...joints.right, ...joints.bottom, ...joints.top];
+    this.jointsCollection = [
+      ...joints.left,
+      ...joints.right,
+      ...joints.bottom,
+      ...joints.top,
+    ];
   }
 
   checkForLanding() {
@@ -122,7 +127,19 @@ export class Hero {
         if (this.location.y + this.height >= this.platformBelow.y) {
           this.location.y = this.platformBelow.y - this.height;
           this.hasLanded = true;
-          this.velocity.x=0;
+          //if hero lands on edge bring him fully on platform
+          if (this.location.x < this.platformBelow.x) {
+            // this.location.x = this.platformBelow.x;
+            this.location.x+=2;
+          } else if (
+            this.location.x + this.width >
+            this.platformBelow.x + this.platformBelow.width
+          ) {
+            // this.location.x =
+            //   this.platformBelow.x + this.platformBelow.width - this.width;
+            this.location.x-=2;
+          }
+          this.velocity.x = 0;
           this.velocity.y = 0;
           this.fuel = this.fuelMax;
           if (this.velocity.y >= 10) {
@@ -226,13 +243,13 @@ export class Hero {
     );
 
     // bounding box
-    ctx.beginPath();
-    ctx.rect(
-      this.boundXLeft,
-      this.location.y - this.height,
-      this.boundWidth,
-      this.boundHeight
-    );
+    // ctx.beginPath();
+    // ctx.rect(
+    //   this.boundXLeft,
+    //   this.location.y - this.height,
+    //   this.boundWidth,
+    //   this.boundHeight
+    // );
 
     ctx.stroke();
   }
@@ -253,6 +270,7 @@ export class Hero {
     );
     ctx.stroke();
     let fuelRatio = (this.fuel / 500) * fuelIndicator.width;
+    ctx.fillStyle="black";
     ctx.fillRect(
       fuelIndicator.x,
       fuelIndicator.y,
