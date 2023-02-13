@@ -2,7 +2,7 @@
 //* CHANGE ASSIGNMENT NUMBERS FOR EACH NEW ASSIGNMENTS
 const cssAssignmentNumber = 19;
 const htmlAssignmentNumber = 1;
-const jsAssignmentNumber = 6;
+const jsAssignmentNumber = 7;
 let courseItems = ["html", "css", "js"];
 
 const mainContainer = document.getElementsByClassName("main-container")[0];
@@ -133,7 +133,7 @@ for (let i = 0; i < courseItems.length; i++) {
       // href: `https://tsabudh.github.io/internship/${courseItems[i]}-course/${
       //   courseItems[i]
       // }-assignment-${makeIndexOf(j - 1)}/`,
-      href:demoRoute(courseItems[i], j - 1),
+      href: demoRoute(courseItems[i], j - 1),
       target: "_blank",
     });
     createChildOf(assignmentItem, {
@@ -147,11 +147,15 @@ for (let i = 0; i < courseItems.length; i++) {
   }
 }
 
-function repoRoute(courseName, assignmentNumber) {
+//*ASSIGNMENT NUMBER STARTS FROM ZERO AND IS LESS THAN SHOWN
 
+function repoRoute(courseName, assignmentNumber) {
   if (courseName == "js" && assignmentNumber == "0") {
-    console.log("gotcha");
+    
     return `https://github.com/tsabudh/internship`;
+  } else if (courseName == "js" && assignmentNumber == "06") {
+    
+    return `https://github.com/tsabudh/internship/tree/master/js-course/js-final`;
   } else if (courseName == "css" && assignmentNumber == "18") {
     return `https://github.com/tsabudh/internship/tree/master/css-course/css-assignment-final`;
   } else {
@@ -160,16 +164,19 @@ function repoRoute(courseName, assignmentNumber) {
     )}`;
   }
 }
+//*ASSIGNMENT NUMBER STARTS FROM ZERO AND IS LESS THAN SHOWN
 function demoRoute(courseName, assignmentNumber) {
   if (courseName == "css" && assignmentNumber == "18") {
     return `https://tsabudh.github.io/internship/css-course/css-assignment-final/dist/`;
+  } else if (courseName == "js" && assignmentNumber == "06") {
+    return `https://tsabudh.github.io/internship/js-course/js-final/`;
   } else
-    return `https://tsabudh.github.io/internship/${courseName}-course/${
-      courseName
-    }-assignment-${makeIndexOf(assignmentNumber)}/`;
+    return `https://tsabudh.github.io/internship/${courseName}-course/${courseName}-assignment-${makeIndexOf(
+      assignmentNumber
+    )}/`;
 }
 
-//* CREATING DETAILS TAB 
+//* CREATING DETAILS TAB
 createSiblingAfter(assignmentTab, {
   tagName: "div",
   classes: "details-tab",
