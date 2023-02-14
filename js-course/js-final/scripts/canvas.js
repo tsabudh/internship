@@ -115,16 +115,34 @@ export class Canvas {
     ctx.stroke();
   }
   drawBackground() {
-    this.context.fillStyle="black";
-    this.context.fillRect(0, 0,this.camera.location.x + this.width,this.camera.location.y +this.height);
+    this.context.fillStyle = "black";
+    this.context.fillRect(
+      0,
+      0,
+      this.camera.location.x + this.width,
+      this.camera.location.y + this.height
+    );
   }
 
   startGame() {
+
+this.keyDown.a=false;
+this.keyDown.w=false;
+this.keyDown.d=false;
+
     this.location = new Vector(0, 0);
-    this.hero.location = new Vector(300, 0);
     this.hero.acceleration = new Vector(0, 0);
     this.hero.velocity = new Vector(0, 0);
+    this.hero.velocity = this.hero.velocity.add(this.gravity);
+    this.hero.location = new Vector(300, 0);
     this.hero.fuel = this.hero.fuelMax;
+
+
+
+    this.hero.thrusterUpOn = false;
+    console.log("gamerestarted and thrusterup on is", this.hero.thrusterUpOn);
+    this.hero.thrusterLeftOn = false;
+    this.hero.thrusterRightOn = false;
 
     this.camera.location = new Vector(0, 0);
 
@@ -132,9 +150,7 @@ export class Canvas {
       enemy.cannonball.direction = new Vector(0, 0);
       enemy.cannonball.location = new Vector(enemy.x, enemy.y);
       this.cannonFired = false;
-        });
+    });
     this.context.setTransform(1, 0, 0, 1, 0, 0);
-
-    
   }
 }

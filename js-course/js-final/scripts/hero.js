@@ -36,6 +36,8 @@ export class Hero {
   }
 
   update() {
+
+    
     //* fuel
     if (this.thrusterUpOn || this.thrusterLeftOn || this.thrusterRightOn) {
       this.fuel--;
@@ -48,12 +50,9 @@ export class Hero {
 
     this.location = this.location.add(
       this.velocity
-      // Vector.prototype.min(this.velocity, this.maxVelocity)
-    );
+      );
 
-    if (this.location.y > this.canvas.groundLevel - this.height)
-      this.location.y = this.canvas.groundLevel - this.height;
-
+  
     //* bound hero inside playing area between first and last platform
     if (this.location.x < this.canvas.platforms[0].x) {
       this.location.x = this.canvas.platforms[0].x;
@@ -120,22 +119,18 @@ export class Hero {
           this.hasLanded = true;
           //if hero lands on edge bring him fully on platform
           if (this.location.x < this.platformBelow.x) {
-            // this.location.x = this.platformBelow.x;
             this.location.x += 2;
           } else if (
             this.location.x + this.width >
             this.platformBelow.x + this.platformBelow.width
           ) {
-            // this.location.x =
-            //   this.platformBelow.x + this.platformBelow.width - this.width;
             this.location.x -= 2;
           }
           this.velocity.x = 0;
           this.velocity.y = 0;
           this.fuel < this.fuelMax ? (this.fuel += 2) : this.fuelMax;
-          // this.fuel = this.fuelMax;
           if (this.velocity.y >= 10) {
-            console.log("speedlanded");
+            console.log("speed landed");
             this.velocity.y = 0;
             this.fuel = 0;
           }
@@ -271,5 +266,4 @@ export class Hero {
       fuelIndicator.height
     );
   }
- 
 }

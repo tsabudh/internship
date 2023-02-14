@@ -1,15 +1,13 @@
-
 import { Canvas } from "./canvas.js";
 import { Platform } from "./platform.js";
 import { Camera } from "./camera.js";
 import { platform1, background1 } from "./level.js";
 import { Mountain } from "./mountain.js";
 
-
 function gameLoop(canvas) {
   function animate() {
     console.log("gameStatus:", canvas.gameStatus);
-
+    console.log(canvas.hero.thrusterUpOn);
     if (canvas.gameStatus == "NOT_STARTED") {
       canvas.clear();
 
@@ -21,14 +19,13 @@ function gameLoop(canvas) {
     }
 
     if (canvas.gameStatus == "GAME_OVER") {
-    canvas.drawRestartMenu();
+      canvas.drawRestartMenu();
     }
 
     if (canvas.gameStatus == "PAUSED") {
       canvas.drawPausedMenu();
     }
     if (canvas.gameStatus == "PLAYING") {
-    
       //clear canvas
       canvas.clear();
 
@@ -54,7 +51,7 @@ function gameLoop(canvas) {
       });
 
       //draw hero
-      
+
       canvas.hero.checkInputs();
       canvas.hero.update();
       canvas.hero.checkForLanding();

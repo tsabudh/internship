@@ -8,12 +8,12 @@ export class InputHandler {
       } else if (e.key == "Escape" && canvas.gameStatus == "PAUSED") {
         canvas.gameStatus = "PLAYING";
       }
+     
       if (canvas.gameStatus == "PLAYING") {
         if (e.key == "a") canvas.keyDown.a = true;
         if (e.key == "d") canvas.keyDown.d = true;
         if (e.key == "w") canvas.keyDown.w = true;
-        if (e.key == "a") canvas.keyDown.a = true;
-        if (e.key == "a") canvas.keyDown.a = true;
+      
       }
     });
 
@@ -22,8 +22,7 @@ export class InputHandler {
         if (e.key == "a") canvas.keyDown.a = false;
         if (e.key == "d") canvas.keyDown.d = false;
         if (e.key == "w") canvas.keyDown.w = false;
-        if (e.key == "a") canvas.keyDown.a = false;
-        if (e.key == "a") canvas.keyDown.a = false;
+    
       }
     });
 
