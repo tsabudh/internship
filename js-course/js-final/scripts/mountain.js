@@ -17,9 +17,15 @@ export class Mountain {
     });
     ctx.lineTo(this.path[this.path.length - 1].x, 1000);
     ctx.closePath();
-    ctx.stroke();
+    // ctx.stroke();
     ctx.clip();
-    ctx.drawImage(mountainImage, this.path[0].x, 0);
+    ctx.drawImage(
+      mountainImage,
+      this.path[0].x,
+      0,
+      this.path[this.path.length - 1].x - this.path[0].x,
+      mountainImage.height
+    );
     ctx.fillStyle = `rgba(114,51,36,0.5)`;
     ctx.restore();
   }

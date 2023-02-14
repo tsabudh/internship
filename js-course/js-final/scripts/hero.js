@@ -271,7 +271,5 @@ export class Hero {
       fuelIndicator.height
     );
   }
-  // onGround() {
-  //   return this.location == this.canvas.groundLevel - this.height;
-  // }
+ 
 }

@@ -54,7 +54,7 @@ function gameLoop(canvas) {
       });
 
       //draw hero
-      // canvas.hero.checkForFuel();
+      
       canvas.hero.checkInputs();
       canvas.hero.update();
       canvas.hero.checkForLanding();
