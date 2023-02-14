@@ -14,10 +14,8 @@ export class Platform {
     let ctx = this.canvas.context;
     ctx.beginPath();
     ctx.strokeStyle = "blue";
-
     ctx.rect(this.x, this.y, this.width, this.height);
-    // ctx.rect(this.x, this.y, this.width, this.height);
-    ctx.stroke();
+  // ctx.stroke();
     let grassHeight = 30;
     ctx.drawImage(
       platformImage,

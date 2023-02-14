@@ -8,12 +8,11 @@ const toolsList = [
   "Agents",
   "Articles",
   "Settings",
-  "Subscription"
+  "Subscription",
 ];
 const tools = [];
-toolsList.forEach((tool) => {
-  tools.push(<Tool toolName={tool}/>);
- 
+toolsList.forEach((tool, index) => {
+  tools.push(<Tool toolName={tool} key={index} />);
 });
 class Tools extends React.Component {
   render() {
