@@ -3,6 +3,11 @@ import { Canvas } from "./canvas.js";
 export let mars1 = new Image();
 mars1.src = "./assets/mars1.webp";
 
+export let platformImage = new Image();
+platformImage.src = "./assets/platform.png";
+export let cannonImage = new Image();
+cannonImage.src = "./assets/cannon.png";
+
 export let background1 = new Image();
 background1.src = "./assets/background1.jpg";
 

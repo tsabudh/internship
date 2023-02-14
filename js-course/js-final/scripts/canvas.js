@@ -10,8 +10,6 @@ import { Mountain } from "./mountain.js";
 import { Collision } from "./collision.js";
 import { mars1 } from "./level.js";
 
-
-
 export class Canvas {
   constructor(id, container, width, height) {
     let canvasEl = document.createElement("canvas");
@@ -65,8 +63,6 @@ export class Canvas {
     });
   }
 
-
-
   drawGround() {
     let ctx = this.context;
     ctx.strokeStyle = "brown";
@@ -119,7 +115,8 @@ export class Canvas {
     ctx.stroke();
   }
   drawBackground() {
-    this.context.drawImage(background1, 0, 0);
+    this.context.fillStyle="black";
+    this.context.fillRect(0, 0,this.camera.location.x + this.width,this.camera.location.y +this.height);
   }
 
   startGame() {
@@ -129,12 +126,15 @@ export class Canvas {
     this.hero.velocity = new Vector(0, 0);
     this.hero.fuel = this.hero.fuelMax;
 
-   this.camera.location = new Vector(0, 0);
-   this.context.setTransform(1, 0, 0, 1, 0, 0);
+    this.camera.location = new Vector(0, 0);
 
+    this.enemies.forEach((enemy) => {
+      enemy.cannonball.direction = new Vector(0, 0);
+      enemy.cannonball.location = new Vector(enemy.x, enemy.y);
+      this.cannonFired = false;
+        });
+    this.context.setTransform(1, 0, 0, 1, 0, 0);
 
-    // this.platforms = [];
-    // this.mountains = [];
-    // this.enemies = [];
+    
   }
 }

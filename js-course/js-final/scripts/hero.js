@@ -53,7 +53,7 @@ export class Hero {
 
     if (this.location.y > this.canvas.groundLevel - this.height)
       this.location.y = this.canvas.groundLevel - this.height;
-  
+
     //* bound hero inside playing area between first and last platform
     if (this.location.x < this.canvas.platforms[0].x) {
       this.location.x = this.canvas.platforms[0].x;
@@ -121,18 +121,19 @@ export class Hero {
           //if hero lands on edge bring him fully on platform
           if (this.location.x < this.platformBelow.x) {
             // this.location.x = this.platformBelow.x;
-            this.location.x+=2;
+            this.location.x += 2;
           } else if (
             this.location.x + this.width >
             this.platformBelow.x + this.platformBelow.width
           ) {
             // this.location.x =
             //   this.platformBelow.x + this.platformBelow.width - this.width;
-            this.location.x-=2;
+            this.location.x -= 2;
           }
           this.velocity.x = 0;
           this.velocity.y = 0;
-          this.fuel = this.fuelMax;
+          this.fuel < this.fuelMax ? (this.fuel += 2) : this.fuelMax;
+          // this.fuel = this.fuelMax;
           if (this.velocity.y >= 10) {
             console.log("speedlanded");
             this.velocity.y = 0;
@@ -259,9 +260,10 @@ export class Hero {
       fuelIndicator.width,
       fuelIndicator.height
     );
+    ctx.strokeStyle = "whitesmoke";
     ctx.stroke();
     let fuelRatio = (this.fuel / 500) * fuelIndicator.width;
-    ctx.fillStyle="black";
+    ctx.fillStyle = "whitesmoke";
     ctx.fillRect(
       fuelIndicator.x,
       fuelIndicator.y,

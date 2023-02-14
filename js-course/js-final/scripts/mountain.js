@@ -3,7 +3,6 @@ import { mountain1, lineSegmentCollection, mountainImage } from "./level.js";
 export class Mountain {
   constructor(canvas, mountainDetails) {
     this.canvas = canvas;
-
     this.path = mountainDetails.path;
     canvas.mountains.push(this);
   }
@@ -21,7 +20,6 @@ export class Mountain {
     ctx.stroke();
     ctx.clip();
     ctx.drawImage(mountainImage, this.path[0].x, 0);
-    // ctx.drawImage(mountainImage,0,0);
     ctx.fillStyle = `rgba(114,51,36,0.5)`;
     ctx.restore();
   }

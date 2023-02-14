@@ -1,16 +1,17 @@
 import { enemy1 } from "./level.js";
 import { Vector } from "./vector.js";
-
+import { cannonImage } from "./level.js";
 export class Enemy {
   constructor(canvas, enemyDetails) {
     this.canvas = canvas;
     this.x = enemyDetails.location.x;
     this.y = enemyDetails.location.y;
+    this.width = 50;
+    this.height = 50;
 
     this.cannonball = {};
     this.cannonball.direction = new Vector(0, 0);
     this.cannonball.location = new Vector(this.x, this.y);
-
     this.cannonball.dimensions = { width: 20, height: 20 };
 
     this.canvas.enemies.push(this);
@@ -22,22 +23,20 @@ export class Enemy {
   draw() {
     let ctx = this.canvas.context;
 
-    ctx.rect(this.x, this.y, 50, 50);
-    ctx.stroke();
+    ctx.drawImage(cannonImage, this.x, this.y, this.width, this.height);
   }
 
   fireCanons() {
     let hero = this.canvas.hero,
       ctx = this.canvas.context;
-    // this.cannonball.x += this.cannonballDirection.x;
-    // this.cannonball.y += this.cannonballDirection.y;
 
     this.cannonball.location = this.cannonball.location.add(
       this.cannonball.direction
     );
+    ctx.fillStyle = "whitesmoke";
     if (
       // fire cannon only if enemy is flying, has not landed,
-      //
+      // and within range
       hero.velocity.getMagnitude() > 1 &&
       hero.hasLanded == false &&
       hero.location.x + this.range > this.x &&
@@ -49,7 +48,9 @@ export class Enemy {
           hero.location.y - this.cannonball.location.y
         ).getUnitVector();
 
+      console.log(hero.location.x, this.cannonball.direction);
       this.cannonFired = true;
+      ctx.fillStyle = "whitesmoke";
 
       if (this.weaponType == "rocket") {
         ctx.fillStyle = "red";
@@ -59,14 +60,6 @@ export class Enemy {
         ).getUnitVector();
       }
     }
-    // console.log(this.cannonball);
-
-    // ctx.fillRect(
-    //   this.cannonball.location.x,
-    //   this.cannonball.location.y,
-    //   this.cannonball.dimensions.width,
-    //   this.cannonball.dimensions.height
-    // );
 
     ctx.beginPath();
     ctx.arc(
@@ -76,7 +69,7 @@ export class Enemy {
       0,
       2 * Math.PI
     );
-
+    ctx.strokeStyle = "transparent";
     ctx.stroke();
     ctx.fill();
   }
