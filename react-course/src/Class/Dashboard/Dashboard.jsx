@@ -1,14 +1,13 @@
 import React from "react";
-import Bookmark from "./Bookmark/Bookmark";
+import Sidebar from "./Sidebar/Sidebar";
 import DashboardScreen from "./DashboardScreen/DashboardScreen";
 
 class Dashboard extends React.Component {
   render() {
     return (
         <div className="dashboard">
-            <Bookmark />
+            <Sidebar />
             <DashboardScreen />
-
         </div>
     )
   }

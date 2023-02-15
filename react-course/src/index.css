@@ -83,18 +83,26 @@ img {
 
 .dashboard {
   display: flex;
+  width: 100vw;
+  max-width: 144rem;
+  min-width: none;
+  height: 100vh;
+  min-height: 60rem;
 }
 
-.dashboard__bookmark {
+.dashboard_sidebar {
   background-color: #363740;
   color: #a4a6b3;
 }
 .dashboard__screen {
   background: #e5e5e5;
+  /* flex-shrink: 0; */
+  flex-grow: 1;
 }
 .dashboard_screen_header {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .dashboard_screen_details {
   display: flex;
@@ -104,4 +112,17 @@ img {
   width: 4.4rem;
   border-radius: 50%;
   overflow: hidden;
+}
+
+/** ticket table  */
+.ticket_table {
+}
+
+.ticket_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.ticket_table_heading {
+  color: #9fa2b4;
 }

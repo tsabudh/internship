@@ -1,5 +1,5 @@
 import React from "react";
-import Tool from "./Tool";
+import Tool from "./SidebarItemsFirst";
 const toolsList = [
   "Overview",
   "Tickets",
