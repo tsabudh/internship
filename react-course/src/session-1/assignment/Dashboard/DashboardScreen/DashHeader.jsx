@@ -9,10 +9,12 @@ class Details extends React.Component {
 
         <b>{this.props.userName}</b>
         <div className="profile-circle">
-          <img
-            src="Jones-Ferdinand-profile.png"
-            alt={`${this.props.userName} profile photo`}
-          ></img>
+          <figure>
+            <img
+              src="Jones-Ferdinand-profile.png"
+              alt={`${this.props.userName} profile photo`}
+            />
+          </figure>
         </div>
       </div>
     );
