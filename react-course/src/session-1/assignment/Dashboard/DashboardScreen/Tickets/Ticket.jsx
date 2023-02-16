@@ -37,7 +37,7 @@ const Ticket = ({ ticketDetails }) => {
       </td>
       <td>
         <div className="ticket-delete">
-          <button>|</button>
+          <button><i className="icon-bin"></i></button>
         </div>
       </td>
     </tr>

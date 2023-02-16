@@ -1,8 +1,13 @@
 import React from "react";
-class BookmarkHeading extends React.Component {
-  render() {
-    return <h3>Dashboard Kit</h3>;
-  }
-}
 
+const BookmarkHeading = () => {
+  return (
+    <div className="sidebar_heading">
+      <picture>
+        <img src="dashboard-logo.svg" alt="Dashboard" />
+      </picture>
+      <h3>Dashboard Kit</h3>
+    </div>
+  );
+};
 export default BookmarkHeading;

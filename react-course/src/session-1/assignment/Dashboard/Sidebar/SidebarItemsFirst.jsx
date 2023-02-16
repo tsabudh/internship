@@ -1,9 +1,13 @@
 import React from "react";
-class Tool extends React.Component {
-    render() {   
-      return <li>{this.props.toolName}</li>
-    }
-  }
-  
-  export default Tool;
-  
+const Tool = ({ tool }) => {
+  return (
+    <li>
+      <a href="">
+        <i className={`icon-${tool.iconName}`}></i>
+        {tool.name}
+      </a>
+    </li>
+  );
+};
+
+export default Tool;

@@ -1,6 +1,8 @@
 import Dashboard from "./session-1/assignment/Dashboard/Dashboard";
-function App() {
 
+import "./icon/variables.scss"
+
+function App() {
   return <Dashboard />;
 }
 

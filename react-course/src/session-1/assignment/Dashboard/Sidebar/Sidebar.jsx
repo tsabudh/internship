@@ -1,15 +1,13 @@
 import React from "react";
-import BookmarkHeading from "./SidebarHeading";
+import SidebarHeading from "./SidebarHeading";
 import Tools from "./SidebarItems";
 
-class Bookmark extends React.Component {
-  render() {
-    return (
-      <div className="dashboard_sidebar">
-        <BookmarkHeading />
-        <Tools />
-      </div>
-    );
-  }
-}
-export default Bookmark;
+const Sidebar = () => {
+  return (
+    <aside className="dashboard_sidebar">
+      <SidebarHeading />
+      <Tools />
+    </aside>
+  );
+};
+export default Sidebar;

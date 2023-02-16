@@ -1,35 +1,57 @@
-import React from "react";
 
-class Details extends React.Component {
-  render() {
-    return (
-      <div className="dashboard_screen_details">
-        <i className="icon-search-lens"></i>
-        <i className="icon-notification-bell-exist"></i>
+import React, { useState } from "react";
 
-        <b>{this.props.userName}</b>
-        <div className="profile-circle">
-          <figure>
-            <img
-              src="Jones-Ferdinand-profile.png"
-              alt={`${this.props.userName} profile photo`}
-            />
-          </figure>
-        </div>
+const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSearch}) => {
+
+  const [notificationState, setNotificationState] = useState(false);
+
+  const showNotification = () => {
+    setNotificationState(!notificationState);
+  };
+
+  const showSearch = () => {
+    setSearchStatus(!searchStatus);
+  };
+
+  return (
+    <div className="dashboard_screen_details">
+      <div className="icons vl">
+        {searchStatus && <input type="search" onChange={handleSearch} value={searchKey}/>}
+
+        <i className="icon-search" onClick={showSearch}></i>
+        <i className="icon-notification" onClick={showNotification}></i>
+
+        {notificationState && <div className="notification-dropdown">
+          
+          </div>}
       </div>
-    );
-  }
-}
 
-class DashHeader extends React.Component {
-  render() {
-    return (
-      <div className="dashboard_screen_header">
-        <h3>{this.props.title}</h3>
-        <Details userName="Jones Ferdinand" />
+      <p className="username">{userName}</p>
+      <div className="profile-circle">
+        <figure>
+          <img
+            src="Jones-Ferdinand-profile.png"
+            alt={`${userName} profile photo`}
+          />
+        </figure>
       </div>
-    );
-  }
-}
+    </div>
+  );
+};
+
+const DashHeader = ({ title, searchStatus, setSearchStatus, searchKey,handleSearch }) => {
+  return (
+    <div className="dashboard_screen_header">
+      <h3>{title}</h3>
+      <Details
+        userName="Jones Ferdinand"
+        searchStatus={searchStatus}
+        setSearchStatus={setSearchStatus}
+        searchKey={searchKey}
+        handleSearch={handleSearch}
+      />
+    </div>
+  );
+};
 
 export default DashHeader;

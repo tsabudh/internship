@@ -1,3 +1,6 @@
+@import url("./icon/style.scss");
+@import url("./icon/variables.scss");
+
 * {
   margin: 0;
   box-sizing: border-box;
@@ -10,7 +13,6 @@
   line-height: 1.5;
   font-weight: 400;
   font-size: 10px;
-
 }
 body {
   font-size: 1.6rem;
@@ -21,11 +23,11 @@ li {
 }
 a {
   font-weight: 500;
-  color: #646cff;
+  color: inherit;
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: inherit;
 }
 
 body {
@@ -41,46 +43,49 @@ h1 {
   line-height: 1.1;
 }
 
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-}
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
 img {
   width: 100%;
   height: 100%;
   object-fit: cover;
 }
-
+.vl {
+  height: 100%;
+  border-right: 1px solid #dfe0eb;
+  padding-right: 3.2rem;
+}
 .dashboard {
   display: flex;
   width: 100vw;
   max-width: 144rem;
   min-width: none;
-  height: 100vh;
+
   min-height: 60rem;
 }
 
 .dashboard_sidebar {
   background-color: #363740;
   color: #a4a6b3;
+  min-width: 25.5rem;
+}
+.sidebar_heading {
+  padding: 4rem 3rem 6.4rem;
+  display: flex;
+
+  & picture {
+    height: 3.2rem;
+    width: 3.2rem;
+    margin-right: 1.2rem;
+  }
+}
+.dashboard_sidebar nav ul li {
+  padding: 1.8rem 2.4rem;
+
+  & i {
+    margin-right: 2.4rem;
+  }
 }
 .dashboard_screen {
-  background: #e5e5e5;
+  background: #f7f8fc;
   /* flex-shrink: 0; */
   flex-grow: 1;
 }
@@ -92,21 +97,38 @@ img {
 }
 .dashboard_screen_details {
   display: flex;
+  align-items: center;
+
+  & .icons {
+    position: relative;
+    & i {
+      cursor: pointer;
+      margin-left: 2.4rem;
+    }
+  }
+}
+
+.dashboard_screen_details p.username {
+  margin-left: 3.2rem;
+  color: #252733;
+  text-align: right;
+}
+.dashboard_screen_details .icons {
 }
 .profile-circle {
   height: 4.7rem;
   width: 4.7rem;
 
   overflow: hidden;
-
+  margin-left: 1.4rem;
   border-radius: 50%;
   overflow: hidden;
   border: 0.15rem solid #dfe0eb;
   position: relative;
 }
 .profile-circle figure {
-  width: 4.4rem;
-  height: 4.4rem;
+  width: 4rem;
+  height: 4rem;
   border-radius: 50%;
 
   position: absolute;
@@ -119,12 +141,54 @@ img {
 }
 
 .ticket_container {
-  background: #f9f9f9;
+  /* background: #f9f9f9; */
+  background: #f7f8fc;
   /* padding: 3.2rem; */
   margin: 3rem;
   border: 1px solid #dfe0eb;
   border-radius: 0.8rem;
 }
+
+.ticket_classify {
+  position: relative;
+  & button {
+    color: #4b506d;
+    background: none;
+    border: none;
+    font-weight: 600;
+    font-size: 1.4rem;
+    line-height: 2rem;
+    letter-spacing: 0.02rem;
+
+    & i {
+      margin-right: 0.8rem;
+    }
+  }
+  & .filter-menu{
+    position: absolute;
+    background: #fff;
+    border: 0.1rem solid #a4a6b3;
+    border-radius: 1rem;
+    
+    height: fit-content;
+    max-height: 15rem;
+    width: fit-content;
+    width: 14rem;
+    max-width: 15rem;
+    right: 0;
+
+    & ol{
+      padding-inline: 1rem;
+      & li{
+        & label{
+          margin-left: 1rem;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
 /** ticket table  */
 .ticket_table {
   width: 100%;
@@ -132,8 +196,10 @@ img {
 }
 .ticket_table th,
 td {
-  border-bottom: 1px solid #dfe0eb;
   padding: 2.4rem 3rem;
+}
+.ticket_table tr {
+  border-bottom: 1px solid #dfe0eb;
 }
 
 .ticket_header {
@@ -180,6 +246,11 @@ td {
 }
 .ticket-delete {
   margin-right: 1rem;
+
+  & button {
+    background-color: transparent;
+    border: none;
+  }
 }
 
 .ticket-priority--high {
@@ -188,10 +259,27 @@ td {
 .ticket-priority--low {
   background: #fec400;
 }
+.ticket-priority--normal {
+  background: #29cc97;
+}
 .customer-avatar {
   height: 4.4rem;
   width: 4.4rem;
   overflow: hidden;
   border-radius: 50%;
   margin-right: 2.4rem;
+  flex-shrink: 0;
+}
+.customer-avatar img {
+  object-position: 0 10%;
+}
+
+.notification-dropdown {
+  position: absolute;
+  height: 10rem;
+  width: 10rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid #dfe0eb;
+  right: 0;
 }

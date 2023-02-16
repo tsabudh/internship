@@ -6,6 +6,7 @@ class Dashboard extends React.Component {
   render() {
     return (
         <div className="dashboard">
+          
             <Sidebar />
             <DashboardScreen />
         </div>
