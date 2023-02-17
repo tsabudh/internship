@@ -91,7 +91,15 @@ let tickets = [
   },
 ];
 
-const TicketTable = ({ searchKey, filterBy }) => {
+const TicketTable = ({
+  ticketArray,
+  setTicketArray,
+  searchKey,
+  filterBy,
+  deleteTicket,
+  deletedTicket,
+  setDeletedTicket,
+}) => {
   return (
     <table className="ticket_table">
       <thead>
@@ -105,7 +113,7 @@ const TicketTable = ({ searchKey, filterBy }) => {
       </thead>
 
       <tbody>
-        {tickets
+        {ticketArray
           .filter((ticket) =>
             ticket.ticketName
               .toLocaleLowerCase()
@@ -118,9 +126,23 @@ const TicketTable = ({ searchKey, filterBy }) => {
               return ticket.ticketPriority == filterBy;
             }
           })
+          .filter((ticket, index) => {
+            console.log(deletedTicket);
+            if (index == deletedTicket) return null;
+            return ticket;
+          })
           .map((ticket, index) => (
-            <Ticket ticketDetails={ticket} key={index} />
-          ))}
+            <Ticket
+              ticketDetails={ticket}
+              key={index}
+              deleteTicket={deleteTicket}
+              deletedTicket={deletedTicket}
+              setDeletedTicket={setDeletedTicket}
+              currentTicket={index}
+            />
+          ))
+          
+          }
       </tbody>
     </table>
   );

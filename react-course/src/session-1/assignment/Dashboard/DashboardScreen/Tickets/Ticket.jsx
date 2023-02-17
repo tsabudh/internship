@@ -1,6 +1,10 @@
 import { useState } from "react";
 
-const Ticket = ({ ticketDetails }) => {
+const Ticket = ({ ticketDetails, deleteTicket, deletedTicket, setDeletedTicket,currentTicket }) => {
+
+  const deleteCurrentTicket = ()=>{
+    setDeletedTicket(currentTicket)
+  }
   return (
     <tr>
       <td>
@@ -37,7 +41,9 @@ const Ticket = ({ ticketDetails }) => {
       </td>
       <td>
         <div className="ticket-delete">
-          <button><i className="icon-bin"></i></button>
+          <button onClick={deleteCurrentTicket}>
+            <i className="icon-bin"></i>
+          </button>
         </div>
       </td>
     </tr>

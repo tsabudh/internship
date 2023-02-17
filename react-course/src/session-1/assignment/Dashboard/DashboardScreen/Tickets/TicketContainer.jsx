@@ -1,7 +1,18 @@
 import TicketHeader from "./TicketHeader";
 import TicketTable from "./TicketTable";
 
-const TicketContainer = ({ searchKey,  filterBy,handleFilterBy, handleFilter, filterMenuStatus,  }) => {
+const TicketContainer = ({
+  ticketArray,
+  setTicketArray,
+  searchKey,
+  deleteTicket,
+  deletedTicket,
+  setDeletedTicket,
+  filterBy,
+  handleFilterBy,
+  handleFilter,
+  filterMenuStatus,
+}) => {
   return (
     <div className="ticket_container">
       <TicketHeader
@@ -10,7 +21,15 @@ const TicketContainer = ({ searchKey,  filterBy,handleFilterBy, handleFilter, fi
         filterBy={filterBy}
         handleFilterBy={handleFilterBy}
       />
-      <TicketTable searchKey={searchKey} filterBy={filterBy}/>
+      <TicketTable
+        ticketArray={ticketArray}
+        setTicketArray={setTicketArray}
+        searchKey={searchKey}
+        filterBy={filterBy}
+        deleteTicket={deleteTicket}
+        deletedTicket={deletedTicket}
+        setDeletedTicket={setDeletedTicket}
+      />
     </div>
   );
 };
