@@ -1,0 +1,100 @@
+@import "./variables.scss";
+
+@font-face {
+  font-family: '#{$icomoon-font-family}';
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ko4z3c');
+  src:  url('#{$icomoon-font-path}/#{$icomoon-font-family}.eot?ko4z3c#iefix') format('embedded-opentype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.ttf?ko4z3c') format('truetype'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.woff?ko4z3c') format('woff'),
+    url('#{$icomoon-font-path}/#{$icomoon-font-family}.svg?ko4z3c##{$icomoon-font-family}') format('svg');
+  font-weight: normal;
+  font-style: normal;
+  font-display: block;
+}
+
+i {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: '#{$icomoon-font-family}' !important;
+  speak: never;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-bin {
+  &:before {
+    content: $icon-bin; 
+  }
+}
+.icon-search {
+  &:before {
+    content: $icon-search; 
+  }
+}
+.icon-notification {
+  &:before {
+    content: $icon-notification; 
+  }
+}
+.icon-ticket {
+  &:before {
+    content: $icon-ticket; 
+  }
+}
+.icon-agent {
+  &:before {
+    content: $icon-agent; 
+  }
+}
+.icon-article {
+  &:before {
+    content: $icon-article; 
+  }
+}
+.icon-contact {
+  &:before {
+    content: $icon-contact; 
+  }
+}
+.icon-filter {
+  &:before {
+    content: $icon-filter; 
+  }
+}
+.icon-idea {
+  &:before {
+    content: $icon-idea; 
+  }
+}
+.icon-more {
+  &:before {
+    content: $icon-more; 
+  }
+}
+.icon-overview {
+  &:before {
+    content: $icon-overview; 
+  }
+}
+.icon-settings {
+  &:before {
+    content: $icon-settings; 
+  }
+}
+.icon-sort {
+  &:before {
+    content: $icon-sort; 
+  }
+}
+.icon-subscription {
+  &:before {
+    content: $icon-subscription; 
+  }
+}
+
