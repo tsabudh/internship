@@ -2,8 +2,8 @@ import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import DashboardScreen from "./DashboardScreen/DashboardScreen";
 
-class Dashboard extends React.Component {
-  render() {
+function Dashboard () {
+  
     return (
         <div className="dashboard">
           
@@ -11,6 +11,6 @@ class Dashboard extends React.Component {
             <DashboardScreen />
         </div>
     )
-  }
+  
 }
 export default Dashboard;

@@ -1,7 +1,7 @@
 
 import React, { useState } from "react";
 
-const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSearch}) => {
+const Details = ({ userName, searchStatus, setSearchStatus,}) => {
 
   const [notificationState, setNotificationState] = useState(false);
 
@@ -16,7 +16,7 @@ const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSe
   return (
     <div className="dashboard_screen_details">
       <div className="icons vl">
-        {searchStatus && <input type="search" onChange={handleSearch} value={searchKey}/>}
+        {searchStatus && <input type="search"  />}
 
         <i className="icon-search" onClick={showSearch}></i>
         <i className="icon-notification" onClick={showNotification}></i>
@@ -39,7 +39,7 @@ const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSe
   );
 };
 
-const DashHeader = ({ title, searchStatus, setSearchStatus, searchKey,handleSearch }) => {
+const DashHeader = ({ title, searchStatus, setSearchStatus }) => {
   return (
     <div className="dashboard_screen_header">
       <h3>{title}</h3>
@@ -47,8 +47,7 @@ const DashHeader = ({ title, searchStatus, setSearchStatus, searchKey,handleSear
         userName="Jones Ferdinand"
         searchStatus={searchStatus}
         setSearchStatus={setSearchStatus}
-        searchKey={searchKey}
-        handleSearch={handleSearch}
+       
       />
     </div>
   );
