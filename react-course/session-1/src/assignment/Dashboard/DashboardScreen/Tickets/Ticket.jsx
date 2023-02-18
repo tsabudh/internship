@@ -1,20 +1,6 @@
 import { useState } from "react";
 
-const Ticket = ({
-  ticketArray,
-  setTicketArray,
-  ticketDetails,
-  currentTicket,
-}) => {
-  const deleteCurrentTicket = () => {
-    let newArray = ticketArray.filter((ticket, index) => {
-      if (currentTicket == index) return;
-      else return ticket;
-    });
-
-    setTicketArray(newArray);
-    console.log(ticketArray);
-  };
+const Ticket = ({ ticketDetails }) => {
   return (
     <tr>
       <td>
@@ -51,7 +37,7 @@ const Ticket = ({
       </td>
       <td>
         <div className="ticket-delete">
-          <button onClick={deleteCurrentTicket}>
+          <button>
             <i className="icon-bin"></i>
           </button>
         </div>
