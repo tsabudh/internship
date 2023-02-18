@@ -1,0 +1,92 @@
+.ticket_table {
+  width: 100%;
+  border-collapse: collapse;
+  & tbody {
+  }
+}
+.ticket_table thead tr {
+  background: #fff;
+  // position: sticky;
+  // top: 13rem;
+}
+.ticket_table th,
+td {
+  padding: 2.4rem 3rem;
+  // border-bottom: 1px solid #dfe0eb;
+}
+.ticket_table tbody tr {
+  border-bottom: 1px solid #dfe0eb;
+  &:hover {
+    cursor: pointer;
+    background: #dde2ff;
+  }
+}
+
+.ticket-details {
+  display: flex;
+}
+.ticket-name,
+.customer-name,
+.ticket-date {
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 2rem;
+}
+.ticket-information,
+.customer-date,
+.ticket-time {
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  letter-spacing: 0.01rem;
+  color: #c5c7cd;
+  margin-top: 0.4rem;
+}
+.ticket-priority {
+  display: inline-block;
+  padding: 0.5rem 1.2rem;
+  border-radius: 10rem;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  line-height: 1.38rem;
+  letter-spacing: 0.05rem;
+  color: white;
+}
+.ticket-delete {
+  margin-right: 1rem;
+
+  & button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+
+    &:hover {
+      color: #f12b2c;
+    }
+  }
+}
+
+.ticket-priority--high {
+  background: #f12b2c;
+}
+.ticket-priority--low {
+  background: #fec400;
+}
+.ticket-priority--normal {
+  background: #29cc97;
+}
+.customer-avatar {
+  height: 4.4rem;
+  width: 4.4rem;
+  overflow: hidden;
+  border-radius: 50%;
+  margin-right: 2.4rem;
+  flex-shrink: 0;
+}
+.customer-avatar img {
+  object-position: 0 10%;
+}
+
+.ticket_table_heading {
+  color: #9fa2b4;
+  text-align: left;
+}

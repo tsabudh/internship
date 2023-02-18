@@ -44,6 +44,7 @@ img {
 .root {
   width: 100%;
 }
+/*
 .vl {
   height: 100%;
   border-right: 1px solid #dfe0eb;
@@ -51,8 +52,9 @@ img {
 }
 .dashboard {
   display: flex;
-  max-width: 144rem;
-  min-height: 100vh;
+  // max-width: 144rem;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .dashboard_sidebar {
@@ -60,7 +62,7 @@ img {
   color: #a4a6b3;
   min-width: 25.5rem;
   height: 100vh;
-  position: fixed;
+  // position: fixed;
   top: 0;
   overflow-y: auto;
 
@@ -82,7 +84,7 @@ img {
     &.active {
       background: #9fa2b450;
       color: white;
-      border-left: 0.3rem solid #E5E5E5;
+      border-left: 0.3rem solid #e5e5e5;
     }
     padding: 1.8rem 2.4rem;
 
@@ -95,14 +97,19 @@ img {
   background: #f7f8fc;
   flex-shrink: 0;
   flex-grow: 1;
-  margin-left: 25.5rem;
+  // margin-left: 25.5rem;
   align-self: stretch;
+  overflow-y: auto;
 }
 .dashboard_screen_header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin: 3rem 3rem 5.4rem;
+  padding: 3rem 3rem 5.4rem;
+  // position: sticky;
+  // top: 0;
+  z-index: 1;
+  background: #f7f8fc;
 }
 .dashboard_screen_details {
   display: flex;
@@ -110,6 +117,21 @@ img {
 
   & .icons {
     position: relative;
+    & input {
+      color: #4b506d;
+      padding: 0.5rem 1.5rem;
+      border-radius: 1rem;
+      border: 2px solid #c5c7cd;
+      
+
+      &:focus {
+        border: 2px solid #4b506d;
+      }
+      &:focus-visible {
+        outline: none;
+        border: 2px solid #4b506d;
+      }
+    }
     & i {
       cursor: pointer;
       margin-left: 2.4rem;
@@ -154,9 +176,9 @@ img {
 }
 
 .ticket_container {
-  /* background: #f9f9f9; */
-  background: #f7f8fc;
-  /* padding: 3.2rem; */
+ 
+  background: #fff;
+  
   margin: 3rem;
   border: 1px solid #dfe0eb;
   border-radius: 0.8rem;
@@ -204,18 +226,32 @@ img {
     }
   }
 }
-
+*/
 /** ticket table  */
+
+/*
 .ticket_table {
   width: 100%;
   border-collapse: collapse;
+  & tbody {
+  }
+}
+.ticket_table thead tr {
+  background: #fff;
+  // position: sticky;
+  // top: 13rem;
 }
 .ticket_table th,
 td {
   padding: 2.4rem 3rem;
+  // border-bottom: 1px solid #dfe0eb;
 }
-.ticket_table tr {
+.ticket_table tbody tr {
   border-bottom: 1px solid #dfe0eb;
+  &:hover {
+    cursor: pointer;
+    background: #dde2ff;
+  }
 }
 
 .ticket_header {
@@ -268,6 +304,10 @@ td {
     background-color: transparent;
     border: none;
     cursor: pointer;
+    
+    &:hover{
+      color:#f12b2c
+    }
   }
 }
 
@@ -295,9 +335,10 @@ td {
 .notification-dropdown {
   position: absolute;
   height: 10rem;
-  width: 10rem;
+  width: 20rem;
   background-color: white;
   border-radius: 1rem;
   border: 1px solid #dfe0eb;
   right: 0;
 }
+*/
