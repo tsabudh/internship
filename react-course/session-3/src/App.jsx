@@ -1,4 +1,4 @@
-import Dashboard from "./assignment/Dashboard/Dashboard";
+import Dashboard from "./components/Dashboard/Dashboard";
 
 import "./icon/variables.scss"
 

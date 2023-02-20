@@ -2,6 +2,11 @@
 import "./ticket-header.scss"
 
 const TicketHeader = ({ handleFilter, filterBy,handleFilterBy, filterMenuStatus }) => {
+
+const isFilterActive = () =>{
+  return filterBy.length >0?`active`:``;
+}
+
   return (
     <div className="ticket_header">
       <p>All Tickets</p>
@@ -11,7 +16,7 @@ const TicketHeader = ({ handleFilter, filterBy,handleFilterBy, filterMenuStatus 
           Sort
         </button>
         <button onClick={handleFilter}>
-          <i className="icon-filter" ></i>
+          <i className={`icon-filter ${isFilterActive()}`} ></i>
           Filter
         </button>
       { filterMenuStatus &&  <div className="filter-menu">
