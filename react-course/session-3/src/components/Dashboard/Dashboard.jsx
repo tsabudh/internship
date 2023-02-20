@@ -1,6 +1,7 @@
 import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import DashboardScreen from "./DashboardScreen/DashboardScreen";
+import UserModal from "../UserModal/UserModal";
 
 
 import "./dashboard.scss"

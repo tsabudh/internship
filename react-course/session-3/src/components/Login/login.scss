@@ -1,0 +1,78 @@
+.login-background {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  height: 100%;
+  background: #363740;
+  .login-container {
+    background: white;
+    color: #9fa2b4;
+    text-align: center;
+    border-radius: 0.8rem;
+    padding: 4rem 3.2rem;
+    & .title {
+      color: #252733;
+      font-weight: 700;
+      font-size: 2.4rem;
+      line-height: 3rem;
+      text-align: center;
+      letter-spacing: 0.03rem;
+    }
+    & p {
+      font-size: 1.4rem;
+      line-height: 2rem;
+    }
+    & picture {
+      display: inline-block;
+      height: 4.8rem;
+      width: 4.8rem;
+    }
+    & .input_group {
+      text-align: left;
+      margin-top: 2.4rem;
+      &.remember-me{
+        & label, & input{
+            display: inline-block;
+        }
+      }
+      & label {
+        display: block;
+        font-weight: 700;
+        font-size: 1.2rem;
+        line-height: 1.5rem;
+        letter-spacing: 0.03rem;
+        text-transform: uppercase;
+        margin-bottom: 0.6rem;
+        
+        & .forgot-password {
+          font-weight: 400;
+          font-size: 10px;
+          line-height: 1.3rem;
+          /* identical to box height */
+          text-align: right;
+          letter-spacing: 0.01rem;
+          text-transform: none;
+        }
+      }
+      & input {
+        width: 100%;
+        padding: 1.1rem 0.8rem;
+        border-style: solid;
+        &::placeholder {
+          font-size: 14px;
+          line-height: 20px;
+        }
+      }
+    }
+    & button{
+        background: #3751FF;
+        color: white;
+        padding: 1.4rem 2.4rem;
+        width: 100%;
+        border: none;
+        border-radius: 0.8rem;
+    }
+  }
+}

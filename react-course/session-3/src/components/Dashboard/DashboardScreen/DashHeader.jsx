@@ -1,8 +1,17 @@
-
 import React, { useState } from "react";
+import UserModal from "../../UserModal/UserModal";
 
-const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSearch}) => {
-
+const Details = ({
+  userName,
+  searchStatus,
+  setSearchStatus,
+  searchKey,
+  handleSearch,
+}) => {
+  const handleUserModal = () => {
+    console.log("Clicked on user")
+    return <UserModal isOpen={true}></UserModal>;
+  };
   const [notificationState, setNotificationState] = useState(false);
 
   const showNotification = () => {
@@ -16,18 +25,18 @@ const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSe
   return (
     <div className="dashboard_screen_details">
       <div className="icons vl">
-        {searchStatus && <input type="search" onChange={handleSearch} value={searchKey}/>}
+        {searchStatus && (
+          <input type="search" onChange={handleSearch} value={searchKey} />
+        )}
 
         <i className="icon-search" onClick={showSearch}></i>
         <i className="icon-notification" onClick={showNotification}></i>
 
-        {notificationState && <div className="notification-dropdown">
-          
-          </div>}
+        {notificationState && <div className="notification-dropdown"></div>}
       </div>
 
       <p className="username">{userName}</p>
-      <div className="profile-circle">
+      <div className="profile-circle" onClick={handleUserModal}>
         <figure>
           <img
             src="Jones-Ferdinand-profile.png"
@@ -39,7 +48,13 @@ const Details = ({ userName, searchStatus, setSearchStatus, searchKey , handleSe
   );
 };
 
-const DashHeader = ({ title, searchStatus, setSearchStatus, searchKey,handleSearch }) => {
+const DashHeader = ({
+  title,
+  searchStatus,
+  setSearchStatus,
+  searchKey,
+  handleSearch,
+}) => {
   return (
     <div className="dashboard_screen_header">
       <h3>{title}</h3>

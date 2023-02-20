@@ -7,7 +7,10 @@
   margin-block: 0;
   margin-inline: 0;
 }
-
+html,
+body {
+  height: 100%;
+}
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -41,8 +44,10 @@ img {
   object-fit: cover;
 }
 
-.root {
+#root {
   width: 100%;
+  min-height: 100vh;
+  height: 100%;
 }
 /*
 .vl {
