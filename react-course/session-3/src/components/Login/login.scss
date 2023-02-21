@@ -32,9 +32,10 @@
     & .input_group {
       text-align: left;
       margin-top: 2.4rem;
-      &.remember-me{
-        & label, & input{
-            display: inline-block;
+      &.remember-me {
+        & label,
+        & input {
+          display: inline-block;
         }
       }
       & label {
@@ -45,7 +46,7 @@
         letter-spacing: 0.03rem;
         text-transform: uppercase;
         margin-bottom: 0.6rem;
-        
+
         & .forgot-password {
           font-weight: 400;
           font-size: 10px;
@@ -59,20 +60,46 @@
       & input {
         width: 100%;
         padding: 1.1rem 0.8rem;
-        border-style: solid;
+        border: 1px solid #f0f1f7;
+        border-radius: 0.8rem;
         &::placeholder {
           font-size: 14px;
           line-height: 20px;
         }
       }
+      & .password-wrapper {
+        position: relative;
+        & .eye-icon {
+          cursor: pointer;
+          position: absolute;
+          top: 0;
+          right: 0;
+          transform: translate(-50%, -0%);
+          color: #9fa2b4;
+          & svg {
+            vertical-align: bottom;
+          }
+        }
+      }
     }
-    & button{
-        background: #3751FF;
-        color: white;
-        padding: 1.4rem 2.4rem;
-        width: 100%;
-        border: none;
-        border-radius: 0.8rem;
+    & button {
+      background: #3751ff;
+      color: white;
+      padding: 1.4rem 2.4rem;
+      width: 100%;
+      border: none;
+      border-radius: 0.8rem;
+      margin-block: 2.4rem;
+    }
+    & a{
+        color: #3751FF;
+    }
+    & .change-form{
+      & span{
+        font-weight: 600;
+         color: #3751FF;
+         cursor: pointer;
+      }
     }
   }
 }
