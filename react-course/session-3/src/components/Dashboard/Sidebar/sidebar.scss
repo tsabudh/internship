@@ -1,48 +1,48 @@
 .dashboard_sidebar {
-    background-color: #363740;
-    color: #a4a6b3;
-    min-width: 25.5rem;
-    height: 100vh;
-    // position: fixed;
-    top: 0;
-    overflow-y: auto;
-  
-    scrollbar-width: 0.1rem;
-    &::-webkit-scrollbar {
-      width: 0.5rem;
-      height:1rem;
-      background: transparent;
-      visibility: hidden;
+  background-color: #363740;
+  color: #a4a6b3;
+  min-width: 25.5rem;
+  height: 100vh;
+  // position: fixed;
+  top: 0;
+  overflow-y: auto;
+
+  scrollbar-width: 0.1rem;
+  &::-webkit-scrollbar {
+    width: 0.5rem;
+    height: 1rem;
+    background: transparent;
+    visibility: hidden;
+  }
+  &::-webkit-scrollbar-track {
+    background: #36374000;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: #a4a6b3;
+  }
+}
+.sidebar_heading {
+  padding: 4rem 3rem 6.4rem;
+  display: flex;
+
+  & picture {
+    height: 3.2rem;
+    width: 3.2rem;
+    margin-right: 1.2rem;
+  }
+}
+.dashboard_sidebar nav ul {
+  padding: 0;
+  & li {
+    &.active {
+      background: #9fa2b450;
+      color: white;
+      border-left: 0.3rem solid #e5e5e5;
     }
-    &::-webkit-scrollbar-track{
-      background: #36374000;
-    }
-    &::-webkit-scrollbar-thumb{
-      background: #a4a6b3;
+    padding: 1.8rem 2.4rem;
+
+    & i {
+      margin-right: 2.4rem;
     }
   }
-  .sidebar_heading {
-    padding: 4rem 3rem 6.4rem;
-    display: flex;
-  
-    & picture {
-      height: 3.2rem;
-      width: 3.2rem;
-      margin-right: 1.2rem;
-    }
-  }
-  .dashboard_sidebar nav ul {
-    padding: 0;
-    & li {
-      &.active {
-        background: #9fa2b450;
-        color: white;
-        border-left: 0.3rem solid #e5e5e5;
-      }
-      padding: 1.8rem 2.4rem;
-  
-      & i {
-        margin-right: 2.4rem;
-      }
-    }
-  }
+}
