@@ -12,7 +12,7 @@ const isFilterActive = () =>{
       <p>All Tickets</p>
       <div className="ticket_classify">
         <button>
-          Add Ticket
+          {/* Add Ticket */}
         </button>
         <button>
           <i className="icon-sort"></i>
