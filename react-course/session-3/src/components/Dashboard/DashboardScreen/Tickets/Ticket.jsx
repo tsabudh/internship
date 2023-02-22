@@ -1,20 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import { deleteTicket } from "../../../Login/handleRequest";
 
 const Ticket = ({
   ticketArray,
   setTicketArray,
   ticketDetails,
-  currentTicket,
+  currentTicketId,
 }) => {
-  const deleteCurrentTicket = () => {
-    let newArray = ticketArray.filter((ticket, index) => {
-      if (currentTicket == index) return;
+  const deleteCurrentTicket = async () => {
+   let deleteStatus =  await deleteTicket(currentTicketId, setTicketArray);
+
+    let newArray = ticketArray.filter((ticket) => {
+      if (currentTicketId ==  ticket.id) return;
       else return ticket;
     });
-
-    setTicketArray(newArray);
-    console.log(ticketArray);
+    if(deleteStatus==200)  setTicketArray(newArray);
   };
+
   return (
     <tr>
       <td>

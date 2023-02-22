@@ -42,7 +42,8 @@ const TicketTable = ({ ticketArray, setTicketArray, searchKey, filterBy }) => {
                 setTicketArray={setTicketArray}
                 ticketDetails={ticket}
                 key={index}
-                currentTicket={index}
+                currentTicketId={ticket.id}
+                // currentTicket={index}
               />
             ))}
         </tbody>

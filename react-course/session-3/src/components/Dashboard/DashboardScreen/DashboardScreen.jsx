@@ -1,7 +1,10 @@
 import React from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import axios from "axios";
+
 import DashHeader from "./DashHeader";
 import TicketContainer from "./Tickets/TicketContainer";
+import { getTickets } from "../../Login/handleRequest";
 
 import "./dashboard-screen.scss";
 
@@ -95,16 +98,22 @@ let tickets = [
   },
 ];
 
+let ticketUrl = "http://localhost:3000/tickets";
 const DashboardScreen = () => {
   const [searchStatus, setSearchStatus] = useState(false);
 
-  const [ticketArray, setTicketArray] = useState(tickets);
+  const [ticketArray, setTicketArray] = useState([]);
+  // setTicketArray(getTickets())
 
   const [searchKey, setSearchKey] = useState("");
 
   const [filterMenuStatus, setFilterMenuStatus] = useState(false);
 
   const [filterBy, setFilterBy] = useState([]);
+
+  useEffect(() => {
+    getTickets(setTicketArray);
+  }, []);
 
   const handleFilterBy = (e) => {
     console.log(e.target.checked);
@@ -114,10 +123,7 @@ const DashboardScreen = () => {
     if (e.target.checked && !newFilterArray.includes(e.target.value)) {
       newFilterArray = [...newFilterArray, e.target.value];
       console.log("checked new");
-      // newFilterArray.filter((item) => {
-      //   if (item === e.target.value) return item;
-      //   if (item != e.target.value) return;
-      // });
+
     }
     if (!e.target.checked && newFilterArray.includes(e.target.value)) {
       newFilterArray = newFilterArray.filter((item) => {

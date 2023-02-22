@@ -1,4 +1,6 @@
-import { useNavigate } from "react-router-dom";
+import axios from "axios";
+
+let ticketUrl = "http://localhost:3000/tickets";
 
 export async function loginUser(navigate) {
   let response = await fetch("http://localhost:3000/users");
@@ -11,6 +13,38 @@ export async function loginUser(navigate) {
   });
 
   candidateUser && candidateUser.password == enteredPassword
-    ? navigate('/dashboard')
-    : "Bigryo password";
+    ? navigate("/dashboard")
+    : "Wrong Email or password.";
+}
+
+export async function deleteTicket(ticketId, setTicketArray) {
+  let response, statusCode;
+  response = await axios
+    .delete(`${ticketUrl}/${ticketId}`)
+    .then(function (response) {
+      // handle success
+      statusCode = response.status;
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    });
+
+  return statusCode;
+}
+
+export async function getTickets(setTicketArray) {
+  let tickets = [];
+
+  await axios
+    .get(ticketUrl)
+    .then(function (response) {
+      setTicketArray(response.data);
+      tickets = response.data;
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
+  console.log(tickets);
+  return tickets;
 }
