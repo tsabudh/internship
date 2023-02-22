@@ -8,6 +8,18 @@
     overflow-y: auto;
   
     scrollbar-width: 0.1rem;
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+      height:1rem;
+      background: transparent;
+      visibility: hidden;
+    }
+    &::-webkit-scrollbar-track{
+      background: #36374000;
+    }
+    &::-webkit-scrollbar-thumb{
+      background: #a4a6b3;
+    }
   }
   .sidebar_heading {
     padding: 4rem 3rem 6.4rem;

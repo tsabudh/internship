@@ -4,7 +4,7 @@ import axios from "axios";
 
 import DashHeader from "./DashHeader";
 import TicketContainer from "./Tickets/TicketContainer";
-import { getTickets } from "../../Login/handleRequest";
+import { getTickets } from "../../SignUp/handleRequest";
 
 import "./dashboard-screen.scss";
 
@@ -98,7 +98,7 @@ let tickets = [
   },
 ];
 
-let ticketUrl = "http://localhost:3000/tickets";
+
 const DashboardScreen = () => {
   const [searchStatus, setSearchStatus] = useState(false);
 
@@ -123,7 +123,6 @@ const DashboardScreen = () => {
     if (e.target.checked && !newFilterArray.includes(e.target.value)) {
       newFilterArray = [...newFilterArray, e.target.value];
       console.log("checked new");
-
     }
     if (!e.target.checked && newFilterArray.includes(e.target.value)) {
       newFilterArray = newFilterArray.filter((item) => {

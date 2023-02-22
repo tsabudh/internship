@@ -1,9 +1,12 @@
 import axios from "axios";
 
-let ticketUrl = "http://localhost:3000/tickets";
+// let serverUrl = "http://localhost:3000";
+
+let serverUrl = "https://my-json-server.typicode.com/tsabudh/json-server";
 
 export async function loginUser(navigate) {
-  let response = await fetch("http://localhost:3000/users");
+  
+  let response = await fetch(`${serverUrl}/users`);
   let users = await response.json();
   let enteredEmail = document.getElementById("email").value;
 
@@ -20,7 +23,7 @@ export async function loginUser(navigate) {
 export async function deleteTicket(ticketId, setTicketArray) {
   let response, statusCode;
   response = await axios
-    .delete(`${ticketUrl}/${ticketId}`)
+    .delete(`${serverUrl}/tickets/${ticketId}`)
     .then(function (response) {
       // handle success
       statusCode = response.status;
@@ -37,7 +40,7 @@ export async function getTickets(setTicketArray) {
   let tickets = [];
 
   await axios
-    .get(ticketUrl)
+    .get(`${serverUrl}/tickets`)
     .then(function (response) {
       setTicketArray(response.data);
       tickets = response.data;

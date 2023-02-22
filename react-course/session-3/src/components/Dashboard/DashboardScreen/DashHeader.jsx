@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import UserModal from "../../UserModal/UserModal";
+import Modal from "react-modal";
 
 const Details = ({
   userName,
@@ -8,9 +9,10 @@ const Details = ({
   searchKey,
   handleSearch,
 }) => {
+  const [modalStatus, setModalStatus] = useState(false);
+
   const handleUserModal = () => {
-    console.log("Clicked on user")
-    return <UserModal isOpen={true}></UserModal>;
+    setModalStatus(!modalStatus);
   };
   const [notificationState, setNotificationState] = useState(false);
 
@@ -43,6 +45,9 @@ const Details = ({
             alt={`${userName} profile photo`}
           />
         </figure>
+        <Modal isOpen={modalStatus} contentLabel={"User Modal"}>
+          <UserModal />
+        </Modal>
       </div>
     </div>
   );

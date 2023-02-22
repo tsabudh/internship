@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { deleteTicket } from "../../../Login/handleRequest";
+import { deleteTicket } from "../../../SignUp/handleRequest";
 
 const Ticket = ({
   ticketArray,
@@ -9,13 +9,13 @@ const Ticket = ({
   currentTicketId,
 }) => {
   const deleteCurrentTicket = async () => {
-   let deleteStatus =  await deleteTicket(currentTicketId, setTicketArray);
+    let deleteStatus = await deleteTicket(currentTicketId, setTicketArray);
 
     let newArray = ticketArray.filter((ticket) => {
-      if (currentTicketId ==  ticket.id) return;
+      if (currentTicketId == ticket.id) return;
       else return ticket;
     });
-    if(deleteStatus==200)  setTicketArray(newArray);
+    if (deleteStatus == 200) setTicketArray(newArray);
   };
 
   return (
