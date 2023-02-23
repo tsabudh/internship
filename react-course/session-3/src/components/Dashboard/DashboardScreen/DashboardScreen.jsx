@@ -158,6 +158,7 @@ const DashboardScreen = () => {
         searchKey={searchKey}
         handleSearch={handleSearch}
       />
+      
       <TicketContainer
         searchKey={searchKey}
         filterMenuStatus={filterMenuStatus}

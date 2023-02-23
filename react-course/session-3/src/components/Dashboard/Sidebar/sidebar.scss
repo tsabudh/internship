@@ -33,6 +33,9 @@
 }
 .dashboard_sidebar nav ul {
   padding: 0;
+  & hr{
+    border-color: #DFE0EB0E;
+  }
   & li {
     &.active {
       background: #9fa2b450;
