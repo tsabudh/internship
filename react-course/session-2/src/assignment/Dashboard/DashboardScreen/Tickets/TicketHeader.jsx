@@ -1,3 +1,5 @@
+import "./ticket-header.scss"
+
 const TicketHeader = ({}) => {
   return (
     <div className="ticket_header">

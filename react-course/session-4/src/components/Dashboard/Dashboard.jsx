@@ -1,9 +1,13 @@
 import React from "react";
 import Sidebar from "./Sidebar/Sidebar";
 import DashboardScreen from "./DashboardScreen/DashboardScreen";
+import UserModal from "../UserModal/UserModal";
+
+
 import "./dashboard.scss"
-function Dashboard () {
-  
+
+class Dashboard extends React.Component {
+  render() {
     return (
         <div className="dashboard">
           
@@ -11,6 +15,6 @@ function Dashboard () {
             <DashboardScreen />
         </div>
     )
-  
+  }
 }
 export default Dashboard;

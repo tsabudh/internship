@@ -1,0 +1,138 @@
+{
+  "tickets": [
+    {
+      "id": 3,
+      "customerAvatar": "robert-downey.png",
+      "customerName": "Robert Downey",
+      "customerDate": "on 24.05.2019",
+      "ticketName": "When will I be charged this month?",
+      "ticketInformation": "Updated 1 day ago",
+      "ticketDate": "May 26, 2019",
+      "ticketTime": "7:30 PM",
+      "ticketPriority": "high"
+    },
+    {
+      "id": 4,
+      "customerAvatar": "christian-bale.png",
+      "customerName": "Christian Bale",
+      "customerDate": "on 24.05.2019",
+      "ticketName": "Payment not going through",
+      "ticketInformation": "Updated 1 day ago",
+      "ticketDate": "May 25, 2019",
+      "ticketTime": "5:00 PM",
+      "ticketPriority": "normal"
+    },
+    {
+      "id": 5,
+      "customerAvatar": "henry-cavil.png",
+      "customerName": "Henry Cavil",
+      "customerDate": "on 24.05.2019",
+      "ticketName": "Unable to add replies",
+      "ticketInformation": "Updated 1 day ago",
+      "ticketDate": "May 25, 2019",
+      "ticketTime": "4:00 PM",
+      "ticketPriority": "high"
+    },
+    {
+      "id": 6,
+      "customerAvatar": "chris-evans.png",
+      "customerName": "Chris Evans",
+      "customerDate": "on 24.05.2019",
+      "ticketName": "Downtime since last week",
+      "ticketInformation": "Updated 1 day ago",
+      "ticketDate": "May 25, 2019",
+      "ticketTime": "2:00 PM",
+      "ticketPriority": "normal"
+    },
+    {
+      "id": 7,
+      "customerAvatar": "sam-smith.png",
+      "customerName": "Sam Smith",
+      "customerDate": "on 24.05.2019",
+      "ticketName": "Referral Bonus",
+      "ticketInformation": "Updated 1 day ago",
+      "ticketDate": "May 25, 2019",
+      "ticketTime": "11:30 PM",
+      "ticketPriority": "low"
+    },
+    {
+      "id": 8,
+      "customerAvatar": "steve-rogers.png",
+      "customerName": "Steve Rogers ",
+      "customerDate": "on 24.05.2019",
+      "ticketName": "How do I change my password?",
+      "ticketInformation": "Updated 1 day ago",
+      "ticketDate": "May 24, 2019",
+      "ticketTime": "1:00 PM",
+      "ticketPriority": "normal"
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "name": "Jonas A Schmedtmann",
+      "email": "admin@natours.io",
+      "password": "1234"
+    },
+    {
+      "id": 2,
+      "name": "Lourdes Browning",
+      "email": "loulou@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 3,
+      "name": "Sophie Louise Hart",
+      "email": "sophie@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 4,
+      "name": "Leo Gillespie",
+      "email": "leo@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 5,
+      "name": "Jennifer Hardy",
+      "email": "jennifer@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 6,
+      "name": "Kate Morrison",
+      "email": "kate@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 7,
+      "name": "Steve T. Scaife",
+      "email": "steve@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 8,
+      "name": "Aarav Lynn",
+      "email": "aarav@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 9,
+      "name": "Miyah Myles",
+      "email": "miyah@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 10,
+      "name": "Max Smith",
+      "email": "max@example.com",
+      "password": "1234"
+    },
+    {
+      "id": 11,
+      "name": "Alexander Jones",
+      "email": "alex@example.com",
+      "password": "1234"
+    }
+  ]
+}

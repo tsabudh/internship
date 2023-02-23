@@ -1,6 +1,8 @@
 import React from "react";
 import Ticket from "./Ticket";
 
+import "./ticket-table.scss"
+
 const TicketTable = ({ ticketArray, setTicketArray }) => {
   return (
     <div className="table-wrapper">

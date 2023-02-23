@@ -1,0 +1,18 @@
+.ticket_header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 3.2rem 3.2rem 4.8rem;
+}
+.ticket_header p {
+  font-weight: 600;
+}
+.notification-dropdown {
+  position: absolute;
+  height: 10rem;
+  width: 20rem;
+  background-color: white;
+  border-radius: 1rem;
+  border: 1px solid #dfe0eb;
+  right: 0;
+}
