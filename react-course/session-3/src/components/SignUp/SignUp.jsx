@@ -8,7 +8,6 @@ import "./signUp.scss";
 
 const getFormData = (formId) => {
   let form = document.getElementById(formId);
-  console.log(form);
   let formData = new FormData(form);
 
   //just logging form entries
