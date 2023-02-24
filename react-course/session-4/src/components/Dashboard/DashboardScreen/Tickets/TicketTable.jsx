@@ -1,13 +1,9 @@
-import React, { useContext } from "react";
-
+import React from "react";
 import Ticket from "./Ticket";
-import {ticketContext} from "../DashboardScreen";
+
 import "./ticket-table.scss";
 
-const TicketTable = () => {
-  const { ticketArray, setTicketArray, searchKey, filterBy } =
-    useContext(ticketContext);
-
+const TicketTable = ({ ticketArray, setTicketArray, searchKey, filterBy }) => {
   return (
     <div className="table-wrapper">
       <table className="ticket_table">
@@ -31,11 +27,11 @@ const TicketTable = () => {
             )
             .filter((ticket) => {
               // filter by ticket priority
-              if (filterBy.length == 0) {
+              if (filterBy.length==0) {
                 return ticket;
               } else {
                 // return ticket.ticketPriority == filterBy;
-
+                console.log(filterBy);
                 return filterBy.includes(ticket.ticketPriority);
               }
             })

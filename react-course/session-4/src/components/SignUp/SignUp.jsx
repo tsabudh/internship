@@ -3,11 +3,12 @@ import { IoMdEyeOff, IoMdEye } from "react-icons/io";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-import { loginUser } from "./handleRequest";
-import "./login.scss";
+import { handleLogin } from "./handleRequest";
+import "./signUp.scss";
 
 const SignUp = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
+
   const [newUser, setNewUser] = useState(false);
   const [inputTypeOfPassword, setInputTypeOfPassword] = useState("password");
 
@@ -33,20 +34,30 @@ const navigate = useNavigate();
         </picture>
         <p className="subtitle">Dashboard Kit</p>
         <div className="title">
-          <p>{newUser?"Sign up":"Log in"} to Dashboard Kit</p>
+          <p>{newUser ? "Sign up" : "Log in"} to Dashboard Kit</p>
         </div>
         <p className="instruction">Enter your email and password below </p>
-        <form action="">
+        <form action="" id="portal-form">
           {newUser && (
             <div className="input_group">
               <label htmlFor="full-name">Full Name</label>
-              <input type="text" id="full-name" placeholder="Full Name" />
+              <input
+                type="text"
+                id="full-name"
+                placeholder="Full Name"
+                name="fullName"
+              />
             </div>
           )}
 
           <div className="input_group">
             <label htmlFor="email">Email</label>
-            <input type="email" id="email" placeholder="Email address" />
+            <input
+              type="email"
+              id="email"
+              placeholder="Email address"
+              name="email"
+            />
           </div>
 
           <div className="input_group">
@@ -56,6 +67,7 @@ const navigate = useNavigate();
                 type={inputTypeOfPassword}
                 id="password"
                 placeholder="Password"
+                name="password"
               />
               <div className="eye-icon" onClick={showHidePassword}>
                 {inputTypeOfPassword == "password" && <IoMdEyeOff />}
@@ -72,6 +84,7 @@ const navigate = useNavigate();
                   type={inputTypeOfPassword}
                   id="confirm-password"
                   placeholder="Password"
+                  name="confirmPassword"
                 />
                 <div className="eye-icon" onClick={showHidePassword}>
                   {inputTypeOfPassword == "password" && <IoMdEyeOff />}
@@ -81,7 +94,11 @@ const navigate = useNavigate();
             </div>
           )}
 
-          <button type="button" onClick={()=>loginUser(navigate)}>
+          <button
+            id="login-button"
+            type="button"
+            onClick={() => handleLogin(navigate)}
+          >
             {newUser ? "SignUp" : "Login"}
           </button>
         </form>

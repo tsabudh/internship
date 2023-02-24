@@ -1,10 +1,10 @@
 import React from "react";
-import { useState, useEffect, useContext, createContext } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 import DashHeader from "./DashHeader";
 import TicketContainer from "./Tickets/TicketContainer";
-import { getTickets } from "../../Login/handleRequest";
+import { getTickets } from "../../SignUp/handleRequest";
 
 import "./dashboard-screen.scss";
 
@@ -98,15 +98,17 @@ let tickets = [
   },
 ];
 
-let ticketUrl = "http://localhost:3000/tickets";
-export const ticketContext = createContext();
 
 const DashboardScreen = () => {
-
   const [searchStatus, setSearchStatus] = useState(false);
+
   const [ticketArray, setTicketArray] = useState([]);
+  // setTicketArray(getTickets())
+
   const [searchKey, setSearchKey] = useState("");
+
   const [filterMenuStatus, setFilterMenuStatus] = useState(false);
+
   const [filterBy, setFilterBy] = useState([]);
 
   useEffect(() => {
@@ -114,24 +116,25 @@ const DashboardScreen = () => {
   }, []);
 
   const handleFilterBy = (e) => {
-    let newFilterArray = [...filterBy];
+        let newFilterArray = [...filterBy];
 
     // if checked add to array
     if (e.target.checked && !newFilterArray.includes(e.target.value)) {
       newFilterArray = [...newFilterArray, e.target.value];
+      
     }
     if (!e.target.checked && newFilterArray.includes(e.target.value)) {
       newFilterArray = newFilterArray.filter((item) => {
         if (item == e.target.value) {
-          return null;
+                    return null;
         } else {
-          return item;
+                    return item;
         }
       });
     }
 
     setFilterBy(newFilterArray);
-  };
+      };
 
   const handleSearch = (e) => {
     setSearchKey(e.target.value);
@@ -149,19 +152,16 @@ const DashboardScreen = () => {
         searchKey={searchKey}
         handleSearch={handleSearch}
       />
-      <ticketContext.Provider
-        value={{ ticketArray, searchKey, setTicketArray, filterBy }}
-      >
-        <TicketContainer
-          // searchKey={searchKey}
-          // filterBy={filterBy}
-          filterMenuStatus={filterMenuStatus}
-          handleFilter={handleFilter}
-          handleFilterBy={handleFilterBy}
-          // ticketArray={ticketArray}
-          // setTicketArray={setTicketArray}
-        />
-      </ticketContext.Provider>
+      
+      <TicketContainer
+        searchKey={searchKey}
+        filterMenuStatus={filterMenuStatus}
+        handleFilter={handleFilter}
+        filterBy={filterBy}
+        handleFilterBy={handleFilterBy}
+        ticketArray={ticketArray}
+        setTicketArray={setTicketArray}
+      />
     </div>
   );
 };
