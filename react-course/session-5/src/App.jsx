@@ -14,10 +14,11 @@ export const LoggedInContext = createContext();
 
 function App() {
   const [isLoggedIn, setIsLoggedIn] = useState();
+  const [currentUser, setCurrentUser] = useState();
 
   return (
     <BrowserRouter>
-      <LoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn }}>
+      <LoggedInContext.Provider value={{ isLoggedIn, setIsLoggedIn , currentUser, setCurrentUser}}>
         <Routes>
           <Route path="/" element={<SignUp />} />
 

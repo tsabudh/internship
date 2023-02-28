@@ -1,12 +1,15 @@
 import React from "react";
+import { NavLink, useMatch } from "react-router-dom";
 
 const SidebarItem = ({ tool }) => {
+const match = useMatch("/dashboard/tickets");
+
   return (
-    <li className={tool.name === "Tickets" ? "active" : ""}>
-      <a href="">
+    <li className={useMatch(`/dashboard/${tool.name}`)?"active":null}>
+      <NavLink to={tool.name} >
         <i className={`icon-${tool.iconName}`}></i>
         {tool.name}
-      </a>
+      </NavLink>
     </li>
   );
 };

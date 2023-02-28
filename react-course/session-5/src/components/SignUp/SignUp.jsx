@@ -10,7 +10,7 @@ import "./signUp.scss";
 
 const SignUp = () => {
   const navigate = useNavigate();
-  const { isLoggedIn, setIsLoggedIn } = useContext(LoggedInContext);
+  const { isLoggedIn, setIsLoggedIn , currentUser, setCurrentUser} = useContext(LoggedInContext);
 
   const [newUser, setNewUser] = useState(false);
   const [inputTypeOfPassword, setInputTypeOfPassword] = useState("password");
@@ -100,7 +100,7 @@ const SignUp = () => {
           <button
             id="login-button"
             type="button"
-            onClick={() => handleLogin(navigate, isLoggedIn, setIsLoggedIn)}
+            onClick={() => handleLogin(navigate, isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser)}
           >
             {newUser ? "SignUp" : "Login"}
           </button>

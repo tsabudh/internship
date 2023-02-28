@@ -1,4 +1,6 @@
 import { useContext, useState } from "react";
+import { useOutletContext } from "react-router-dom";
+
 import Modal from "react-modal";
 
 import { ticketContext } from "../DashboardScreen";
@@ -17,7 +19,8 @@ let customStyles = {
   },
 };
 
-const TicketHeader = ({ handleFilter, handleFilterBy, filterMenuStatus }) => {
+const TicketHeader = () => {
+  const [filterMenuStatus, handleFilter, handleFilterBy] = useOutletContext();
   const { filterBy } = useContext(ticketContext);
   const [isModalOpen, setModalOpen] = useState(false);
 
@@ -35,7 +38,7 @@ const TicketHeader = ({ handleFilter, handleFilterBy, filterMenuStatus }) => {
 
   function closeModal() {
     setModalOpen(false);
-    // also keep filled form as filled 
+    // also keep filled form as filled
   }
 
   return (

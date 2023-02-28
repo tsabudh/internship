@@ -10,7 +10,13 @@ const getFormData = (formId) => {
   return formData;
 };
 
-export let handleLogin = (navigate, isLoggedIn, setIsLoggedIn) => {
+export let handleLogin = (
+  navigate,
+  isLoggedIn,
+  setIsLoggedIn,
+  currentUser,
+  setCurrentUser
+) => {
   let formData = getFormData("portal-form");
   let enteredEmail = formData.get("email");
   let loginButton = document.getElementById("login-button");
@@ -21,13 +27,19 @@ export let handleLogin = (navigate, isLoggedIn, setIsLoggedIn) => {
 
   if (validEmail) {
     loginButton.textContent = "Logging in";
-    loginUser(navigate, isLoggedIn, setIsLoggedIn);
+    loginUser(navigate, isLoggedIn, setIsLoggedIn, currentUser, setCurrentUser);
   } else {
     console.log("entered valid email?", validEmail);
   }
 };
 
-async function loginUser(navigate, isLoggedIn, setIsLoggedIn) {
+async function loginUser(
+  navigate,
+  isLoggedIn,
+  setIsLoggedIn,
+  currentUser,
+  setCurrentUser
+) {
   let response = await fetch(`${serverUrl}/users`);
   let users = await response.json();
   let enteredEmail = document.getElementById("email").value;
@@ -43,7 +55,8 @@ async function loginUser(navigate, isLoggedIn, setIsLoggedIn) {
     loginButton.style.background = "#16FF00";
 
     setIsLoggedIn(true);
-    navigate("/dashboard");
+    setCurrentUser(candidateUser);
+    navigate("/dashboard/overview");
   } else {
     loginButton.textContent = "Login";
     formInstruction.style.color = "#CD0404";

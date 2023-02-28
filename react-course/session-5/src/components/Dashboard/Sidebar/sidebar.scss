@@ -41,9 +41,17 @@
       background: #9fa2b450;
       color: white;
       border-left: 0.3rem solid #e5e5e5;
+      box-sizing: border-box;
+      & a{
+        //compensation for border-left thickness while active
+        padding-left: 2.1rem;
+      }
     }
+   & a{
     padding: 1.8rem 2.4rem;
+    display: inline-block;
 
+   } 
     & i {
       margin-right: 2.4rem;
     }

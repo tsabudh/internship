@@ -6,6 +6,7 @@
   flex-wrap: wrap;
 
   &_child {
+    background: #ffffff;
     border: 1px solid #dfe0eb;
     border-radius: 0.8rem;
     text-align: center;
@@ -13,5 +14,31 @@
     flex-shrink: 0;
     min-width: 15.5rem;
     width: 0;
+    max-width: 25.8rem;
+    padding: 2.4rem 3.2rem;
+
+    font-weight: 700;
+
+    &_status {
+      font-size: 1.9rem;
+      line-height: 2.4rem;
+      letter-spacing: 0.04rem;
+      color: #9fa2b4;
+      margin-bottom: 1.2rem;
+    }
+    &_count {
+      font-weight: 700;
+      font-size: 4rem;
+      line-height: 5rem;
+      letter-spacing: 0.01rem;
+      color: #252733;
+    }
+    &:hover {
+      border: 1px solid #3751ff;
+      cursor: pointer;
+      & p {
+        color: #3751ff;
+      }
+    }
   }
 }

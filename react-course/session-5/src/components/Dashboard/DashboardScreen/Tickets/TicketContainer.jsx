@@ -1,3 +1,5 @@
+import { useOutletContext } from "react-router-dom";
+
 import TicketHeader from "./TicketHeader";
 import TicketTable from "./TicketTable";
 
@@ -11,9 +13,9 @@ const TicketContainer = ({
   return (
     <div className="ticket_container">
       <TicketHeader
-        handleFilter={handleFilter}
-        filterMenuStatus={filterMenuStatus}
-        handleFilterBy={handleFilterBy}
+        // handleFilter={handleFilter}
+        // filterMenuStatus={filterMenuStatus}
+        // handleFilterBy={handleFilterBy}
       />
       <TicketTable />
     </div>

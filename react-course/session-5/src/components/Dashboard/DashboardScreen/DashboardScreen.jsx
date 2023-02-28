@@ -51,7 +51,7 @@ const DashboardScreen = () => {
   return (
     <div className="dashboard_screen">
       <DashHeader
-        title="Tickets"
+        title="Ticketls"
         searchStatus={searchStatus}
         setSearchStatus={setSearchStatus}
         searchKey={searchKey}
@@ -69,8 +69,8 @@ const DashboardScreen = () => {
           // ticketArray={ticketArray}
           // setTicketArray={setTicketArray}
         /> */}
-       
-       <Outlet />
+
+        <Outlet context={[filterMenuStatus, handleFilter, handleFilterBy]} />
       </ticketContext.Provider>
     </div>
   );
