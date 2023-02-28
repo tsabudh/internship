@@ -10,25 +10,24 @@ const getFormData = (formId) => {
   return formData;
 };
 
-export let handleLogin = (navigate) => {
+export let handleLogin = (navigate, isLoggedIn, setIsLoggedIn) => {
   let formData = getFormData("portal-form");
   let enteredEmail = formData.get("email");
   let loginButton = document.getElementById("login-button");
-  console.log(loginButton);
+
   let validEmail = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(
     enteredEmail
   );
 
   if (validEmail) {
     loginButton.textContent = "Logging in";
-    loginUser(navigate);
+    loginUser(navigate, isLoggedIn, setIsLoggedIn);
   } else {
     console.log("entered valid email?", validEmail);
   }
-  console.log(...formData);
 };
 
-export async function loginUser(navigate) {
+async function loginUser(navigate, isLoggedIn, setIsLoggedIn) {
   let response = await fetch(`${serverUrl}/users`);
   let users = await response.json();
   let enteredEmail = document.getElementById("email").value;
@@ -43,6 +42,7 @@ export async function loginUser(navigate) {
   if (candidateUser && candidateUser.password == enteredPassword) {
     loginButton.style.background = "#16FF00";
 
+    setIsLoggedIn(true);
     navigate("/dashboard");
   } else {
     loginButton.textContent = "Login";
@@ -80,6 +80,6 @@ export async function getTickets(setTicketArray) {
     .catch(function (error) {
       console.log(error);
     });
-  console.log(tickets);
+
   return tickets;
 }

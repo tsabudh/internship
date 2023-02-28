@@ -1,0 +1,10 @@
+{
+  "Post": {
+    "users": {
+      "id": 7,
+      "name": "Steve T. Scaife",
+      "email": "steve@example.com",
+      "password": "1234"
+    }
+  }
+}

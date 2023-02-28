@@ -1,0 +1,17 @@
+.overview-container {
+  display: flex;
+  gap: 3rem;
+  justify-content: space-between;
+  padding-inline: 3rem;
+  flex-wrap: wrap;
+
+  &_child {
+    border: 1px solid #dfe0eb;
+    border-radius: 0.8rem;
+    text-align: center;
+    flex-grow: 1;
+    flex-shrink: 0;
+    min-width: 15.5rem;
+    width: 0;
+  }
+}

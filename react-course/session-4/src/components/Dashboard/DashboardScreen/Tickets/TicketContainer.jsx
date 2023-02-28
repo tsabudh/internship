@@ -1,13 +1,13 @@
 import TicketHeader from "./TicketHeader";
 import TicketTable from "./TicketTable";
 
-import "./ticket-container.scss"
+import "./ticket-container.scss";
 
 const TicketContainer = ({
-  ticketArray,
-  setTicketArray,
-  searchKey,
-  filterBy,
+  // ticketArray,
+  // setTicketArray,
+  // searchKey,
+  // filterBy,
   handleFilterBy,
   handleFilter,
   filterMenuStatus,
@@ -17,16 +17,9 @@ const TicketContainer = ({
       <TicketHeader
         handleFilter={handleFilter}
         filterMenuStatus={filterMenuStatus}
-        filterBy={filterBy}
         handleFilterBy={handleFilterBy}
       />
-      <TicketTable
-        ticketArray={ticketArray}
-        setTicketArray={setTicketArray}
-        searchKey={searchKey}
-        filterBy={filterBy}
-        
-      />
+      <TicketTable />
     </div>
   );
 };
