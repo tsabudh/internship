@@ -12,14 +12,15 @@
 
 
     <?php
-    class Student
+    abstract class Student
     {
         // Properties
         public $name;
+        public $gender;
         public $roll_no;
         public $phone_no;
 
-
+        // abstract public function getSubjects();
         // Methods
         function __construct($name, $roll_no, $phone_no)
         {
@@ -42,11 +43,21 @@
 
     class ComputerScience extends Student
     {
+
         public $subjects = array("C", "Distributed System", "Computer Networks", "Artificial Intelligence");
+
+        function __construct($name, $roll_no, $phone_no)
+        {
+            parent::__construct($name, $roll_no, $phone_no);
+        }
     }
     class Mathematics extends Student
     {
         public $subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
+        function __construct($name, $roll_no, $phone_no)
+        {
+            parent::__construct($name, $roll_no, $phone_no);
+        }
     }
 
 

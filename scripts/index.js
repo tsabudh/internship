@@ -3,8 +3,10 @@
 const cssAssignmentNumber = 19;
 const htmlAssignmentNumber = 1;
 const jsAssignmentNumber = 7;
+const reactAssignmentNumber = 5;
+const phpAssignmentNumber = 2;
 
-let courseItems = ["html", "css", "js"];
+let courseItems = ["html", "css", "js","react","php"];
 
 const mainContainer = document.getElementsByClassName("main-container")[0];
 
@@ -109,6 +111,8 @@ for (let i = 0; i < courseItems.length; i++) {
   else if (courseItems[i] == "css")
     numberOfAssignmentItems = cssAssignmentNumber;
   else if (courseItems[i] == "js") numberOfAssignmentItems = jsAssignmentNumber;
+  else if (courseItems[i] == "react") numberOfAssignmentItems = reactAssignmentNumber;
+  else if (courseItems[i] == "php") numberOfAssignmentItems = phpAssignmentNumber;
 
   for (let j = 1; j <= numberOfAssignmentItems; j++) {
     createChildOf(assignmentTabContent, {
