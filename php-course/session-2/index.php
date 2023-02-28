@@ -12,62 +12,57 @@
 
 
     <?php
-    abstract class Student
-    {
-        // Properties
-        public $name;
-        public $gender;
-        public $roll_no;
-        public $phone_no;
+    include('./scripts/class/student/Student.php');
 
-        // abstract public function getSubjects();
-        // Methods
-        function __construct($name, $roll_no, $phone_no)
-        {
-            $this->name = $name;
-            $this->roll_no = $roll_no;
-            $this->phone_no = $phone_no;
-        }
+    
 
-        function get_name()
-        {
-            return $this->name;
-        }
-        function get_object()
-        {
-            $object = array();
-            array_push($object, $this->name, $this->roll_no, $this->phone_no);
-            return $object;
-        }
-    }
+//     class Subject
+//     {
+//         public $name;
+//         public $full_marks;
+//         public $pass_marks;
 
-    class ComputerScience extends Student
-    {
+//         function __construct($name, $full_marks, $pass_marks)
+//         {
+//             $this->name = $name;
+//             $this->full_marks = $full_marks;
+//             $this->pass_marks = $pass_marks;
+//         }
+//     }
 
-        public $subjects = array("C", "Distributed System", "Computer Networks", "Artificial Intelligence");
+//     class ComputerScience extends Student
+//     {
 
-        function __construct($name, $roll_no, $phone_no)
-        {
-            parent::__construct($name, $roll_no, $phone_no);
-        }
-    }
-    class Mathematics extends Student
-    {
-        public $subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
-        function __construct($name, $roll_no, $phone_no)
-        {
-            parent::__construct($name, $roll_no, $phone_no);
-        }
-    }
+//         public $subjects = array();
 
 
+//         function __construct($name, $roll_no, $phone_no)
+//         {
+//             parent::__construct($name, $roll_no, $phone_no);
+//             $this->faculty = "Computer Science";
 
+//             $subject_collection = array("C", "Distributed System", "Computer Networks", "Artificial Intelligence");
+//             foreach ($subject_collection as $subject) {
+//             }
+//         }
+//     }
+//     class Mathematics extends Student
+//     {
 
-    // $outside = new Company("Outside", "Jhamsikhel", "01-445320");
-    // echo ($outside->get_name());
-    foreach ($outside->get_object() as $property) {
-        echo nl2br("\n" . $property);
-    }
+//         public $subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
+//         function __construct($name, $roll_no, $phone_no)
+//         {
+//             parent::__construct($name, $roll_no, $phone_no);
+//             $this->faculty  = "Mathematics";
+//         }
+//     }
+
+// $mathematics_subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
+// foreach($mathematics_subjects as $subject){
+//     $subject = new Subject($subject,100,40);
+   
+// }
+
 
     ?>
 </body>
