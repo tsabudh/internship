@@ -152,10 +152,8 @@ for (let i = 0; i < courseItems.length; i++) {
 
 function repoRoute(courseName, assignmentNumber) {
   if (courseName == "js" && assignmentNumber == "0") {
-    
     return `https://github.com/tsabudh/internship`;
   } else if (courseName == "js" && assignmentNumber == "06") {
-    
     return `https://github.com/tsabudh/internship/tree/master/js-course/js-final`;
   } else if (courseName == "css" && assignmentNumber == "18") {
     return `https://github.com/tsabudh/internship/tree/master/css-course/css-assignment-final`;
