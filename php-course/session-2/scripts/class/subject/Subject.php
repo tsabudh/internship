@@ -6,7 +6,7 @@ class Subject
     public $pass_marks;
     public $obtained_marks;
 
-    function __construct($name, $full_marks, $pass_marks, $obtained_marks = null)
+    function __construct($name, $full_marks, $pass_marks, $obtained_marks = 10)
     {
         $this->name = $name;
         $this->full_marks = $full_marks;
