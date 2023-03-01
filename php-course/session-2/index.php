@@ -12,56 +12,58 @@
 
 
     <?php
-    include('./scripts/class/student/Student.php');
+    // include './scripts/class/student/Student.php';
+    include './scripts/class/student/ComputerScience.php';
 
-    
+    $punya = new ComputerScience("Punya Dahal", "15", "9867816306");
+  
 
-//     class Subject
-//     {
-//         public $name;
-//         public $full_marks;
-//         public $pass_marks;
+    //     class Subject
+    //     {
+    //         public $name;
+    //         public $full_marks;
+    //         public $pass_marks;
 
-//         function __construct($name, $full_marks, $pass_marks)
-//         {
-//             $this->name = $name;
-//             $this->full_marks = $full_marks;
-//             $this->pass_marks = $pass_marks;
-//         }
-//     }
+    //         function __construct($name, $full_marks, $pass_marks)
+    //         {
+    //             $this->name = $name;
+    //             $this->full_marks = $full_marks;
+    //             $this->pass_marks = $pass_marks;
+    //         }
+    //     }
 
-//     class ComputerScience extends Student
-//     {
+    //     class ComputerScience extends Student
+    //     {
 
-//         public $subjects = array();
+    //         public $subjects = array();
 
 
-//         function __construct($name, $roll_no, $phone_no)
-//         {
-//             parent::__construct($name, $roll_no, $phone_no);
-//             $this->faculty = "Computer Science";
+    //         function __construct($name, $roll_no, $phone_no)
+    //         {
+    //             parent::__construct($name, $roll_no, $phone_no);
+    //             $this->faculty = "Computer Science";
 
-//             $subject_collection = array("C", "Distributed System", "Computer Networks", "Artificial Intelligence");
-//             foreach ($subject_collection as $subject) {
-//             }
-//         }
-//     }
-//     class Mathematics extends Student
-//     {
+    //             $subject_collection = array("C", "Distributed System", "Computer Networks", "Artificial Intelligence");
+    //             foreach ($subject_collection as $subject) {
+    //             }
+    //         }
+    //     }
+    //     class Mathematics extends Student
+    //     {
 
-//         public $subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
-//         function __construct($name, $roll_no, $phone_no)
-//         {
-//             parent::__construct($name, $roll_no, $phone_no);
-//             $this->faculty  = "Mathematics";
-//         }
-//     }
+    //         public $subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
+    //         function __construct($name, $roll_no, $phone_no)
+    //         {
+    //             parent::__construct($name, $roll_no, $phone_no);
+    //             $this->faculty  = "Mathematics";
+    //         }
+    //     }
 
-// $mathematics_subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
-// foreach($mathematics_subjects as $subject){
-//     $subject = new Subject($subject,100,40);
-   
-// }
+    // $mathematics_subjects = array("Calculus", "Linear Algebra", "Number System", "Set Theory");
+    // foreach($mathematics_subjects as $subject){
+    //     $subject = new Subject($subject,100,40);
+
+    // }
 
 
     ?>

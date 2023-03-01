@@ -1,6 +1,13 @@
 #add-ticket-form {
+  
   & > h3 {
     text-align: center;
+    color:#9fa2b4;
+  }
+  & .wrapper-flex{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3rem;
   }
   & .input_group {
     text-align: left;
@@ -47,6 +54,9 @@
         line-height: 20px;
         color: #4b506d40;
       }
+      &[name="ticketPriority"]{
+        margin: 1rem;
+      }
     }
     & .password-wrapper {
       position: relative;
@@ -64,6 +74,7 @@
     }
   }
   & button {
+    cursor: pointer;
     background: #3751ff;
     color: white;
     padding: 1.4rem 2.4rem;

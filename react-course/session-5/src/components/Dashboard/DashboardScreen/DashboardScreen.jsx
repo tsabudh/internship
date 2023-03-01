@@ -1,6 +1,6 @@
 import React from "react";
 import { useState, useEffect, useContext, createContext } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useMatch } from "react-router-dom";
 
 import DashHeader from "./DashHeader";
 import TicketContainer from "./Tickets/TicketContainer";
@@ -11,11 +11,13 @@ import "./dashboard-screen.scss";
 export const ticketContext = createContext();
 
 const DashboardScreen = () => {
+  
   const [searchStatus, setSearchStatus] = useState(false);
   const [ticketArray, setTicketArray] = useState([]);
   const [searchKey, setSearchKey] = useState("");
   const [filterMenuStatus, setFilterMenuStatus] = useState(false);
   const [filterBy, setFilterBy] = useState([]);
+  // const match = useMatch()
 
   useEffect(() => {
     getTickets(setTicketArray);
@@ -51,7 +53,7 @@ const DashboardScreen = () => {
   return (
     <div className="dashboard_screen">
       <DashHeader
-        title="Ticketls"
+        
         searchStatus={searchStatus}
         setSearchStatus={setSearchStatus}
         searchKey={searchKey}

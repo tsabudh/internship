@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import UserModal from "../../UserModal/UserModal";
+import { useLocation } from "react-router-dom";
 import Modal from "react-modal";
+
+import UserModal from "../../UserModal/UserModal";
 
 const Details = ({
   userName,
@@ -54,12 +56,13 @@ const Details = ({
 };
 
 const DashHeader = ({
-  title,
   searchStatus,
   setSearchStatus,
   searchKey,
   handleSearch,
 }) => {
+  const title = useLocation().pathname.split("/")[2];
+
   return (
     <div className="dashboard_screen_header">
       <h3>{title}</h3>
