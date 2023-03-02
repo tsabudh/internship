@@ -1,4 +1,5 @@
 import axios from "axios";
+import { serverUrl } from "../../../SignUp/handleRequest";
 
 export const addTicket = () => {
   let ticketForm = document.querySelector("#add-ticket-form");
@@ -24,5 +25,25 @@ export const addTicket = () => {
 };
 
 const postTicket = async (ticketObject) => {
-  await axios.post("http://localhost:3000/tickets", ticketObject);
+  let {
+    customerAvatar,
+    customerName,
+    ticketName,
+    ticketInformation,
+    customerDate,
+    dateLabel,
+    timeLabel,
+    ticketPriority,
+  } = { ...ticketObject };
+
+  let response = await axios.post(`${serverUrl}tickets.json`, {
+    customerAvatar,
+    customerName,
+    ticketName,
+    ticketInformation,
+    customerDate,
+    dateLabel,
+    timeLabel,
+    ticketPriority,
+  });
 };

@@ -9,14 +9,26 @@ import { getTickets } from "../../Signup/handleRequest";
 import "./dashboard-screen.scss";
 
 export const ticketContext = createContext();
+// export const addTicketContext = createContext();
 
 const DashboardScreen = () => {
-  
   const [searchStatus, setSearchStatus] = useState(false);
   const [ticketArray, setTicketArray] = useState([]);
   const [searchKey, setSearchKey] = useState("");
   const [filterMenuStatus, setFilterMenuStatus] = useState(false);
   const [filterBy, setFilterBy] = useState([]);
+  const [inputData, setInputData] = useState({
+    ticketName: "",
+    ticketDateAndTime: new Date(
+      new Date().getTime() + new Date().getTimezoneOffset() * 60000
+    )
+      .toISOString()
+      .replace(/.\d+Z$/g, ""),
+    customerName: "",
+    customerDate: new Date(),
+    ticketPriority: "Normal",
+  });
+
   // const match = useMatch()
 
   useEffect(() => {
@@ -53,26 +65,32 @@ const DashboardScreen = () => {
   return (
     <div className="dashboard_screen">
       <DashHeader
-        
         searchStatus={searchStatus}
         setSearchStatus={setSearchStatus}
         searchKey={searchKey}
         handleSearch={handleSearch}
       />
       <ticketContext.Provider
-        value={{ ticketArray, searchKey, setTicketArray, filterBy }}
+        value={{
+          ticketArray,
+          searchKey,
+          setTicketArray,
+          filterBy,
+          inputData,
+          setInputData,
+        }}
       >
-        {/* <TicketContainer
-          // searchKey={searchKey}
-          // filterBy={filterBy}
-          filterMenuStatus={filterMenuStatus}
-          handleFilter={handleFilter}
-          handleFilterBy={handleFilterBy}
-          // ticketArray={ticketArray}
-          // setTicketArray={setTicketArray}
-        /> */}
+     
 
-        <Outlet context={[filterMenuStatus, handleFilter, handleFilterBy]} />
+        <Outlet
+          context={[
+            filterMenuStatus,
+            handleFilter,
+            handleFilterBy,
+            inputData,
+            setInputData,
+          ]}
+        />
       </ticketContext.Provider>
     </div>
   );

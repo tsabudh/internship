@@ -1,9 +1,11 @@
 import axios from "axios";
 
-let serverUrl = "http://localhost:3000";
+// let serverUrl = "http://localhost:3000";
 
 // let serverUrl = "https://my-json-server.typicode.com/tsabudh/json-server";
 
+export let serverUrl =
+  "https://react-course-a299d-default-rtdb.asia-southeast1.firebasedatabase.app/";
 const getFormData = (formId) => {
   let form = document.getElementById(formId);
   let formData = new FormData(form);
@@ -81,18 +83,33 @@ export async function deleteTicket(ticketId, setTicketArray) {
   return statusCode;
 }
 
-export async function getTickets(setTicketArray) {
-  let tickets = [];
+// export async function getTickets(setTicketArray) {
+//   let tickets = [];
 
+//   await axios
+//     .get(`${serverUrl}/tickets`)
+//     .then(function (response) {
+//       setTicketArray(response.data);
+//       tickets = response.data;
+//     })
+//     .catch(function (error) {
+//       console.log(error);
+//     });
+
+//   return tickets;
+// }
+
+export const getTickets = async (setTicketArray) => {
   await axios
-    .get(`${serverUrl}/tickets`)
-    .then(function (response) {
-      setTicketArray(response.data);
-      tickets = response.data;
-    })
-    .catch(function (error) {
-      console.log(error);
+    .get(
+      `https://react-course-a299d-default-rtdb.asia-southeast1.firebasedatabase.app/tickets.json`
+    )
+    .then((response) => {
+      const ticketsArray = Object.keys(response.data).map((key) => ({
+        ...response.data[key],
+        nodeName: key,
+      }));
+      console.log(ticketsArray);
+      setTicketArray(ticketsArray);
     });
-
-  return tickets;
-}
+};

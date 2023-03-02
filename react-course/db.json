@@ -84,6 +84,46 @@
       "ticketDate": "Jun 12, 2018",
       "customerAvatar": "/",
       "id": 11
+    },
+    {
+      "ticketName": "",
+      "ticketDateAndTime": "2023-03-01T05:11:51",
+      "customerName": "afdsfadfdadfadf",
+      "customerDate": "2023.03.10",
+      "ticketPriority": "normal",
+      "ticketDate": "Mar 1, 2023",
+      "customerAvatar": "/afdsfadfdadfadf",
+      "id": 12
+    },
+    {
+      "ticketName": "",
+      "ticketDateAndTime": "2023-03-01T05:24:52",
+      "customerName": "",
+      "customerDate": "2023.03.01",
+      "ticketPriority": "normal",
+      "ticketDate": "Mar 1, 2023",
+      "customerAvatar": "/",
+      "id": 13
+    },
+    {
+      "ticketName": "",
+      "ticketDateAndTime": "2023-03-29T10:10:08",
+      "customerName": "",
+      "customerDate": "2025.09.28",
+      "ticketPriority": "high",
+      "ticketDate": "Mar 29, 2023",
+      "customerAvatar": "/",
+      "id": 14
+    },
+    {
+      "ticketName": "Battery Low",
+      "ticketDateAndTime": "2023-02-15T01:13:11",
+      "customerName": "Sabudh Bahadur Thapa",
+      "customerDate": "2023.03.01",
+      "ticketPriority": "normal",
+      "ticketDate": "Feb 15, 2023",
+      "customerAvatar": "/Sabudh-Bahadur-Thapa",
+      "id": 15
     }
   ],
   "users": [
